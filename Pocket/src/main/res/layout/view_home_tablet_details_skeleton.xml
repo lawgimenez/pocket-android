@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pocket.ui.view.themed.ThemedConstraintLayout2 xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+        
+        <include
+            android:id="@+id/article1"
+            layout="@layout/view_home_slate_hero_card_skeleton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/article2"
+            app:layout_constraintTop_toTopOf="parent" />
+        
+        <include
+            android:id="@+id/article2"
+            layout="@layout/view_home_slate_hero_card_skeleton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            app:layout_constraintStart_toEndOf="@id/article1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/article1" />
+        
+        <include
+            android:id="@+id/article3"
+            layout="@layout/view_home_slate_hero_card_skeleton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/article4"
+            app:layout_constraintTop_toBottomOf="@id/article1" />
+        
+        <include
+            android:id="@+id/article4"
+            layout="@layout/view_home_slate_hero_card_skeleton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            app:layout_constraintStart_toEndOf="@id/article3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/article3" />
+        
+        <include
+            android:id="@+id/article5"
+            layout="@layout/view_home_slate_hero_card_skeleton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/article6"
+            app:layout_constraintTop_toBottomOf="@id/article3" />
+        
+        <include
+            android:id="@+id/article6"
+            layout="@layout/view_home_slate_hero_card_skeleton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            app:layout_constraintStart_toEndOf="@id/article5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/article5" />
+        
+        <include
+            android:id="@+id/article7"
+            layout="@layout/view_home_slate_hero_card_skeleton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/article8"
+            app:layout_constraintTop_toBottomOf="@id/article5" />
+        
+        <include
+            android:id="@+id/article8"
+            layout="@layout/view_home_slate_hero_card_skeleton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="18dp"
+            app:layout_constraintStart_toEndOf="@id/article7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/article7" />
+
+</com.pocket.ui.view.themed.ThemedConstraintLayout2>

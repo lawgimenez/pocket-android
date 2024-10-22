@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="UnusedResources">
+    <style name="Theme.PktBase.Light" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- NOTE! Using default Android colors for primary, primary dark and accent and overriding specific view themes when needed. -->
+        <!-- NOTE! These values should be duplicated in the Theme.PktBase.Dark theme. -->
+        <item name="android:statusBarColor">@color/pkt_grey_3</item>
+        <item name="android:windowContentOverlay">@null</item> <!-- This removes the status bar drop shadow. It is unclear why this needs to be set here and why the setting in Theme.Pkt.Light doesn't work for Material. -->
+    </style>
+    <style name="Theme.PktBase.Dark" parent="Theme.AppCompat.NoActionBar">
+        <!-- NOTE! These values should be duplicated in the Theme.PktBase.Light theme. -->
+        <item name="android:statusBarColor">@color/pkt_dm_base_bg</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!-- The following base styles unfortunately have to have duplicate values. -->
+    <style name="Theme.Pkt.Light" parent="Theme.PktBase.Light">
+        <item name="android:cacheColorHint">@color/transparent</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item> <!-- remove status bar drop shadow -->
+        <item name="android:colorEdgeEffect">@color/black</item>
+        <item name="iconButtonStyle">@style/Pkt_IconButton</item>
+        <item name="simpleDrawerRowStyle">@style/SimpleDrawerRow</item>
+        <item name="subheaderStyle">@style/Subheader</item>
+    </style>
+
+    <style name="Theme.Pkt.Dark" parent="Theme.PktBase.Dark">
+        <item name="android:cacheColorHint">@color/transparent</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item> <!-- remove status bar drop shadow -->
+        <item name="android:colorEdgeEffect">@color/white</item>
+        <item name="iconButtonStyle">@style/Pkt_IconButton</item>
+        <item name="simpleDrawerRowStyle">@style/SimpleDrawerRow</item>
+        <item name="subheaderStyle">@style/Subheader</item>
+    </style>
+</resources>

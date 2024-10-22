@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- smartling.instruction_attributes = comment -->
+<!-- smartling.placeholder_format_custom = \{[a-zA-Z0-9_-]+\}-->
+<resources>
+    <!-- Accessibility and tooltip labels for icons -->
+    <string name="ic_overflow">その他…</string>
+    <string name="ic_up">戻る</string>
+    <string name="ic_archive" comment="Label for a button that archives an item. This is a verb.">アーカイブ</string>
+    <string name="ic_save">保存</string>
+    <string name="ic_saved">保存しました</string>
+    <string name="ic_readd">再追加</string>
+    <string name="ic_favorite">お気に入り</string>
+    <string name="ic_unfavorite">お気に入り解除</string>
+    <string name="ic_mark_as_viewed">閲覧済みとマーク</string>
+    <string name="ic_mark_as_not_viewed">未閲覧とマーク</string>
+    <string name="ic_share">共有</string>
+    <string name="ic_delete">削除</string>
+    <string name="ic_add_tags">タグを追加</string>
+    <string name="ic_filters">フィルタ</string>
+    <string name="ic_play">再生</string>
+    <string name="ic_pause">一時停止</string>
+    <string name="ic_skip">早送り</string>
+    <string name="ic_back">巻き戻し</string>
+    <string name="ic_cancel">キャンセル</string>
+    <string name="ic_listen">聴く</string>
+    <string name="ic_like">いいね！</string>
+    <string name="ic_remove_like">いいね！を解除</string>
+    <string name="ic_repost">再投稿</string>
+    <string name="ic_remove_repost">再投稿を削除</string>
+    <string name="ic_plus">+</string>
+    <string name="ic_minus">-</string>
+    <string name="ic_close">閉じる</string>
+    <string name="ic_edit">編集</string>
+    <string name="ic_highlight" comment="Label for button that highlights selected text">ハイライト</string>
+    <string name="ic_copy">コピー</string>
+    <string name="ic_brightness_down">画面の明るさを下げる</string>
+    <string name="ic_brightness_up">画面の明るさを上げる</string>
+    <string name="ic_brightness_control">画面の明るさ</string>
+    <string name="ic_settings">設定</string>
+    <string name="ic_premium">Pocket Premium</string>
+    <string name="ic_pocket_menu">Pocket メニュー</string>
+
+    <string name="ac_save">保存</string>
+    <string name="ac_save_to_pocket">Pocket に保存</string>
+    <string name="ac_previous">前へ</string>
+    <string name="ac_next">次へ</string>
+    
+    <string name="upgrade">アップグレード</string>
+    <string name="upgrade_upsell">他のカスタマイズオプションをアンロック</string>
+    <string name="get_premium">Premium に登録</string>
+    
+    <string name="counts_thousands" comment="number abbreviated to thousands. such as 1k for 1,000. as short as possible.">%1$d000</string>
+    <string name="counts_millions" comment="number abbreviated to millions. such as 1m for 1,000,000. as short as possible">%1$d百万</string>
+    
+    <!-- content descriptions -->
+    <string name="setting_incrementor" comment="{setting} is a placeholder for a text style setting, eg Text Size, Line Height, or Margin, do not translate the content within {}">{setting}を大きくする</string>
+    <string name="setting_decrementor" comment="{setting} is a placeholder for a text style setting, eg Text Size, Line Height, or Margin, do not translate the content within {}">{setting}を小さくする</string>
+    <string name="text_setting_text_size">テキストサイズ</string>
+    <string name="text_setting_line_height">行の高さ</string>
+    <string name="text_setting_margin">余白</string>
+
+    <string name="current_typeface" comment="{typeface} is a placeholder for the current text typeface setting, eg Blanco, Graphik, do not translate the content within {}">{typeface}の書体を変更</string>
+
+    <string name="theme_toggle_light_desc">ライトテーマに変更</string>
+    <string name="theme_toggle_dark_desc">ダークテーマに変更</string>
+    <string name="theme_toggle_auto_desc">テーマを自動変更</string>
+
+    <!-- Strings only used for ux playground-->
+    <string name="light">ライト</string>
+    <string name="dark">ダーク</string>
+</resources>

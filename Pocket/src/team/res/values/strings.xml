@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nm_icon" translatable="false">Pocket Dev</string>
+    <string name="nm_icon_setting" translatable="false">Pocket Dev Settings</string>
+    <string name="setting_background_sync_5">"[Alpha only] Every 15 minutes"</string>
+</resources>

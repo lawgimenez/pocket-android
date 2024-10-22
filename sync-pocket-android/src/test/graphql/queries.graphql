@@ -1,0 +1,25 @@
+query GraphQlQueryReturnsScalar {
+    scalar
+}
+query GraphQlQueryReturnsThing {
+    thing {
+        scalar
+    }
+}
+query GraphQlQueryWithArgs (
+    $required: String!,
+    $optional: String,
+    $required_list: [String]!,
+    $optional_list: [String],
+    $input : GraphQlInput
+) {
+    args(
+        required: $required,
+        optional: $optional,
+        required_list: $required_list,
+        optional_list: $optional_list,
+        input : $input
+    ) {
+        scalar
+    }
+}

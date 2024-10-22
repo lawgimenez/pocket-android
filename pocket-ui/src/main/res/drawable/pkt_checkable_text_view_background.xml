@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:state_checked="true" app:state_dark="true" android:drawable="@color/pkt_dm_teal_1"/>
+    <item android:state_checked="true" app:state_dark="false" android:drawable="@color/pkt_teal_6"/>
+    <item android:drawable="@color/transparent" />
+</selector>

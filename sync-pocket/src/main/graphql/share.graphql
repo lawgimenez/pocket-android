@@ -1,0 +1,7 @@
+mutation CreateShareLink($target: ValidUrl!, $context: ShareContextInput) @figment(priority: "REMOTE") {
+    createShareLink(target: $target, context: $context) {
+        shareUrl
+        slug
+        targetUrl
+    }
+}

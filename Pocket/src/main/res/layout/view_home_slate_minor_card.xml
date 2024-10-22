@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pocket.ui.view.themed.ThemedCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="1dp"
+    app:cardCornerRadius="16dp"
+    >
+    
+    <com.pocket.ui.view.themed.ThemedConstraintLayout2
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_bg"
+        >
+    
+        <com.pocket.ui.view.themed.ThemedConstraintLayout2
+            android:id="@+id/titleAndImageLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/home_minor_card_title_and_image_height"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+        
+            <com.pocket.ui.view.item.ItemThumbnailView
+                android:id="@+id/image"
+                android:layout_width="84dp"
+                android:layout_height="60dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:src="@drawable/bg_themed_lapis_5"
+                />
+    
+            <com.pocket.ui.view.themed.ThemedTextView
+                android:id="@+id/collectionLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_collection"
+                android:textSize="14sp"
+                android:textColor="@color/pkt_themed_teal_home"
+                android:fontFamily="@font/graphik"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+        
+            <com.pocket.ui.view.themed.ThemedTextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:textSize="16sp"
+                android:textColor="@color/pkt_themed_grey_1"
+                android:textFontWeight="500"
+                android:fontFamily="@font/graphik"
+                android:lines="3"
+                android:ellipsize="end"
+                app:layout_constraintTop_toBottomOf="@id/collectionLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/image"
+                tools:text="This is an article title, It's pretty neat if you ask me"
+                />
+            
+        </com.pocket.ui.view.themed.ThemedConstraintLayout2>
+    
+        <com.pocket.ui.view.themed.ThemedTextView
+            android:id="@+id/domain"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="14sp"
+            android:textColor="@color/pkt_home_domain_text"
+            android:textFontWeight="500"
+            android:fontFamily="@font/graphik"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:layout_constraintTop_toTopOf="@id/saveLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/saveLayout"
+            app:layout_constraintBottom_toTopOf="@id/timeToRead"
+            tools:text="BBC"
+            />
+    
+        <com.pocket.ui.view.themed.ThemedTextView
+            android:id="@+id/timeToRead"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="14sp"
+            android:textColor="@color/pkt_home_domain_text"
+            android:fontFamily="@font/graphik"
+            app:layout_constraintTop_toBottomOf="@+id/domain"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/saveLayout"
+            app:layout_constraintBottom_toBottomOf="@id/saveLayout"
+            tools:text="21 min read"
+            />
+    
+        <com.pocket.ui.view.button.IconButton
+            android:id="@+id/overflow"
+            android:layout_width="30dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="22dp"
+            android:padding="5dp"
+            style="@style/Pkt_IconButton"
+            android:src="@drawable/ic_pkt_android_overflow_solid"
+            app:drawableColor="@color/pkt_home_domain_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleAndImageLayout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+    
+        <com.pocket.ui.view.item.SaveButton
+            android:id="@+id/saveLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            app:layout_constraintEnd_toStartOf="@id/overflow"
+            app:layout_constraintTop_toTopOf="@id/overflow"
+            app:layout_constraintBottom_toBottomOf="@id/overflow"
+            />
+    </com.pocket.ui.view.themed.ThemedConstraintLayout2>
+
+</com.pocket.ui.view.themed.ThemedCardView>

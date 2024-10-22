@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="com.pocket.ui.view.themed.ThemedConstraintLayout2"
+    >
+    
+    <com.pocket.ui.view.themed.ThemedLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+        
+        <include
+            android:id="@+id/minorCard1"
+            layout="@layout/view_home_slate_minor_card_skeleton"
+            android:layout_height="wrap_content"
+            android:layout_width="@dimen/home_minor_card_width"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="5dp"/>
+        
+        <include
+            layout="@layout/view_home_slate_minor_card_skeleton"
+            android:layout_height="wrap_content"
+            android:layout_width="@dimen/home_minor_card_width"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="5dp"/>
+        
+        <include
+            layout="@layout/view_home_slate_minor_card_skeleton"
+            android:layout_height="wrap_content"
+            android:layout_width="@dimen/home_minor_card_width"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="5dp"/>
+        
+        <include
+            layout="@layout/view_home_slate_minor_card_skeleton"
+            android:layout_height="wrap_content"
+            android:layout_width="@dimen/home_minor_card_width"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="5dp"/>
+    
+    </com.pocket.ui.view.themed.ThemedLinearLayout>
+
+</merge>

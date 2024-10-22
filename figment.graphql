@@ -1,0 +1,47 @@
+directive @_deprecated(reason: String = "No longer supported") on OBJECT | INPUT_OBJECT | ENUM | ARGUMENT_DEFINITION | INPUT_FIELD_DEFINITION | QUERY | FRAGMENT_DEFINITION
+directive @unique on OBJECT | INPUT_OBJECT
+directive @id on FIELD_DEFINITION
+directive @hash_target on FIELD_DEFINITION | ARGUMENT_DEFINITION
+directive @local on FIELD_DEFINITION | ARGUMENT_DEFINITION
+directive @root_value on FIELD_DEFINITION
+directive @map on FIELD_DEFINITION
+directive @variety on INPUT_OBJECT
+directive @enum_value(name: String, value: String) repeatable on ENUM
+directive @extend(
+    field: String,
+    id: Boolean,
+    reactive: String,
+    instructions: String,
+) repeatable on OBJECT
+
+directive @remote(name: String) repeatable on SCHEMA
+directive @base_action(name: String) repeatable on SCHEMA
+directive @base_action_field(
+    name: String,
+    list: String,
+    type: String,
+    required: Boolean,
+    description: String,
+    deprecated: Boolean,
+) repeatable on SCHEMA
+
+directive @figment(
+    auth: String,
+    address: String,
+    priority: String,
+    effect: String,
+    v3_alias: String,
+    client_api_alias: String,
+    enum_value: String,
+    related_to: String,
+    name: String,
+) repeatable on OBJECT | INPUT_OBJECT | ENUM | FIELD | FIELD_DEFINITION | INPUT_FIELD_DEFINITION | ENUM_VALUE
+
+directive @derives(
+    first_available: [String],
+    remap: String,
+    reactive: [String],
+    instructions: String,
+) repeatable on FIELD_DEFINITION
+
+scalar Void

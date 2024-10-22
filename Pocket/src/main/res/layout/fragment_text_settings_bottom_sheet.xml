@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pocket.app.reader.internal.article.textsettings.TextSettingsBottomSheetViewModel"
+            />
+    </data>
+<com.pocket.ui.view.themed.ThemedConstraintLayout2
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_bottom_sheet"
+    >
+    
+    <com.pocket.ui.view.menu.DisplaySettingsView
+        android:id="@+id/settingsView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:fontSizeUpEnabled="@{viewModel.uiState.fontSizeUpEnabled}"
+        app:fontSizeDownEnabled="@{viewModel.uiState.fontSizeDownEnabled}"
+        app:lineHeightUpEnabled="@{viewModel.uiState.lineHeightUpEnabled}"
+        app:lineHeightDownEnabled="@{viewModel.uiState.lineHeightDownEnabled}"
+        app:marginUpEnabled="@{viewModel.uiState.marginUpEnabled}"
+        app:marginDownEnabled="@{viewModel.uiState.marginDownEnabled}"
+        app:fontChangeText="@{viewModel.uiState.fontChangeText}"
+        app:premiumSettingsVisible="@{viewModel.uiState.premiumSettingsVisible}"
+        app:premiumUpsellVisible="@{viewModel.uiState.premiumUpsellVisible}"
+        />
+</com.pocket.ui.view.themed.ThemedConstraintLayout2>
+
+</layout>

@@ -1,0 +1,29 @@
+{
+  "list": {
+    "1": {
+      "id": 1,
+      "sort_id": 4,
+      "info": {
+        "value": "first"
+      }
+    },
+    "2": {
+      "id": 2,
+      "sort_id": 3
+    },
+    "3": {
+      "id": 3,
+      "sort_id": 2,
+      "info": {
+        "value": "third"
+      }
+    },
+    "4": {
+      "id": 4,
+      "sort_id": 1,
+      "info": {
+        "value": "fourth"
+      }
+    }
+  }
+}

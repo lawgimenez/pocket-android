@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- drawable copy of @color/pkt_bg -->
+
+    <item app:state_dark="true" android:drawable="@color/pkt_dm_base_bg" />
+    <item android:drawable="@color/pkt_base_bg" />
+</selector>

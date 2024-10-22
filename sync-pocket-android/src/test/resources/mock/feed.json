@@ -1,0 +1,1231 @@
+{
+  "version": "4",
+  "feed": [
+    {
+      "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+      "format": {
+        "tile_header": {
+          "icon": {
+            "1_5x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_enjoyed@1_5x.png?v=1",
+            "1x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_enjoyed@1x.png?v=1",
+            "2x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_enjoyed@2x.png?v=1",
+            "3x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_enjoyed@3x.png?v=1",
+            "4x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_enjoyed@4x.png?v=1",
+            "pdf": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_enjoyed.pdf?v=1",
+            "_type": "Icon"
+          },
+          "text": "People have enjoyed...",
+          "_type": "LinkedText"
+        },
+        "_type": "FeedItemFormat"
+      },
+      "item": {
+        "item_id": "612305804",
+        "authors": [
+          {
+            "author_id": 70406341,
+            "name": "Matt Crossman",
+            "url": "https://www.sbnation.com/users/Matt%20Crossman",
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_ids": [
+              "author_id"
+            ],
+            "_type": "Author"
+          }
+        ],
+        "excerpt": "The XFL jumped off the top turnbuckle in 2001 and landed with a blow equal parts short-lived and long lasting.",
+        "has_image": "1",
+        "has_video": "1",
+        "image": {
+          "height": 0,
+          "src": "http://cdn2.vox-cdn.com/assets/4410331/xfllede2.jpg",
+          "width": 0,
+          "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+          "_type": "Image"
+        },
+        "images": [
+          {
+            "caption": "",
+            "credit": "",
+            "height": 0,
+            "image_id": 11,
+            "src": "http://cdn1.vox-cdn.com/assets/4418961/xflfootball.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "Rod \"He Hate Me\" Smart was one of the players who opted to put a nickname on his jersey.",
+            "credit": "",
+            "height": 0,
+            "image_id": 12,
+            "src": "http://cdn3.vox-cdn.com/assets/4415207/xflhateme.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "A fan attends the \"beer record\" game in Orlando.",
+            "credit": "",
+            "height": 0,
+            "image_id": 13,
+            "src": "http://cdn1.vox-cdn.com/assets/4410349/xfllede1.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "",
+            "credit": "",
+            "height": 0,
+            "image_id": 14,
+            "src": "http://cdn3.vox-cdn.com/assets/4415455/xflrock.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "Vince McMahon and NBC Sports president Dick Ebersol.",
+            "credit": "",
+            "height": 0,
+            "image_id": 15,
+            "src": "http://cdn0.vox-cdn.com/assets/4415679/xflnbc.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "The Rock on the sidelines in L.A.",
+            "credit": "",
+            "height": 0,
+            "image_id": 16,
+            "src": "http://cdn0.vox-cdn.com/assets/4419027/xflwake.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "",
+            "credit": "",
+            "height": 0,
+            "image_id": 17,
+            "src": "http://cdn1.vox-cdn.com/assets/4419147/xflbigscreen.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "Tommy Maddox was named XFL MVP, then went on to play five seasons for the Steelers.",
+            "credit": "",
+            "height": 0,
+            "image_id": 18,
+            "src": "http://cdn3.vox-cdn.com/assets/4419179/xflmaddox.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "Cheerleaders perform on one of the large video screens built for XFL games.",
+            "credit": "",
+            "height": 0,
+            "image_id": 19,
+            "src": "http://cdn3.vox-cdn.com/assets/4419227/xflfinal.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "More SB Nation Longform\r\n\r\nThe Sordid End of David Meggett\r\nHe was an All-Pro running back. He became a serial rapist. \r\n\r\nGood God Almighty, it's Jim Ross!\r\nAfter a career that spanned four decades, wrestling's favorite voice moves on. \r\n\r\nBurn, Destroy, Wreck, Kill\r\nSoccer's Pig War produces spies and battle cries in the Pacific Northwest. \r\n\r\n\r\n\r\n\r\nMatt Crossman is the author of more than 30 cover stories in national sports magazines. This is his third piece for SBNation.com/Longform. Read more of his work at mattcrossman.com and follow him on Twitter at @MattCrossman_.\r\n\r\n\r\n\nDevelopment Josh Laincz | Producer Chris Mottram | Editor Glenn Stout | Copy Editor Kevin Fixler | Photos Getty Images",
+            "credit": "",
+            "height": 0,
+            "image_id": 1,
+            "src": "http://cdn2.vox-cdn.com/assets/4410331/xfllede2.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "More SB Nation Longform\r\n\r\nThe Sordid End of David Meggett\r\nHe was an All-Pro running back. He became a serial rapist. \r\n\r\nGood God Almighty, it's Jim Ross!\r\nAfter a career that spanned four decades, wrestling's favorite voice moves on. \r\n\r\nBurn, Destroy, Wreck, Kill\r\nSoccer's Pig War produces spies and battle cries in the Pacific Northwest. \r\n\r\n\r\n\r\n\r\nMatt Crossman is the author of more than 30 cover stories in national sports magazines. This is his third piece for SBNation.com/Longform. Read more of his work at mattcrossman.com and follow him on Twitter at @MattCrossman_.\r\n\r\n\r\n\nDevelopment Josh Laincz | Producer Chris Mottram | Editor Glenn Stout | Copy Editor Kevin Fixler | Photos Getty Images",
+            "credit": "",
+            "height": 0,
+            "image_id": 2,
+            "src": "http://cdn2.vox-cdn.com/assets/4414169/xflbirth.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "XFL president Basil Devito",
+            "credit": "",
+            "height": 0,
+            "image_id": 3,
+            "src": "http://cdn1.vox-cdn.com/assets/4414325/xflbasil.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "Orlando QB Brian Kuklick",
+            "credit": "",
+            "height": 0,
+            "image_id": 4,
+            "src": "http://cdn3.vox-cdn.com/assets/4414413/xflkuklick.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "More SB Nation Longform\r\n\r\nThe Sordid End of David Meggett\r\nHe was an All-Pro running back. He became a serial rapist. \r\n\r\nGood God Almighty, it's Jim Ross!\r\nAfter a career that spanned four decades, wrestling's favorite voice moves on. \r\n\r\nBurn, Destroy, Wreck, Kill\r\nSoccer's Pig War produces spies and battle cries in the Pacific Northwest. \r\n\r\n\r\n\r\n\r\nMatt Crossman is the author of more than 30 cover stories in national sports magazines. This is his third piece for SBNation.com/Longform. Read more of his work at mattcrossman.com and follow him on Twitter at @MattCrossman_.\r\n\r\n\r\n\nDevelopment Josh Laincz | Producer Chris Mottram | Editor Glenn Stout | Copy Editor Kevin Fixler | Photos Getty Images",
+            "credit": "",
+            "height": 0,
+            "image_id": 5,
+            "src": "http://cdn1.vox-cdn.com/assets/4414201/xflfastlife.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "",
+            "credit": "",
+            "height": 0,
+            "image_id": 6,
+            "src": "http://cdn0.vox-cdn.com/assets/4414963/xflfan2.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "The Hitmen cheerleaders perform during a game in New Jersey.",
+            "credit": "",
+            "height": 0,
+            "image_id": 7,
+            "src": "http://cdn1.vox-cdn.com/assets/4414817/xflnycheer.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "A fan attends a Las Vegas Outlaws game.",
+            "credit": "",
+            "height": 0,
+            "image_id": 8,
+            "src": "http://cdn2.vox-cdn.com/assets/4414875/xflvegas.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "Charles Puleri, QB of the Hitmen.",
+            "credit": "",
+            "height": 0,
+            "image_id": 9,
+            "src": "http://cdn1.vox-cdn.com/assets/4415135/xflqb.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "Enforcers cheerleaders perform during a game in Chicago.",
+            "credit": "",
+            "height": 0,
+            "image_id": 20,
+            "src": "http://cdn2.vox-cdn.com/assets/4419631/xflfinal2.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "Head Coach Al Luginbill of the Los Angeles Extreme talks to his team during training camp.",
+            "credit": "",
+            "height": 0,
+            "image_id": 10,
+            "src": "http://cdn3.vox-cdn.com/assets/4415191/xflcamp.jpg",
+            "width": 0,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          },
+          {
+            "caption": "",
+            "credit": "",
+            "height": 512,
+            "image_id": 21,
+            "src": "https://cdn.vox-cdn.com/thumbor/XbT2k269kqqoQpZx08OA8ywqZyE=/512x512/cdn.vox-cdn.com/profile_images/3638927/charlotte.mag.mug_copy.jpg",
+            "width": 512,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Image"
+          }
+        ],
+        "is_article": true,
+        "is_index": false,
+        "item_topics": [
+          {
+            "grouping_id": "229146986",
+            "name": "sports",
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "source_score": "0.12870000000000000000",
+            "_type": "Topic"
+          },
+          {
+            "grouping_id": "229146984",
+            "name": "football",
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "source_score": "0.07630000000000000000",
+            "_type": "Topic"
+          }
+        ],
+        "resolved_id": "612305804",
+        "given_url": "https://www.sbnation.com/longform/2014/5/7/5683742/xfl-oral-history",
+        "resolved_url": "https://www.sbnation.com/longform/2014/5/7/5683742/xfl-oral-history",
+        "title": "A Beautiful Corpse",
+        "videos": [
+          {
+            "height": 315,
+            "src": "https://www.youtube.com/embed/8LuT7b6Vxkw?rel=0",
+            "type": "1",
+            "vid": "8LuT7b6Vxkw",
+            "video_id": 1,
+            "width": 420,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Video"
+          },
+          {
+            "height": 315,
+            "src": "https://www.youtube.com/embed/VYhjpYKlWms?rel=0",
+            "type": "1",
+            "vid": "VYhjpYKlWms",
+            "video_id": 2,
+            "width": 560,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Video"
+          },
+          {
+            "height": 315,
+            "src": "https://www.youtube.com/embed/PvN4mOkZ3fo?rel=0",
+            "type": "1",
+            "vid": "PvN4mOkZ3fo",
+            "video_id": 3,
+            "width": 560,
+            "feed_item_id": "c99690ad-14e3-45e2-b13e-16f227af2f2f-r247f0b8c",
+            "_type": "Video"
+          }
+        ],
+        "word_count": 8653,
+        "domain": "sbnation.com",
+        "_ids": [
+          "given_url"
+        ],
+        "_type": "Item"
+      },
+      "open_as": "web",
+      "rec_src": "StaticEvergreenSource",
+      "sort_id": 0,
+      "_ids": [
+        "feed_item_id"
+      ],
+      "_type": "FeedItem"
+    },
+    {
+      "feed_item_id": "4bcdd502-3005-4ad1-925f-2c21dc42202d-r488d992e",
+      "format": {
+        "tile_header": {
+          "icon": {
+            "1_5x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_enjoyed@1_5x.png?v=1",
+            "1x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_enjoyed@1x.png?v=1",
+            "2x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_enjoyed@2x.png?v=1",
+            "3x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_enjoyed@3x.png?v=1",
+            "4x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_enjoyed@4x.png?v=1",
+            "pdf": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_enjoyed.pdf?v=1",
+            "_type": "Icon"
+          },
+          "text": "People have enjoyed...",
+          "_type": "LinkedText"
+        },
+        "_type": "FeedItemFormat"
+      },
+      "item": {
+        "item_id": "1217239342",
+        "authors": [
+          {
+            "author_id": 46895389,
+            "name": "Ryan Avent",
+            "url": "https://www.1843magazine.com/contributor/3840",
+            "feed_item_id": "4bcdd502-3005-4ad1-925f-2c21dc42202d-r488d992e",
+            "_ids": [
+              "author_id"
+            ],
+            "_type": "Author"
+          }
+        ],
+        "excerpt": "When I was young, there was nothing so bad as being asked to work. Now I find it hard to conjure up that feeling, but I see it in my five-year-old daughter. “Can I please have some water, daddy?”  That was me when I was young, rolling on the ground in agony on being asked to clean my room.",
+        "has_image": "1",
+        "has_video": "0",
+        "image": {
+          "height": 0,
+          "src": "https://1843magazine.static-economist.com/sites/default/files/201604_FE_WRK_002-web.jpg",
+          "width": 0,
+          "feed_item_id": "4bcdd502-3005-4ad1-925f-2c21dc42202d-r488d992e",
+          "_type": "Image"
+        },
+        "images": [
+          {
+            "caption": "",
+            "credit": "",
+            "height": 0,
+            "image_id": 1,
+            "src": "https://1843magazine.static-economist.com/sites/default/files/201604_FE_WRK_002-web.jpg",
+            "width": 0,
+            "feed_item_id": "4bcdd502-3005-4ad1-925f-2c21dc42202d-r488d992e",
+            "_type": "Image"
+          },
+          {
+            "caption": "",
+            "credit": "",
+            "height": 0,
+            "image_id": 2,
+            "src": "https://1843magazine.static-economist.com/sites/default/files/201604_FE_WRK_003-web.jpg",
+            "width": 0,
+            "feed_item_id": "4bcdd502-3005-4ad1-925f-2c21dc42202d-r488d992e",
+            "_type": "Image"
+          }
+        ],
+        "is_article": true,
+        "is_index": false,
+        "item_topics": [
+          {
+            "grouping_id": "229146995",
+            "name": "politics",
+            "feed_item_id": "4bcdd502-3005-4ad1-925f-2c21dc42202d-r488d992e",
+            "source_score": "0.08350000000000000000",
+            "_type": "Topic"
+          },
+          {
+            "grouping_id": "229147322",
+            "name": "productivity",
+            "feed_item_id": "4bcdd502-3005-4ad1-925f-2c21dc42202d-r488d992e",
+            "source_score": "0.08630000000000000000",
+            "_type": "Topic"
+          },
+          {
+            "grouping_id": "229147046",
+            "name": "health",
+            "feed_item_id": "4bcdd502-3005-4ad1-925f-2c21dc42202d-r488d992e",
+            "source_score": "0.05580000000000000000",
+            "_type": "Topic"
+          },
+          {
+            "grouping_id": "229147155",
+            "name": "economics",
+            "feed_item_id": "4bcdd502-3005-4ad1-925f-2c21dc42202d-r488d992e",
+            "source_score": "0.05000000000000000000",
+            "_type": "Topic"
+          }
+        ],
+        "resolved_id": "1217239342",
+        "given_url": "https://www.1843magazine.com/features/why-do-we-work-so-hard",
+        "resolved_url": "https://www.1843magazine.com/features/why-do-we-work-so-hard",
+        "title": "Why do we work so hard?",
+        "word_count": 3788,
+        "domain": "1843magazine.com",
+        "_ids": [
+          "given_url"
+        ],
+        "_type": "Item"
+      },
+      "open_as": "web",
+      "rec_src": "StaticEvergreenSource",
+      "sort_id": 1,
+      "_ids": [
+        "feed_item_id"
+      ],
+      "_type": "FeedItem"
+    },
+    {
+      "feed_item_id": "2830d116-a03e-4562-b2b9-6d4b8eba6f76-r6e6e725a",
+      "format": {
+        "tile_header": {
+          "icon": {
+            "1_5x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_popular@1_5x.png?v=1",
+            "1x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_popular@1x.png?v=1",
+            "2x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_popular@2x.png?v=1",
+            "3x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_popular@3x.png?v=1",
+            "4x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_popular@4x.png?v=1",
+            "pdf": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_popular.pdf?v=1",
+            "_type": "Icon"
+          },
+          "text": "Popular on Pocket",
+          "_type": "LinkedText"
+        },
+        "_type": "FeedItemFormat"
+      },
+      "item": {
+        "item_id": "1852731994",
+        "amp_url": "http://www.telegraph.co.uk/science/2017/08/11/simple-memory-trick-will-stop-ever-forgetting-keys-umbrella/amp/",
+        "authors": [
+          {
+            "author_id": 45807224,
+            "name": "Sarah Knapton",
+            "url": "http://www.telegraph.co.uk/authors/sarah-knapton/",
+            "feed_item_id": "2830d116-a03e-4562-b2b9-6d4b8eba6f76-r6e6e725a",
+            "_ids": [
+              "author_id"
+            ],
+            "_type": "Author"
+          }
+        ],
+        "excerpt": "If you have been caught out by summer downpours this then scientists have the answer for always remembering to take an umbrella.",
+        "has_image": "1",
+        "has_video": "0",
+        "image": {
+          "height": 0,
+          "src": "http://www.telegraph.co.uk/content/dam/news/2017/06/06/131074711_AFP_TOPSHOT-People-shelter-from-the-rain-b_trans_NvBQzQNjv4BqedkAEilW4a0ZEdF_CvTIr1-CIQPZG3ofWTor4UojCgk.jpg?imwidth=450",
+          "width": 0,
+          "feed_item_id": "2830d116-a03e-4562-b2b9-6d4b8eba6f76-r6e6e725a",
+          "_type": "Image"
+        },
+        "images": [
+          {
+            "caption": "People shelter from the rain beneath an umbrella ",
+            "credit": "",
+            "height": 0,
+            "image_id": 1,
+            "src": "http://www.telegraph.co.uk/content/dam/news/2017/06/06/131074711_AFP_TOPSHOT-People-shelter-from-the-rain-b_trans_NvBQzQNjv4BqedkAEilW4a0ZEdF_CvTIr1-CIQPZG3ofWTor4UojCgk.jpg?imwidth=450",
+            "width": 0,
+            "feed_item_id": "2830d116-a03e-4562-b2b9-6d4b8eba6f76-r6e6e725a",
+            "_type": "Image"
+          }
+        ],
+        "is_article": true,
+        "is_index": false,
+        "resolved_id": "1852731994",
+        "given_url": "http://www.telegraph.co.uk/science/2017/08/11/simple-memory-trick-will-stop-ever-forgetting-keys-umbrella/",
+        "resolved_url": "http://www.telegraph.co.uk/science/2017/08/11/simple-memory-trick-will-stop-ever-forgetting-keys-umbrella/",
+        "title": "This simple memory trick will stop you ever forgetting your keys or umbrella again",
+        "word_count": 445,
+        "domain": "telegraph.co.uk",
+        "_ids": [
+          "given_url"
+        ],
+        "_type": "Item"
+      },
+      "open_as": "web",
+      "rec_src": "GlobalPopularSource",
+      "sort_id": 2,
+      "_ids": [
+        "feed_item_id"
+      ],
+      "_type": "FeedItem"
+    },
+    {
+      "feed_item_id": "2794c7f9-c4c3-4aae-9964-368cc40c89bc-r507c3864",
+      "format": {
+        "tile_header": {
+          "icon": {
+            "1_5x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_missed@1_5x.png?v=1",
+            "1x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_missed@1x.png?v=1",
+            "2x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_missed@2x.png?v=1",
+            "3x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_missed@3x.png?v=1",
+            "4x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_missed@4x.png?v=1",
+            "pdf": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_missed.pdf?v=1",
+            "_type": "Icon"
+          },
+          "text": "You may have missed...",
+          "_type": "LinkedText"
+        },
+        "_type": "FeedItemFormat"
+      },
+      "item": {
+        "item_id": "1350318180",
+        "authors": [
+          {
+            "author_id": 42991488,
+            "name": "John Zeratsky",
+            "url": "https://medium.com/@jazer",
+            "feed_item_id": "2794c7f9-c4c3-4aae-9964-368cc40c89bc-r507c3864",
+            "_ids": [
+              "author_id"
+            ],
+            "_type": "Author"
+          }
+        ],
+        "excerpt": "It’s early and dark. The alarm sounds, and you reach over to switch it off. After a short pause, you sit up. You swing your legs off the bed, touch the floor with your feet, and reach for your phone. You sit quietly while your phone’s screen illuminates the dark bedroom.",
+        "has_image": "0",
+        "has_video": "1",
+        "is_article": true,
+        "is_index": false,
+        "item_topics": [
+          {
+            "grouping_id": "229147322",
+            "name": "productivity",
+            "feed_item_id": "2794c7f9-c4c3-4aae-9964-368cc40c89bc-r507c3864",
+            "source_score": "0.08070000000000000000",
+            "_type": "Topic"
+          },
+          {
+            "grouping_id": "229147046",
+            "name": "health",
+            "feed_item_id": "2794c7f9-c4c3-4aae-9964-368cc40c89bc-r507c3864",
+            "source_score": "0.14860000000000000000",
+            "_type": "Topic"
+          }
+        ],
+        "resolved_id": "1350318180",
+        "resolved_url": "https://medium.com/time-dorks/how-i-became-a-morning-person-and-why-i-decided-to-make-the-change-eb1b012a16e5",
+        "given_url": "https://medium.com/time-dorks/how-i-became-a-morning-person-and-why-i-decided-to-make-the-change-eb1b012a16e5",
+        "title": "How I became a morning person (and why I decided to make the change)",
+        "videos": [
+          {
+            "height": 350,
+            "src": "https://medium.com/media/5882ef9a9213711be6db73ac2ee747ac?postId=eb1b012a16e5",
+            "type": "7",
+            "vid": "",
+            "video_id": 1,
+            "width": 700,
+            "feed_item_id": "2794c7f9-c4c3-4aae-9964-368cc40c89bc-r507c3864",
+            "_type": "Video"
+          }
+        ],
+        "word_count": 874,
+        "domain": "medium.com",
+        "_ids": [
+          "given_url"
+        ],
+        "_type": "Item"
+      },
+      "open_as": "web",
+      "rec_src": "StaticEvergreenSource",
+      "sort_id": 3,
+      "_ids": [
+        "feed_item_id"
+      ],
+      "_type": "FeedItem"
+    },
+    {
+      "feed_item_id": "932a8da6-33ef-4d00-937f-cba65448e42a-r3c3ed032",
+      "format": {
+        "tile_header": {
+          "icon": {
+            "1_5x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_enjoyed@1_5x.png?v=1",
+            "1x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_enjoyed@1x.png?v=1",
+            "2x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_enjoyed@2x.png?v=1",
+            "3x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_enjoyed@3x.png?v=1",
+            "4x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_enjoyed@4x.png?v=1",
+            "pdf": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_enjoyed.pdf?v=1",
+            "_type": "Icon"
+          },
+          "text": "People have enjoyed...",
+          "_type": "LinkedText"
+        },
+        "_type": "FeedItemFormat"
+      },
+      "item": {
+        "item_id": "1010749490",
+        "authors": [
+          {
+            "author_id": 67785135,
+            "name": "Jake Emen",
+            "url": "https://www.eater.com/users/Jake%20Emen",
+            "feed_item_id": "932a8da6-33ef-4d00-937f-cba65448e42a-r3c3ed032",
+            "_ids": [
+              "author_id"
+            ],
+            "_type": "Author"
+          }
+        ],
+        "excerpt": "What really makes whiskey taste like whiskey? If flavor truly just came down to a simple formula of distilling ratios of grains plus time spent in a barrel, then there wouldn’t be an infinite range of tastes, profiles and qualities.",
+        "has_image": "1",
+        "has_video": "0",
+        "image": {
+          "height": 0,
+          "src": "https://cdn.vox-cdn.com/thumbor/IhbCgG62Rkk5c39jiyCvnFeSUyo=/0x209:2000x1334/1600x900/cdn.vox-cdn.com/uploads/chorus_image/image/46958340/shutterstock_272590538.0.0.jpg",
+          "width": 0,
+          "feed_item_id": "932a8da6-33ef-4d00-937f-cba65448e42a-r3c3ed032",
+          "_type": "Image"
+        },
+        "images": [
+          {
+            "caption": "",
+            "credit": "",
+            "height": 0,
+            "image_id": 1,
+            "src": "https://cdn.vox-cdn.com/thumbor/IhbCgG62Rkk5c39jiyCvnFeSUyo=/0x209:2000x1334/1600x900/cdn.vox-cdn.com/uploads/chorus_image/image/46958340/shutterstock_272590538.0.0.jpg",
+            "width": 0,
+            "feed_item_id": "932a8da6-33ef-4d00-937f-cba65448e42a-r3c3ed032",
+            "_type": "Image"
+          },
+          {
+            "caption": "Barrels aging in Scotland. Shutterstock: Pawel Kowalcyk",
+            "credit": "",
+            "height": 0,
+            "image_id": 2,
+            "src": "https://cdn.vox-cdn.com/thumbor/9tAp1hDuFuZdQOnszRQgl4Ah8K8=/cdn.vox-cdn.com/uploads/chorus_asset/file/3967240/shutterstock_94841725.0.jpg",
+            "width": 0,
+            "feed_item_id": "932a8da6-33ef-4d00-937f-cba65448e42a-r3c3ed032",
+            "_type": "Image"
+          },
+          {
+            "caption": "Shutterstock/ Colodymyr Krasyuk",
+            "credit": "",
+            "height": 0,
+            "image_id": 3,
+            "src": "https://cdn.vox-cdn.com/thumbor/llslI-iRkm30n2zjvEFhAWkW_8Q=/cdn.vox-cdn.com/uploads/chorus_asset/file/3967270/shutterstock_69167953.0.jpg",
+            "width": 0,
+            "feed_item_id": "932a8da6-33ef-4d00-937f-cba65448e42a-r3c3ed032",
+            "_type": "Image"
+          },
+          {
+            "caption": "",
+            "credit": "",
+            "height": 0,
+            "image_id": 4,
+            "src": "https://cdn.vox-cdn.com/thumbor/UYa_XPnc0LtcHz9fj6fRUNiw0uo=/cdn.vox-cdn.com/uploads/chorus_asset/file/3967228/shutterstock_289727429.0.jpg",
+            "width": 0,
+            "feed_item_id": "932a8da6-33ef-4d00-937f-cba65448e42a-r3c3ed032",
+            "_type": "Image"
+          },
+          {
+            "caption": "Islay pot stills. Photo: Shutterstock/Jaime Pharr",
+            "credit": "",
+            "height": 0,
+            "image_id": 5,
+            "src": "https://cdn.vox-cdn.com/thumbor/tU1awmV_6WxJRr1DrNpUAae2kFs=/cdn.vox-cdn.com/uploads/chorus_asset/file/3967218/shutterstock_39612769.0.jpg",
+            "width": 0,
+            "feed_item_id": "932a8da6-33ef-4d00-937f-cba65448e42a-r3c3ed032",
+            "_type": "Image"
+          }
+        ],
+        "is_article": true,
+        "is_index": false,
+        "item_topics": [
+          {
+            "grouping_id": "229146995",
+            "name": "politics",
+            "feed_item_id": "932a8da6-33ef-4d00-937f-cba65448e42a-r3c3ed032",
+            "source_score": "0.08940000000000000000",
+            "_type": "Topic"
+          },
+          {
+            "grouping_id": "229147322",
+            "name": "productivity",
+            "feed_item_id": "932a8da6-33ef-4d00-937f-cba65448e42a-r3c3ed032",
+            "source_score": "0.08000000000000000000",
+            "_type": "Topic"
+          },
+          {
+            "grouping_id": "229147046",
+            "name": "health",
+            "feed_item_id": "932a8da6-33ef-4d00-937f-cba65448e42a-r3c3ed032",
+            "source_score": "0.06140000000000000000",
+            "_type": "Topic"
+          },
+          {
+            "grouping_id": "229147167",
+            "name": "food",
+            "feed_item_id": "932a8da6-33ef-4d00-937f-cba65448e42a-r3c3ed032",
+            "source_score": "0.07890000000000000000",
+            "_type": "Topic"
+          },
+          {
+            "grouping_id": "229147200",
+            "name": "recipes",
+            "feed_item_id": "932a8da6-33ef-4d00-937f-cba65448e42a-r3c3ed032",
+            "source_score": "0.05120000000000000000",
+            "_type": "Topic"
+          },
+          {
+            "grouping_id": "229147709",
+            "name": "movies",
+            "feed_item_id": "932a8da6-33ef-4d00-937f-cba65448e42a-r3c3ed032",
+            "source_score": "0.05440000000000000000",
+            "_type": "Topic"
+          },
+          {
+            "grouping_id": "229147252",
+            "name": "travel",
+            "feed_item_id": "932a8da6-33ef-4d00-937f-cba65448e42a-r3c3ed032",
+            "source_score": "0.05470000000000000000",
+            "_type": "Topic"
+          }
+        ],
+        "resolved_id": "1010749490",
+        "resolved_url": "https://www.eater.com/drinks/2015/8/13/9113965/whiskey-guide",
+        "given_url": "https://www.eater.com/drinks/2015/8/13/9113965/whiskey-guide",
+        "title": "An Absurdly Complete Guide to Understanding Whiskey",
+        "word_count": 3091,
+        "domain": "eater.com",
+        "_ids": [
+          "given_url"
+        ],
+        "_type": "Item"
+      },
+      "open_as": "web",
+      "rec_src": "StaticEvergreenSource",
+      "sort_id": 4,
+      "_ids": [
+        "feed_item_id"
+      ],
+      "_type": "FeedItem"
+    },
+    {
+      "feed_item_id": "7688b328-0ad0-42c6-92c3-000a6934c64d-r6e6da63b",
+      "format": {
+        "tile_header": {
+          "icon": {
+            "1_5x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_reading@1_5x.png?v=1",
+            "1x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_reading@1x.png?v=1",
+            "2x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_reading@2x.png?v=1",
+            "3x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_reading@3x.png?v=1",
+            "4x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_reading@4x.png?v=1",
+            "pdf": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_reading.pdf?v=1",
+            "_type": "Icon"
+          },
+          "text": "What we're reading",
+          "_type": "LinkedText"
+        },
+        "_type": "FeedItemFormat"
+      },
+      "item": {
+        "item_id": "1852679739",
+        "authors": [
+          {
+            "author_id": 66327396,
+            "name": "Wanda Thibodeaux",
+            "url": "https://www.inc.com/author/wanda-thibodeaux",
+            "feed_item_id": "7688b328-0ad0-42c6-92c3-000a6934c64d-r6e6da63b",
+            "_ids": [
+              "author_id"
+            ],
+            "_type": "Author"
+          }
+        ],
+        "excerpt": "You know that old saying that if you give a person a fish, they'll eat for a day, and if you teach them to fish, they'll eat for a lifetime? It's the perfect summary of just how important learning can be.",
+        "has_image": "1",
+        "has_video": "0",
+        "image": {
+          "height": 0,
+          "src": "https://www.incimages.com/uploaded_files/image/970x450/getty_621371400_276916.jpg",
+          "width": 0,
+          "feed_item_id": "7688b328-0ad0-42c6-92c3-000a6934c64d-r6e6da63b",
+          "_type": "Image"
+        },
+        "images": [
+          {
+            "caption": "CREDIT: Getty Images",
+            "credit": "Getty Images",
+            "height": 0,
+            "image_id": 1,
+            "src": "https://www.incimages.com/uploaded_files/image/970x450/getty_621371400_276916.jpg",
+            "width": 0,
+            "feed_item_id": "7688b328-0ad0-42c6-92c3-000a6934c64d-r6e6da63b",
+            "_type": "Image"
+          }
+        ],
+        "is_article": true,
+        "is_index": false,
+        "item_topics": [
+          {
+            "grouping_id": "229146999",
+            "name": "education",
+            "feed_item_id": "7688b328-0ad0-42c6-92c3-000a6934c64d-r6e6da63b",
+            "source_score": "0.05150000000000000000",
+            "_type": "Topic"
+          },
+          {
+            "grouping_id": "229147526",
+            "name": "psychology",
+            "feed_item_id": "7688b328-0ad0-42c6-92c3-000a6934c64d-r6e6da63b",
+            "source_score": "0.06320000000000000000",
+            "_type": "Topic"
+          },
+          {
+            "grouping_id": "229147322",
+            "name": "productivity",
+            "feed_item_id": "7688b328-0ad0-42c6-92c3-000a6934c64d-r6e6da63b",
+            "source_score": "0.05350000000000000000",
+            "_type": "Topic"
+          }
+        ],
+        "resolved_id": "1852679739",
+        "resolved_url": "https://www.inc.com/wanda-thibodeaux/want-to-be-a-master-of-learning-use-these-7-tips-t.html",
+        "given_url": "https://www.inc.com/wanda-thibodeaux/want-to-be-a-master-of-learning-use-these-7-tips-t.html",
+        "title": "How to Reshape Your Brain and Learn Anything, Based on the Most Popular Coursera Class Ever",
+        "word_count": 867,
+        "domain": "inc.com",
+        "_ids": [
+          "given_url"
+        ],
+        "_type": "Item"
+      },
+      "open_as": "web",
+      "rec_src": "GlobalPopularSource",
+      "sort_id": 5,
+      "_ids": [
+        "feed_item_id"
+      ],
+      "_type": "FeedItem"
+    },
+    {
+      "feed_item_id": "eb078ce4-790f-4a8a-8dd1-c3ecc128644b-r6e9f42f6",
+      "format": {
+        "tile_header": {
+          "icon": {
+            "1_5x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_popular@1_5x.png?v=1",
+            "1x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_popular@1x.png?v=1",
+            "2x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_popular@2x.png?v=1",
+            "3x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_popular@3x.png?v=1",
+            "4x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_popular@4x.png?v=1",
+            "pdf": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_popular.pdf?v=1",
+            "_type": "Icon"
+          },
+          "text": "Popular on Pocket",
+          "_type": "LinkedText"
+        },
+        "_type": "FeedItemFormat"
+      },
+      "item": {
+        "item_id": "1855931126",
+        "authors": [
+          {
+            "author_id": 33685485,
+            "name": "Ben Thompson",
+            "url": "https://stratechery.com/author/stratechery/",
+            "feed_item_id": "eb078ce4-790f-4a8a-8dd1-c3ecc128644b-r6e9f42f6",
+            "_ids": [
+              "author_id"
+            ],
+            "_type": "Author"
+          }
+        ],
+        "excerpt": "By far the most well-known “game” in game theory is the Prisoners’ Dilemma. Albert Tucker, who formalized the game and gave it its name in 1950, described it as such:  Two members of a criminal gang are arrested and imprisoned.",
+        "has_image": "1",
+        "has_video": "0",
+        "image": {
+          "height": 494,
+          "src": "https://stratechery.com/wp-content/uploads/2017/08/Untitled-13.png",
+          "width": 640,
+          "feed_item_id": "eb078ce4-790f-4a8a-8dd1-c3ecc128644b-r6e9f42f6",
+          "_type": "Image"
+        },
+        "images": [
+          {
+            "caption": "",
+            "credit": "",
+            "height": 494,
+            "image_id": 1,
+            "src": "https://stratechery.com/wp-content/uploads/2017/08/Untitled-13.png",
+            "width": 640,
+            "feed_item_id": "eb078ce4-790f-4a8a-8dd1-c3ecc128644b-r6e9f42f6",
+            "_type": "Image"
+          },
+          {
+            "caption": "",
+            "credit": "",
+            "height": 223,
+            "image_id": 2,
+            "src": "https://stratechery.com/wp-content/uploads/2017/08/exits.benchmark.teardown_2.16-1024x356.jpg",
+            "width": 640,
+            "feed_item_id": "eb078ce4-790f-4a8a-8dd1-c3ecc128644b-r6e9f42f6",
+            "_type": "Image"
+          }
+        ],
+        "is_article": true,
+        "is_index": false,
+        "item_topics": [
+          {
+            "grouping_id": "229143463",
+            "name": "tech",
+            "feed_item_id": "eb078ce4-790f-4a8a-8dd1-c3ecc128644b-r6e9f42f6",
+            "source_score": "0.09800000000000000000",
+            "_type": "Topic"
+          },
+          {
+            "grouping_id": "229147000",
+            "name": "business",
+            "feed_item_id": "eb078ce4-790f-4a8a-8dd1-c3ecc128644b-r6e9f42f6",
+            "source_score": "0.10750000000000000000",
+            "_type": "Topic"
+          }
+        ],
+        "resolved_id": "1855931126",
+        "resolved_url": "https://stratechery.com/2017/the-uber-dilemma/",
+        "given_url": "https://stratechery.com/2017/the-uber-dilemma/",
+        "title": "The Uber Dilemma",
+        "word_count": 2384,
+        "domain": "stratechery.com",
+        "_ids": [
+          "given_url"
+        ],
+        "_type": "Item"
+      },
+      "open_as": "web",
+      "rec_src": "GlobalPopularSource",
+      "sort_id": 6,
+      "_ids": [
+        "feed_item_id"
+      ],
+      "_type": "FeedItem"
+    },
+    {
+      "feed_item_id": "b218bc22-2107-4894-a6de-0c2f81f3f9f8-r4d55b52e",
+      "format": {
+        "tile_header": {
+          "icon": {
+            "1_5x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_missed@1_5x.png?v=1",
+            "1x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_missed@1x.png?v=1",
+            "2x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_missed@2x.png?v=1",
+            "3x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_missed@3x.png?v=1",
+            "4x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_missed@4x.png?v=1",
+            "pdf": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_missed.pdf?v=1",
+            "_type": "Icon"
+          },
+          "text": "You may have missed...",
+          "_type": "LinkedText"
+        },
+        "_type": "FeedItemFormat"
+      },
+      "item": {
+        "item_id": "1297462574",
+        "authors": [
+          {
+            "author_id": 30104920,
+            "name": "James Clear",
+            "url": "http://jamesclear.com/about",
+            "feed_item_id": "b218bc22-2107-4894-a6de-0c2f81f3f9f8-r4d55b52e",
+            "_ids": [
+              "author_id"
+            ],
+            "_type": "Author"
+          }
+        ],
+        "excerpt": "One of the hardest things in life is to know when to keep going and when to move on.  On the one hand, perseverance and grit are key to achieving success in any field. Anyone who masters their craft will face moments of doubt and somehow find the inner resolve to keep going.",
+        "has_image": "1",
+        "has_video": "0",
+        "image": {
+          "height": 500,
+          "src": "http://jamesclear.com/wp-content/uploads/2016/05/stages-of-failure.jpg?x25662",
+          "width": 700,
+          "feed_item_id": "b218bc22-2107-4894-a6de-0c2f81f3f9f8-r4d55b52e",
+          "_type": "Image"
+        },
+        "images": [
+          {
+            "caption": "",
+            "credit": "",
+            "height": 500,
+            "image_id": 1,
+            "src": "http://jamesclear.com/wp-content/uploads/2016/05/stages-of-failure.jpg?x25662",
+            "width": 700,
+            "feed_item_id": "b218bc22-2107-4894-a6de-0c2f81f3f9f8-r4d55b52e",
+            "_type": "Image"
+          },
+          {
+            "caption": "",
+            "credit": "",
+            "height": 500,
+            "image_id": 2,
+            "src": "http://jamesclear.com/wp-content/uploads/2016/05/stages-of-failure-explained.jpg?x25662",
+            "width": 700,
+            "feed_item_id": "b218bc22-2107-4894-a6de-0c2f81f3f9f8-r4d55b52e",
+            "_type": "Image"
+          },
+          {
+            "caption": "",
+            "credit": "",
+            "height": 500,
+            "image_id": 3,
+            "src": "http://jamesclear.com/wp-content/uploads/2016/05/stages-of-failure-4th-stage.jpg?x25662",
+            "width": 700,
+            "feed_item_id": "b218bc22-2107-4894-a6de-0c2f81f3f9f8-r4d55b52e",
+            "_type": "Image"
+          }
+        ],
+        "is_article": true,
+        "is_index": false,
+        "item_topics": [
+          {
+            "grouping_id": "229147322",
+            "name": "productivity",
+            "feed_item_id": "b218bc22-2107-4894-a6de-0c2f81f3f9f8-r4d55b52e",
+            "source_score": "0.11190000000000000000",
+            "_type": "Topic"
+          },
+          {
+            "grouping_id": "229147000",
+            "name": "business",
+            "feed_item_id": "b218bc22-2107-4894-a6de-0c2f81f3f9f8-r4d55b52e",
+            "source_score": "0.17540000000000000000",
+            "_type": "Topic"
+          }
+        ],
+        "resolved_id": "1297462574",
+        "resolved_url": "http://jamesclear.com/3-stages-of-failure",
+        "given_url": "http://jamesclear.com/3-stages-of-failure",
+        "title": "The 3 Stages of Failure in Life and Work (And How to Fix Them)",
+        "word_count": 3381,
+        "domain": "jamesclear.com",
+        "_ids": [
+          "given_url"
+        ],
+        "_type": "Item"
+      },
+      "open_as": "web",
+      "rec_src": "StaticEvergreenSource",
+      "sort_id": 7,
+      "_ids": [
+        "feed_item_id"
+      ],
+      "_type": "FeedItem"
+    },
+    {
+      "feed_item_id": "ad12c39e-290f-4886-81c2-1a52fcd529b8-r24d6ea2b",
+      "format": {
+        "tile_header": {
+          "icon": {
+            "1_5x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_bestof@1_5x.png?v=1",
+            "1x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_bestof@1x.png?v=1",
+            "2x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_bestof@2x.png?v=1",
+            "3x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_bestof@3x.png?v=1",
+            "4x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_bestof@4x.png?v=1",
+            "pdf": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_bestof.pdf?v=1",
+            "_type": "Icon"
+          },
+          "text": "Best of Pocket",
+          "_type": "LinkedText"
+        },
+        "_type": "FeedItemFormat"
+      },
+      "item": {
+        "item_id": "618064427",
+        "authors": [
+          {
+            "author_id": 19293954,
+            "name": "Jesse Singal",
+            "url": "http://nymag.com/author/Jesse%20Singal/",
+            "feed_item_id": "ad12c39e-290f-4886-81c2-1a52fcd529b8-r24d6ea2b",
+            "_ids": [
+              "author_id"
+            ],
+            "_type": "Author"
+          }
+        ],
+        "excerpt": "You’ve probably gotten in a political argument in the recent past, whether with your nutso cousin at Thanksgiving or your militantly ignorant co-worker at a happy hour.  And you’ll probably get in another political argument sometime in the near future.",
+        "has_image": "0",
+        "has_video": "0",
+        "is_article": true,
+        "is_index": false,
+        "item_topics": [
+          {
+            "grouping_id": "229146995",
+            "name": "politics",
+            "feed_item_id": "ad12c39e-290f-4886-81c2-1a52fcd529b8-r24d6ea2b",
+            "source_score": "0.24300000000000000000",
+            "_type": "Topic"
+          },
+          {
+            "grouping_id": "229147655",
+            "name": "religion",
+            "feed_item_id": "ad12c39e-290f-4886-81c2-1a52fcd529b8-r24d6ea2b",
+            "source_score": "0.17940000000000000000",
+            "_type": "Topic"
+          }
+        ],
+        "resolved_id": "618064427",
+        "resolved_url": "http://nymag.com/scienceofus/2014/05/how-to-win-your-next-political-argument.html",
+        "given_url": "http://nymag.com/scienceofus/2014/05/how-to-win-your-next-political-argument.html",
+        "title": "How to Win Your Next Political Argument",
+        "word_count": 1636,
+        "domain": "nymag.com",
+        "_ids": [
+          "given_url"
+        ],
+        "_type": "Item"
+      },
+      "open_as": "web",
+      "rec_src": "StaticEvergreenSource",
+      "sort_id": 8,
+      "_ids": [
+        "feed_item_id"
+      ],
+      "_type": "FeedItem"
+    },
+    {
+      "feed_item_id": "6b32ad5c-35dd-406f-b583-e4426f7e2fb6-r481091f7",
+      "format": {
+        "tile_header": {
+          "icon": {
+            "1_5x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_bestof@1_5x.png?v=1",
+            "1x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_bestof@1x.png?v=1",
+            "2x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_bestof@2x.png?v=1",
+            "3x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_bestof@3x.png?v=1",
+            "4x": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_bestof@4x.png?v=1",
+            "pdf": "https://d2z7z7sbc3uznh.cloudfront.net/ic_context_bestof.pdf?v=1",
+            "_type": "Icon"
+          },
+          "text": "Best of Pocket",
+          "_type": "LinkedText"
+        },
+        "_type": "FeedItemFormat"
+      },
+      "item": {
+        "item_id": "1209045495",
+        "authors": [
+          {
+            "author_id": 24656581,
+            "name": "Tobias van Schneider",
+            "url": "http://www.vanschneider.com",
+            "feed_item_id": "6b32ad5c-35dd-406f-b583-e4426f7e2fb6-r481091f7",
+            "_ids": [
+              "author_id"
+            ],
+            "_type": "Author"
+          }
+        ],
+        "excerpt": "Exactly today (Dec. 26th 2016) I haven’t had a single drop of alcohol or coffee in 27 months. If you're reading this later, you can do the math yourself. A couple of my friends on Facebook & Twitter asked me to write about my experience, so here it is, in a nutshell.",
+        "has_image": "0",
+        "has_video": "0",
+        "is_article": true,
+        "is_index": false,
+        "item_topics": [
+          {
+            "grouping_id": "229147046",
+            "name": "health",
+            "feed_item_id": "6b32ad5c-35dd-406f-b583-e4426f7e2fb6-r481091f7",
+            "source_score": "0.17970000000000000000",
+            "_type": "Topic"
+          },
+          {
+            "grouping_id": "229147167",
+            "name": "food",
+            "feed_item_id": "6b32ad5c-35dd-406f-b583-e4426f7e2fb6-r481091f7",
+            "source_score": "0.11200000000000000000",
+            "_type": "Topic"
+          }
+        ],
+        "resolved_id": "1209045495",
+        "resolved_url": "http://www.vanschneider.com/no-alcohol-no-coffee-for-15-months-this-is-what-happened/",
+        "given_url": "http://www.vanschneider.com/no-alcohol-no-coffee-for-15-months-this-is-what-happened/",
+        "title": "No Alcohol, No Coffee for 27 Months",
+        "word_count": 705,
+        "domain": "vanschneider.com",
+        "_ids": [
+          "given_url"
+        ],
+        "_type": "Item"
+      },
+      "open_as": "web",
+      "rec_src": "StaticEvergreenSource",
+      "sort_id": 9,
+      "_ids": [
+        "feed_item_id"
+      ],
+      "_type": "FeedItem"
+    }
+  ],
+  "status": 1,
+  "error": 0,
+  "_ids": [
+    "version",
+    "count",
+    "offset"
+  ],
+  "_type": "feed"
+}

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.PocketDefault" parent="Theme.PocketDefault.Light" />
+
+    <!-- These these are overridden in different api levels to provide the base theme TODO use pocket-ui's themes instead -->
+    <style name="Theme.PocketBase.Dark" parent="Theme.AppCompat.NoActionBar">
+        
+        <!-- NOTE! These values should be duplicated in the Theme.PocketBase.Light theme. -->
+        <!-- NOTE! Using default Android colors for primary, primary dark and accent and overriding specific view themes when needed. -->
+        
+        <item name="android:statusBarColor">@color/pkt_dm_base_bg</item>
+        <item name="android:windowContentOverlay">@null</item> <!-- This removes the status bar drop shadow. It is unclear why this needs to be set here and why the setting in Theme.PocketDefault.Dark doesn't work for Material. -->
+    </style>
+    
+    <style name="Theme.PocketBase.Light" parent="Theme.AppCompat.Light.NoActionBar">
+        
+        <!-- NOTE! These values should be duplicated in the Theme.PocketBase.Dark theme. -->
+        <!-- NOTE! Using default Android colors for primary, primary dark and accent and overriding specific view themes when needed. -->
+        
+        <item name="android:statusBarColor">@color/pkt_grey_3</item>
+        <item name="android:windowContentOverlay">@null</item> <!-- This removes the status bar drop shadow. It is unclear why this needs to be set here and why the setting in Theme.PocketDefault.Light doesn't work for Material. -->
+    </style>
+
+    <!-- The following base styles unfortunately have to have duplicate values. -->
+
+    <style name="Theme.PocketDefault.Light" parent="Theme.PocketBase.Light">
+        <item name="android:cacheColorHint">@color/transparent</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:windowBackground">@drawable/splash</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item> <!-- remove status bar drop shadow -->
+        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/black</item>
+
+        <item name="popupMenuStyle">@style/LightPopupMenu</item>
+        <item name="bottomSheetDialogTheme">@style/Theme.Design.Light.BottomSheetDialog</item>
+        
+        <item name="drawerItemViewStyle">@style/DrawerItemView</item>
+        <item name="iconButtonStyle">@style/Pkt_IconButton</item>
+        <item name="simpleDrawerRowStyle">@style/SimpleDrawerRow</item>
+        <item name="subheaderStyle">@style/Subheader</item>
+    </style>
+
+    <style name="Theme.PocketDefault.Dark" parent="Theme.PocketBase.Dark">
+        <item name="android:cacheColorHint">@color/transparent</item>
+        <item name="android:fadingEdge">none</item>
+        <item name="android:windowBackground">@drawable/splash</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item> <!-- remove status bar drop shadow -->
+        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/white</item>
+
+        <item name="popupMenuStyle">@style/DarkPopupMenu</item>
+        <item name="bottomSheetDialogTheme">@style/Theme.Design.BottomSheetDialog</item>
+
+        <item name="drawerItemViewStyle">@style/DrawerItemView</item>
+        <item name="iconButtonStyle">@style/Pkt_IconButton</item>
+        <item name="simpleDrawerRowStyle">@style/SimpleDrawerRow</item>
+        <item name="subheaderStyle">@style/Subheader</item>
+    </style>
+    
+    <style name="Theme.PocketDefault.Light.Transparent" parent="Theme.PocketDefault.Light">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+    
+    <style name="Theme.PocketDefault.Light.Transparent.NoAnimation" parent="Theme.PocketDefault.Light.Transparent">
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <style name="LightPopupMenu" parent="@style/Widget.AppCompat.Light.PopupMenu">
+        <item name="overlapAnchor">true</item>
+    </style>
+    <style name="DarkPopupMenu" parent="@style/Widget.AppCompat.PopupMenu">
+        <item name="overlapAnchor">true</item>
+    </style>
+
+    <!-- Modified Theme.Transparent, removed android:windowIsFloating true -->
+</resources>

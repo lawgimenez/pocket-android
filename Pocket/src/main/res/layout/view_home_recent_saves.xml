@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    
+    <data>
+        <variable
+            name="recentSavesViewModel"
+            type="com.pocket.app.home.saves.RecentSavesViewModel"
+            />
+    </data>
+    
+<com.pocket.ui.view.themed.ThemedConstraintLayout2
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    
+    <View
+        android:id="@+id/centerGuideline"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_max="@dimen/home_max_width"/>
+    
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/recentSavesTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="20dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/graphik"
+        android:textColor="@color/pkt_themed_grey_1"
+        android:textSize="20sp"
+        android:text="@string/recent_saves"
+        app:visibility="@{recentSavesViewModel.uiState.screenState.titleVisible}"
+        app:layout_constraintTop_toBottomOf="@id/homeLabel"
+        app:layout_constraintStart_toStartOf="@id/centerGuideline"
+        app:layout_constraintEnd_toStartOf="@id/recentSavesSeeAllLayout"/>
+    
+    <com.pocket.ui.view.themed.ThemedLinearLayout
+        android:id="@+id/recentSavesSeeAllLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginEnd="13dp"
+        android:padding="5dp"
+        android:onClick="@{() -> recentSavesViewModel.onSeeAllSavesClicked()}"
+        app:visibility="@{recentSavesViewModel.uiState.screenState.titleVisible}"
+        app:layout_constraintTop_toTopOf="@id/recentSavesTitle"
+        app:layout_constraintBottom_toBottomOf="@id/recentSavesTitle"
+        app:layout_constraintEnd_toEndOf="@id/centerGuideline">
+        
+        <com.pocket.ui.view.themed.ThemedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="9dp"
+            android:fontFamily="@font/graphik"
+            android:textSize="14sp"
+            android:textColor="@color/pkt_themed_teal_home"
+            android:text="@string/lb_tab_saves"/>
+        
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_pkt_forward_chevron_line"
+            app:tint="@color/pkt_themed_teal_home"
+            tools:ignore="ContentDescription"
+            />
+    
+    </com.pocket.ui.view.themed.ThemedLinearLayout>
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/savesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="224dp"
+        android:layout_marginTop="12dp"
+        android:paddingBottom="64dp"
+        android:orientation="horizontal"
+        app:visibility="@{recentSavesViewModel.uiState.screenState.recentSavesVisible}"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/recentSavesTitle"
+        tools:listitem="@layout/view_home_recent_save_card"
+        />
+    
+    <com.pocket.app.home.loading.RecentSavesSkeletonView
+        android:layout_width="wrap_content"
+        android:layout_height="224dp"
+        android:layout_marginTop="12dp"
+        android:paddingBottom="64dp"
+        app:layout_constraintTop_toBottomOf="@id/recentSavesTitle"
+        app:layout_constraintStart_toStartOf="@id/centerGuideline"
+        app:visibility="@{recentSavesViewModel.uiState.screenState.recentSavesLoadingVisible}"/>
+
+</com.pocket.ui.view.themed.ThemedConstraintLayout2>
+
+</layout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="com.pocket.app.settings.rotation.PktRotationLockView">
+
+    <com.pocket.ui.view.checkable.CheckableImageView
+        android:id="@+id/rotation_lock_toggle"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:padding="@dimen/pkt_space_md"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+</merge>

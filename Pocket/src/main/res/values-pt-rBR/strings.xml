@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- smartling.instruction_attributes = comment -->
+<!-- smartling.placeholder_format_custom = \{[a-zA-Z0-9_-]+\}-->
+<resources>
+    <!-- LABELS, TITLES & NAMES - Prefix: nm  -->
+    <string name="nm_add_to_ril" comment="try to use a string starting with A or just leave Pocket">Adicionar no Pocket</string>
+	
+	<!-- smartling.character_limit = 17 -->
+	<string name="nm_add_tags" comment="Title of a page">Adicionar tags</string>
+
+	<string name="nm_theme_light" comment="Appearance/color of the app">Claro</string>
+	<string name="nm_theme_dark" comment="Appearance/color of the app">Escuro</string>
+	
+	<string name="clipboard_label_url">Link copiado do Pocket</string>
+	
+	<string name="nm_archive" comment="Title in the main menu of the action bar. This is a noun.">Arquivar</string>
+	<string name="nm_link">Link</string>
+	
+	<!-- Setting up as plural in case other languages want to vary the label depending on quantity -->
+	<plurals name="nm_time_estimate" comment="Short label showing the number of minutes to read a story, watch a video, or listen to an article e.g. &apos;5 min&apos;">
+        <item quantity="one">%1$d minuto</item>
+        <item quantity="other">%1$d minutos</item>
+    </plurals>
+	
+	<plurals name="nm_time_to_read_estimate" comment="Short label showing the number of minutes to read a story, watch a video, or listen to an article e.g. &apos;5 min read&apos;">
+        <item quantity="one">Leitura de %1$d minuto</item>
+        <item quantity="other">Leitura de %1$d minutos</item>
+    </plurals>
+
+	<!-- Setting up as plural in case other languages want to vary the label depending on quantity -->
+	<plurals name="nm_time_left_estimate" comment="Short label showing the number of minutes to read a story, watch a video, or listen to an article e.g. &apos;5 min left&apos;">
+        <item quantity="one">%1$d minuto restante</item>
+        <item quantity="other">%1$d minutos restantes</item>
+    </plurals>
+
+	<!-- UI ACTION LABELS (Buttons, Checkboxes) - Prefix: ac  -->
+	<string name="ac_login">Entrar</string>
+	<string name="ac_logout">Sair</string>
+	<string name="ac_authenticate">Cadastre-se ou faça login</string>
+	<string name="ac_continue_signed_out" comment="A button next to a &apos;Sign up or sign in&apos; button, that allows you to go to the Home screen without signing up or signing in.">Pular o login</string>
+	<string name="ac_cancel">Cancelar</string>
+	<string name="ac_close_app">Fechar aplicativo</string>
+	<string name="ac_ok">OK</string>
+	<string name="ac_yes">Sim</string>
+	<string name="ac_no">Não</string>
+	<string name="ac_retry">Tentar novamente</string>
+	<string name="ac_try_again">Tente novamente</string>
+	<string name="ac_create_new_cache">Criar novo cachê</string>
+	<string name="ac_clear_cache">Limpar cachê</string>
+	<string name="ac_get_help">Obter Ajuda</string>
+	<string name="ac_submit">Enviar</string>
+	<string name="ac_write_review" comment="link to leave a review on the application store">Opinião</string>
+	<string name="ac_no_thanks">Não, obrigado</string>
+	<string name="ac_next">Próximo</string>
+	<string name="ac_accept">Aceitar</string>
+	<string name="ac_got_it_caps">ENTENDI</string>
+	<string name="ac_continue">Continuar</string>
+	<string name="ac_discard_changes">Descartar alterações</string>
+	<string name="ac_continue_editing">Continuar edição</string>
+	<string name="ac_add_new_tag">adicionar nova tag <b>\\‘{name_of_tag}\\‘</b></string>
+	<string name="ac_undo">DESFAZER</string>
+	<string name="ac_highlight" comment="Label for button that highlights selected text">@string/ic_highlight</string>
+	<string name="ac_copy">@string/ic_copy</string>
+	<string name="ac_translate">Traduzir</string>
+	<string name="ac_web_search">Pesquisar na web</string>
+	<string name="ac_select_all">Selecionar tudo</string>
+	<string name="ac_clear">Limpar</string>
+	<string name="ac_share">Compartilhar</string>
+	<string name="ac_maybe_later">Talvez mais tarde</string>
+	<string name="ac_install">Instalar</string>
+	
+	
+	<!-- UI LABELS (TextViews and labels) - Prefix: lb  -->
+	<string name="lb_tab_saves">Salvos</string>
+	<string name="lb_continue_reading" comment="should be all upper case">Continuar lendo</string>
+	
+	<string name="lb_add_copied_url" comment="a title asking the user if they would like to save a URL from their device clipboard">Salvar o URL copiado?</string>
+    
+    <string name="lb_slower" comment="Speaking rate of the Text To Speech">Falar mais devagar</string>
+    <string name="lb_faster" comment="Speaking rate of the Text To Speech">Falar mais rápido</string>
+    <string name="lb_tts_language">Idioma</string>
+    <string name="lb_tts_voice">Voz</string>
+	
+	<string name="lb_select_tags_hint">Selecione ou digite uma tag</string>
+    <string name="lb_select_tags_hint_no_tags">Digite uma tag</string>
+    
+	<plurals comment="Header above the list of item" name="lb_selected">
+        <item quantity="one">%1$s selecionado</item>
+        <item quantity="other">%1$s selecionados</item>
+    </plurals>
+	
+	<string name="lb_suggested_tags">Sugestões de tags</string>
+	<string name="lb_all_tags">Todas as tags</string>
+	<string name="lb_recent_tags">Tags recentes</string>
+	<string name="lb_tags_autocomplete">Tags</string>
+	
+	<string name="lb_downloading_items_notification" comment="the number of items being currently downloaded for offline viewing. this number will count down as downloading progresses">Baixando {number_of_items} itens...</string>
+	
+	<string name="lb_search_hint">Procurar</string>
+	<string name="lb_list_search_hint">Pesquisar sua lista</string>
+	<string name="lb_list_archive_search_hint">Pesquisar em seu arquivo</string>
+	<string name="lb_recent_searches_sc">Pesquisas recentes</string>
+	<string name="lb_time_to_read" comment="Header for a section of filters that let you view a subset of your saved articles based on their length.">Hora de ler</string>
+	
+	<string name="lb_sort_by">Classificar por</string>
+	<string name="lb_sort_by_newest">Mais novos salvos</string>
+	<string name="lb_sort_by_oldest">Mais antigos salvos</string>
+	<string name="lb_sort_by_newest_archive">Mais recente arquivado</string>
+	<string name="lb_sort_by_oldest_archive">Mais antigo arquivado</string>
+	<string name="lb_sort_by_shortest">Leitura mais curta</string>
+	<string name="lb_sort_by_longest">Leitura mais longa</string>
+	
+	<string name="lb_prem_purchase_title">Assine o Pocket\nPremium</string>
+	<string name="lb_prem_purchase_perm_lib_title">Crie uma biblioteca permanente</string>
+	<string name="lb_prem_purchase_perm_lib_desc">Mesmo que uma página salva on-line seja removida, você continuará com uma cópia da mesma no Pocket.</string>
+	<string name="lb_prem_purchase_ad_free_title">Mais foco</string>
+	<string name="lb_prem_purchase_ad_free_desc">Um ambiente de leitura calmo e livre de anúncios que oferece a paz e o sossego que a sua mente merece.</string>
+	<string name="lb_prem_purchase_search_title">Matérias ao seu alcance</string>
+	<string name="lb_prem_purchase_search_desc">Use a pesquisa de texto completo para encontrar rapidamente qualquer item salvo. Busque artigos por palavra-chave, tópico, autor, tag e muito mais.</string>
+	<string name="lb_prem_purchase_tags_title">Tags inteligentes</string>
+	<string name="lb_prem_purchase_tags_desc">Sugerimos incluir tags de sua lista cada vez que você salvar uma matéria — quanto mais tags você usar, mais úteis serão as sugestões.</string>
+	<string name="lb_prem_purchase_highlights_title">Suas ideias, destacadas</string>
+	<string name="lb_prem_purchase_highlights_desc">Com direito a destaques ilimitados em todos os artigos, você terá um registro permanente de todos os melhores trechos do seu conteúdo.</string>
+	<string name="lb_prem_purchase_reader_title">Personalizar a experiência de leitura</string>
+	<string name="lb_prem_purchase_reader_desc">Você prefere fontes mais arredondadas, um espaçamento mais amplo ou texto condensado? Ajuste o Pocket de acordo com o seu estilo de leitura.</string>
+	<string name="lb_prem_purchase_per_month" comment="per month subscription label on subscription button">%1$s/mês</string>
+	<string name="lb_prem_purchase_per_year" comment="per year subscription label on subscription button">%1$s/ano</string>
+	<string name="lb_prem_purchase_complete_title">Parabéns!</string>
+	<string name="lb_prem_purchase_complete_message">Agora você é um membro oficial do Pocket Premium. Bem-vindo à nova versão permanente, personalizável e sem anúncios de seu Pocket. Certamente você vai gostar.</string>
+	<string name="lb_prem_purchase_complete_renew_title">Bem-vindo de volta!</string>
+	<string name="lb_prem_purchase_complete_renew_message">Renovamos a sua assinatura. Você voltou a ser oficialmente um membro do Pocket Premium. Esperamos que você goste da versão permanente, personalizável e sem anúncios de seu Pocket.</string>
+	<string name="lb_prem_purchase_complete_button">Voltar ao Pocket</string>
+	<string name="lb_prem_purchase_terms">A assinatura é renovada automaticamente até ser cancelada no Google Play.</string>
+
+	<string name="lb_save_25p_2_line" comment="keep as short as possible">Economize\n25%</string>
+	
+	<string name="lb_annotations_upsell_t">Precisa de mais destaques?</string>
+	<string name="lb_annotations_upsell_m">Seu limite atual é de %1$d destaques por artigo. Faça um upgrade hoje mesmo para uma conta Pocket Premium e aproveite destaques ilimitados (e muito mais).</string>
+	<string name="lb_annotations_upsell_cta" comment="Label for a button in a Highlights upgrade prompt leading to the full Premium upgrade/purchase screen.">Adquirir o Premium</string>
+	
+	<!-- MENU OPTIONS (Context and Option) - Prefix: mu  -->
+    <string name="mu_settings" comment="this text label should be short">Configurações</string>
+	<string name="mu_read_later" comment="this text label should be short">Salvar no Pocket</string>
+	<string name="mu_help" comment="this text label should be short">Ajuda</string>
+	<string name="mu_copy_link" comment="this text label should be short">Copiar link</string>
+	<string name="mu_report_article_view" comment="this text label should be short">Reportar Problema do Artigo</string>
+	<string name="mu_refresh" comment="this text label should be short">Atualizar</string>
+	<string name="mu_find_in_page" comment="this text label should be short">Buscar na página</string>
+	<string name="mu_display_settings" comment="this text label should be short">Config. de texto</string>
+	<string name="mu_delete" comment="this text label should be short">Excluir</string>
+	<string name="mu_view_original">Exibir original</string>
+	<string name="mu_switch_to_article" comment="this text label should be short">Alternar para Modo Artigo</string>
+	<string name="mu_add_tags" comment="this text label should be short">Adicionar tags</string>
+	<string name="mu_favorite" comment="this text label should be short">Favorito</string>
+	<string name="mu_unfavorite" comment="this text label should be short">Não favorito</string>
+	
+	<!-- Navigation items -->
+	<!-- smartling.character_limit = 14 -->
+	<string name="mu_home" comment="this text label should be short">Página inicial</string>
+	<!-- smartling.character_limit = 14 -->
+	<string name="mu_saves" comment="this text label should be short">Itens Salvos</string>
+	<string name="mu_annotations" comment="This text label should be short. Here &apos;Highlights&apos; references a new feature where a user can highlight text in articles to save memorable quotes.">Destaques</string>
+	<string name="mu_premium" comment="this text label should be short">Premium</string>
+	<!-- smartling.character_limit = 14 -->
+	
+	<string name="mu_untagged" comment="make sure this phrase matches what is in setting_untagged_label and setting_untagged_sum">sem tags</string>
+
+	
+    <!-- DIALOGS TITLES AND MESSAGES (ContextMenus, Progress and Alert) - 
+    	Prefix: dg_
+    	Postfix: _t = title,
+    			 _m = message   
+    -->
+    <!-- Progress labels -->
+	<string name="dg_loading">Carregando...</string>
+	<string name="dg_changing_data_location">Mudando local de armazenamento…</string>
+	<string name="dg_clearing_cache">Limpando cachê…</string>
+	<string name="dg_logging_out">Saindo…</string>
+	<string name="dg_c2dm_registering">Configurando o dispositivo para receber notificações automáticas…</string>
+	<string name="dg_fetching">Recuperando a lista…</string>
+	
+	<!-- General use titles -->
+    <string name="dg_error_t">Oh Oh</string>
+    <string name="dg_confirm_t">Tem certeza?</string>
+    <string name="dg_changes_not_saved_t">Alterações não salvas</string>
+    
+    <!-- Connection issues (TODO: These could more than likely be cleaned up and combined)-->
+    <string name="dg_sync_error_t">Erro na sincronização</string>
+	<string name="dg_fetch_error_t">Não foi possível carregar a lista</string>
+	<string name="dg_fetch_error_m">Ocorreu um problema ao buscar sua lista no servidor. Certifique-se de estar conectado à internet e tente novamente.</string>
+	<string name="dg_no_connection_m">Ocorreu um problema ao tentar conectar. Certifique-se de que o dispositivo esteja conectado à internet e tente novamente.</string>
+	<string name="dg_api_generic_error">Ocorreu um problema ao conectar ao Pocket. </string>
+	
+    <!-- Misc -->
+    <string name="dg_unexpected_m">Oh oh, aconteceu algo inesperado. Tente novamente. Entre em contato conosco se continuar tendo problemas.</string>
+    
+    <string name="dg_report_error_m">Gostaria de relatar este erro?</string>
+	
+	<string name="dg_no_email_app_t">Não foi possível enviar o e-mail</string>
+	<string name="dg_no_email_app_m">Este dispositivo não possui nenhum aplicativo de e-mail instalado.</string>
+	<string name="dg_no_email_app_m_support">Se desejar tentar de outro dispositivo, nosso endereço de e-mail é support@getpocket.com.</string>
+
+	<!-- Storage or Cache errors -->
+	<string name="dg_storage_setting_unavailable_t">Local de armazenamento inacessível</string>
+	<string name="dg_storage_setting_unavailable_m">Esse local de armazenamento está indisponível no momento. Verifique se o cartão de memória ou o dispositivo está conectado corretamente. Verifique também se não está sendo usado como armazenamento externo em um computador via USB.</string>
+
+	<string name="bg_offline_cache_storage_is_unavailable_t">Conteúdo off-line inacessível</string>
+	<string name="bg_offline_cache_storage_is_unavailable_m">"O local de armazenamento onde seu cache off-line é salvo está indisponível no momento. Isso pode acontecer se seu dispositivo estiver conectado a um computador via USB, se tiver removido o cartão de memória ou se revogou a permissão de armazenamento do Pocket. Desfaça essa modificação e tente novamente. Caso contrário, você pode alternar para um novo cache no armazenamento interno do Pocket."</string>
+
+	<string name="bg_offline_cache_is_missing_t">Conteúdo off-line inacessível</string>
+	<string name="bg_offline_cache_is_missing_m">Não foi possível localizar o cache off-line. Verifique se seu local de armazenamento off-line está conectado corretamente. Se você reorganizou ou modificou os arquivos de caches, restaure-os e tente novamente.</string>
+
+	<string name="dg_offline_cache_is_missing_permission_t">Conteúdo off-line inacessível</string>
+	<string name="dg_offline_cache_is_missing_permission_m">"O Pocket não tem mais permissão de armazenamento e não pode acessar o cache off-line. Para continuar usando um local de armazenamento externo, reative a permissão de armazenamento do Pocket ou alterne para o armazenamento interno."</string>
+
+	<string name="dg_offline_cache_is_missing_rw_permission_m">Desculpe, o Pocket está tendo dificuldades para acessar seu cartão SD. Registramos este problema para que nossa equipe Android possa investigar. Enquanto isso, continue usando o armazenamento interno do Pocket.</string>
+
+	<string name="dg_sdcard_confirm_change_m">Modificar os locais de armazenamento limpará seus arquivos baixados.</string>
+	
+	<string name="dg_out_of_space_t">Sem espaço para armazenamento</string>
+	<string name="dg_out_of_space_m">O local de armazenamento off-line do Pocket está sem espaço. O Pocket requer espaço livre adicional para funcionar. Para continuar, limpe um pouco de espaço. Para liberar espaço, você pode escolher limpar o cache off-line do Pocket.</string>
+	
+	<string name="dg_after_clear_m">"Se seu dispositivo tem pouca memória, use a configuração de {name_of_storage_setting} do Pocket para limitar a quantidade de espaço que o cache pode usar."</string>
+	
+	<string name="dg_clear_cache_t">Tem certeza?</string>
+	<string name="dg_clear_cache_m">Esta ação exclui quaisquer arquivos que foram salvos para serem visualizados off-line.</string>
+	<string name="dg_confirm_create_new_cache_m">Esta ação limpa o cachê off-line existente e começa a usar o armazenamento interno do dispositivo.</string>
+
+	<string name="dg_forced_logout_t">Por favor, faça o login</string>
+	<string name="dg_forced_logout_m">Você foi desconectado a partir de outro local. Entre novamente.</string>
+
+	<string name="dg_tag_too_long_m">As tags só podem ter até 25 caracteres.</string>
+	
+	<string name="dg_invalid_tag_m">"%1$s não é permitido como uma tag."</string>
+	<string name="dg_changes_not_saved_tags_m">As alterações em suas tags ainda não foram salvas. Deseja descartar as alterações ou continuar editando?</string>
+	
+	<string name="dg_market_not_found_t">A Amazon Appstore não foi encontrada</string>
+	<string name="dg_market_not_found_m">Por algum motivo inesperado, não foi possível abrir o aplicativo Amazon Appstore. Desculpe!</string>
+	
+	<string name="dg_browser_not_found_t">Navegador não encontrado</string>
+	<string name="dg_browser_not_found_m">Seu aparelho não possui um aplicativo de navegador disponível para abrir esta página da web.</string>
+	
+	<!-- Push / Instant Sync (GCM) & Background Syncing Settings -->
+	<string name="dg_c2dm_unsupported_t">Não disponível</string>
+	<string name="dg_c2dm_unsupported_m">A Sincronização Instantânea não é compatível com este dispositivo.</string>
+	<string name="dg_c2dm_failed_t">Falha na configuração</string>
+	<string name="dg_c2dm_failed_general_m">Não foi possível cadastrar o seu dispositivo para receber notificações push instantâneas no momento. Tente novamente depois.</string>
+	<string name="dg_c2dm_not_connected_m">Você deve estar conectado à internet ao ativar pela primeira vez a sincronização instantânea</string>
+	<string name="dg_timer_sync_no_change_t">Configuração não disponível</string>
+	<string name="dg_timer_sync_no_change_m">Quando este aplicativo é instalado no armazenamento externo, como um cartão SD, as opções de sincronização no plano de fundo baseada em tempo não ficam disponíveis.\n\n Pode-se usar o recurso Instantâneo ou desativar a Sincronização no plano de fundo.</string>
+	
+	<!-- Edit account -->
+	<string name="dg_confirm_logout_m">Você será desconectado e quaisquer arquivos que foram salvos neste aparelho para visualização off-line serão excluídos.</string>
+	
+	<!-- Listen -->
+	<string name="listen_playing_from">Reproduzindo de <b>Salvos</b></string>
+	<string name="listen_playlist_header" comment="Should be all upper case letters for any language where it makes sense">Minha Lista de Reprodução</string>
+	<string name="listen_data_alert">A função Ouvir usará dados móveis caso seu dispositivo não tenha acesso ao Wi-Fi</string>
+    <string name="listen_offline_hint" comment="This should be less than 100 characters.">Você está off-line. Use uma voz off-line aqui.</string>
+	
+	<string name="listen_settings_use_listen_endpoint">Transmitir vozes na melhor qualidade</string>
+	<string name="listen_settings_network_voice_warning">Utilizar dados móveis quando não estiver conectado ao Wi-Fi. Não está disponível no modo off-line</string>
+	<string name="listen_settings_picker_summary_unavailable">Automático</string>
+	<string name="listen_settings_auto_play">Reproduzir artigos automaticamente</string>
+	<string name="listen_settings_auto_archive">Arquivar automaticamente após ser ouvido</string>
+    
+	<string name="listen_error_timeout">Nosso servidor está demorando muito para responder. Tente novamente mais tarde.</string>
+	<string name="listen_error_media_player">Ocorreu um erro inesperado durante a reprodução</string>
+	<string name="listen_error_server">Ocorreu um problema ao reproduzir este artigo. Tente usar outra voz.</string>
+	
+	<string name="listen_reader_tooltip">Toque para ouvir este artigo em qualquer lugar</string>
+	<plurals name="listen_my_list_toast_title">
+        <item quantity="one">%2$s️Você tem %1$d artigo não lido.</item>
+        <item quantity="other">%2$s️Você tem %1$d artigos não lidos.</item>
+    </plurals>
+	<string name="listen_my_list_toast_title_5000_plus">%1$s️Você tem milhares de artigos.</string>
+	<string name="listen_my_list_toast_message">Experimente ouvir seus artigos, e o tempo passará voando.</string>
+	<string name="listen_my_list_toast_button">Experimente Ouvir</string>
+	
+	<!-- TTS -->
+	<string name="tts_dg_t">Conversão de Texto para Voz</string>
+	<string name="tts_settings">Definições da Conversão de Texto para Voz</string>
+	<string name="tts_dg_not_available_m">Ocorreu um problema ao iniciarmos o mecanismo selecionado de conversão de texto para voz. Certifique-se de que o mecanismo esteja instalado, acessando as configurações para conversão de texto para voz em seu dispositivo.</string>
+	<string name="tts_dg_not_supported_m">Desculpe, mas parece que seu aparelho não é compatível com o Texto para Voz (TTS).</string>
+	<string name="tts_dg_install_t">Instalação do Texto para Voz</string>
+	<string name="tts_dg_install_m">Este recurso utiliza a função de Texto para Voz (TTS) incorporada no Android. Ela ainda não está instalada em seu aparelho.</string>
+	<string name="tts_dg_missing_settings_m" comment="TTS = Text to Speech">O Pocket não conseguiu encontrar as definições do Texto para Voz de seu aparelho automaticamente.\n\nVocê pode tentar encontrá-las manualmente abrindo as configurações de seu aparelho e procurando por elas.\n\nNa maioria dos aparelhos, esse recurso está em suas configurações de Acessibilidade ou em suas configurações de Idioma e Entrada. </string>
+	<string name="tts_dg_choose_engine_t">Escolher um mecanismo de Conversão de Texto para Voz </string>
+	<string name="tts_skipping_to_next">Pulando para o próximo artigo.</string>
+	<string name="tts_article_failed">Ocorreu um problema na leitura deste artigo usando a conversão de texto para voz.</string>
+	<string name="tts_article_unavailable">Este artigo ainda não foi baixado.</string>
+	<string name="tts_speech_error">Esta seção não pôde ser lida pela conversão de texto para voz. Se estiver usando uma voz originada na rede, conecte-se on-line ou selecione uma voz que não seja de rede. Caso contrário, tente pular esta passagem.</string>
+	<string name="tts_empty_list">Só será possível escutar uma vez que os itens forem salvos no Pocket</string>
+	<string name="tts_network_voice_t">Vozes de rede</string>
+	<string name="tts_network_voice">Dica: as vozes de rede possuem qualidade superior, porém podem usar seus dados de rede ou estarem indisponíveis no modo off-line.</string>
+	<string name="tts_voice">Voz %1$s</string>
+	<string name="tts_voice_male">Voz masculina %1$s</string>
+	<string name="tts_voice_female">Voz feminina %1$s</string>
+	<string name="tts_network" comment="Word that indicates that a text to speech voice may require network connectivity">Rede</string>
+	
+	<string name="add_overlay_free_title" comment="Appears when a new article is saved to your list">Salvo no Pocket!</string>
+
+	<!-- TOAST MESSAGES  Prefix: ts   -->
+	<string name="ts_add_invalid_url" comment="An error message that appears when an article link could not be saved">Ops! O Pocket não conseguiu salvar esse link.</string>
+	<string name="ts_add_saved_to_ril">Salvo no Pocket</string>
+	<string name="ts_add_added">Salvo!</string>
+	<string name="ts_add_already">Você já salvou esse item!</string>
+	<string name="ts_add_already_overlay" comment="A message notifying the user an article they saved is already in their list, and that we will move (bump) it to the top for them">Esse item já foi salvo! Vamos colocá-lo no topo da sua lista.</string>
+	<string name="ts_add_error">Ocorreu um problema ao salvar o link no Pocket</string>
+	<string name="ts_add_logged_out">Faça login para salvar no Pocket</string>
+    <string name="ts_copied">%1$s copiado na área de transferência</string>
+	<string name="ts_item_archived">Item arquivado</string>
+    <string name="ts_item_readded">Item adicionado novamente</string>
+    <string name="ts_item_deleted">Item excluído</string>
+    <string name="ts_item_restored">Item restaurado</string>
+
+    <string name="ts_changes_saved">Alterações salvas</string>
+    <string name="ts_article_reported">Artigo notificado.\nObrigado por nos avisar!</string>
+	<plurals name="ts_bulk_edit_archived">
+        <item quantity="one">%1$s item arquivado</item>
+        <item quantity="other">%1$s itens arquivados</item>
+    </plurals>
+	<plurals name="ts_bulk_edit_readded">
+        <item quantity="one">Adicionou novamente %1$s item</item>
+        <item quantity="other">Adicionou novamente %1$s itens</item>
+    </plurals>
+	<plurals name="ts_bulk_edit_deleted">
+        <item quantity="one">Excluiu %1$s item</item>
+        <item quantity="other">Excluiu %1$s itens</item>
+    </plurals>
+	<string name="ts_bulk_edit_tagged" comment="Do not translate values in {brackets}">{tags} adicionadas a {items}</string>
+	<plurals name="ts_bulk_edit_tagged_tags" comment="in &apos;Added X TAGS to 12 items&apos;">
+        <item quantity="one">%1$s tag</item>
+        <item quantity="other">%1$s tags</item>
+    </plurals>
+	<plurals name="ts_bulk_edit_tagged_items" comment="in &apos;Added 12 tags to X ITEMS&apos;">
+        <item quantity="one">%1$s item</item>
+        <item quantity="other">%1$s itens</item>
+    </plurals>
+
+    <string name="ts_no_apps_for_intent">Não há aplicativos instalados disponíveis para esta ação.</string>
+    
+    <string name="ts_tags_changes_saved">Alterações salvas</string>
+	
+    <!--  NOTIFICATION BAR Prefix: nt -->
+	<string name="nt_downloading">Baixando...</string>
+	<string name="nt_cancel">Toque para cancelar o download.</string>
+
+	<string name="nt_channel_functional_name">Controles do aplicativo</string>
+	<string name="nt_channel_functional_description">Controle como baixar em modo off-line, a opção Escutar (TTS) e outros recursos internos do aplicativo.</string>
+	<string name="nt_channel_alerts_name">Notificações Push</string>
+	<string name="nt_channel_alerts_description">Atualizações de redes sociais, recomendações, novidades de produtos e outras comunicações. Ajuste suas preferências de notificações push nas configurações do Pocket.</string>
+	<string name="nt_channel_article_recommendations">Recomendações de artigos</string>
+	<string name="nt_channel_article_recommendations_description">Lembretes e sugestões de leituras</string>
+	<string name="nt_channel_legal_updates">Atualizações legais</string>
+	<string name="nt_channel_new_features">Novos Recursos</string>
+
+
+    
+    <!-- MISC TEXT  Prefix: tx-->
+	<string name="tx_love_pocket">Curtindo o Pocket?</string>
+    <string name="tx_tell_others">A melhor maneira de demonstrar seu\n apoio é contando para outros.</string>
+	
+	<string name="suggested_tags_empty_no_tags">Adicione tags aos seus itens para vê-las sugeridas aqui.</string>
+	<string name="suggested_tags_empty_none_found">Não encontramos nenhuma sugestão de tag para este item.</string>
+	<string name="suggested_tags_no_connection">Você deve estar on-line para ver as sugestões de tags. Verifique sua conexão e toque aqui para tentar novamente.</string>
+	<string name="suggested_tags_unknown_error">Estamos tendo problemas em recuperar as sugestões de tags. Toque para tentar novamente.</string>
+	
+	<!-- READER ERRORS SHOWN IN ERRORVIEW (Not Dialogs)  Prefix: re   Postfix:  t = title, m = message, b = button label  -->
+	<string name="re_downloading_article_view_t">Ocorreu um erro ao baixar o modo artigo para esta página.</string>
+	<string name="re_downloading_article_view_m">Certifique-se de estar conectado à Internet.</string>
+	
+	<string name="list_empty_search_title">Nenhum resultado encontrado</string>
+	<string name="list_empty_no_result_matched">Não houve nenhum item que correspondesse à sua pesquisa.</string>
+	
+	<string name="add_tags_list_empty_title">Use tags para se organizar</string>
+	<string name="add_tags_list_empty_body">Para encontrar seus itens, use tags na busca ou nos filtros em Salvos.\n\nPara criar uma tag, digite acima.</string>
+	
+	<!-- SETTINGS  Prefix: setting -->
+	<string name="setting_header_account">Conta</string>
+	<string name="setting_logout">Sair</string>
+	<string name="setting_premium">Premium</string>
+	<string name="setting_account_management">Gerenciamento de contas</string>
+	<string name="setting_delete_account">Excluir conta</string>
+	<string name="setting_delete_account_header">Excluir sua conta</string>
+	<string name="setting_delete_account_warning">Aviso: esta ação não pode ser desfeita</string>
+	<string name="setting_delete_account_cancel_premium">Para excluir sua conta, você deve primeiro <b><annotation link="https://help.getpocket.com/article/986-canceling-your-pocket-premium-subscription">cancelar sua assinatura Premium aqui</annotation></b>.</string>
+	<string name="setting_delete_account_permanently_delete">Você entende que sua conta Pocket e seus dados serão <b>excluídos permanentemente</b>.</string>
+	<string name="setting_delete_account_error">Sua solicitação não pôde ser processada. Tente novamente mais tarde.</string>
+	<string name="setting_delete_account_in_progress">Excluindo sua conta...</string>
+	<string name="setting_delete_account_toast_title">Você excluiu a sua conta do Pocket</string>
+	<string name="setting_delete_account_toast_message">De que forma sua experiência poderia ter sido melhor?</string>
+	<string name="setting_delete_account_toast_button">Pesquisa rápida</string>
+	<string name="setting_header_general">Geral</string>
+	<string name="setting_rotation_label">Bloqueio de rotação do aplicativo</string>
+	<string name="setting_rotation_sum">Quando ativado, um botão de bloqueio aparecerá no centro da tela depois de fazer a rotação de seu dispositivo. Toque no ícone para travar a orientação em uso e toque novamente para destravar</string>
+	<string name="setting_header_theme">Tema do aplicativo</string>
+	<string name="setting_theme">Tema</string>
+	<string name="setting_auto_dark_theme_threshold_automatic">Automático</string>
+	<string name="setting_system_theme_label">Combinar o tema do sistema</string>
+	<string name="setting_header_reading">Leitura</string>
+	<string name="setting_always_open_original_label">Sempre abrir o site original</string>
+	<string name="setting_always_open_original_sum">O Pocket sempre abrirá o site original, e não o Modo Artigo</string>
+	<string name="setting_default_browser_label" comment="Setting that allows you to choose a browser. This header is followed by the name of the chosen browser on the next line.">Abrir sites originais com</string>
+	<string name="setting_default_browser_system" comment="Default value of the &apos;setting_default_browser_label&apos; setting, which means we will use the default browser from system settings.">Navegador padrão do sistema</string>
+	<string name="setting_text_align_label">Texto justificado</string>
+	<string name="setting_text_align_sum">Exibe o texto no Modo Artigo com justificação</string>
+	<string name="setting_auto_fullscreen_label">Tela cheia automática</string>
+	<string name="setting_auto_fullscreen_sum">Ocultar as barras de ferramentas durante a leitura/rolagem para baixo. Exibir as barras de ferramentas durante a rolagem para cima</string>
+	<string name="setting_continue_reading_label">Continuar lendo</string>
+	<string name="setting_continue_reading_sum">Exibir o último item que eu estava vendo quando eu voltar a acessar o Pocket.</string>
+	<string name="setting_tts_label">Mecanismo de conversão de texto para voz</string>
+	<string name="setting_tts_sum_fallback">Nenhum instalado</string>
+	<string name="setting_header_offline">Baixando off-line</string>
+	<string name="setting_download_article_label">Sempre buscar Modo Artigo</string>
+	<string name="setting_download_article_sum_unavailable">Indisponível quando se baixa automaticamente a melhor visualização</string>
+	<string name="setting_download_article_sum">Baixar automaticamente o artigo para cada item em sua lista</string>
+	<string name="setting_only_wifi_label">Baixar apenas no Wi-Fi</string>
+	<string name="setting_mobile_useragent_label">Agente de usuário móvel</string>
+	<string name="setting_mobile_useragent_sum">Baixar versões móveis quando disponíveis</string>
+	<string name="setting_clear_download_label">Limpar os arquivos baixados</string>
+	<string name="setting_storage_location">Local de armazenamento off-line</string>
+	<string name="setting_header_syncing">Sincronizando</string>
+	<string name="setting_sync_on_open_label">Sincronizar quando o aplicativo abrir</string>
+	<string name="setting_background_sync_label">Sincronização no plano de fundo</string>
+	<string name="setting_header_notifications">Notificações</string>
+	<string name="setting_manage_notification_settings">Configurações de notificações do aparelho</string>
+	<string name="setting_manage_notification_settings_sum">Personalize o som e a vibração das notificações, e muito mais nas configurações do Android</string>
+	<string name="setting_notify_sound_label">Áudio de notificação</string>
+	<string name="setting_notify_sound_silent_sum">Silencioso</string>
+	<string name="setting_notify_light_label">LED</string>
+	<string name="setting_notify_light_sum">Piscar o LED quando houver uma nova notificação</string>
+	<string name="setting_share_overlay_label">Ações rápidas para salvar</string>
+	<string name="setting_share_overlay_sum">Ao salvar no Pocket a partir de outro aplicativo, exiba de forma resumida as ações que pode realizar no novo item.</string>
+	<string name="setting_header_about">Sobre</string>
+	<string name="setting_help">Obter ajuda e suporte</string>
+	<string name="setting_twitter_label">Siga o @Pocket no Twitter</string>
+	<string name="setting_facebook_label">Siga-nos no Facebook</string>
+	<string name="setting_legal_label">Termos legais e privacidade</string>
+	<string name="setting_contact_us">Fale conosco</string>
+	<string name="setting_thank_you">Obrigado pelo download. Divirta-se!</string>
+	<string name="setting_header_version">Versão</string>
+	<string name="setting_version_label">Pocket %1$s</string>
+	<string name="setting_previous_and_next">Mostrar setas \"Anterior\" e \"Seguinte\"</string>
+	<string name="setting_app_icon_label">Ícone do aplicativo</string>
+	<string name="setting_app_icon_header_automatic">Deixe o Pocket escolher seu ícone</string>
+	<string name="setting_app_icon_header_all">Ou selecione seu ícone favorito</string>
+	<string name="setting_app_icon_classic" comment="As in &apos;classic icon&apos;, so for gendered languages should follow the gender of &apos;App icon&apos; from setting_app_icon_label">Clássico</string>
+	<string name="setting_app_icon_pride_flag" comment="As in &apos;Pride icon&apos;, so for gendered languages should follow the gender of &apos;App icon&apos; from setting_app_icon_label">Orgulho</string>
+	<string name="setting_app_icon_monochrome" comment="As in &apos;monochrome icon&apos;, so for gendered languages should follow the gender of &apos;App icon&apos; from setting_app_icon_label">Monocromático</string>
+
+	<string name="prem_setting_thanks">Obrigado por assinar o Pocket Premium!</string>
+	
+	<string name="prem_setting_status">Status da assinatura</string>
+	<string name="prem_setting_subscription">Assinatura</string>
+	<string name="prem_setting_subscription_monthly">Mensal</string>
+	<string name="prem_setting_subscription_annual" comment="occurring once per year">Anual</string>
+	<string name="prem_setting_date_purchased">Data da Compra</string>
+	<string name="prem_setting_renewal_date">Data da Renovação</string>
+	<string name="prem_setting_renew_subscription">Renovar assinatura</string>
+	<string name="prem_setting_inactive_subscription">Inativo</string>
+	<string name="prem_setting_subscription_ended_tap_to_renew">Sua assinatura chegou ao fim. Toque para renovar sua assinatura do Premium.</string>
+	<string name="prem_setting_date_ended">Data do término</string>
+	<string name="prem_setting_purchase_location">Local da compra</string>
+	<string name="prem_setting_your_premium_features">Seus recursos do Premium</string>
+	<string name="prem_setting_your_subscription">Sua assinatura</string>
+	<string name="prem_setting_manage_your_subscription">Gerenciar sua assinatura</string>
+	<string name="prem_setting_questions">Perguntas ou feedback?</string>
+	<string name="prem_setting_faq">FAQ do Pocket Premium</string>
+	<string name="prem_setting_contact">Fale com o Suporte do Pocket</string>
+	<string name="prem_setting_premium_header">Premium</string>
+	<string name="prem_setting_upgrade">Fazer o upgrade para o Premium</string>
+	<string name="prem_setting_restore">Restaurar assinatura existente</string>
+	
+	<string name="purchase_error_offline_t">Parece que você está off-line</string>
+	<string name="purchase_error_offline_m">É preciso estar on-line para fazer o upgrade para o Pocket Premium. Verifique sua conexão e tente novamente.</string>
+	<string name="purchase_error_activation_t">Erro na ativação</string>
+	<string name="purchase_error_activation_m">A compra foi efetuada, mas tivemos problemas em ativar sua conta. Toque em Ok para obter instruções de como concluir a ativação.</string>
+	<string name="purchase_error_purchase_t">Compra não concluída</string>
+	<string name="purchase_error_purchase_m">Ocorreu um problema ao completar sua compra. Tente novamente.</string>
+	<string name="purchase_error_progress">Concluindo sua compra...</string>
+	<string name="purchase_error_already_owned_t">Já inscrito</string>
+	<string name="purchase_error_already_owned_m">Você já tem uma assinatura no Pocket Premium.</string>
+	<string name="purchase_error_restore_none_found_t">Restauração não concluída</string>
+	<string name="purchase_error_restore_none_found_m">Não foi possível achar nenhuma assinatura. Se você acha que tem uma, toque em %1$s para nos informar.</string>
+	<string name="purchase_restored">Assinatura restaurada</string>
+    <string name="purchase_error_amazon_m">O upgrade para o Pocket Premium não está disponível pela Amazon App Store atualmente.</string> <!-- no translation necessary, as it is an email to our support team -->
+
+	<string name="setting_background_sync_0">Instantaneamente (Push)</string>
+	<string name="setting_background_sync_1">Toda hora</string>
+	<string name="setting_background_sync_2">Duas vezes por dia</string>
+	<string name="setting_background_sync_3">Uma vez por dia</string>
+	<string name="setting_background_sync_4">Nunca</string>
+	
+    <!-- Text displayed in the enter key slot when the recipientedittextview has focus.
+         [CHAR LIMIT=12] -->
+    <string name="done">Retornar</string>
+
+    <string name="setting_cache_set_offline_storage_limits">Definir limites de armazenamento off-line</string>
+    <string name="setting_cache_priority">Prioridade de download</string>
+    <string name="setting_cache_priority_newest">Primeiro os itens mais novos</string>
+    <string name="setting_cache_priority_oldest">Primeiro os itens mais antigos</string>
+    <string name="setting_cache_limit_description">Defina um limite para a quantidade de armazenamento que o Pocket está autorizado a usar para download off-line.</string>
+    <string name="setting_cache_currently_using" comment="Do not translate values in {brackets}">O Pocket está usando aproximadamente <b>{disk_space_size}</b> do armazenamento do seu dispositivo.</string>
+    <string name="setting_cache_currently_adjusting">Aplicando seus limites de armazenamento off-line...</string>
+    <string name="setting_cache_limit_to" comment="Will be used to present a disk space value like Limit to: 500 MB">Limite até:</string>
+    <string name="setting_cache_unlimited">Ilimitado</string>
+    <string name="setting_cache_approx_item_count">Aproximadamente <b>{item_count}</b> de seus itens <b>{newest_or_oldest}</b> estarão disponíveis off-line.</string>
+    <string name="setting_cache_priority_inline_newest">mais novos</string>
+    <string name="setting_cache_priority_inline_oldest">mais antigos</string>
+    <string name="setting_cache_confirm_change_t">Alterar Configurações de Armazenamento?</string>
+    <string name="setting_cache_confirm_change_m" comment="Please try to keep as short as possible">O Pocket pode remover ou baixar um conteúdo adicional para refletir suas alterações.</string>
+    <string name="setting_cache_may_take_a_few_minutes">A ação pode demorar alguns minutos para ser concluída.</string>
+    <string name="setting_cache_mb" comment="abbreviation for Megabytes. Used like 800 MB">MB</string>
+    <string name="setting_cache_gb" comment="abbreviation for Gigabytes. Used like 1.2 GB">GB</string>
+    <string name="setting_cache_not_saved_m">As alterações ainda não foram salvas. Deseja descartar as alterações ou continuar editando?</string>
+	
+	<string name="storage_free_space">Espaço livre: %1$s</string>
+	<string name="storage_free_space_unknown">Desconhecido</string>
+	<string name="storage_location_changed">Local de armazenamento modificado com sucesso</string>
+	<string name="storage_type_internal">Interno</string>
+	<string name="storage_type_internal_specific_sandboxed">Interno (Área Restrita)</string>
+	<string name="storage_type_internal_specific_unsandboxed">Interno (Público)</string>
+	<string name="storage_type_removable">Removível</string>
+	<string-array name="storage_location_specs_internal">
+        <item><b>Recomendado.</b></item>
+        <item>Cache do download visível somente no Pocket.</item>
+	</string-array>
+	<string-array name="storage_location_specs_removable">
+		<item>Cache do download visível em outros aplicativos.</item>
+		<item>O Pocket pode ficar indisponível se o local de armazenamento for removido ou modificado.</item>
+		<item>O Pocket pode ficar inutilizável quando seu dispositivo estiver conectado ao seu computador via USB.</item>
+	</string-array>
+
+	<string name="onboarding_learn_more_1_title" comment="If possible without losing meaning, try to keep to 35 characters or less">Salve o que realmente interessa</string>
+	<string name="onboarding_learn_more_1_text" comment="If possible without losing meaning, try to keep to 145 characters or less">Reúna artigos, vídeos ou qualquer conteúdo on-line que quiser. Acesse-os a qualquer hora e em qualquer celular, tablet ou navegador.</string>
+	<string name="onboarding_learn_more_2_title" comment="If possible without losing meaning, try to keep to 35 characters or less">Aproveite o momento ao máximo</string>
+	<string name="onboarding_learn_more_2_text" comment="If possible without losing meaning, try to keep to 145 characters or less">Salve do Chrome, Twitter, YouTube ou do seu app de notícias favorito (para começar). Seus artigos e vídeos estarão à sua espera no Pocket.</string>
+	<string name="onboarding_learn_more_3_title" comment="If possible without losing meaning, try to keep to 35 characters or less">Seu cantinho sereno na internet</string>
+	<string name="onboarding_learn_more_3_text" comment="If possible without losing meaning, try to keep to 145 characters or less">O Pocket salva artigos em um layout limpo e próprio para a leitura — sem interrupções nem janelas pop-up, para evitar as distrações da internet.</string>
+	
+	<string name="legacy_upgrading">O Pocket está fazendo um upgrade do aplicativo. Isso pode levar alguns minutos. O upgrade será feito em segundo plano. Fique à vontade para voltar mais tarde.</string>
+	
+	<string name="report_item_overflow_option">Denunciar este item</string>
+	<string name="report_item_option_1">O título, link ou imagem está corrompido</string>
+	<string name="report_item_option_2">Está na categoria errada</string>
+	<string name="report_item_option_3">É de teor sexual explícito</string>
+	<string name="report_item_option_4">É rude, vulgar ou ofensivo</string>
+	<string name="report_item_option_5">Contém desinformação</string>
+	<string name="report_item_option_6">Outro</string>
+	<string name="report_item_hint">Conte mais</string>
+	<string name="report_item_dialog_title">Relatar um problema</string>
+	<string name="report_item_submit_title">Obrigado!</string>
+	<string name="report_item_submit_text">Seus relatos e denúncias ajudam a proteger a comunidade do Pocket.</string>
+	
+	<string name="collection_details_error_title">Não foi possível carregar a Coleção</string>
+	<string name="collection_details_error_message">O Pocket não conseguiu carregar esta Coleção corretamente. Tente novamente mais tarde.</string>
+	
+	<string name="viewed">Visualizado</string>
+	<string name="not_viewed">Não visualizado</string>
+	
+	<string name="no_internet_connection">Sem conexão à internet</string>
+	<string name="no_internet_connection_body">Parece que você está off-line. Verifique seus dados móveis ou sua conexão à rede wi-fi.</string>
+	
+	<string name="fxa_account_migrated">Sua conta foi migrada com sucesso.</string>
+	
+	<string name="my_list_filter_all">Todos</string>
+	<string name="my_list_filter_tagged">Com tag </string>
+	<string name="my_list_filter_favorites">Favoritos</string>
+	<string name="my_list_filter_filter">Filtrar</string>
+	<string name="my_list_filter_edit">Editar</string>
+	<string name="my_list_filter">Filtrar</string>
+	<string name="edit_tags">Editar tags</string>
+	<string name="move_to_my_list">Mover para Salvos</string>
+	<string name="highlighted">Destacado</string>
+	<string name="delete_tag_confirmation_message">"Excluir tag %1$s?"</string>
+	
+	<string name="empty_list_all_title">Comece a criar sua lista do Pocket</string>
+	<string name="empty_list_all_action">Como Salvar</string>
+	<string name="empty_list_favorites_title">Encontre seus favoritos aqui</string>
+	<string name="empty_list_favorites_message">Toque no ícone de estrela para marcar um artigo como favorito e encontrá-lo mais rapidamente.</string>
+	<string name="empty_list_tagged_title">Organize sua lista</string>
+	<string name="empty_list_tagged_message">Use tags para organizar seus itens salvos por tópico e encontrá-los com mais facilidade.</string>
+	<string name="empty_list_tagged_action">Como adicionar uma tag</string>
+	<string name="empty_list_specific_tag_title">Não há nenhum item salvo com essa tag.</string>
+	<string name="empty_list_highlights_title">Salve suas citações favoritas aqui</string>
+	<string name="empty_list_highlights_message">Selecione uma frase em um artigo e clique em \"destacar\" para salvá-la.</string>
+	<string name="empty_list_archive_title">Mantenha sua lista atualizada e organizada</string>
+	<string name="empty_list_archive_message">Use o ícone de arquivar para guardar os itens salvos que você não precisa mais acessar.</string>
+	<string name="empty_list_archive_action">Como arquivar</string>
+	
+	<string name="time_to_read_filter_short">Curto</string>
+	<string name="time_to_read_filter_short_description">Menos de 10 minutos</string>
+	<string name="time_to_read_filter_long">Longa</string>
+	<string name="time_to_read_filter_long_description">10 minutos ou mais</string>
+	<string name="short_reads">Leituras rápidas</string>
+	<string name="long_reads">Leituras longas</string>
+	
+	<string name="notification_permission_primer_title">Não perca nenhum artigo de seu interesse</string>
+	<string name="notification_permissions_primer_message">Podemos te sugerir leituras de tempos em tempos?</string>
+	<string name="notification_permissions_primer_positive_button">Com certeza</string>
+	<string name="notification_permissions_primer_negative_button">Pergunte-me depois</string>
+	
+	<string name="home_sign_in_banner">Faça login para aproveitar o melhor do Pocket</string>
+	<string name="home_see_all">Ver tudo</string>
+	<string name="home_collection">Coleção</string>
+	<string name="recent_saves">Salvos recentemente</string>
+	<string name="home_more_topics">Mais tópicos</string>
+	<string name="home_footer_message">Você leu tudo! Volte amanhã para mais.</string>
+	<string name="home_error_title">Não foi possível obter novos artigos</string>
+	<string name="home_error_message">Tente recarregar a Página inicial.</string>
+	<string name="home_topic_error_message">Tente recarregar os artigos.</string>
+	
+	<string name="original_web_no_browser">Não foi possível encontrar um navegador para abrir esta página</string>
+	<string name="original_web_changed_browser_setting" comment="The format argument (%1$s) will be replaced with a browser name like &apos;Chrome&apos; or &apos;Firefox&apos; chosen from one of the browsers installed on the device.">O Pocket mudou o navegador favorito para %1$s porque o navegador padrão do sistema não está configurado.</string>
+	<string name="highlights">Destaques</string>
+	<string name="end_of_article_title">Você também pode gostar</string>
+	<string name="previous_and_next_setting_description">Use os botões \"Seguinte\" e \"Anterior\" para passar rapidamente de um artigo para outro</string>
+
+	<string name="add_url_title">Adicionar URL</string>
+	<string name="add_url_hint" comment="Hint for an input field where you can paste a URL to save (add to your saves)">por exemplo,https://getpocket.com</string>
+	<string name="add_url_error">Digite um URL válido</string>
+
+	<string name="authentication_legal_disclaimer" comment="This string uses Markdown formatting. Please preserve the formatting (including TWO spaces before the new line).">"Ao continuar, você concorda com:  \nos [Termos de Serviço](https://getpocket.com/tos) e com o [Aviso de Privacidade](https://getpocket.com/privacy) do Pocket"</string>
+</resources>

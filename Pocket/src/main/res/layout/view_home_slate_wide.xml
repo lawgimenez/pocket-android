@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pocket.ui.view.themed.ThemedConstraintLayout2
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="64dp"
+    >
+    
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/graphik"
+        android:textColor="@color/pkt_themed_grey_1"
+        android:textSize="20sp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/seeAllLayout"
+        tools:text="Editor's Picks"/>
+    
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/subtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="18dp"
+        android:fontFamily="@font/graphik"
+        android:textColor="@color/pkt_themed_grey_1"
+        android:textSize="14sp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/seeAllLayout"
+        tools:text="Curated guides to the best reads on the web"/>
+    
+    <com.pocket.ui.view.themed.ThemedLinearLayout
+        android:id="@+id/seeAllLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginEnd="13dp"
+        android:padding="5dp"
+        app:layout_constraintBottom_toBottomOf="@id/subtitle"
+        app:layout_constraintEnd_toEndOf="parent">
+        
+        <com.pocket.ui.view.themed.ThemedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="9dp"
+            android:fontFamily="@font/graphik"
+            android:textSize="14sp"
+            android:textColor="@color/pkt_themed_teal_home"
+            android:text="@string/home_see_all"/>
+        
+        <ImageView
+            android:layout_width="14dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_pkt_forward_chevron_line"
+            app:tint="@color/pkt_themed_teal_home"
+            tools:ignore="ContentDescription"
+            />
+    
+    </com.pocket.ui.view.themed.ThemedLinearLayout>
+    
+    <com.pocket.app.home.views.WideHeroCardView
+        android:id="@+id/heroCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        app:layout_constraintTop_toBottomOf="@id/subtitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    
+    <com.pocket.ui.view.themed.ThemedRecyclerView
+        android:id="@+id/minorCardRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        app:layout_constraintTop_toBottomOf="@id/heroCard"
+        tools:listitem="@layout/view_home_slate_minor_card"/>
+
+</com.pocket.ui.view.themed.ThemedConstraintLayout2>

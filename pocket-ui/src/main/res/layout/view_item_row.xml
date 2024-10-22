@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <com.pocket.ui.view.visualmargin.VisualMarginConstraintLayout
+        android:id="@+id/centeringVisualMargin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/bottomMargin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:visualMargin_top="@dimen/pkt_space_md">
+
+        <!--  Wrapper view to vertically center these two pieces to each other regardless of which ends up being taller -->
+
+        <com.pocket.ui.view.item.ItemMetaView
+            android:id="@+id/meta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pkt_side_grid"
+            app:layout_constraintEnd_toStartOf="@+id/splitGuide"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_height="60dp"
+            />
+        <com.pocket.ui.view.item.ItemThumbnailView
+            android:id="@+id/thumbnail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/pkt_space_sm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/splitGuide"
+            tools:src="@drawable/pkt_title_logo"/>
+        
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/splitGuide"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.65"/>
+
+    </com.pocket.ui.view.visualmargin.VisualMarginConstraintLayout>
+
+   <!-- TODO after removing the actions view, do we still need the bottom margin? Maybe when we don't have a divider? Maybe the divider could just go invisible if that is the case -->
+
+    <com.pocket.ui.view.item.SimpleItemActionsView
+        android:id="@+id/simpleActions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/centeringVisualMargin"
+        />
+
+    <Space
+        android:id="@+id/bottomMargin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/centeringVisualMargin"
+        app:visualMargin_top="@dimen/pkt_space_md"
+        />
+
+    <com.pocket.ui.view.themed.ThemedView
+        android:id="@+id/divider"
+        style="@style/Pkt_ThinDivider"
+        android:layout_width="0dp"
+        android:layout_marginEnd="@dimen/pkt_side_grid"
+        android:layout_marginLeft="@dimen/pkt_side_grid"
+        android:layout_marginRight="@dimen/pkt_side_grid"
+        android:layout_marginStart="@dimen/pkt_side_grid"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+</merge>

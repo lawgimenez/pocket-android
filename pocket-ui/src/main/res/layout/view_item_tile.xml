@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <com.pocket.ui.view.item.ItemThumbnailView
+        android:id="@+id/item_thumbnail"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/pkt_space_md"
+        app:layout_constraintBottom_toTopOf="@+id/item_meta"
+        app:layout_constraintDimensionRatio="H,3:2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:src="@color/pkt_coral_2"/>
+
+    <com.pocket.ui.view.item.ItemMetaView
+        android:id="@+id/item_meta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/item_actions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_thumbnail"
+        app:layout_constraintVertical_bias="0.0"
+        app:visualMargin_top="@dimen/pkt_space_md"/>
+
+    <com.pocket.ui.view.item.ItemActionsBarView
+        android:id="@+id/item_actions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_meta"
+        app:itemActionBarSidePadding="@dimen/pkt_space_md"
+        app:visualMargin_top="@dimen/pkt_space_md"/>
+
+    <Space
+        android:id="@+id/bottom_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_actions"
+        app:visualMargin_top="@dimen/pkt_space_md"/>
+
+</merge>

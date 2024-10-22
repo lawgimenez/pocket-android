@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="com.pocket.ui.view.notification.PktSnackbar">
+
+    <com.pocket.ui.view.visualmargin.VisualMarginConstraintLayout
+        android:id="@+id/snackbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <com.pocket.ui.view.button.IconButton
+            android:id="@+id/icon"
+            style="@style/Pkt_IconButton"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/pkt_space_sm"
+            android:layout_marginBottom="@dimen/pkt_space_sm"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.pocket.ui.view.themed.ThemedTextView
+            android:id="@+id/title"
+            style="@style/Pkt_Text_Title"
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:visualMargin_top="@dimen/pkt_space_md"
+            app:layout_goneMarginBottom="@dimen/pkt_space_md"
+            app:layout_goneMarginStart="@dimen/pkt_space_md"
+            app:layout_goneMarginLeft="@dimen/pkt_space_md"
+            app:layout_goneMarginRight="@dimen/pkt_space_md"
+            app:layout_goneMarginEnd="@dimen/pkt_space_md"
+            app:layout_constraintBottom_toTopOf="@+id/message"
+            app:layout_constraintEnd_toStartOf="@+id/actionButton"
+            app:layout_constraintStart_toEndOf="@id/icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <com.pocket.ui.view.themed.ThemedTextView
+            android:id="@id/message"
+            style="@style/Pkt_Text_Light"
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:visualMargin_top="@dimen/pkt_space_sm"
+            app:visualMargin_goneTop="@dimen/pkt_space_md"
+            android:layout_marginBottom="@dimen/pkt_space_md"
+            android:ellipsize="end"
+            app:layout_goneMarginStart="@dimen/pkt_space_md"
+            app:layout_goneMarginLeft="@dimen/pkt_space_md"
+            app:layout_goneMarginRight="@dimen/pkt_space_md"
+            app:layout_goneMarginEnd="@dimen/pkt_space_md"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/actionButton"
+            app:layout_constraintStart_toEndOf="@id/icon"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <com.pocket.ui.view.themed.ThemedTextView
+            android:id="@+id/actionButton"
+            style="@style/Pkt_Text_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pkt_space_sm"
+            android:layout_marginTop="@dimen/pkt_space_sm"
+            android:layout_marginEnd="@dimen/pkt_space_md"
+            android:layout_marginBottom="@dimen/pkt_space_sm"
+            android:background="@drawable/pkt_ripple_borderless"
+            android:paddingBottom="4dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/message"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </com.pocket.ui.view.visualmargin.VisualMarginConstraintLayout>
+</merge>

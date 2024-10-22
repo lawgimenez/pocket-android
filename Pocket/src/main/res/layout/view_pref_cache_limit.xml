@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pocket="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/set_limit_desc"
+        style="@style/Pkt_Text_Light"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pkt_side_grid"
+        android:layout_marginStart="@dimen/pkt_side_grid"
+        android:layout_marginRight="@dimen/pkt_side_grid"
+        android:layout_marginEnd="@dimen/pkt_side_grid"
+        android:text="@string/setting_cache_limit_description"
+        pocket:layout_constraintBottom_toTopOf="@+id/current_cache_limit_textview"
+        pocket:layout_constraintEnd_toEndOf="parent"
+        pocket:layout_constraintStart_toStartOf="parent"
+        pocket:layout_constraintTop_toTopOf="parent"
+        pocket:layout_constraintVertical_chainStyle="packed"
+        pocket:visualMargin_top="@dimen/pkt_space_md" />
+
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/current_cache_limit_textview"
+        style="@style/Pkt_Text_Light"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pkt_side_grid"
+        android:layout_marginStart="@dimen/pkt_side_grid"
+        android:layout_marginRight="@dimen/pkt_side_grid"
+        android:layout_marginEnd="@dimen/pkt_side_grid"
+        android:text="@string/setting_cache_currently_using"
+        pocket:layout_constraintBottom_toTopOf="@+id/limit_to"
+        pocket:layout_constraintEnd_toEndOf="parent"
+        pocket:layout_constraintStart_toStartOf="parent"
+        pocket:layout_constraintTop_toBottomOf="@id/set_limit_desc"
+        pocket:layout_constraintVertical_chainStyle="packed"
+        pocket:visualMargin_top="@dimen/pkt_space_md" />
+
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/limit_to"
+        style="@style/Pkt_Text_LightTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pkt_side_grid"
+        android:layout_marginStart="@dimen/pkt_side_grid"
+        android:layout_marginRight="@dimen/pkt_side_grid"
+        android:layout_marginEnd="@dimen/pkt_side_grid"
+        android:text="@string/setting_cache_limit_to"
+        pocket:layout_constraintBottom_toTopOf="@+id/seekbar"
+        pocket:layout_constraintEnd_toEndOf="parent"
+        pocket:layout_constraintStart_toStartOf="parent"
+        pocket:layout_constraintTop_toBottomOf="@id/current_cache_limit_textview"
+        pocket:layout_constraintVertical_chainStyle="packed"
+        pocket:visualMargin_top="@dimen/pkt_space_lg" />
+
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/value_limit"
+        style="@style/Pkt_Text_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pkt_side_grid"
+        android:layout_marginStart="@dimen/pkt_side_grid"
+        android:layout_marginRight="@dimen/pkt_side_grid"
+        android:layout_marginEnd="@dimen/pkt_side_grid"
+        pocket:layout_constraintBottom_toTopOf="@+id/seekbar"
+        pocket:layout_constraintEnd_toEndOf="parent"
+        pocket:layout_constraintTop_toBottomOf="@id/current_cache_limit_textview"
+        pocket:visualMargin_top="@dimen/pkt_space_lg" />
+
+    <com.pocket.app.settings.cache.CacheLimitSeekbar
+        android:id="@+id/seekbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/limit_to"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:splitTrack="false"
+        pocket:layout_constraintBottom_toTopOf="@+id/current_items_cached_textview"
+        pocket:layout_constraintEnd_toEndOf="parent"
+        pocket:layout_constraintStart_toStartOf="parent"
+        pocket:layout_constraintTop_toBottomOf="@id/limit_to"
+        pocket:layout_constraintVertical_chainStyle="packed"
+        pocket:progressColor="blue" />
+
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/current_items_cached_textview"
+        style="@style/Pkt_Text_Light"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pkt_side_grid"
+        android:layout_marginStart="@dimen/pkt_side_grid"
+        android:layout_marginRight="@dimen/pkt_side_grid"
+        android:layout_marginEnd="@dimen/pkt_side_grid"
+        android:paddingBottom="@dimen/pkt_space_md"
+        android:text="@string/setting_cache_currently_using"
+        pocket:layout_constraintBottom_toBottomOf="parent"
+        pocket:layout_constraintEnd_toEndOf="parent"
+        pocket:layout_constraintStart_toStartOf="parent"
+        pocket:layout_constraintTop_toBottomOf="@id/seekbar"
+        pocket:layout_constraintVertical_chainStyle="packed"
+        pocket:visualMargin_top="@dimen/pkt_space_sm" />
+
+</merge>

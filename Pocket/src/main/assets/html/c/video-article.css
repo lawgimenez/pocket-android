@@ -1,0 +1,14 @@
+.video_box
+{
+	background-color: #dddddd;
+}
+
+.video_box_play_icon
+{
+	background-color: black !important;
+}
+
+/** Dark Themes 1=dark 4=black */
+body[textStyle="1"] .video_box {
+	background-color: #d8d8d8;
+}

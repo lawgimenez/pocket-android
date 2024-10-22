@@ -1,0 +1,732 @@
+extend schema @remote(name: "Local")
+
+extend type Mutation {
+    """
+    Recalculate and re-imprint all derived fields.
+    Use this in case deriving logic changed and you want all remembered items to update their derived fields.
+    """
+    rederive_items(items: [Item]): Void
+    @figment(effect: "Rederive and re-imprint all {.items}.")
+}
+
+extend type Mutation {
+    "mark an item as opened"
+    markAsViewed(url: Url): Void
+    @figment(related_to: "MarkAsViewedFeature")
+    @figment(effect: "Look up an {Item} where {Item.id_url} is {.url} and update:")
+    @figment(effect: "  * {Item.viewed} = true")
+    @figment(effect: "  * {Item.time_updated} = {.time}")
+
+    "mark an item as unopened"
+    markAsNotViewed(url: Url): Void
+    @figment(related_to: "MarkAsViewedFeature")
+    @figment(effect: "Look up an {Item} where {Item.id_url} is {.url} and update:")
+    @figment(effect: "  * {Item.viewed} = false")
+    @figment(effect: "  * {Item.time_updated} = {.time}")
+}
+
+"""
+Broken out from {get.list} and its various filter fields, as a separate entity to make it manageable client side.
+"""
+type saves @figment(related_to: "MyListFeature") {
+    offset: Int @id
+
+    count: Int @id
+
+    sort: ItemSortKey @id
+
+    filters: [ItemFilterKey] @id
+
+    "Filters {.list} to only items matching a certain status. If not specified, defaults to {ItemStatusKey.all}"
+    state: ItemStatusKey @id
+
+    minWordCount: Int @id
+
+    maxWordCount: Int @id
+
+    "Limit to items that have at least one {Item.positions.time_spent} >= this value"
+    minTimeSpent: Int @id
+
+    "Limit to items that have all {Item.positions.percent} < this value"
+    maxScrolled: Int @id
+
+    "If not null, Limit result to items that match this value. If true, return only favorited items, if false, only unfavorited items."
+    favorite: Boolean @id
+
+    "If not null, if true, only return items with annotations, if false only return items that don't have annotations"
+    hasAnnotations: Boolean @id
+
+    "If not null, limit results to matching this search. Free search or offline search matches given_url, resolved_url, and title. max length of 100"
+    search: String @id
+
+    "If not null, Limit result to items with this tag"
+    tag: String @id
+
+    "If not null, Limit result to items matching this content type"
+    contentType: ItemContentType @id
+
+    "If not null, limit results to items whose {Item.is_article} matches this"
+    is_article: Boolean @id
+
+    "If true, only return items with approved shares, if false only return items that don't have any shares, if null don't consider."
+    shared: Boolean @deprecated @id
+
+    "If not null, limit result to items where {Item.time_added} is >= this time."
+    added_since: Timestamp @id
+
+    "If not null, limit result to items where {Item.time_read} is >= this time."
+    archived_since: Timestamp @id
+
+    "If not null, limit result to one item whose {Item.item_id} is this value."
+    item_id: String @id
+
+    "A {Group.group_id} to filter to. Will only return items whose {Item.badge_group_id} match this."
+    group_id: GroupId @id
+
+    "Filter {.list} to items of this domain only."
+    host: String @id
+
+    "Limits to items that still need one or more views to be downloaded in order to match the provided preference. If null has no effect."
+    downloadable: OfflinePreference @id
+
+    "For use with {.downloadable}. If true, then it will also consider {OfflineStatus.FAILED} and {OfflineStatus.PARTIAL} as downloadable."
+    downloadable_retries: Boolean @id
+
+    "A list of items matching the various parameters supplied"
+    list: [Item]
+    @derives(reactive: "Item")
+    @derives(instructions: "if state is set, only return items matching that state")
+    @derives(instructions: "if search is set, limit to items where {Item.given_title}, {Item.resolved_title}, {Item.given_url} or {Item.resolved_url} contains {.search}")
+    @derives(instructions: "if favorite is set, and true, limit to items that are favorited. if set and false, limit to non-favorited items")
+    @derives(instructions: "if tag is set, limit to items that have this tag")
+    @derives(instructions: "if contentType is set, limit to items that match this content type TODO document matching logic")
+    @derives(instructions: "if hasAnnotations is set, limit to only items that have annotations")
+    @derives(instructions: "if shared is set, limit to items that have shares TODO document logic for having a share")
+    @derives(instructions: "if sort is set, sort items")
+    @derives(instructions: "if count is set, only return at most count items")
+    @derives(instructions: "if offset is set, only return items from that offset")
+    @derives(instructions: "if is_article is set, only return items whose {Item.is_article} matches")
+    @derives(instructions: "if added_since is set, only return items where all of their {Item.time_added} is >= this time.")
+    @derives(instructions: "if archived_since is set, only return items where all of their {Item.time_read} is >= this time.")
+    @derives(instructions: "if item_id is set, only return a single item where all of their {Item.item_id} is this value")
+    @derives(instructions: "if group_id is set, limit result to items where {Item.badge_group_id} is {.group_id}")
+    @derives(instructions: "if minTimeSpent is set, limit to items that have at least one {Item.positions.time_spent} >= this value")
+    @derives(instructions: "if maxScrolled is set, limit to items that have all {Item.positions.percent} < this value")
+    @derives(instructions: "if {.downloadable} is not null:")
+    @derives(instructions: "  * Below when it says a \"downloadable status\" it means the {OfflineStatus} is null or {OfflineStatus.NOT_OFFLINE}, or if {.downloadable_retries} is true, also consider {OfflineStatus.FAILED} and {OfflineStatus.PARTIAL} as downloadable.")
+    @derives(instructions: "  * If {OfflinePreference.both}, find items where either {Item.offline_text} or {Item.offline_web} have a downloadable status.")
+    @derives(instructions: "  * If {OfflinePreference.web_only}, find items where {Item.offline_web} has a downloadable status.")
+    @derives(instructions: "  * If {OfflinePreference.article_only}, find items where {Item.is_article} is true and {Item.offline_text} has a downloadable status.")
+    @derives(instructions: "  * If {OfflinePreference.auto}, find items where {Item.is_article} is true and {Item.offline_text} has a downloadable status or where {Item.is_article} is false and {Item.offline_web} has a downloadable status.")
+}
+enum ItemFilterKey @figment(related_to: "SearchFeature") {
+    viewed
+    not_viewed
+    favorite
+    highlighted
+    short_reads
+    long_reads
+    tag
+    not_tagged
+}
+enum OfflinePreference @figment(related_to: "OfflineFeature") {
+    auto
+    web_only
+    article_only
+    both
+}
+
+"""
+Local state of tags, including breaking the list out from {get.tags} as a separate entity
+to make it manageable client side and keeping track of some derived state like recency of use.
+"""
+type Tags @figment(related_to: "TaggingFeature") @unique {
+    "All tags in use by the current account sorted alphabetically."
+    tags: [String]
+    @derives(reactive: ["get.tags", "Item.tags"])
+    @derives(instructions: "Set from {get.tags}")
+    @derives(instructions: "If a client has all items that are archived and unread, it can calculate this by looking for all possible tags in {Item.tags}")
+    @derives(instructions: "Sort ASC")
+
+    """
+    A subset of {.tags} starting from most recently used.
+    For this purpose "used" means "added to an item".
+    Updates any time a tag is added to an item locally and makes a best effort of keeping
+    track of updates coming from {get}.
+    """
+    recentlyUsed: [Tag]
+    @derives(reactive: [".tags", "Item.tags"])
+    @derives(instructions: "If there's a new tag added to {.tags} or an existing tag added to {Item.tags},")
+    @derives(instructions: "add it at the start of the list.")
+    @derives(instructions: "If it was already in the list, move it to the start instead.")
+    @derives(instructions: "If a tag was removed from {.tags} remove it from the list.")
+}
+
+"""
+Broken out from {get.friends} as a separate entity to make it manageable client side.
+"""
+type Friends @_deprecated @figment(related_to: "SendToFriendFeature") @unique {
+    friends: [Friend]
+    @derives(reactive: ["get.friends", "fetch.friends"])
+    @derives(instructions: "add any new and update and existing from {get.friends}.")
+}
+
+"""
+Broken out from {get.recent_friends} as a separate entity to make it manageable client side.
+"""
+type RecentFriends @_deprecated @figment(related_to: "SendToFriendFeature") @unique {
+    recent_friends: [Friend]
+    @derives(reactive: ["get.recent_friends", "fetch.recent_friends"])
+    @derives(instructions: "If {get.recent_friends} or {fetch.recent_friends} is updated, completely replace with that value. TODO: If the backend returned a {Friend.time_shared} value, clients could handle sorting this list itself and be reactive to {Friend.time_shared} instead.")
+}
+
+"""
+Broken out from {get.auto_complete_emails} as a separate entity to make it manageable client side.
+"""
+type AutoCompleteEmails @_deprecated @figment(related_to: "SendToFriendFeature") @unique {
+    auto_complete_emails: [AcEmail]
+    @derives(reactive: ["get.auto_complete_emails", "fetch.auto_complete_emails", "AcEmail"])
+    @derives(instructions: "Set latest value from {get.auto_complete_emails} or {fetch.auto_complete_emails}")
+    @derives(instructions: "If a new {AcEmail} appears, add it to the list")
+}
+
+"""
+Broken out from {get.groups} as a separate entity to make it manageable client side.
+"""
+type Groups @figment(related_to: "BadgesFeature") @unique {
+    groups: [Group]
+    @derives(reactive: ["get.groups", "fetch.groups"])
+    @derives(instructions: "add any new and update and existing from {get.groups}.")
+}
+
+type PostLikeStatus @figment(related_to: "SocialFeature") {
+    "Profile.uid of the person that liked it"
+    profile_id: String @id
+
+    "Post.post_id of the post that was liked"
+    post_id: String @id
+
+    status: Boolean
+
+    "When the like occurred"
+    time_added: Timestamp
+}
+
+type PostRepostStatus @figment(related_to: "SocialFeature") {
+    "Profile.uid of the person that reposted it"
+    profile_id: String @id
+
+    "Post.post_id of the post that was liked"
+    post_id: String @id
+
+    status: Boolean
+
+    "When the repost occurred"
+    time_added: Timestamp
+}
+
+type UserFollow @figment(related_to: "SocialFeature") {
+    "The {Profile.uid} of the profile that is following another"
+    user_id: String @id
+
+    "{Profile.uid} of the profile being followed"
+    follow_user_id: String @id
+
+    "The time started following"
+    time_updated: Timestamp
+
+    "true if this follow is still active, false if the user later unfollowed this user."
+    status: Boolean
+}
+
+"""
+Broken out from {get.connectedAccounts} as a separate entity to make it manageable client side.
+"""
+type ConnectedAccounts @figment(related_to: "SocialFeature") @unique {
+    connectedAccounts: [PostService]
+    @derives(reactive: "get.connectedAccounts")
+    @derives(instructions: "Set from {get.connectedAccounts}")
+}
+
+"""
+Broken out from {get.recent_searches} as a separate entity to make it manageable client side
+Apps must use {get.recent_searches} to sync this data.
+It is just recommended to cache/query this locally.
+"""
+type RecentSearches @figment(related_to: "RecentSearchFeature") @unique {
+    searches: [SearchQuery]
+    @derives(reactive: "get.recent_searches")
+    @derives(instructions: "Set latest value from {get.recent_searches}")
+}
+
+"""
+Broken out from {get.placements} as a separate entity to make it manageable client side.
+"""
+type Spocs @_deprecated @figment(related_to: "SponsoredContentFeature") @unique {
+    placements: [FeedItem]
+    @derives(reactive: ["get.placements", "Account.premium_features", "FeedItem.reported"])
+    @derives(instructions: "Set from {get.placements}.")
+    @derives(instructions: "If user has the ad_free premium feature, set as empty")
+    @derives(instructions: "Exclude any with {FeedItem.reported} set to true")
+}
+
+"""
+Broken out from {getAdzerkDecisions.decisions} as a separate entity for easier access
+and to enable caching of the latest value.
+The data we remember from Adzerk response between syncs.
+   * {.spocs.decision} is the main response object with the values to bind to the UI.
+   * {.spocs.placement} is part of the request we want to hold on to, to grab `siteId ` and `zoneId` values for `cxt` values for analytics.
+   * {.spocs.item} is either an existing item if user saved the same URL as this SPOC opens to or something we create with some initial data grabbed from the SPOC for when we need an actual item object, like when the user wants to save the SPOC or when we open it in Reader.
+   * {.spocs.valid_until} is 24h from receiving the response. After this time impression and click URLs are not valid any more and we don't want to keep showing the SPOC. We won't show anything until the user syncs again (users who sync less frequently than daily should be a real tiny minority, but we don't actually have any data to support this, just hope)
+"""
+type AdzerkSpocs @figment(related_to: "AdzerkFeature") {
+    name: AdzerkPlacementName @id
+
+    spocs: [AdzerkSpoc]
+    @derives(reactive: ["getAdzerkDecisions.decisions", "Account.premium_features"])
+    @derives(instructions: "If user's {Account.premium_features} contains {PremiumFeature.AD_FREE} then set to empty list.")
+    @derives(instructions: "")
+    @derives(instructions: "If {getAdzerkDecisions.placement.divName} == {.name} then clear the list")
+    @derives(instructions: "and for each {AdzerkDecision} in {getAdzerkDecisions.decisions} add an {AdzerkSpoc} with:")
+    @derives(instructions: "  * {AdzerkSpoc.decision} set to the {AdzerkDecision}.")
+    @derives(instructions: "  * {AdzerkSpoc.placement} set to {getAdzerkDecisions.placement}.")
+    @derives(instructions: "  * For {AdzerkSpoc.item}:")
+    @derives(instructions: "    * Find or create an {Item} with {Item.given_url} = {AdzerkDecision.url}.")
+    @derives(instructions: "    * If {Item.given_title} is undeclared set it to {AdzerkDecision.title}")
+    @derives(instructions: "    * If {Item.display_thumbnail} is undeclared set {Item.top_image_url} to {AdzerkDecision.thumbnail}")
+    @derives(instructions: "  * {AdzerkSpoc.valid_until} set to {getAdzerkDecisions.received_at} + 24 hours.")
+    @derives(instructions: "")
+    @derives(instructions: "Otherwise don't update.")
+}
+
+type AdzerkSpoc @figment(related_to: "AdzerkFeature") {
+    "An {AdzerkDecision} extracted from {getAdzerkDecisions.decisions}."
+    decision: AdzerkDecision
+
+    "{AdzerkPlacement} request matching {.decision}."
+    placement: AdzerkPlacement
+
+    "{Item} for this SPOC, matching on {Item.given_url} = {.decision.url}."
+    item: Item
+
+    """
+    How long is the {.decision} valid.
+    After this time {.decision.impressionUrl} stops working and we shouldn't show the SPOC any more.
+    """
+    valid_until: Timestamp
+
+    name: AdzerkPlacementName @deprecated
+}
+
+extend type Mutation {
+    """
+    Hide a spoc returned by {AdzerkDecision}.
+    How we handle the "Hide This" menu option on a SPOC. First, we just hide it from the list locally. Second we add this SPOC to a local list of hidden SPOCs (using `HiddenSpoc`/`HiddenSpocs` to implement it) and we include creative IDs of the last 100 hidden SPOCs in `blockedCreatives` array in Adzerk Decision API request.
+    Unfortunately we couldn't find an API that would remember the blocked ids for the user key that we send, so instead we have to maintain the list locally and send it with every ad request. We didn't want the list (and the request) to grow indefinitely so we decided (using an unscientific method called guessing) on the number 100 as the limit of this list in the hope that by the time the user blocks/hides 100 more SPOCs the first will already stop running.
+    """
+    hide_adzerk_spoc("SPOC to hide." spoc: AdzerkDecision): Void
+    @figment(related_to: "AdzerkFeature")
+    @figment(effect: "Find {AdzerkSpocs} containing a SPOC matching {AdzerkSpoc.decision.creativeId} with {.spoc.creativeId} and remove it from {AdzerkSpocs.spocs}.")
+    @figment(effect: "Send {.spoc.creativeId} in {getAdzerkDecisions.blockedCreatives} next time when requesting a spoc.")
+
+    "Clear currently cached spocs"
+    clear_adzerk_spocs: Void
+    @figment(related_to: "AdzerkFeature")
+    @figment(effect: "For each {AdzerkSpocs} set {AdzerkSpocs.spocs} to empty list.")
+}
+
+"""
+A SPOC that the user asked to hide. See {hide_adzerk_spoc}.
+"""
+type HiddenSpoc @figment(related_to: "AdzerkFeature") {
+    "{AdzerkDecision} this SPOC was displayed from."
+    decision: AdzerkDecision @id
+
+    "When user requested to hide it."
+    time_hidden: Timestamp
+}
+
+"""
+List of all SPOCs to hide. See {hide_adzerk_spoc}.
+"""
+type HiddenSpocs @figment(related_to: "AdzerkFeature") @unique {
+    spocs: [HiddenSpoc]
+    @derives(reactive: "HiddenSpoc")
+    @derives(instructions: "Keep a list of 100 last hidden SPOCs")
+}
+
+"""
+Representation of a tweet from Twitter's api https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object
+Stored locally when downloading tweets for attribution
+Only specifying the fields we actually use
+"""
+type Tweet @figment(related_to: "TwitterFeature") {
+    id_str: String @id
+    text: String
+    created_at: String
+    user: TwitterUser
+    favorited: Boolean
+    retweeted: Boolean
+    entities: TweetEntities
+}
+
+type TweetEntities @figment(related_to: "TwitterFeature") {
+    hashtags: [TweetHashtagEntity]
+    urls: [TweetUrlEntity]
+    user_mentions: [TweetMentionEntity]
+    media: [TweetMediaEntity]
+}
+
+type TweetHashtagEntity @figment(related_to: "TwitterFeature") {
+    indices: [Int]
+    text: String
+}
+
+type TweetUrlEntity @figment(related_to: "TwitterFeature") {
+    indices: [Int]
+    display_url: Url
+    url: Url
+    expanded_url: Url
+}
+
+type TweetMentionEntity @figment(related_to: "TwitterFeature") {
+    indices: [Int]
+    screen_name: String
+}
+
+type TweetMediaEntity @figment(related_to: "TwitterFeature") {
+    indices: [Int]
+    url: Url
+    display_url: Url
+    expanded_url: Url
+    media_url: Url
+}
+
+"""
+From https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/user-object
+For use as part of {Tweet}
+"""
+type TwitterUser @figment(related_to: "TwitterFeature") {
+    screen_name: String
+    name: String
+    profile_image_url_https: Url
+}
+
+extend type Mutation {
+    resolve_tweet(
+        tweet: Tweet
+        item: Item
+    ): Void
+    @figment(related_to: "TwitterFeature")
+    @figment(effect: "Add this tweet to {Item.tweets}. Replace if present.")
+}
+
+"""
+Used by the Pocket instance to track who is currently logged in.
+"""
+type LoginInfo @figment(related_to: "AuthFeature") @figment(related_to: "LocalAppStateFeature") @unique {
+    account: Account
+
+    guid: String
+    @derives(reactive: "guid")
+    @derives(instructions: "Set to whatever the guid is")
+
+    access_token: AccessToken
+
+    wasSignup: Boolean
+
+    authMethod: AuthMethod
+
+    prompt_password: Boolean
+
+    premium_gift: PremiumGift
+
+    maxActions: Int
+    @derives(reactive: "get.maxActions")
+    @derives(instructions: "Set from Get.maxActions")
+}
+
+enum AuthMethod @figment(related_to: "AuthFeature") @figment(related_to: "LocalAppStateFeature") {
+    "Copied from the old User class which grouped Firefox and Pocket together"
+    POCKET @figment(enum_value: "1")
+    GOOGLE @figment(enum_value: "2")
+}
+
+extend type Mutation {
+    "Used by the Pocket instance to logout and clear user data from its source."
+    logout(reason: LogoutReason): Void
+    @figment(related_to: "AuthFeature")
+    @figment(related_to: "LocalAppStateFeature")
+    @figment(effect: "Remove all user and\/or guid based state from the local Space. Including unsent actions.")
+}
+
+enum LogoutReason @figment(related_to: "AuthFeature") @figment(related_to: "LocalAppStateFeature") {
+    USER @figment(enum_value: "1")
+    ACCESS_TOKEN_REVOKED @figment(enum_value: "401")
+}
+
+extend type Mutation {
+    "Used by the Pocket instance to update its LoginInfo"
+    update_logged_in_account(info: LoginInfo): Void
+    @figment(related_to: "AuthFeature")
+    @figment(related_to: "LocalAppStateFeature")
+    @figment(effect: "apply the new login info, but only apply the declared values.")
+}
+
+extend type Mutation {
+    "Used by the Pocket instance to fake premium statuses for testing and the main app's Alpha Settings."
+    fake_premium_status(
+        premium_status: Boolean
+        premium_features: [PremiumFeature]
+        premium_alltime_status: PremiumAllTimeStatus
+    ): Void
+    @figment(related_to: "PocketPremiumFeature")
+    @figment(related_to: "LocalAppStateFeature")
+    @figment(effect: "apply the new premium state")
+}
+
+type SyncState @figment(related_to: "LocalAppStateFeature") @unique {
+    fetched: Boolean
+
+    since: Timestamp
+    @derives(reactive: ["get.since", "fetch.since"])
+    @derives(instructions: "Set from Get.since or if it is the first fetch, also from Fetch.since")
+}
+
+extend type Mutation {
+    fetch_completed: Void
+    @figment(related_to: "LocalAppStateFeature")
+    @figment(effect: "Set {SyncState.fetched} to true")
+}
+
+extend type Mutation {
+    "Used by the Pocket instance to logout and clear user data from its source"
+    update_offline_status(
+        "The item to update" item: Item
+        "Alternatively, the item's 'idkey' TODO consider if we need to explain the concept of idkey more generally, and define it in sync.md instead." item_idkey: String
+        status: OfflineStatus
+        view: PositionType
+        mime: String
+        encoding: String
+    ): Void
+    @figment(related_to: "OfflineFeature")
+    @figment(related_to: "LocalAppStateFeature")
+    @figment(effect: "Find an item matching {.item} then")
+    @figment(effect: "if view is PositionType.ARTICLE, set item.offline_text to status")
+    @figment(effect: "if view is PositionType.WEB, set item.offline_web to status")
+    @figment(effect: "if view is null, set both item.offline_text and item.offline_web to status")
+
+    "Resets all items offline statuses back to not offline"
+    reset_offline_statuses: Void
+    @figment(related_to: "OfflineFeature")
+    @figment(related_to: "LocalAppStateFeature")
+    @figment(effect: "For all items currently known, set their {Item.offline_text} and {Item.offline_web} to {OfflineStatus.NOT_OFFLINE}")
+}
+
+"""
+The status of whether something has been downloaded for offline use. Typically a null value would indicate the same as {.NOT_OFFLINE}
+"""
+enum OfflineStatus @figment(related_to: "OfflineFeature") {
+    "The view is not downloaded yet."
+    NOT_OFFLINE @figment(enum_value: "0")
+
+    "The view has been downloaded and will be available to be viewed offline."
+    OFFLINE @figment(enum_value: "1")
+
+    "This value is only expected for {PositionType.WEB} views. The view has been downloaded and will be available to be viewed offline, but it is not an html web page, its a file such as an image. This may indicate it needs to be loaded in a different way."
+    OFFLINE_AS_ASSET @figment(enum_value: "2")
+
+    "Not offline and a previous attempt to download this failed. A standard way to handle this is to no longer automatically attempt to download this and only retry downloading views with this status if the user invokes some kind of manual sync option."
+    FAILED @figment(enum_value: "-1")
+
+    "Not offline because a previous attempt was made to download it and found it to be permanently unavailable, such as a 404 error and no further attempts to download it are needed."
+    INVALID @figment(enum_value: "-2")
+
+    "This value is only expected for {PositionType.WEB} views. The view was downloaded successfully but one or more parts of it could not be downloaded. It was unclear if they could be retried or not. A standard way to handle this is to consider it viewable offline but retry downloading it later if the user invokes some kind of manual sync option."
+    PARTIAL @figment(enum_value: "-3")
+}
+
+extend type Mutation {
+    set_site_login_status(
+        host: String
+        loggedIn: Boolean
+    ): Void
+    @deprecated
+    @figment(related_to: "SiteLoginsFeature")
+    @figment(related_to: "LocalAppStateFeature")
+    @figment(effect: "if {.loggedIn} is true, add the host to {loginlist.logged_in} otherwise remove the host.")
+}
+
+"""
+Apps typically will keep My List (unread items) available locally/offline.
+This is a helper that can be used in a remember API to hold those items.
+You could use {saves} instead, but when holding a huge number of items you end up doing a lot more rederiving work than needed.
+This can be a lot more optimized and efficient for the specific use case of remembering lots of items.
+"""
+type LocalItems @figment(related_to: "LocalAppStateFeature") {
+    "An optional limit to keep at most this number of the newest items."
+    max: Int @id
+
+    "the item status, defaults to {ItemStatusKey.unread}."
+    status: ItemStatusKey @id
+
+    "The held items, there is no guarantee about sort order here."
+    items: [Item]
+    @derives(reactive: ["Item.status", "Item.time_added"])
+    @derives(instructions: "Find {Item}s whose {Item.status} matches {.status} (or if null, {ItemStatusKey.unread}")
+    @derives(instructions: "If {.max} is >0 and you have more than that number of items, sort by {ItemSortKey.newest} and then trim to the newest {.max} number of items.")
+}
+
+"""
+A local helper with the latest state for easier querying and subscribing.
+Helps to hide some complexity and implementation details of updating the state from {getUnleashAssignments}.
+"""
+type Unleash @figment(related_to: "AbTestingFeature") @unique {
+    "Latest assignments from {getUnleashAssignments} cached locally."
+    current_assignments: [UnleashAssignment] @map
+    @derives(reactive: ["getUnleashAssignments", "guid.guid", "LoginInfo.account.user_id"])
+    @derives(instructions: "If {guid.guid} changed, reset the value to an empty map.")
+    @derives(instructions: "If {LoginInfo.account.user_id} changed and wasn't previously null, reset the value to an empty map.")
+    @derives(instructions: "Otherwise convert {getUnleashAssignments.assignments.assignments} to a map from {UnleashAssignment.name} to {UnleashAssignment}.")
+
+    "Local overrides to allow forcing into or out of a test."
+    overridden_assignments: [UnleashAssignment] @map
+}
+
+extend type Mutation {
+    "Add a local assignment override to force into or out of a test."
+    override_unleash_assignment(assignment: UnleashAssignment!): Void
+    @figment(effect: "Add a mapping from {.assignment.name} to {.assignment} in {Unleash.overridden_assignments}.")
+}
+
+extend type Mutation {
+    "Restore the default value (synced from {getUnleashAssignments}) for an overriden assignment."
+    clear_unleash_assignment_override(name: String!): Void
+    @figment(effect: "Remove the mapping for {.name} from {Unleash.overridden_assignments}.")
+}
+
+"""
+Payload returned by variants in the temp.android.app.discover.personalization-test toggle.
+"""
+type DiscoverPersonalizationTestPayload {
+    "The {SlateLineup.id} to pass into {getSlateLineup.slateLineupId}"
+    slateLineupId: String!
+}
+
+"""
+Current counts of common filters in Pocket
+"""
+type ListCounts @figment(related_to: "StatsFeaturesFeature") {
+    "If true, calculates the counts only based on what is currently available locally client side, which may or may not be their actual counts. It will depend on what Items have been persisted.  If false or undeclared, these counts will be the actual numbers for the user and likely needs a remote to obtain them, since clients may not have access to all of the items."
+    local: Boolean @id
+
+    "Count of Items in My List"
+    unread: Int @derives(reactive: "Item.status") @derives(instructions: "count of {Item} where {Item.status} is {ItemStatus.UNREAD}")
+
+    "Count of Items in Articles"
+    unread_articles: Int @derives(reactive: ["Item.status", "Item.is_article"]) @derives(instructions: "count of {Item} where {Item.status} is {ItemStatus.UNREAD} and {Item.is_article} is true")
+
+    "Count of Items in Videos"
+    unread_videos: Int @derives(reactive: ["Item.status", "Item.has_video"]) @derives(instructions: "count of {Item} where {Item.status} is {ItemStatus.UNREAD} and {Item.has_video} is either {Videoness.IS_VIDEO} or {Videoness.HAS_VIDEOS}")
+
+    "Count of Items in Shared To Me"
+    unread_shared_to_me: Int @derives(reactive: ["Item.status", "SharedItem.status"]) @derives(instructions: "count of {Item} where {Item.status} is {ItemStatus.UNREAD} and {Item.shares} has at least one where {SharedItem.status} is {SharedItemStatus.ACCEPTED}")
+
+    "Count of Items in Not Tagged"
+    unread_untagged: Int @derives(reactive: ["Item.tags", "Item.status"]) @derives(instructions: "count of {Item} where {Item.status} is {ItemStatus.UNREAD} and {Item.tags} is null or empty")
+
+    "Name of the tag mapped to the count of unread items using that tag"
+    unread_tags: [Int] @map @derives(reactive: ["Item.tags", "Item.status"]) @derives(instructions: "count of {Item} where {Item.status} is {ItemStatus.UNREAD} and {Item.tags} is not empty")
+
+    "Count of Items in Archive"
+    archived: Int @derives(reactive: "Item.status") @derives(instructions: "count of {Item} where {Item.status} is {ItemStatus.ARCHIVED}")
+
+    "Count of items in Favorites"
+    favorites: Int @derives(reactive: ["Item.favorite", "Item.status"]) @derives(instructions: "count of {Item} where {Item.favorite} is true and {Item.status} is either {ItemStatus.UNREAD} or {ItemStatus.ARCHIVED}")
+
+    "Count of Highlights (in all unread and archived items)"
+    highlights: Int @derives(reactive: ["Item.annotations", "Item.status"]) @derives(instructions: "count of {Item} where {Item.annotations} is not empty and {Item.status} is either {ItemStatus.UNREAD} or {ItemStatus.ARCHIVED}")
+}
+
+extend type Recommendation
+@extend(field: "id", id: true) {
+    "The most appropriate title to show"
+    display_title : String @local @derives(first_available: [".curatedInfo.title", ".item.display_title"])
+
+    "The most appropriate excerpt to show"
+    display_excerpt : String @local @derives(first_available: [".curatedInfo.excerpt", ".item.excerpt"])
+
+    "The most appropriate image to show as a thumbnail"
+    display_thumbnail : Url @local @derives(first_available: [".curatedInfo.image_src", ".item.display_thumbnail"])
+
+    "The most appropriate domain to show"
+    display_domain : String @local @derives(first_available: [".item.syndicated_article.publisher.name", ".publisher", ".item.display_domain"])
+}
+extend type Slate
+@extend(field: "id", id: true)
+
+extend type Collection
+@extend(field: "slug", id: true)
+
+extend type Mutation {
+    "Set the progress/scroll {Position} of an Item, where the user left off."
+    scrolled(
+        "Deprecated analytics context, that was only used when this was a {V3} action." context: ActionContext @deprecated
+        "If known, the {Item.item_id}. At least one of {.item_id} or {.url} must be set to identify the item to act on." item_id: String
+        "If known, the {Item.given_url}. At least one of {.item_id} or {.url} must be set to identify the item to act on." url: Url
+        "The new {Position.node_index}" node_index: Int @deprecated
+        "The new {Position.page}" page: Int @deprecated
+        "The new {Position.percent}" percent: Int @deprecated
+        "The new {Position.section}" section: Int @deprecated
+        "The new {Position.time_updated}" time_updated: Timestamp
+        "Additional time spent that will be added to any existing {Position.time_spent}" time_spent: Int
+        "The {Position.view} to update" view: PositionType
+        "The new {Position.scroll_position}" scroll_position: Int
+    ): Void
+    @figment(related_to: "PositionsFeature")
+    @figment(auth: "UserAuth")
+    @figment(priority: "ASAP")
+    @figment(effect: "Look up an {Item} where {Item.id_url} is {.url} or {Item.item_id} is {.item_id} and update:")
+    @figment(effect: "  * Create a new {Position} with the fields matching the parameters of this action. (Note that {.time_spent} is an addition not a replacement like the other values)")
+    @figment(effect: "  * Set that as the new value in {Item.positions} using {.view} as the key (like item.positions[view] = the new position)")
+    @figment(effect: "  * {Item.time_updated} = {.time}")
+}
+
+"""
+The progress/scroll-position of where the user left off reading, watching or listening to an {Item}
+"""
+type Position @figment(related_to: "PositionsFeature") {
+    "For ArticleView, the node index at the top of the screen"
+    node_index: Int @deprecated
+
+    "?"
+    page: Int @deprecated
+
+    "Percentage of the total experience completed"
+    percent: Int @deprecated
+
+    "?"
+    section: Int @deprecated
+
+    "When this position was last updated"
+    time_updated: Timestamp
+
+    "The type of display/view, see Views below"
+    view: PositionType
+
+    "Total number of seconds spent viewing this item in this view type. Mulitple views add on additional time to this."
+    time_spent: Int
+
+    "The scroll position"
+    scroll_position: Int
+}
+
+enum PositionType @figment(related_to: "PositionsFeature") {
+    ARTICLE @figment(enum_value: "1")
+    WEB @figment(enum_value: "2")
+    VIDEO @figment(enum_value: "3")
+    COLLECTION @figment(enum_value: "4")
+}
+
+extend type PocketShare
+@extend(field: "targetUrl", id: true)

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="com.pocket.ui.view.item.ItemActionsBarView">
+
+    <!-- Built in side paddings on clickable buttons are provided by default. Can be overridden with an attr on ItemActionsBarView -->
+
+    <com.pocket.ui.view.item.SaveButton
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/pkt_space_md"
+        android:paddingEnd="@dimen/pkt_side_grid"
+        android:paddingLeft="@dimen/pkt_side_grid"
+        android:paddingRight="@dimen/pkt_side_grid"
+        android:paddingStart="@dimen/pkt_side_grid"
+        android:paddingTop="@dimen/pkt_space_md"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/space"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"/>
+
+    <Space
+        android:id="@+id/space"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/repost"
+        app:layout_constraintStart_toEndOf="@+id/save"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"/>
+
+    <com.pocket.ui.view.button.CountIconButton
+        android:id="@+id/repost"
+        style="@style/Pkt_CountIconButton_Repost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/like"
+        app:layout_constraintStart_toEndOf="@+id/space"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"/>
+
+    <com.pocket.ui.view.button.CountIconButton
+        android:id="@+id/like"
+        style="@style/Pkt_CountIconButton_Like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/menu"
+        app:layout_constraintStart_toEndOf="@+id/repost"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"/>
+
+    <com.pocket.ui.view.button.IconButton
+        android:id="@+id/menu"
+        style="@style/Pkt_IconButton_Overflow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/pkt_space_md"
+        android:paddingEnd="@dimen/pkt_side_grid"
+        android:paddingLeft="@dimen/pkt_space_md"
+        android:paddingRight="@dimen/pkt_side_grid"
+        android:paddingStart="@dimen/pkt_space_md"
+        android:paddingTop="@dimen/pkt_space_md"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"/>
+
+</merge>

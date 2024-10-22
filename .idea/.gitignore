@@ -1,0 +1,9 @@
+# Hide everything in this directory by default.
+*
+
+# Keep some exceptions.
+!.gitignore
+!codeStyles
+!icon.png
+!icon_dark.png
+!externalDependencies.xml

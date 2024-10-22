@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        These color palettes follow the design team's spec:
+        https://www.figma.com/file/ZJfEMS2fVY0TdB2Ao3uWv8/FINAL-Pocket-Design-System?node-id=3434%3A3542
+
+        All colors should be defined in this file and should use the official palette.
+        Do not define color outside of this file.
+
+        If a new color is introduced that doesn't match the palette, double check
+        with design that they intended to introduce a new color. If it is a new color,
+        ask for a name, and a dark color to go with it.
+
+        For most components, when you reference a color, you can use the pkt_themed_*  version to
+        automatically get dark mode support for your component. However, at times, for
+        certain components there may be exceptions to those rules. If there is an exception to the
+        default color pairings, please add a comment with `theme-pairing-exception` in your state
+        list file to make it obvious that it was intentional.
+    -->
+
+    <!--
+        A few colors held over from the old LaCroix which don't have definitions in the current
+        system. These are still used in image placeholders as the background color.
+    -->
+    <color name="pkt_lapis_faint">#E8F7FE</color>
+    <color name="pkt_amber_faint">#FFF8EC</color>
+
+    <!-- Functional definitions -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Light Mode Color Palette -->
+    <color name="pkt_base_bg">@color/white</color>
+    <color name="pkt_grey_1">#1A1A1A</color>
+    <color name="pkt_grey_2">#333333</color>
+    <color name="pkt_grey_3">#404040</color>
+    <color name="pkt_grey_4">#737373</color>
+    <color name="pkt_grey_5">#8C8C8C</color>
+    <color name="pkt_grey_6">#D9D9D9</color>
+    <color name="pkt_grey_7">#ECECEC</color>
+    <color name="pkt_teal_1">#004D48</color>
+    <color name="pkt_teal_2">#008078</color>
+    <color name="pkt_teal_3">#009990</color>
+    <color name="pkt_teal_4">#80BFBB</color>
+    <color name="pkt_teal_5">#95D5D2</color>
+    <color name="pkt_teal_6">#E8F7F6</color>
+    <color name="pkt_coral_1">#901424</color>
+    <color name="pkt_coral_2">#EF4056</color>
+    <color name="pkt_coral_3">#F79FAA</color>
+    <color name="pkt_coral_4">#FBCFD4</color>
+    <color name="pkt_coral_5">#FDECEE</color>
+    <color name="pkt_coral_6" tools:ignore="UnusedResources">#FDF2F5</color>
+    <color name="pkt_amber_3">#FF9F00</color>
+    <color name="pkt_amber_4">#FEE8C3</color>
+    <color name="pkt_apricot_1">#B24000</color>
+    <color name="pkt_lapis_1">#1649AC</color>
+    <color name="pkt_lapis_3">#3668FF</color>
+    <color name="pkt_lapis_5">#DCEAFF</color>
+
+    <!-- Dark Mode Color Palette -->
+    <color name="pkt_dm_base_bg">#1A1A1A</color>
+    <color name="pkt_dm_grey_1">#F2F2F2</color>
+    <color name="pkt_dm_grey_2">#CCCCCC</color>
+    <color name="pkt_dm_grey_3">#CCCCCC</color>
+    <color name="pkt_dm_grey_4">#999999</color>
+    <color name="pkt_dm_grey_5">#737373</color>
+    <color name="pkt_dm_grey_6">#404040</color>
+    <color name="pkt_dm_grey_7">#333333</color>
+    <color name="pkt_dm_teal_1">#004D48</color>
+    <color name="pkt_dm_teal_2">#008078</color>
+    <color name="pkt_dm_teal_3">#00CCC0</color>
+    <color name="pkt_dm_teal_4">#0D4643</color>
+    <color name="pkt_dm_teal_5">#13302E</color>
+    <color name="pkt_dm_teal_6">#162827</color>
+    <color name="pkt_dm_coral_1">#901424</color>
+    <color name="pkt_dm_coral_2">#EF4056</color>
+    <color name="pkt_dm_coral_3">#842D38</color>
+    <color name="pkt_dm_coral_4">#642028</color>
+    <color name="pkt_dm_coral_5">#421218</color>
+    <color name="pkt_dm_coral_6" tools:ignore="UnusedResources">#421218</color>
+    <color name="pkt_dm_amber_3">#FF9F00</color>
+    <color name="pkt_dm_apricot_1">#E55300</color>
+    <color name="pkt_dm_lapis_1" tools:ignore="UnusedResources">#1649AC</color>
+    <color name="pkt_dm_lapis_3">#95D2FF</color>
+    <color name="pkt_dm_lapis_5">#15253D</color>
+    
+    <!-- Text Color Palette -->
+    <color name="pkt_text_primary">@color/pkt_themed_grey_1</color>
+    
+    <!-- New Color System -->
+    <color name="grey_85">#222222</color>
+    <color name="amber_5">#FFF9D1</color>
+    <color name="amber_30">#FCB643</color>
+    <color name="amber_60">#984605</color>
+    <color name="amber_80">#552000</color>
+</resources>

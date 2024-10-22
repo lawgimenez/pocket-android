@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- smartling.instruction_attributes = comment -->
+<!-- smartling.placeholder_format_custom = \{[a-zA-Z0-9_-]+\}-->
+<resources>
+    <!-- LABELS, TITLES & NAMES - Prefix: nm  -->
+    <string name="nm_add_to_ril" comment="try to use a string starting with A or just leave Pocket">Toevoegen aan Pocket</string>
+	
+	<!-- smartling.character_limit = 17 -->
+	<string name="nm_add_tags" comment="Title of a page">Tags toevoegen</string>
+
+	<string name="nm_theme_light" comment="Appearance/color of the app">Licht</string>
+	<string name="nm_theme_dark" comment="Appearance/color of the app">Donker</string>
+	
+	<string name="clipboard_label_url">Link gekopieerd van Pocket</string>
+	
+	<string name="nm_archive" comment="Title in the main menu of the action bar. This is a noun.">Archief</string>
+	<string name="nm_link">Link</string>
+	
+	<!-- Setting up as plural in case other languages want to vary the label depending on quantity -->
+	<plurals name="nm_time_estimate" comment="Short label showing the number of minutes to read a story, watch a video, or listen to an article e.g. &apos;5 min&apos;">
+        <item quantity="one">%1$d min.</item>
+        <item quantity="other">%1$d min.</item>
+    </plurals>
+	
+	<plurals name="nm_time_to_read_estimate" comment="Short label showing the number of minutes to read a story, watch a video, or listen to an article e.g. &apos;5 min read&apos;">
+        <item quantity="one">Leestijd %1$d min.</item>
+        <item quantity="other">Leestijd %1$d min.</item>
+    </plurals>
+
+	<!-- Setting up as plural in case other languages want to vary the label depending on quantity -->
+	<plurals name="nm_time_left_estimate" comment="Short label showing the number of minutes to read a story, watch a video, or listen to an article e.g. &apos;5 min left&apos;">
+        <item quantity="one">%1$d min. resterend</item>
+        <item quantity="other">%1$d min. resterend</item>
+    </plurals>
+
+	<!-- UI ACTION LABELS (Buttons, Checkboxes) - Prefix: ac  -->
+	<string name="ac_login">Inloggen</string>
+	<string name="ac_logout">Uitloggen</string>
+	<string name="ac_authenticate">Aanmelden of inloggen</string>
+	<string name="ac_continue_signed_out" comment="A button next to a &apos;Sign up or sign in&apos; button, that allows you to go to the Home screen without signing up or signing in.">Inloggen overslaan</string>
+	<string name="ac_cancel">Annuleren</string>
+	<string name="ac_close_app">App afsluiten</string>
+	<string name="ac_ok">OK</string>
+	<string name="ac_yes">Ja</string>
+	<string name="ac_no">Nee</string>
+	<string name="ac_retry">Opnieuw proberen</string>
+	<string name="ac_try_again">Probeer het opnieuw.</string>
+	<string name="ac_create_new_cache">Nieuwe cache aanmaken</string>
+	<string name="ac_clear_cache">Cache wissen</string>
+	<string name="ac_get_help">Hulp</string>
+	<string name="ac_submit">Versturen</string>
+	<string name="ac_write_review" comment="link to leave a review on the application store">Beoordeling</string>
+	<string name="ac_no_thanks">Neen bedankt</string>
+	<string name="ac_next">Volgende</string>
+	<string name="ac_accept">Aanvaarden</string>
+	<string name="ac_got_it_caps">OK</string>
+	<string name="ac_continue">Doorgaan</string>
+	<string name="ac_discard_changes">Wijzigingen negeren</string>
+	<string name="ac_continue_editing">Doorgaan met bewerken</string>
+	<string name="ac_add_new_tag">nieuwe tag <b>\\‘{name_of_tag}\\‘</b> toevoegen</string>
+	<string name="ac_undo">ONGEDAAN MAKEN</string>
+	<string name="ac_highlight" comment="Label for button that highlights selected text">@string/ic_highlight</string>
+	<string name="ac_copy">@string/ic_copy</string>
+	<string name="ac_translate">Vertalen</string>
+	<string name="ac_web_search">Zoeken op het web</string>
+	<string name="ac_select_all">Alles selecteren</string>
+	<string name="ac_clear">Wissen</string>
+	<string name="ac_share">Delen</string>
+	<string name="ac_maybe_later">Misschien later</string>
+	<string name="ac_install">Installeren</string>
+	
+	
+	<!-- UI LABELS (TextViews and labels) - Prefix: lb  -->
+	<string name="lb_tab_saves">Opgeslagen</string>
+	<string name="lb_continue_reading" comment="should be all upper case">Doorgaan met lezen</string>
+	
+	<string name="lb_add_copied_url" comment="a title asking the user if they would like to save a URL from their device clipboard">Gekopieerde URL opslaan?</string>
+    
+    <string name="lb_slower" comment="Speaking rate of the Text To Speech">Langzamer spreken</string>
+    <string name="lb_faster" comment="Speaking rate of the Text To Speech">Sneller spreken</string>
+    <string name="lb_tts_language">Taal</string>
+    <string name="lb_tts_voice">Stem</string>
+	
+	<string name="lb_select_tags_hint">Selecteer een tag of voer er een in</string>
+    <string name="lb_select_tags_hint_no_tags">Voer een tag in</string>
+    
+	<plurals comment="Header above the list of item" name="lb_selected">
+        <item quantity="one">%1$s geselecteerd</item>
+        <item quantity="other">%1$s geselecteerd</item>
+    </plurals>
+	
+	<string name="lb_suggested_tags">Gesuggereerde tags</string>
+	<string name="lb_all_tags">Alle tags</string>
+	<string name="lb_recent_tags">Recente tags</string>
+	<string name="lb_tags_autocomplete">Tags</string>
+	
+	<string name="lb_downloading_items_notification" comment="the number of items being currently downloaded for offline viewing. this number will count down as downloading progresses">Downloaden {number_of_items} items...</string>
+	
+	<string name="lb_search_hint">Zoeken</string>
+	<string name="lb_list_search_hint">Doorzoek je lijst</string>
+	<string name="lb_list_archive_search_hint">Doorzoek je archief</string>
+	<string name="lb_recent_searches_sc">Recente zoekopdrachten</string>
+	<string name="lb_time_to_read" comment="Header for a section of filters that let you view a subset of your saved articles based on their length.">Tijd om te lezen</string>
+	
+	<string name="lb_sort_by">Gesorteerd op</string>
+	<string name="lb_sort_by_newest">Als laatste opgeslagen</string>
+	<string name="lb_sort_by_oldest">Als eerste opgeslagen</string>
+	<string name="lb_sort_by_newest_archive">Als laatste gearchiveerd</string>
+	<string name="lb_sort_by_oldest_archive">Als eerste gearchiveerd</string>
+	<string name="lb_sort_by_shortest">Kortste leestijd</string>
+	<string name="lb_sort_by_longest">Langste leestijd</string>
+	
+	<string name="lb_prem_purchase_title">Word lid van\nPocket Premium</string>
+	<string name="lb_prem_purchase_perm_lib_title">Stel een permanente bibliotheek samen</string>
+	<string name="lb_prem_purchase_perm_lib_desc">Zelfs als je opgeslagen pagina van internet wordt gehaald, blijft jouw kopie ervan bewaard in Pocket.</string>
+	<string name="lb_prem_purchase_ad_free_title">Geconcentreerde aandacht</string>
+	<string name="lb_prem_purchase_ad_free_desc">Een rustige, advertentievrije omgeving geeft je hoofd de broodnodige rust.</string>
+	<string name="lb_prem_purchase_search_title">Verhalen binnen handbereik</string>
+	<string name="lb_prem_purchase_search_desc">Vind snel alles wat je hebt opgeslagen door te zoeken in de volledige tekst. Vind artikelen op sleutelwoord, onderwerp, auteur, tag en meer.</string>
+	<string name="lb_prem_purchase_tags_title">Slimme tags</string>
+	<string name="lb_prem_purchase_tags_desc">We stellen iedere keer dat je een verhaal opslaat, tags uit je lijst voor. Hoe meer tags je kiest, des te nuttiger de suggesties worden.</string>
+	<string name="lb_prem_purchase_highlights_title">Jouw ideeën, gemarkeerd</string>
+	<string name="lb_prem_purchase_highlights_desc">Doordat je in elk artikel onbeperkt kunt markeren, heb je een permanent archief van al die \'aha\'-ervaringen.</string>
+	<string name="lb_prem_purchase_reader_title">Aangepaste leeservaring</string>
+	<string name="lb_prem_purchase_reader_desc">Houd je van ronde lettertypen, een bredere regelafstand of versmalde tekst? Stem Pocket op je leesstijl af.</string>
+	<string name="lb_prem_purchase_per_month" comment="per month subscription label on subscription button">%1$s/maand</string>
+	<string name="lb_prem_purchase_per_year" comment="per year subscription label on subscription button">%1$s/jaar</string>
+	<string name="lb_prem_purchase_complete_title">Hoera!</string>
+	<string name="lb_prem_purchase_complete_message">Je bent officieel lid van Pocket Premium. Welkom bij de nieuwe advertentievrije, aanpasbare, permanente versie van Pocket. We denken dat het je wel zal bevallen.</string>
+	<string name="lb_prem_purchase_complete_renew_title">Welkom terug!</string>
+	<string name="lb_prem_purchase_complete_renew_message">We hebben je abonnement verlengd en je bent weer officieel lid van Pocket Premium. We hopen dat deze advertentievrije, aanpasbare, permanente versie van Pocket je bevalt.</string>
+	<string name="lb_prem_purchase_complete_button">Terug naar Pocket</string>
+	<string name="lb_prem_purchase_terms">Abonnementen worden iedere periode automatisch verlengd, totdat ze worden opgezegd in Google Play.</string>
+
+	<string name="lb_save_25p_2_line" comment="keep as short as possible">Bespaar\n25%</string>
+	
+	<string name="lb_annotations_upsell_t">Meer markeringen nodig?</string>
+	<string name="lb_annotations_upsell_m">Je kunt momenteel maximaal %1$d markeringen per artikel maken. Ontvang onbeperkte markeringen (en meer) door vandaag nog te upgraden naar Pocket Premium.</string>
+	<string name="lb_annotations_upsell_cta" comment="Label for a button in a Highlights upgrade prompt leading to the full Premium upgrade/purchase screen.">Koop Premium</string>
+	
+	<!-- MENU OPTIONS (Context and Option) - Prefix: mu  -->
+    <string name="mu_settings" comment="this text label should be short">Instellingen</string>
+	<string name="mu_read_later" comment="this text label should be short">Opslaan naar Pocket</string>
+	<string name="mu_help" comment="this text label should be short">Hulp</string>
+	<string name="mu_copy_link" comment="this text label should be short">Kopieer link</string>
+	<string name="mu_report_article_view" comment="this text label should be short">Rapporteer probleem met artikel</string>
+	<string name="mu_refresh" comment="this text label should be short">Vernieuwen</string>
+	<string name="mu_find_in_page" comment="this text label should be short">Zoeken op pagina</string>
+	<string name="mu_display_settings" comment="this text label should be short">Tekstinstellingen</string>
+	<string name="mu_delete" comment="this text label should be short">Verwijderen</string>
+	<string name="mu_view_original">Origineel bekijken</string>
+	<string name="mu_switch_to_article" comment="this text label should be short">Overgaan naar Artikelweergave</string>
+	<string name="mu_add_tags" comment="this text label should be short">Tags toevoegen</string>
+	<string name="mu_favorite" comment="this text label should be short">Favoriet</string>
+	<string name="mu_unfavorite" comment="this text label should be short">verwijderen uit Favorieten</string>
+	
+	<!-- Navigation items -->
+	<!-- smartling.character_limit = 14 -->
+	<string name="mu_home" comment="this text label should be short">Homepagina</string>
+	<!-- smartling.character_limit = 14 -->
+	<string name="mu_saves" comment="this text label should be short">Opgeslagen</string>
+	<string name="mu_annotations" comment="This text label should be short. Here &apos;Highlights&apos; references a new feature where a user can highlight text in articles to save memorable quotes.">Markeringen</string>
+	<string name="mu_premium" comment="this text label should be short">Premium</string>
+	<!-- smartling.character_limit = 14 -->
+	
+	<string name="mu_untagged" comment="make sure this phrase matches what is in setting_untagged_label and setting_untagged_sum">Niet getagd</string>
+
+	
+    <!-- DIALOGS TITLES AND MESSAGES (ContextMenus, Progress and Alert) - 
+    	Prefix: dg_
+    	Postfix: _t = title,
+    			 _m = message   
+    -->
+    <!-- Progress labels -->
+	<string name="dg_loading">Laden...</string>
+	<string name="dg_changing_data_location">Opslagruimte wordt veranderd…</string>
+	<string name="dg_clearing_cache">Cache wordt gewist…</string>
+	<string name="dg_logging_out">Aan het uitloggen…</string>
+	<string name="dg_c2dm_registering">Je toestel wordt ingesteld om push-notificaties te ontvangen…</string>
+	<string name="dg_fetching">Je lijst wordt opgehaald…</string>
+	
+	<!-- General use titles -->
+    <string name="dg_error_t">Oeps</string>
+    <string name="dg_confirm_t">Weet je het zeker?</string>
+    <string name="dg_changes_not_saved_t">Wijzigingen niet opgeslagen</string>
+    
+    <!-- Connection issues (TODO: These could more than likely be cleaned up and combined)-->
+    <string name="dg_sync_error_t">Synchronisatiefout</string>
+	<string name="dg_fetch_error_t">Kon lijst niet opladen</string>
+	<string name="dg_fetch_error_m">Er was een probleem bij het ophalen van je lijst op de server. Zorg ervoor dat je op het Internet bent aangesloten, en probeer het opnieuw.</string>
+	<string name="dg_no_connection_m">Er is een verbindingsfout opgetreden. Zorg ervoor dat je toestel op het Internet is aangesloten en probeer het opnieuw.</string>
+	<string name="dg_api_generic_error">Er was een probleem bij de aansluiting met Pocket. </string>
+	
+    <!-- Misc -->
+    <string name="dg_unexpected_m">Oh oh, er gebeurde iets onverwachts. Probeer het opnieuw, als je nog steeds problemen ondervindt laat het ons weten.</string>
+    
+    <string name="dg_report_error_m">Wil je deze fout melden?</string>
+	
+	<string name="dg_no_email_app_t">Kan geen e-mail versturen</string>
+	<string name="dg_no_email_app_m">Dit toestel heeft geen e-mail apps geïnstalleerd.</string>
+	<string name="dg_no_email_app_m_support">Als je vanuit een ander toestel wil proberen, dan is ons e-mailadres support@getpocket.com.</string>
+
+	<!-- Storage or Cache errors -->
+	<string name="dg_storage_setting_unavailable_t">Opslaglocatie niet toegankelijk</string>
+	<string name="dg_storage_setting_unavailable_m">Deze opslaglocatie is momenteel niet beschikbaar. Zorg ervoor dat de opslagkaart of het opslagapparaat op de juiste manier is aangesloten. Zorg er ook voor dat de kaart of het apparaat momenteel niet via USB als extern opslagapparaat wordt gebruikt door een computer.</string>
+
+	<string name="bg_offline_cache_storage_is_unavailable_t">Offline content niet toegankelijk</string>
+	<string name="bg_offline_cache_storage_is_unavailable_m">"De opslaglocatie waarop je offline cache is opgeslagen, is momenteel niet beschikbaar. Dit kan komen doordat het apparaat via USB is aangesloten op een computer, als je de opslagkaart hebt verwijderd of als Pocket geen toegang meer heeft tot de opslagruimte. Maak deze wijziging ongedaan en probeer het opnieuw. Je kunt ook gebruikmaken van een nieuwe cache in de interne opslag van Pocket."</string>
+
+	<string name="bg_offline_cache_is_missing_t">Offline content niet toegankelijk</string>
+	<string name="bg_offline_cache_is_missing_m">Je offline cache kan niet worden gevonden. Zorg ervoor dat de offline opslaglocatie op de juiste manier is aangesloten. Als je de bestanden in de cache hebt verplaatst of bewerkt, herstel deze dan en probeer het opnieuw.</string>
+
+	<string name="dg_offline_cache_is_missing_permission_t">Offline content niet toegankelijk</string>
+	<string name="dg_offline_cache_is_missing_permission_m">"Pocket heeft geen toegang meer tot de opslag en de offline cache. Als je een externe opslaglocatie wilt blijven gebruiken, moet je Pocket weer toegang geven tot de opslag. Je kunt ook gebruikmaken van de interne opslag."</string>
+
+	<string name="dg_offline_cache_is_missing_rw_permission_m">Pocket kan geen toegang krijgen tot je SD-kaart. We hebben het probleem gerapporteerd zodat ons Android-team dit kan onderzoeken. Ondertussen kun je de interne opslag voor Pocket gebruiken.</string>
+
+	<string name="dg_sdcard_confirm_change_m">Als je de opslaglocatie wijzigt, worden de gedownloade bestanden gewist.</string>
+	
+	<string name="dg_out_of_space_t">Geen opslagruimte meer beschikbaar</string>
+	<string name="dg_out_of_space_m">Er is geen ruimte meer in de offline opslaglocatie van Pocket. Om te werken, heeft Pocket meer vrije ruimte nodig. Maat wat ruimte vrij om verder te gaan. Om ruimte vrij te maken, kun je Pocket\'s offline cache wissen.</string>
+	
+	<string name="dg_after_clear_m">"Als het apparaat over beperkte ruimte beschikt, kun je gebruikmaken van de instelling {name_of_storage_setting} van Pocket om te beperken hoeveel ruimte de cache mag gebruiken."</string>
+	
+	<string name="dg_clear_cache_t">Weet je het zeker?</string>
+	<string name="dg_clear_cache_m">Dit verwijdert alle bestanden die opgeslagen zijn voor offline bekijken.</string>
+	<string name="dg_confirm_create_new_cache_m">Dit zal je bestaande offline cache wissen en in plaats daarvan starten met het gebruiken van de interne opslagmogelijkheid van het apparaat.</string>
+
+	<string name="dg_forced_logout_t">Log in</string>
+	<string name="dg_forced_logout_m">Je bent uitgelogd vanuit een andere locatie. Log opnieuw in.</string>
+
+	<string name="dg_tag_too_long_m">Tags mogen slechts 25 tekens of minder zijn.</string>
+	
+	<string name="dg_invalid_tag_m">"Sorry %1$s is niet toegestaan als tag."</string>
+	<string name="dg_changes_not_saved_tags_m">De wijzigingen aan jouw tags zijn nog niet opgeslagen Wil je de wijzigingen negeren of doorgaan met bewerken?</string>
+	
+	<string name="dg_market_not_found_t">Amazon Appstore niet gevonden</string>
+	<string name="dg_market_not_found_m">De Amazon Appstore-app kon om een onverwachte reden niet worden geopend. Onze excuses!</string>
+	
+	<string name="dg_browser_not_found_t">Browser niet gevonden</string>
+	<string name="dg_browser_not_found_m">Jouw apparaat heeft geen browser app beschikbaar om deze webpagina te openen.</string>
+	
+	<!-- Push / Instant Sync (GCM) & Background Syncing Settings -->
+	<string name="dg_c2dm_unsupported_t">Niet beschikbaar</string>
+	<string name="dg_c2dm_unsupported_m">Instant Syc wordt niet ondersteund door dit apparaat.</string>
+	<string name="dg_c2dm_failed_t">Installatie mislukt</string>
+	<string name="dg_c2dm_failed_general_m">Kon jouw toestel nu niet registreren voor directe push-meldingen. Probeer het later opnieuw.</string>
+	<string name="dg_c2dm_not_connected_m">Je moet met het internet verbonden zijn als je direct synchroniseren voor het eerst inschakelt</string>
+	<string name="dg_timer_sync_no_change_t">Instelling niet beschikbaar</string>
+	<string name="dg_timer_sync_no_change_m">Als deze app geïnstalleerd is op een externe opslag (zoals een SD-kaart), zijn de op tijd gebaseerde achtergrondsynchronisatie-opties niet beschikbaar.\n\nJe kunt gebruik maken van Instant of achtergrondsynchonisatie uitschakelen.</string>
+	
+	<!-- Edit account -->
+	<string name="dg_confirm_logout_m">Je wordt afgemeld en alle bestanden die zijn opgeslagen op dit apparaat voor offline bekijken worden verwijderd.</string>
+	
+	<!-- Listen -->
+	<string name="listen_playing_from">Afspelen vanuit <b>Opgeslagen</b></string>
+	<string name="listen_playlist_header" comment="Should be all upper case letters for any language where it makes sense">Mijn afspeellijst</string>
+	<string name="listen_data_alert">Luisteren maakt gebruik van je mobiele netwerk als je apparaat geen wifiverbinding heeft</string>
+    <string name="listen_offline_hint" comment="This should be less than 100 characters.">Je bent offline. Schakel hier naar een offline stem.</string>
+	
+	<string name="listen_settings_use_listen_endpoint">Stream stemmen in beste kwaliteit</string>
+	<string name="listen_settings_network_voice_warning">Gebruikt mobiel netwerk indien niet verbonden met wifi. Niet offline beschikbaar</string>
+	<string name="listen_settings_picker_summary_unavailable">Automatisch</string>
+	<string name="listen_settings_auto_play">Artikelen automatisch afspelen</string>
+	<string name="listen_settings_auto_archive">Automatisch archiveren na luisteren</string>
+    
+	<string name="listen_error_timeout">Onze server heeft te lang nodig om te reageren. Probeer het later opnieuw.</string>
+	<string name="listen_error_media_player">Er is een onverwachte afspeelfout opgetreden</string>
+	<string name="listen_error_server">Er is een probleem opgetreden bij het afspelen van dit artikel. Probeer een andere stem.</string>
+	
+	<string name="listen_reader_tooltip">Tik om dit artikel onderweg te beluisteren</string>
+	<plurals name="listen_my_list_toast_title">
+        <item quantity="one">%2$s️Je hebt %1$d ongelezen artikel.</item>
+        <item quantity="other">%2$s️Je hebt %1$d ongelezen artikelen.</item>
+    </plurals>
+	<string name="listen_my_list_toast_title_5000_plus">%1$s️Je hebt duizenden artikelen.</string>
+	<string name="listen_my_list_toast_message">Beluister ze en de tijd vliegt voorbij.</string>
+	<string name="listen_my_list_toast_button">Probeer Luisteren</string>
+	
+	<!-- TTS -->
+	<string name="tts_dg_t">Tekst naar spraak</string>
+	<string name="tts_settings">Instellingen tekst naar spraak</string>
+	<string name="tts_dg_not_available_m">We kunnen de door jou geselecteerde tekst-naar-spraakengine niet starten. Controleer of deze is geïnstalleerd in de tekst-naar-spraakinstellingen van je apparaat.</string>
+	<string name="tts_dg_not_supported_m">Sorry, maar het blijkt dat jouw apparaat Tekst naar spraak (TTS) niet ondersteunt.</string>
+	<string name="tts_dg_install_t">Installatie Tekst naar spraak</string>
+	<string name="tts_dg_install_m">Deze functie maakt gebruik van Android\'s ingebouwde Tekst naar spraak (TTS) functionaliteit. Dit is nog niet op jouw apparaat geïnstalleerd.</string>
+	<string name="tts_dg_missing_settings_m" comment="TTS = Text to Speech">Pocket kon de Tekst naar spraak instellingen van jouw apparaat niet automatisch vinden.\n\nJe kunt proberen ze handmatig te vinden door het openen van de instellingen van jouw apparaat en ernaar te zoeken.\n\nOp de meeste apparaten kunnen deze worden gevonden bij je Toegankelijkheidsinstellingen of bij je Taal- en Invoerinstellingen. </string>
+	<string name="tts_dg_choose_engine_t">Kies een Tekst naar spraak machine</string>
+	<string name="tts_skipping_to_next">Het artikel wordt overgeslagen.</string>
+	<string name="tts_article_failed">We kunnen dit artikel niet lezen met Tekst-naar-spraak.</string>
+	<string name="tts_article_unavailable">Dit artikel is nog niet gedownload.</string>
+	<string name="tts_speech_error">Tekst-naar-spraak kan dit gedeelte niet lezen. Als je een netwerkstem gebruikt, moet je verbinding met internet maken of een niet-netwerkstem kiezen. Of probeer dit gedeelte over te slaan.</string>
+	<string name="tts_empty_list">Je kunt pas luisteren als je items hebt opgeslagen in Pocket</string>
+	<string name="tts_network_voice_t">Netwerkstemmen</string>
+	<string name="tts_network_voice">Let op: netwerkstemmen zijn meestal van hogere kwaliteit, maar kunnen netwerkdata verbruiken en zijn mogelijk niet beschikbaar wanneer je offline bent.</string>
+	<string name="tts_voice">Stem %1$s</string>
+	<string name="tts_voice_male">Mannelijke stem %1$s</string>
+	<string name="tts_voice_female">Vrouwelijke stem %1$s</string>
+	<string name="tts_network" comment="Word that indicates that a text to speech voice may require network connectivity">Netwerk</string>
+	
+	<string name="add_overlay_free_title" comment="Appears when a new article is saved to your list">Opgeslagen in Pocket!</string>
+
+	<!-- TOAST MESSAGES  Prefix: ts   -->
+	<string name="ts_add_invalid_url" comment="An error message that appears when an article link could not be saved">Oeps! Pocket kan deze link niet opslaan.</string>
+	<string name="ts_add_saved_to_ril">Opgeslagen naar Pocket</string>
+	<string name="ts_add_added">Opgeslagen!</string>
+	<string name="ts_add_already">Je hebt dit al opgeslagen!</string>
+	<string name="ts_add_already_overlay" comment="A message notifying the user an article they saved is already in their list, and that we will move (bump) it to the top for them">Je hebt dit al opgeslagen! We zetten het bovenaan je lijst neer.</string>
+	<string name="ts_add_error">Er is een probleem opgetreden met het opslaan van de link naar Pocket</string>
+	<string name="ts_add_logged_out">Log in om op te slaan naar Pocket</string>
+    <string name="ts_copied">%1$s naar klembord gekopieerd</string>
+	<string name="ts_item_archived">Item gearchiveerd</string>
+    <string name="ts_item_readded">Item opnieuw toegevoegd</string>
+    <string name="ts_item_deleted">Item verwijderd</string>
+    <string name="ts_item_restored">Item hersteld</string>
+
+    <string name="ts_changes_saved">Wijzigingen opgeslagen</string>
+    <string name="ts_article_reported">Artikel gerapporteerd.\nBedankt dat je ons dit liet weten!</string>
+	<plurals name="ts_bulk_edit_archived">
+        <item quantity="one">%1$s item gearchiveerd</item>
+        <item quantity="other">%1$s items gearchiveerd</item>
+    </plurals>
+	<plurals name="ts_bulk_edit_readded">
+        <item quantity="one">%1$s item opnieuw toegevoegd</item>
+        <item quantity="other">%1$s items opnieuw toegevoegd</item>
+    </plurals>
+	<plurals name="ts_bulk_edit_deleted">
+        <item quantity="one">%1$s item verwijderd</item>
+        <item quantity="other">%1$s items verwijderd</item>
+    </plurals>
+	<string name="ts_bulk_edit_tagged" comment="Do not translate values in {brackets}">{tags} aan {items} toegevoegd</string>
+	<plurals name="ts_bulk_edit_tagged_tags" comment="in &apos;Added X TAGS to 12 items&apos;">
+        <item quantity="one">%1$s tag</item>
+        <item quantity="other">%1$s tags</item>
+    </plurals>
+	<plurals name="ts_bulk_edit_tagged_items" comment="in &apos;Added 12 tags to X ITEMS&apos;">
+        <item quantity="one">%1$s item</item>
+        <item quantity="other">%1$s items</item>
+    </plurals>
+
+    <string name="ts_no_apps_for_intent">Er zijn geen geïnstalleerde apps beschikbaar voor deze handeling.</string>
+    
+    <string name="ts_tags_changes_saved">Wijzigingen opgeslagen</string>
+	
+    <!--  NOTIFICATION BAR Prefix: nt -->
+	<string name="nt_downloading">Downloaden...</string>
+	<string name="nt_cancel">Tik om downloaden te annuleren.</string>
+
+	<string name="nt_channel_functional_name">App-bediening</string>
+	<string name="nt_channel_functional_description">Beheer Offline downloaden, Luisteren (TTS) en andere in-app-functies.</string>
+	<string name="nt_channel_alerts_name">Push-meldingen</string>
+	<string name="nt_channel_alerts_description">Sociale updates, aanbevelingen, productnieuws en overige berichtgeving. Stem je voorkeuren voor pushmeldingen af in de instellingen van Pocket.</string>
+	<string name="nt_channel_article_recommendations">Aanbevolen artikelen</string>
+	<string name="nt_channel_article_recommendations_description">Herinneringen en suggesties voor leesmateriaal</string>
+	<string name="nt_channel_legal_updates">Juridische updates</string>
+	<string name="nt_channel_new_features">Nieuwe functies</string>
+
+
+    
+    <!-- MISC TEXT  Prefix: tx-->
+	<string name="tx_love_pocket">Bevalt Pocket goed?</string>
+    <string name="tx_tell_others">De beste manier om je steun te\nbetuigen is door het aan anderen te vertellen.</string>
+	
+	<string name="suggested_tags_empty_no_tags">Begin tags aan je items toe te voegen om ze hier voorgesteld te zien.</string>
+	<string name="suggested_tags_empty_none_found">We konden geen tags vinden om voor dit item te suggereren.</string>
+	<string name="suggested_tags_no_connection">Je moet online zijn om gesuggereerde tags te kunnen zien. Controleer je verbinding en tik hier om het opnieuw te proberen.</string>
+	<string name="suggested_tags_unknown_error">We hebben problemen met het ophalen van gesuggereerde tags. Tik om het opnieuw te proberen.</string>
+	
+	<!-- READER ERRORS SHOWN IN ERRORVIEW (Not Dialogs)  Prefix: re   Postfix:  t = title, m = message, b = button label  -->
+	<string name="re_downloading_article_view_t">Er is een fout opgetreden bij het downloaden van de artikelweergave voor deze pagina.</string>
+	<string name="re_downloading_article_view_m">Zorg ervoor dat je met het internet verbonden bent.</string>
+	
+	<string name="list_empty_search_title">Geen resultaten gevonden</string>
+	<string name="list_empty_no_result_matched">Er waren geen items die overeenkwamen met jouw zoekopdracht.</string>
+	
+	<string name="add_tags_list_empty_title">Schep orde met tags</string>
+	<string name="add_tags_list_empty_body">Tags maken het makkelijker om je items terug te vinden met de zoekfunctie of filters van Opgeslagen.\n\nOm een tag aan te maken, voer je er hierboven eentje in.</string>
+	
+	<!-- SETTINGS  Prefix: setting -->
+	<string name="setting_header_account">Account</string>
+	<string name="setting_logout">Afmelden</string>
+	<string name="setting_premium">Premium</string>
+	<string name="setting_account_management">Accountbeheer</string>
+	<string name="setting_delete_account">Account verwijderen</string>
+	<string name="setting_delete_account_header">Verwijder je account</string>
+	<string name="setting_delete_account_warning">Waarschuwing: dit kan niet ongedaan worden gemaakt</string>
+	<string name="setting_delete_account_cancel_premium">Om je account te verwijderen, moet je <b><annotation link="https://help.getpocket.com/article/986-canceling-your-pocket-premium-subscription">hier eerst je Premium-abonnement opzeggen</annotation></b>.</string>
+	<string name="setting_delete_account_permanently_delete">Je bent ervan op de hoogte dat je Pocket-account en -gegevens <b>definitief worden verwijderd</b>.</string>
+	<string name="setting_delete_account_error">Je verzoek kon niet worden verwerkt. Probeer het later opnieuw.</string>
+	<string name="setting_delete_account_in_progress">Je account verwijderen...</string>
+	<string name="setting_delete_account_toast_title">Je hebt je Pocket-account verwijderd</string>
+	<string name="setting_delete_account_toast_message">Wat hadden we beter kunnen doen?</string>
+	<string name="setting_delete_account_toast_button">Snelle enquête</string>
+	<string name="setting_header_general">Algemeen</string>
+	<string name="setting_rotation_label">App rotatievergrendeling</string>
+	<string name="setting_rotation_sum">Indien ingeschakeld verschijnt er een vergrendelingsknop in het midden van het scherm nadat je je apparaat gedraaid hebt. Tik op het icoontje om de huidige oriëntatie te vergrendelen en tik nogmaals om deze te ontgrendelen.</string>
+	<string name="setting_header_theme">Appthema</string>
+	<string name="setting_theme">Thema</string>
+	<string name="setting_auto_dark_theme_threshold_automatic">Automatisch</string>
+	<string name="setting_system_theme_label">In overeenstemming brengen met systeemthema</string>
+	<string name="setting_header_reading">Lezen</string>
+	<string name="setting_always_open_original_label">Open altijd de originele website</string>
+	<string name="setting_always_open_original_sum">Pocket opent altijd de oorspronkelijke website in plaats van de artikelweergave</string>
+	<string name="setting_default_browser_label" comment="Setting that allows you to choose a browser. This header is followed by the name of the chosen browser on the next line.">Open de originele websites in</string>
+	<string name="setting_default_browser_system" comment="Default value of the &apos;setting_default_browser_label&apos; setting, which means we will use the default browser from system settings.">Standaard systeembrowser</string>
+	<string name="setting_text_align_label"> Tekst uitvullen</string>
+	<string name="setting_text_align_sum">Toont tekst in artikelweergave met rechtvaardiging</string>
+	<string name="setting_auto_fullscreen_label">Automatisch volledig scherm</string>
+	<string name="setting_auto_fullscreen_sum">Verberg werkbalken terwijl je aan het lezen/en naar beneden aan het scrollen bent. Haal werkbalken tevoorschijn als je omhoog scrollt</string>
+	<string name="setting_continue_reading_label">Doorgaan met lezen</string>
+	<string name="setting_continue_reading_sum">Toon het laatste item waarmee ik bezig was wanneer ik Pocket weer open.</string>
+	<string name="setting_tts_label">Tekst-naar-spraak-engine</string>
+	<string name="setting_tts_sum_fallback">Geen geïnstalleerd</string>
+	<string name="setting_header_offline">Offline downloaden</string>
+	<string name="setting_download_article_label">Altijd artikelweergave ophalen</string>
+	<string name="setting_download_article_sum_unavailable">Niet beschikbaar als de beste weergave automatisch gedownload wordt</string>
+	<string name="setting_download_article_sum">Download het artikel automatisch voor elk item in jouw lijst</string>
+	<string name="setting_only_wifi_label">Enkel downloaden via wifi</string>
+	<string name="setting_mobile_useragent_label">Mobiele gebruikersagent</string>
+	<string name="setting_mobile_useragent_sum">Download mobiele versies indien beschikbaar</string>
+	<string name="setting_clear_download_label">Wis gedownloade bestanden </string>
+	<string name="setting_storage_location">Offline opslaglocatie</string>
+	<string name="setting_header_syncing">Synchroniseren</string>
+	<string name="setting_sync_on_open_label">Synchroniseren als de app wordt geopend</string>
+	<string name="setting_background_sync_label">Synchronisatie op de achtergrond</string>
+	<string name="setting_header_notifications">Meldingen</string>
+	<string name="setting_manage_notification_settings">Apparaatinstellingen voor meldingen</string>
+	<string name="setting_manage_notification_settings_sum">Pas de meldingsgeluiden, trilling en meer aan in de instellingen van Android</string>
+	<string name="setting_notify_sound_label">Geluid voor Melding</string>
+	<string name="setting_notify_sound_silent_sum">Stil</string>
+	<string name="setting_notify_light_label">LED</string>
+	<string name="setting_notify_light_sum">Flitsende LED wanneer er een nieuwe melding is</string>
+	<string name="setting_share_overlay_label">Handelingen voor snel opslaan</string>
+	<string name="setting_share_overlay_sum">Als je opslaat naar Pocket vanaf een andere app, geef dan kort acties weer die je op het nieuwe item kan toepassen. </string>
+	<string name="setting_header_about">Over Pocket</string>
+	<string name="setting_help">Hulp en ondersteuning</string>
+	<string name="setting_twitter_label">Volg @Pocket op Twitter</string>
+	<string name="setting_facebook_label">Volg ons op Facebook</string>
+	<string name="setting_legal_label">Juridische informatie en privacy</string>
+	<string name="setting_contact_us">Neem contact met ons op</string>
+	<string name="setting_thank_you">Bedankt voor het downloaden. Veel plezier!</string>
+	<string name="setting_header_version">Versie</string>
+	<string name="setting_version_label">Pocket %1$s</string>
+	<string name="setting_previous_and_next">Pijlen voor vorige en volgende weergeven</string>
+	<string name="setting_app_icon_label">App-pictogram</string>
+	<string name="setting_app_icon_header_automatic">Laat Pocket je pictogram kiezen</string>
+	<string name="setting_app_icon_header_all">Of selecteer je favoriete pictogram</string>
+	<string name="setting_app_icon_classic" comment="As in &apos;classic icon&apos;, so for gendered languages should follow the gender of &apos;App icon&apos; from setting_app_icon_label">Klassiek</string>
+	<string name="setting_app_icon_pride_flag" comment="As in &apos;Pride icon&apos;, so for gendered languages should follow the gender of &apos;App icon&apos; from setting_app_icon_label">Pride</string>
+	<string name="setting_app_icon_monochrome" comment="As in &apos;monochrome icon&apos;, so for gendered languages should follow the gender of &apos;App icon&apos; from setting_app_icon_label">Monochroom</string>
+
+	<string name="prem_setting_thanks">Bedankt voor het abonneren op Pocket Premium!</string>
+	
+	<string name="prem_setting_status">Abonnementsstatus</string>
+	<string name="prem_setting_subscription">Abonnement</string>
+	<string name="prem_setting_subscription_monthly">Maandelijks</string>
+	<string name="prem_setting_subscription_annual" comment="occurring once per year">Jaarlijks</string>
+	<string name="prem_setting_date_purchased">Aankoopdatum:</string>
+	<string name="prem_setting_renewal_date">Vervaldag</string>
+	<string name="prem_setting_renew_subscription">Verleng abonnement</string>
+	<string name="prem_setting_inactive_subscription">Inactief</string>
+	<string name="prem_setting_subscription_ended_tap_to_renew">Jouw abonnement is afgelopen. Tik om je Premium abonnement te verlengen.</string>
+	<string name="prem_setting_date_ended">Einddatum</string>
+	<string name="prem_setting_purchase_location">Aankooplocatie</string>
+	<string name="prem_setting_your_premium_features">Jouw Premium functies</string>
+	<string name="prem_setting_your_subscription">Jouw abonnement</string>
+	<string name="prem_setting_manage_your_subscription">Beheer jouw abonnement</string>
+	<string name="prem_setting_questions">Vragen of feedback?</string>
+	<string name="prem_setting_faq">Pocket Premium Veelgestelde vragen</string>
+	<string name="prem_setting_contact">Neem contact op met Pocket Support</string>
+	<string name="prem_setting_premium_header">Premium</string>
+	<string name="prem_setting_upgrade">Upgrade naar Premium</string>
+	<string name="prem_setting_restore">Herstel bestaand abonnement</string>
+	
+	<string name="purchase_error_offline_t">Het lijkt erop dat je offline bent</string>
+	<string name="purchase_error_offline_m">Je moet online zijn om te upgraden naar Pocket Premium. Controleer je verbinding en probeer het opnieuw.</string>
+	<string name="purchase_error_activation_t">Activatiefout</string>
+	<string name="purchase_error_activation_m">De aankoop was succesvol, maar we hebben problemen met het activeren van je account. Tik op OK voor instructies om de activatie af te ronden.</string>
+	<string name="purchase_error_purchase_t">Aankoop niet geslaagd</string>
+	<string name="purchase_error_purchase_m">Er is een probleem opgetreden met het afronden van je aankoop. Probeer het opnieuw.</string>
+	<string name="purchase_error_progress">Je aankoop afronden...</string>
+	<string name="purchase_error_already_owned_t">Al geabonneerd</string>
+	<string name="purchase_error_already_owned_m">Je hebt al een abonnement op Pocket Premium.</string>
+	<string name="purchase_error_restore_none_found_t">Herstel niet succesvol</string>
+	<string name="purchase_error_restore_none_found_m">We konden geen abonnement vinden. Als je gelooft dat je er een hebt, tik dan op %1$s om ons dit te laten weten.</string>
+	<string name="purchase_restored">Abonnement hersteld.</string>
+    <string name="purchase_error_amazon_m">Opwaarderen naar Pocket Premium is momenteel niet beschikbaar via de Amazon App Store.</string> <!-- no translation necessary, as it is an email to our support team -->
+
+	<string name="setting_background_sync_0">Onmiddellijk (Push)</string>
+	<string name="setting_background_sync_1">Elk uur</string>
+	<string name="setting_background_sync_2">Tweemaal per dag</string>
+	<string name="setting_background_sync_3">Eenmaal per dag</string>
+	<string name="setting_background_sync_4">Nooit</string>
+	
+    <!-- Text displayed in the enter key slot when the recipientedittextview has focus.
+         [CHAR LIMIT=12] -->
+    <string name="done">Terug</string>
+
+    <string name="setting_cache_set_offline_storage_limits">Stel offline opslaglimieten in</string>
+    <string name="setting_cache_priority">Downloadprioriteit</string>
+    <string name="setting_cache_priority_newest">Nieuwste items eerst</string>
+    <string name="setting_cache_priority_oldest">Oudste items eerst</string>
+    <string name="setting_cache_limit_description">Stel een limiet in voor de hoeveelheid opslagruimte die Pocket mag gebruiken voor offline downloaden.</string>
+    <string name="setting_cache_currently_using" comment="Do not translate values in {brackets}">Pocket gebruikt ongeveer <b>{disk_space_size}</b> van de opslagruimte van je toestel.</string>
+    <string name="setting_cache_currently_adjusting">Momenteel worden je offline opslaglimieten toegepast...</string>
+    <string name="setting_cache_limit_to" comment="Will be used to present a disk space value like Limit to: 500 MB">Beperkt tot:</string>
+    <string name="setting_cache_unlimited">Onbeperkt</string>
+    <string name="setting_cache_approx_item_count">Ongeveer <b>{item_count}</b> van je <b>{newest_or_oldest}</b> items komen offline beschikbaar.</string>
+    <string name="setting_cache_priority_inline_newest">nieuwste</string>
+    <string name="setting_cache_priority_inline_oldest">oudste</string>
+    <string name="setting_cache_confirm_change_t">Opslaginstellingen wijzigen?</string>
+    <string name="setting_cache_confirm_change_m" comment="Please try to keep as short as possible">Pocket kan extra content verwijderen of downloaden om je wijzigingen weer te geven.</string>
+    <string name="setting_cache_may_take_a_few_minutes">Dit proces neemt een paar minuten.</string>
+    <string name="setting_cache_mb" comment="abbreviation for Megabytes. Used like 800 MB">MB</string>
+    <string name="setting_cache_gb" comment="abbreviation for Gigabytes. Used like 1.2 GB">GB</string>
+    <string name="setting_cache_not_saved_m">De wijzigingen zijn nog niet opgeslagen. Wil je de wijzigingen negeren of doorgaan met bewerken?</string>
+	
+	<string name="storage_free_space">Vrije ruimte: %1$s</string>
+	<string name="storage_free_space_unknown">Onbekend</string>
+	<string name="storage_location_changed">Opslaglocatie succesvol gewijzigd</string>
+	<string name="storage_type_internal">Intern</string>
+	<string name="storage_type_internal_specific_sandboxed">Intern (sandbox)</string>
+	<string name="storage_type_internal_specific_unsandboxed">Intern (openbaar)</string>
+	<string name="storage_type_removable">Verwijderbaar</string>
+	<string-array name="storage_location_specs_internal">
+        <item><b>Aanbevolen.</b></item>
+        <item>Downloadcache alleen zichtbaar voor Pocket.</item>
+	</string-array>
+	<string-array name="storage_location_specs_removable">
+		<item>Downloadcache zichtbaar voor andere apps.</item>
+		<item>Als je de opslaglocatie verwijdert of wijzigt, is Pocket mogelijk niet meer beschikbaar.</item>
+		<item>Als het apparaat via USB wordt aangesloten op je computer, kan Pocket mogelijk niet meer worden gebruikt.</item>
+	</string-array>
+
+	<string name="onboarding_learn_more_1_title" comment="If possible without losing meaning, try to keep to 35 characters or less">Sla op wat je echt boeit</string>
+	<string name="onboarding_learn_more_1_text" comment="If possible without losing meaning, try to keep to 145 characters or less">Verzamel artikelen, video\'s of andere content die je leuk vindt. Ga er later goed voor zitten, op wat voor telefoon, tablet of browser je wil.</string>
+	<string name="onboarding_learn_more_2_title" comment="If possible without losing meaning, try to keep to 35 characters or less">Benut elk moment optimaal</string>
+	<string name="onboarding_learn_more_2_text" comment="If possible without losing meaning, try to keep to 145 characters or less">Sla content op vanuit Chrome, Twitter, YouTube of je favoriete nieuws-app. Je artikelen en video\'s staan dan voor je klaar in Pocket.</string>
+	<string name="onboarding_learn_more_3_title" comment="If possible without losing meaning, try to keep to 35 characters or less">Je eigen rustige stukje internet</string>
+	<string name="onboarding_learn_more_3_text" comment="If possible without losing meaning, try to keep to 145 characters or less">Pocket slaat artikelen op in een strakke lay-out, ontworpen voor leesgemak. Je wordt zo dus niet afgeleid door onderbrekingen of pop-ups.</string>
+	
+	<string name="legacy_upgrading">Pocket is bezig je app bij te werken. Dit kan een paar minuten duren. De upgrade wordt op de achtergrond voortgezet, dus kom gerust later nog eens terug.</string>
+	
+	<string name="report_item_overflow_option">Dit item rapporteren</string>
+	<string name="report_item_option_1">De titel, link of afbeelding is beschadigd</string>
+	<string name="report_item_option_2">Het is verkeerd gecategoriseerd</string>
+	<string name="report_item_option_3">Het is seksueel expliciet</string>
+	<string name="report_item_option_4">Het is grof, vulgair of aanstootgevend</string>
+	<string name="report_item_option_5">Het bevat informatie die niet klopt</string>
+	<string name="report_item_option_6">Overige</string>
+	<string name="report_item_hint">Licht het toe</string>
+	<string name="report_item_dialog_title">Een probleem rapporteren</string>
+	<string name="report_item_submit_title">Dankjewel!</string>
+	<string name="report_item_submit_text">Je melding draagt bij aan de veiligheid van de Pocket-gemeenschap.</string>
+	
+	<string name="collection_details_error_title">Kon verzameling niet laden</string>
+	<string name="collection_details_error_message">Pocket had problemen met het laden van deze verzameling. Probeer het later opnieuw.</string>
+	
+	<string name="viewed">Bekeken</string>
+	<string name="not_viewed">Niet bekeken</string>
+	
+	<string name="no_internet_connection">Geen internetverbinding</string>
+	<string name="no_internet_connection_body">Het lijkt erop dat je offline bent. Controleer je verbinding met het mobiele of wifi-netwerk.</string>
+	
+	<string name="fxa_account_migrated">Je account is overgezet.</string>
+	
+	<string name="my_list_filter_all">Alle</string>
+	<string name="my_list_filter_tagged">Getagd</string>
+	<string name="my_list_filter_favorites">Favorieten</string>
+	<string name="my_list_filter_filter">Filteren</string>
+	<string name="my_list_filter_edit">Bewerken</string>
+	<string name="my_list_filter">Filteren</string>
+	<string name="edit_tags">Tags bewerken</string>
+	<string name="move_to_my_list">Verplaatsen naar Opgeslagen</string>
+	<string name="highlighted">Gemarkeerd</string>
+	<string name="delete_tag_confirmation_message">"Tag %1$s verwijderen?"</string>
+	
+	<string name="empty_list_all_title">Begin met het samenstellen van je Pocket-lijst</string>
+	<string name="empty_list_all_action">Opslaan</string>
+	<string name="empty_list_favorites_title">Vind hier je favorieten</string>
+	<string name="empty_list_favorites_message">Klik op het sterretje om een artikel aan je favorieten toe te voegen, zodat je het sneller terug kunt vinden.</string>
+	<string name="empty_list_tagged_title">Organiseer je lijst</string>
+	<string name="empty_list_tagged_message">Voeg tags aan opgeslagen artikelen toe zodat je ze later makkelijk kunt vinden.</string>
+	<string name="empty_list_tagged_action">Tags gebruiken</string>
+	<string name="empty_list_specific_tag_title">Geen opgeslagen artikelen met deze tag.</string>
+	<string name="empty_list_highlights_title">Bewaar hier je favoriete fragmenten</string>
+	<string name="empty_list_highlights_message">Selecteer een regel in een artikel en klik op Markeren om het op te slaan voor later.</string>
+	<string name="empty_list_archive_title">Houd je lijst up-to-date en geordend</string>
+	<string name="empty_list_archive_message">Archiveer opgeslagen artikelen die je al hebt gelezen via het archief-pictogram.</string>
+	<string name="empty_list_archive_action">Artikelen archiveren</string>
+	
+	<string name="time_to_read_filter_short">Kort</string>
+	<string name="time_to_read_filter_short_description">Minder dan 10 minuten</string>
+	<string name="time_to_read_filter_long">Lang</string>
+	<string name="time_to_read_filter_long_description">Minstens 10 minuten</string>
+	<string name="short_reads">Korte artikelen</string>
+	<string name="long_reads">Langere artikelen</string>
+	
+	<string name="notification_permission_primer_title">Laat geen topartikelen aan je voorbijgaan</string>
+	<string name="notification_permissions_primer_message">Mogen we je af en toe een melding sturen over een goed artikel?</string>
+	<string name="notification_permissions_primer_positive_button">Natuurlijk</string>
+	<string name="notification_permissions_primer_negative_button">Vraag het me later</string>
+	
+	<string name="home_sign_in_banner">Log in om optimaal te profiteren van Pocket</string>
+	<string name="home_see_all">Alles bekijken</string>
+	<string name="home_collection">Verzameling</string>
+	<string name="recent_saves">Recent opgeslagen</string>
+	<string name="home_more_topics">Meer onderwerpen</string>
+	<string name="home_footer_message">Je bent helemaal bij! Kom morgen terug voor meer.</string>
+	<string name="home_error_title">Kan geen nieuwe artikelen ophalen</string>
+	<string name="home_error_message">Probeer Home opnieuw te laden.</string>
+	<string name="home_topic_error_message">Probeer artikelen opnieuw te laden.</string>
+	
+	<string name="original_web_no_browser">We kunnen geen browser vinden om deze pagina te openen</string>
+	<string name="original_web_changed_browser_setting" comment="The format argument (%1$s) will be replaced with a browser name like &apos;Chrome&apos; or &apos;Firefox&apos; chosen from one of the browsers installed on the device.">Pocket heeft de voorkeursbrowser ingesteld op %1$s, omdat de standaard systeembrowser niet is geconfigureerd.</string>
+	<string name="highlights">Markeringen</string>
+	<string name="end_of_article_title">Misschien vind je dit ook leuk</string>
+	<string name="previous_and_next_setting_description">Wissel snel tussen artikelen met de knoppen \'Volgende\' en \'Vorige\'</string>
+
+	<string name="add_url_title">Voeg een URL toe</string>
+	<string name="add_url_hint" comment="Hint for an input field where you can paste a URL to save (add to your saves)">bijv. https://getpocket.com</string>
+	<string name="add_url_error">Voer een geldige URL in</string>
+
+	<string name="authentication_legal_disclaimer" comment="This string uses Markdown formatting. Please preserve the formatting (including TWO spaces before the new line).">"Door verder te gaan, ga je akkoord met:  \nde [Servicevoorwaarden](https://getpocket.com/tos) en [Privacyverklaring](https://getpocket.com/privacy) van Pocket."</string>
+</resources>

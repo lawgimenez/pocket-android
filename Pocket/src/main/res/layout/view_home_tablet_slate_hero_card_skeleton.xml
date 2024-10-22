@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="10dp">
+    
+    <com.pocket.ui.view.themed.ThemedConstraintLayout2
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_bg">
+        
+        <com.pocket.ui.view.themed.ThemedImageView
+            android:id="@+id/image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_skeleton_hero"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/titleLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        
+        <com.pocket.ui.view.themed.ThemedConstraintLayout2
+            android:id="@+id/titleLayout"
+            android:layout_width="0dp"
+            android:layout_height="170dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/image"
+            app:layout_constraintTop_toTopOf="parent">
+            
+            <com.pocket.ui.view.themed.ThemedTextView
+                android:id="@+id/collectionLabel"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/bg_skeleton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            
+            <com.pocket.ui.view.themed.ThemedTextView
+                android:id="@+id/title1"
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_skeleton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/collectionLabel" />
+            
+            <com.pocket.ui.view.themed.ThemedTextView
+                android:id="@+id/title2"
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="60dp"
+                android:background="@drawable/bg_skeleton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title1" />
+            
+            <com.pocket.ui.view.themed.ThemedView
+                android:id="@+id/subtitle1"
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_skeleton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title2" />
+            
+            <com.pocket.ui.view.themed.ThemedView
+                android:id="@+id/subtitle2"
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_skeleton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subtitle1" />
+            
+            <com.pocket.ui.view.themed.ThemedView
+                android:id="@+id/subtitle3"
+                android:layout_width="120dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bg_skeleton"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subtitle2" />
+        
+        </com.pocket.ui.view.themed.ThemedConstraintLayout2>
+        
+        <com.pocket.ui.view.themed.ThemedTextView
+            android:id="@+id/domain"
+            android:layout_width="122dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_skeleton"
+            app:layout_constraintStart_toEndOf="@id/image"
+            app:layout_constraintTop_toBottomOf="@id/titleLayout" />
+        
+        <com.pocket.ui.view.themed.ThemedTextView
+            android:id="@+id/author"
+            android:layout_width="110dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_skeleton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/image"
+            app:layout_constraintTop_toBottomOf="@id/domain" />
+        
+        <com.pocket.ui.view.themed.ThemedView
+            android:id="@+id/action1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_skeleton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleLayout" />
+        
+        <com.pocket.ui.view.themed.ThemedView
+            android:id="@+id/action2"
+            android:layout_width="66dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_skeleton"
+            app:layout_constraintEnd_toStartOf="@id/action1"
+            app:layout_constraintTop_toTopOf="@id/action1" />
+    
+    </com.pocket.ui.view.themed.ThemedConstraintLayout2>
+
+</androidx.cardview.widget.CardView>

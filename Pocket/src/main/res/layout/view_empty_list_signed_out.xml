@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+I'm so sorry I did this. This is literally `view_empty_list_all.xml` copy-pasted with only button
+text updated. This is so bad.
+But that's how the empty view is implemented. I don't want to refactor all if now, just to
+make this simple change for signed out…
+ – Marcin
+-->
+<com.pocket.ui.view.themed.ThemedConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@color/white"
+    >
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/splitGuide"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15"
+        />
+    <com.pocket.ui.view.themed.ThemedImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_welcome_shelf"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/splitGuide"
+        />
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/title"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:gravity="center_horizontal"
+        android:text="@string/empty_list_all_title"
+        android:textColor="@color/pkt_text_primary"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        />
+    <com.pocket.ui.view.button.BoxButton
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/ac_authenticate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        />
+</com.pocket.ui.view.themed.ThemedConstraintLayout>

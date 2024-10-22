@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- smartling.instruction_attributes = comment -->
+<!-- smartling.placeholder_format_custom = \{[a-zA-Z0-9_-]+\}-->
+<resources>
+    <!-- LABELS, TITLES & NAMES - Prefix: nm  -->
+    <string name="nm_add_to_ril" comment="try to use a string starting with A or just leave Pocket">+ Pocket</string>
+	
+	<!-- smartling.character_limit = 17 -->
+	<string name="nm_add_tags" comment="Title of a page">タグを追加</string>
+
+	<string name="nm_theme_light" comment="Appearance/color of the app">ライト</string>
+	<string name="nm_theme_dark" comment="Appearance/color of the app">ダーク</string>
+	
+	<string name="clipboard_label_url">Pocket からコピーされたリンク</string>
+	
+	<string name="nm_archive" comment="Title in the main menu of the action bar. This is a noun.">アーカイブ</string>
+	<string name="nm_link">リンク</string>
+	
+	<!-- Setting up as plural in case other languages want to vary the label depending on quantity -->
+	<plurals name="nm_time_estimate" comment="Short label showing the number of minutes to read a story, watch a video, or listen to an article e.g. &apos;5 min&apos;">
+        <item quantity="other">%1$d分</item>
+    </plurals>
+	
+	<plurals name="nm_time_to_read_estimate" comment="Short label showing the number of minutes to read a story, watch a video, or listen to an article e.g. &apos;5 min read&apos;">
+        <item quantity="other">読了まで%1$d分</item>
+    </plurals>
+
+	<!-- Setting up as plural in case other languages want to vary the label depending on quantity -->
+	<plurals name="nm_time_left_estimate" comment="Short label showing the number of minutes to read a story, watch a video, or listen to an article e.g. &apos;5 min left&apos;">
+        <item quantity="other">あと%1$d分</item>
+    </plurals>
+
+	<!-- UI ACTION LABELS (Buttons, Checkboxes) - Prefix: ac  -->
+	<string name="ac_login">ログイン</string>
+	<string name="ac_logout">ログアウト</string>
+	<string name="ac_authenticate">登録またはログイン</string>
+	<string name="ac_continue_signed_out" comment="A button next to a &apos;Sign up or sign in&apos; button, that allows you to go to the Home screen without signing up or signing in.">登録をスキップ</string>
+	<string name="ac_cancel">キャンセル</string>
+	<string name="ac_close_app">アプリを閉じる</string>
+	<string name="ac_ok">OK</string>
+	<string name="ac_yes">はい</string>
+	<string name="ac_no">いいえ</string>
+	<string name="ac_retry">再試行</string>
+	<string name="ac_try_again">もう一度お試しください</string>
+	<string name="ac_create_new_cache">新しいキャッシュを作成</string>
+	<string name="ac_clear_cache">キャッシュをクリア</string>
+	<string name="ac_get_help">お問い合わせ</string>
+	<string name="ac_submit">送信</string>
+	<string name="ac_write_review" comment="link to leave a review on the application store">レビューを書く</string>
+	<string name="ac_no_thanks">結構です</string>
+	<string name="ac_next">次へ</string>
+	<string name="ac_accept">承諾</string>
+	<string name="ac_got_it_caps">了解</string>
+	<string name="ac_continue">続行</string>
+	<string name="ac_discard_changes">変更を破棄</string>
+	<string name="ac_continue_editing">編集を続行</string>
+	<string name="ac_add_new_tag">新しいタグ <b>\\‘{name_of_tag}\\‘</b> を追加</string>
+	<string name="ac_undo">取り消し</string>
+	<string name="ac_highlight" comment="Label for button that highlights selected text">@string/ic_highlight</string>
+	<string name="ac_copy">@string/ic_copy</string>
+	<string name="ac_translate">翻訳する</string>
+	<string name="ac_web_search">ウェブ検索</string>
+	<string name="ac_select_all">すべて選択</string>
+	<string name="ac_clear">クリア</string>
+	<string name="ac_share">共有</string>
+	<string name="ac_maybe_later">後で</string>
+	<string name="ac_install">インストール</string>
+	
+	
+	<!-- UI LABELS (TextViews and labels) - Prefix: lb  -->
+	<string name="lb_tab_saves">保存アイテム</string>
+	<string name="lb_continue_reading" comment="should be all upper case">続きを読む</string>
+	
+	<string name="lb_add_copied_url" comment="a title asking the user if they would like to save a URL from their device clipboard">コピーした URL を保存しますか？</string>
+    
+    <string name="lb_slower" comment="Speaking rate of the Text To Speech">ゆっくり話す</string>
+    <string name="lb_faster" comment="Speaking rate of the Text To Speech">速く話す</string>
+    <string name="lb_tts_language">言語</string>
+    <string name="lb_tts_voice">音声</string>
+	
+	<string name="lb_select_tags_hint">タグを選択または入力</string>
+    <string name="lb_select_tags_hint_no_tags">タグを入力</string>
+    
+	<plurals comment="Header above the list of item" name="lb_selected">
+        <item quantity="other">%1$s件選択しました</item>
+    </plurals>
+	
+	<string name="lb_suggested_tags">おすすめタグ</string>
+	<string name="lb_all_tags">すべてのタグ</string>
+	<string name="lb_recent_tags">最近のタグ</string>
+	<string name="lb_tags_autocomplete">タグ</string>
+	
+	<string name="lb_downloading_items_notification" comment="the number of items being currently downloaded for offline viewing. this number will count down as downloading progresses">{number_of_items}件のアイテムをダウンロード中…</string>
+	
+	<string name="lb_search_hint">検索</string>
+	<string name="lb_list_search_hint">リストを検索</string>
+	<string name="lb_list_archive_search_hint">アーカイブを検索</string>
+	<string name="lb_recent_searches_sc">最近の検索</string>
+	<string name="lb_time_to_read" comment="Header for a section of filters that let you view a subset of your saved articles based on their length.">読了までの時間</string>
+	
+	<string name="lb_sort_by">並び替え：</string>
+	<string name="lb_sort_by_newest">新しい保存コンテンツ</string>
+	<string name="lb_sort_by_oldest">古い保存コンテンツ</string>
+	<string name="lb_sort_by_newest_archive">新しいアーカイブ</string>
+	<string name="lb_sort_by_oldest_archive">古いアーカイブ</string>
+	<string name="lb_sort_by_shortest">短いコンテンツ</string>
+	<string name="lb_sort_by_longest">長いコンテンツ</string>
+	
+	<string name="lb_prem_purchase_title">Pocket Premium に登録する</string>
+	<string name="lb_prem_purchase_perm_lib_title">永久保存ライブラリを構築する</string>
+	<string name="lb_prem_purchase_perm_lib_desc">保存したページがインターネット上で削除されても、Pocket にコピーを残せます。</string>
+	<string name="lb_prem_purchase_ad_free_title">集中できる環境</string>
+	<string name="lb_prem_purchase_ad_free_desc">広告表示のない落ち着いた閲覧環境により、リラックスした状態でコンテンツを楽しめます。</string>
+	<string name="lb_prem_purchase_search_title">数クリックでストーリーにアクセス</string>
+	<string name="lb_prem_purchase_search_desc">全文検索なら、保存したものを何でも素早く検索できます。キーワードやトピック、著者、タグなどから記事を検索してみましょう。</string>
+	<string name="lb_prem_purchase_tags_title">スマートタグ</string>
+	<string name="lb_prem_purchase_tags_desc">ストーリーを保存するたびにリストからおすすめのタグを表示します。タグを付ければ付けるほど、おすすめがより役に立つようになります。</string>
+	<string name="lb_prem_purchase_highlights_title">アイデアをハイライト</string>
+	<string name="lb_prem_purchase_highlights_desc">記事中のハイライト表示は無制限。「これ！」と思った内容を永久に記録できます。</string>
+	<string name="lb_prem_purchase_reader_title">読みやすさをカスタマイズ</string>
+	<string name="lb_prem_purchase_reader_desc">丸みを帯びたフォントや文字間隔の広いまたは狭いスタイルがお好きですか？Pocket をカスタマイズして、お好みの閲覧スタイルを作りましょう。</string>
+	<string name="lb_prem_purchase_per_month" comment="per month subscription label on subscription button">%1$s/月</string>
+	<string name="lb_prem_purchase_per_year" comment="per year subscription label on subscription button">%1$s/年</string>
+	<string name="lb_prem_purchase_complete_title">やった～！</string>
+	<string name="lb_prem_purchase_complete_message">正式に Pocket Premium メンバーになりました。広告なし、カスタマイズ可能な、永久版のPocketにようこそ。きっと気に入っていただけるはず！思う存分お楽しみください。</string>
+	<string name="lb_prem_purchase_complete_renew_title">おかえりなさい！</string>
+	<string name="lb_prem_purchase_complete_renew_message">契約の更新により、再び正式な Pocket Premium メンバーになりました。広告なし、カスタマイズ可能な、永久版の Pocket をどうぞお楽しみください。</string>
+	<string name="lb_prem_purchase_complete_button">Pocket に戻る</string>
+	<string name="lb_prem_purchase_terms">契約は Google Play でキャンセルされるまで、契約期間ごとに自動更新されます。</string>
+
+	<string name="lb_save_25p_2_line" comment="keep as short as possible">25%\n割引</string>
+	
+	<string name="lb_annotations_upsell_t">もっとハイライトしたいですか？</string>
+	<string name="lb_annotations_upsell_m">現時点では、記事1件につき%1$d回までのハイライトが可能です。今すぐPocket Premium にアップグレードして、ハイライトの制限を取り払いましょう（他にも機能が盛りだくさん）。</string>
+	<string name="lb_annotations_upsell_cta" comment="Label for a button in a Highlights upgrade prompt leading to the full Premium upgrade/purchase screen.">Premium に登録</string>
+	
+	<!-- MENU OPTIONS (Context and Option) - Prefix: mu  -->
+    <string name="mu_settings" comment="this text label should be short">設定</string>
+	<string name="mu_read_later" comment="this text label should be short">Pocket に保存</string>
+	<string name="mu_help" comment="this text label should be short">ヘルプ</string>
+	<string name="mu_copy_link" comment="this text label should be short">リンクをコピー</string>
+	<string name="mu_report_article_view" comment="this text label should be short">記事の問題を報告</string>
+	<string name="mu_refresh" comment="this text label should be short">リフレッシュ</string>
+	<string name="mu_find_in_page" comment="this text label should be short">ページを検索</string>
+	<string name="mu_display_settings" comment="this text label should be short">テキスト設定</string>
+	<string name="mu_delete" comment="this text label should be short">削除</string>
+	<string name="mu_view_original">元のページを表示</string>
+	<string name="mu_switch_to_article" comment="this text label should be short">記事ビューへ切替</string>
+	<string name="mu_add_tags" comment="this text label should be short">タグを追加</string>
+	<string name="mu_favorite" comment="this text label should be short">お気に入り</string>
+	<string name="mu_unfavorite" comment="this text label should be short">お気に入り解除</string>
+	
+	<!-- Navigation items -->
+	<!-- smartling.character_limit = 14 -->
+	<string name="mu_home" comment="this text label should be short">ホーム</string>
+	<!-- smartling.character_limit = 14 -->
+	<string name="mu_saves" comment="this text label should be short">保存アイテム</string>
+	<string name="mu_annotations" comment="This text label should be short. Here &apos;Highlights&apos; references a new feature where a user can highlight text in articles to save memorable quotes.">ハイライト</string>
+	<string name="mu_premium" comment="this text label should be short">Premium</string>
+	<!-- smartling.character_limit = 14 -->
+	
+	<string name="mu_untagged" comment="make sure this phrase matches what is in setting_untagged_label and setting_untagged_sum">タグ付けされていません</string>
+
+	
+    <!-- DIALOGS TITLES AND MESSAGES (ContextMenus, Progress and Alert) - 
+    	Prefix: dg_
+    	Postfix: _t = title,
+    			 _m = message   
+    -->
+    <!-- Progress labels -->
+	<string name="dg_loading">ロード中…</string>
+	<string name="dg_changing_data_location">保存場所を変更中…</string>
+	<string name="dg_clearing_cache">キャッシュをクリア中…</string>
+	<string name="dg_logging_out">ログアウト中…</string>
+	<string name="dg_c2dm_registering">プッシュ通知を受信するため、デバイスを設定中…</string>
+	<string name="dg_fetching">リストを復元中…</string>
+	
+	<!-- General use titles -->
+    <string name="dg_error_t">おっと！</string>
+    <string name="dg_confirm_t">よろしいですか？</string>
+    <string name="dg_changes_not_saved_t">変更が保存されていません</string>
+    
+    <!-- Connection issues (TODO: These could more than likely be cleaned up and combined)-->
+    <string name="dg_sync_error_t">同期エラー</string>
+	<string name="dg_fetch_error_t">リストを読み込めませんでした</string>
+	<string name="dg_fetch_error_m">サーバーからリストを取得中に問題が発生しました。インターネットに接続されていることをご確認のうえ、もう一度お試しください。</string>
+	<string name="dg_no_connection_m">接続中にエラーが発生しました。お使いのデバイスがインターネットに接続されていることをご確認のうえ、もう一度お試しください。</string>
+	<string name="dg_api_generic_error">Pocket への接続中に問題が発生しました。</string>
+	
+    <!-- Misc -->
+    <string name="dg_unexpected_m">おっと！予期せぬエラーが発生しました。もう一度お試しいただき、問題が継続するようであれば、お問い合わせください。</string>
+    
+    <string name="dg_report_error_m">このエラーを報告しますか？</string>
+	
+	<string name="dg_no_email_app_t">メールを送信できません</string>
+	<string name="dg_no_email_app_m">このデバイスにはメールアプリがインストールされていません。</string>
+	<string name="dg_no_email_app_m_support">他のデバイスで再挑戦する場合、以下が当社のメールアドレスとなります：support@getpocket.com</string>
+
+	<!-- Storage or Cache errors -->
+	<string name="dg_storage_setting_unavailable_t">ストレージにアクセスできません</string>
+	<string name="dg_storage_setting_unavailable_m">そのストレージは現在使用できません。メモリーカードやストレージデバイスが正しく接続されていることをご確認ください。また、PC に USB 接続された外部ストレージとして使用されていないかご確認ください。</string>
+
+	<string name="bg_offline_cache_storage_is_unavailable_t">オフラインコンテンツにアクセスできません</string>
+	<string name="bg_offline_cache_storage_is_unavailable_m">"オフラインキャッシュが保存されているストレージは現在使用できません。これは、デバイスが PC に USB 接続されている場合、メモリーカードを外した場合、または Pocket のストレージ許可を破棄した場合に起こる可能性があります。この変更を元に戻して、もう一度お試しください。または、Pocket の内部ストレージ中にある新しいキャッシュに切り替えることもできます。"</string>
+
+	<string name="bg_offline_cache_is_missing_t">オフラインコンテンツにアクセスできません</string>
+	<string name="bg_offline_cache_is_missing_m">オフラインキャッシュが見つかりません。オフラインストレージが正しく接続されているかご確認ください。キャッシュファイルを並び替えたり、変更した場合は、元に戻して、もう一度お試しください。</string>
+
+	<string name="dg_offline_cache_is_missing_permission_t">オフラインコンテンツにアクセスできません</string>
+	<string name="dg_offline_cache_is_missing_permission_m">"Pocket のストレージ許可がないため、オフラインキャッシュにアクセスできません。外部ストレージの使用を続けるには、Pocket のストレージ許可を再度有効にするか Pocket の内部ストレージに切り替えてください。"</string>
+
+	<string name="dg_offline_cache_is_missing_rw_permission_m">申し訳ございませんが、SD カードにアクセスできません。Android チームが調査できるように、このエラーを記録しました。解決できるまで、内部ストレージで Pocket の使用をお楽しみください。</string>
+
+	<string name="dg_sdcard_confirm_change_m">ストレージを変更すると、ダウンロード済みのファイルが消去されます。</string>
+	
+	<string name="dg_out_of_space_t">ストレージ容量が足りません</string>
+	<string name="dg_out_of_space_m">Pocket のオフラインストレージの容量が足りません。空きスペースを追加しないと Pocket は正常に機能できません。空きスペースを確保したうえで続行してください。空きスペースを確保するには、Pocket のオフラインキャッシュをクリアすると良いでしょう。</string>
+	
+	<string name="dg_after_clear_m">"デバイスのメモリ容量が限られている場合、Pocket の{name_of_storage_setting}設定を使用してキャッシュが使用できるスペースを制限します。"</string>
+	
+	<string name="dg_clear_cache_t">よろしいですか？</string>
+	<string name="dg_clear_cache_m">オフライン表示用に保存されたファイルがすべて削除されます。</string>
+	<string name="dg_confirm_create_new_cache_m">既存のオフラインキャッシュがクリアされ、代わりに内部ストレージを使用し始めます。</string>
+
+	<string name="dg_forced_logout_t">ログインしてください</string>
+	<string name="dg_forced_logout_m">別のロケーションからログアウトされています。もう一度ログインしてください。</string>
+
+	<string name="dg_tag_too_long_m">タグは25文字以下で入力してください。</string>
+	
+	<string name="dg_invalid_tag_m">"申し訳ございませんが、%1$s はタグとして認められません。"</string>
+	<string name="dg_changes_not_saved_tags_m">タグへの変更がまだ保存されていません。変更を破棄するか編集を続行しますか？</string>
+	
+	<string name="dg_market_not_found_t">Amazon アプリストアが見つかりません</string>
+	<string name="dg_market_not_found_m">予期せぬ理由により、Amazon アプリストアを開けませんでした。申し訳ございません！</string>
+	
+	<string name="dg_browser_not_found_t">ブラウザが見つかりませんでした</string>
+	<string name="dg_browser_not_found_m">お持ちのデバイスには、このウェブページを開けるブラウザアプリがありません。</string>
+	
+	<!-- Push / Instant Sync (GCM) & Background Syncing Settings -->
+	<string name="dg_c2dm_unsupported_t">利用不可</string>
+	<string name="dg_c2dm_unsupported_m">このデバイスは即時同期に対応していません。</string>
+	<string name="dg_c2dm_failed_t">セットアップ失敗</string>
+	<string name="dg_c2dm_failed_general_m">現在、お持ちのデバイスを即時プッシュ通知向けに登録することができません。後ほどもう一度お試しください。</string>
+	<string name="dg_c2dm_not_connected_m">即時同期を有効にするには、インターネットに接続する必要があります。</string>
+	<string name="dg_timer_sync_no_change_t">設定利用不可</string>
+	<string name="dg_timer_sync_no_change_m">このアプリが外部ストレージ（SD カードなど）にインストールされている場合は、時間ベースのバックグラウンド同期オプションは利用できません。\n\n即時同期を使用するか、バックグラウンド同期をオフにしてください。</string>
+	
+	<!-- Edit account -->
+	<string name="dg_confirm_logout_m">強制的にログアウトされ、オフラインで表示するためにデバイスに保存されたファイルがすべて削除されます。</string>
+	
+	<!-- Listen -->
+	<string name="listen_playing_from"><b>保存アイテム</b>から再生</string>
+	<string name="listen_playlist_header" comment="Should be all upper case letters for any language where it makes sense">マイプレイリスト</string>
+	<string name="listen_data_alert">デバイスが Wi-Fi に接続できない場合、再生にはモバイルデータを使用します。</string>
+    <string name="listen_offline_hint" comment="This should be less than 100 characters.">オフラインです。こちらからオフラインの音声に切り替えてください。</string>
+	
+	<string name="listen_settings_use_listen_endpoint">最高品質の音声をストリーム</string>
+	<string name="listen_settings_network_voice_warning">Wi-Fi に接続できない場合はモバイルデータを使用します。オフラインでは使用できません。</string>
+	<string name="listen_settings_picker_summary_unavailable">自動</string>
+	<string name="listen_settings_auto_play">記事を自動再生</string>
+	<string name="listen_settings_auto_archive">聴いた後に自動アーカイブ</string>
+    
+	<string name="listen_error_timeout">サーバーからの応答に時間がかかっています。後ほどもう一度お試しください。</string>
+	<string name="listen_error_media_player">予期せぬ再生エラーが発生しました</string>
+	<string name="listen_error_server">この記事の再生中にエラーが発生しました。他の音声へ切り替えてみてください。</string>
+	
+	<string name="listen_reader_tooltip">タップしてこの記事を外出先で聴く</string>
+	<plurals name="listen_my_list_toast_title">
+        <item quantity="other">%2$s️未読の記事が%1$d件あります。</item>
+    </plurals>
+	<string name="listen_my_list_toast_title_5000_plus">%1$s記事が数千件あります。</string>
+	<string name="listen_my_list_toast_message">記事を聴いてみましょう。 瞬く間に 時間がすぎます。</string>
+	<string name="listen_my_list_toast_button">聴いてみる</string>
+	
+	<!-- TTS -->
+	<string name="tts_dg_t">テキスト読み上げ</string>
+	<string name="tts_settings">テキスト読み上げ設定</string>
+	<string name="tts_dg_not_available_m">選択したテキスト読み上げエンジンを開始できませんでした。デバイスのテキスト読み上げ設定でインストールされていることをご確認ください。</string>
+	<string name="tts_dg_not_supported_m">申し訳ございませんが、お使いのデバイスはテキスト読み上げ（TTS）に対応していないようです。</string>
+	<string name="tts_dg_install_t">テキスト読み上げインストール</string>
+	<string name="tts_dg_install_m">この機能では、Android 搭載のテキスト読み上げ（TTS）機能を使用します。お使いのデバイスには、まだインストールされていません。</string>
+	<string name="tts_dg_missing_settings_m" comment="TTS = Text to Speech">Pocket は、お持ちのデバイスの TTS 設定を自動的に見つけることができませんでした。\n\nただし、デバイスの設定を開いて検索を行い、手動で探すことも可能です。\n\n多くのデバイスにおいて、この設定はアクセシビリティ設定または言語と入力に関する設定で見つけることができます。</string>
+	<string name="tts_dg_choose_engine_t">テキスト読み上げエンジンを選択</string>
+	<string name="tts_skipping_to_next">次の記事へスキップします。</string>
+	<string name="tts_article_failed">テキスト読み上げ機能を使用してこの記事を読むことができませんでした。</string>
+	<string name="tts_article_unavailable">この記事はまだダウンロードされていません。</string>
+	<string name="tts_speech_error">テキスト読み上げ機能で、このセクションを読めませんでした。ネットワークベースの音声を使用している場合は、インターネットに接続するか、ネットワーク音声以外を選択してください。それ以外の場合は、この文節をスキップします。</string>
+	<string name="tts_empty_list">アイテムをPocketに保存するまでは聴けません</string>
+	<string name="tts_network_voice_t">ネットワーク音声</string>
+	<string name="tts_network_voice">ネットワーク音声は高い音質を誇りますがネットワークデータを消費したり、オフライン時に利用できない場合があります。</string>
+	<string name="tts_voice">音声 %1$s</string>
+	<string name="tts_voice_male">男性の声 %1$s</string>
+	<string name="tts_voice_female">女性の声 %1$s</string>
+	<string name="tts_network" comment="Word that indicates that a text to speech voice may require network connectivity">ネットワーク</string>
+	
+	<string name="add_overlay_free_title" comment="Appears when a new article is saved to your list">Pocket に保存しました！</string>
+
+	<!-- TOAST MESSAGES  Prefix: ts   -->
+	<string name="ts_add_invalid_url" comment="An error message that appears when an article link could not be saved">Pocket にこのリンクを保存できませんでした。</string>
+	<string name="ts_add_saved_to_ril">Pocket に保存済み</string>
+	<string name="ts_add_added">保存しました！</string>
+	<string name="ts_add_already">これはすでに保存されています！</string>
+	<string name="ts_add_already_overlay" comment="A message notifying the user an article they saved is already in their list, and that we will move (bump) it to the top for them">この記事はすでに保存されています！リストの一番上に表示されるようにしておきますね。</string>
+	<string name="ts_add_error">Pocket にリンクを保存中に問題が発生しました</string>
+	<string name="ts_add_logged_out">ログインしてPoketに保存</string>
+    <string name="ts_copied">%1$s がクリップボードにコピーされました</string>
+	<string name="ts_item_archived">アイテムをアーカイブしました</string>
+    <string name="ts_item_readded">アイテムを再追加しました</string>
+    <string name="ts_item_deleted">アイテムを削除しました</string>
+    <string name="ts_item_restored">アイテムを復元しました</string>
+
+    <string name="ts_changes_saved">変更が保存されました</string>
+    <string name="ts_article_reported">記事が報告されました。\nご報告ありがとうございます。</string>
+	<plurals name="ts_bulk_edit_archived">
+        <item quantity="other">%1$s件のアイテムをアーカイブしました</item>
+    </plurals>
+	<plurals name="ts_bulk_edit_readded">
+        <item quantity="other">%1$s件のアイテムを再追加しました</item>
+    </plurals>
+	<plurals name="ts_bulk_edit_deleted">
+        <item quantity="other">%1$s件のアイテムを削除しました</item>
+    </plurals>
+	<string name="ts_bulk_edit_tagged" comment="Do not translate values in {brackets}">{items}に{tags}を追加しました</string>
+	<plurals name="ts_bulk_edit_tagged_tags" comment="in &apos;Added X TAGS to 12 items&apos;">
+        <item quantity="other">%1$s件のタグ</item>
+    </plurals>
+	<plurals name="ts_bulk_edit_tagged_items" comment="in &apos;Added 12 tags to X ITEMS&apos;">
+        <item quantity="other">%1$s件のアイテム</item>
+    </plurals>
+
+    <string name="ts_no_apps_for_intent">この操作で利用可能なアプリがインストールされていません。</string>
+    
+    <string name="ts_tags_changes_saved">変更が保存されました</string>
+	
+    <!--  NOTIFICATION BAR Prefix: nt -->
+	<string name="nt_downloading">ダウンロード中…</string>
+	<string name="nt_cancel">タップしてダウンロードを中止します。</string>
+
+	<string name="nt_channel_functional_name">アプリの管理</string>
+	<string name="nt_channel_functional_description">オフラインダウンロードやテキスト読み上げ機能、およびその他のアプリ内機能を管理します。</string>
+	<string name="nt_channel_alerts_name">プッシュ通知</string>
+	<string name="nt_channel_alerts_description">SNSの更新情報、おすすめ、製品の最新情報などをお伝えします。Pocket 設定でプッシュ通知の設定を微調整してください。</string>
+	<string name="nt_channel_article_recommendations">おすすめの記事</string>
+	<string name="nt_channel_article_recommendations_description">記事のリマインダーとおすすめ</string>
+	<string name="nt_channel_legal_updates">法規関連の最新情報</string>
+	<string name="nt_channel_new_features">新機能</string>
+
+
+    
+    <!-- MISC TEXT  Prefix: tx-->
+	<string name="tx_love_pocket">Pocket のご利用をお楽しみいただけていますか？</string>
+    <string name="tx_tell_others">口コミを広めることでぜひ弊社を応援してください。</string>
+	
+	<string name="suggested_tags_empty_no_tags">ここでおすすめが表示されるようにするには、アイテムにタグを追加しましょう。</string>
+	<string name="suggested_tags_empty_none_found">このアイテムにおすすめできるタグが見つかりませんでした。</string>
+	<string name="suggested_tags_no_connection">おすすめタグを表示するにはオンラインである必要があります。接続をご確認のうえ、ここをタップしてもう一度お試しください。</string>
+	<string name="suggested_tags_unknown_error">おすすめタグの取込中にエラーが発生しました。タップしてもう一度お試しください。</string>
+	
+	<!-- READER ERRORS SHOWN IN ERRORVIEW (Not Dialogs)  Prefix: re   Postfix:  t = title, m = message, b = button label  -->
+	<string name="re_downloading_article_view_t">このページの記事ビューをダウンロード中にエラーが発生しました。</string>
+	<string name="re_downloading_article_view_m">インターネットに接続されていることをご確認ください。</string>
+	
+	<string name="list_empty_search_title">検索結果なし</string>
+	<string name="list_empty_no_result_matched">検索条件に一致するアイテムが見つかりませんでした。</string>
+	
+	<string name="add_tags_list_empty_title">タグを使って整理整頓</string>
+	<string name="add_tags_list_empty_body">タグを使用すれば、保存アイテムで検索やフィルタリングを行うことでアイテムが簡単に見つかります。\n\nタグを作成するには、上にタグを入力してください。</string>
+	
+	<!-- SETTINGS  Prefix: setting -->
+	<string name="setting_header_account">アカウント</string>
+	<string name="setting_logout">ログアウト</string>
+	<string name="setting_premium">Premium</string>
+	<string name="setting_account_management">アカウント管理</string>
+	<string name="setting_delete_account">アカウントを削除</string>
+	<string name="setting_delete_account_header">アカウントを削除</string>
+	<string name="setting_delete_account_warning">警告: この操作は取り消せません</string>
+	<string name="setting_delete_account_cancel_premium">アカウントを削除するには、まず<b><annotation link="https://help.getpocket.com/article/986-canceling-your-pocket-premium-subscription">こちら</annotation></b>で Premium サブスクリプションをキャンセルする必要があります。</string>
+	<string name="setting_delete_account_permanently_delete">Pocket アカウントとデータが<b>完全に削除される</b>ことを理解したことになります。</string>
+	<string name="setting_delete_account_error">リクエストを処理できませんでした。もう一度お試しください。</string>
+	<string name="setting_delete_account_in_progress">アカウントを削除中…</string>
+	<string name="setting_delete_account_toast_title">Pocket アカウントを削除しました</string>
+	<string name="setting_delete_account_toast_message">どのような点を改善してほしいですか？</string>
+	<string name="setting_delete_account_toast_button">短いアンケートに回答する</string>
+	<string name="setting_header_general">一般</string>
+	<string name="setting_rotation_label">アプリの画面自動回転ロック</string>
+	<string name="setting_rotation_sum">有効にすると、デバイスを回転させた後、画面の中心にロックボタンが表示されます。アイコンをタップすると現在の画面でロックされ、再度タップするとロックが解除されます</string>
+	<string name="setting_header_theme">アプリのテーマ</string>
+	<string name="setting_theme">テーマ</string>
+	<string name="setting_auto_dark_theme_threshold_automatic">自動</string>
+	<string name="setting_system_theme_label">システムテーマを合わせる</string>
+	<string name="setting_header_reading">閲覧</string>
+	<string name="setting_always_open_original_label">常に元のウェブサイトを開く</string>
+	<string name="setting_always_open_original_sum">Pocket は、記事ビューではなく、常に元のウェブサイトを開きます</string>
+	<string name="setting_default_browser_label" comment="Setting that allows you to choose a browser. This header is followed by the name of the chosen browser on the next line.">元のウェブサイトを次で開く: </string>
+	<string name="setting_default_browser_system" comment="Default value of the &apos;setting_default_browser_label&apos; setting, which means we will use the default browser from system settings.">デフォルトのシステムブラウザ</string>
+	<string name="setting_text_align_label">両端揃えのテキスト</string>
+	<string name="setting_text_align_sum">両端揃えの記事ビューで表示</string>
+	<string name="setting_auto_fullscreen_label">自動全画面表示</string>
+	<string name="setting_auto_fullscreen_sum">閲覧中/スクロールダウン中にツールバーを非表示にします。スクロールアップするとツールバーが表示されます</string>
+	<string name="setting_continue_reading_label">続きを読む</string>
+	<string name="setting_continue_reading_sum">Pocket に戻るとき、閉じる前に閲覧していたアイテムを表示します。</string>
+	<string name="setting_tts_label">テキスト読み上げエンジン</string>
+	<string name="setting_tts_sum_fallback">インストールされていません</string>
+	<string name="setting_header_offline">オフラインダウンロード</string>
+	<string name="setting_download_article_label">常に記事ビューを読み出す</string>
+	<string name="setting_download_article_sum_unavailable">ベストビューを自動ダウンロードしている際は利用できません</string>
+	<string name="setting_download_article_sum">リスト中のすべてのアイテムについて記事を自動ダウンロード</string>
+	<string name="setting_only_wifi_label">Wi-Fi のみでダウンロード</string>
+	<string name="setting_mobile_useragent_label">モバイルユーザーエージェント</string>
+	<string name="setting_mobile_useragent_sum">利用可能な場合はモバイル版をダウンロード</string>
+	<string name="setting_clear_download_label">ダウンロードしたファイルをクリア</string>
+	<string name="setting_storage_location">オフラインストレージ</string>
+	<string name="setting_header_syncing">同期</string>
+	<string name="setting_sync_on_open_label">アプリ開始時に同期</string>
+	<string name="setting_background_sync_label">バックグラウンド同期</string>
+	<string name="setting_header_notifications">通知</string>
+	<string name="setting_manage_notification_settings">デバイス通知設定</string>
+	<string name="setting_manage_notification_settings_sum">通知の音や振動を Android 設定でカスタマイズ</string>
+	<string name="setting_notify_sound_label">通知音</string>
+	<string name="setting_notify_sound_silent_sum">サイレント</string>
+	<string name="setting_notify_light_label">LED</string>
+	<string name="setting_notify_light_sum">新しい通知がある場合に LED 点滅</string>
+	<string name="setting_share_overlay_label">クイック保存アクション</string>
+	<string name="setting_share_overlay_sum">他のアプリから Pocket に保存する際に、その新アイテムに対して行えるアクションを簡単に表示します。</string>
+	<string name="setting_header_about">概要</string>
+	<string name="setting_help">サポートに問い合わせる</string>
+	<string name="setting_twitter_label">Twitter で @Pocket をフォロー</string>
+	<string name="setting_facebook_label">Facebook でフォロー</string>
+	<string name="setting_legal_label">法関連＆プライバシー</string>
+	<string name="setting_contact_us">お問い合わせ</string>
+	<string name="setting_thank_you">ダウンロードしていただき、ありがとうございます。お楽しみください！</string>
+	<string name="setting_header_version">バージョン</string>
+	<string name="setting_version_label">Pocket %1$s</string>
+	<string name="setting_previous_and_next">［前へ］と［次へ］の矢印を表示する</string>
+	<string name="setting_app_icon_label">アプリのアイコン</string>
+	<string name="setting_app_icon_header_automatic">Pocket にアイコンを選んでもらう</string>
+	<string name="setting_app_icon_header_all">またはお気に入りのアイコンを選択します</string>
+	<string name="setting_app_icon_classic" comment="As in &apos;classic icon&apos;, so for gendered languages should follow the gender of &apos;App icon&apos; from setting_app_icon_label">クラシック</string>
+	<string name="setting_app_icon_pride_flag" comment="As in &apos;Pride icon&apos;, so for gendered languages should follow the gender of &apos;App icon&apos; from setting_app_icon_label">プライド</string>
+	<string name="setting_app_icon_monochrome" comment="As in &apos;monochrome icon&apos;, so for gendered languages should follow the gender of &apos;App icon&apos; from setting_app_icon_label">モノクローム</string>
+
+	<string name="prem_setting_thanks">Pocket Premium のご購読ありがとうございます！</string>
+	
+	<string name="prem_setting_status">購読状況</string>
+	<string name="prem_setting_subscription">購読</string>
+	<string name="prem_setting_subscription_monthly">月次</string>
+	<string name="prem_setting_subscription_annual" comment="occurring once per year">年次</string>
+	<string name="prem_setting_date_purchased">購入日</string>
+	<string name="prem_setting_renewal_date">更新日</string>
+	<string name="prem_setting_renew_subscription">購読を更新</string>
+	<string name="prem_setting_inactive_subscription">非アクティブ</string>
+	<string name="prem_setting_subscription_ended_tap_to_renew">購読が終了しました。タップして Premium 購読を更新してください。</string>
+	<string name="prem_setting_date_ended">終了日</string>
+	<string name="prem_setting_purchase_location">購入場所</string>
+	<string name="prem_setting_your_premium_features">Premium 機能</string>
+	<string name="prem_setting_your_subscription">あなたの購読</string>
+	<string name="prem_setting_manage_your_subscription">購読を管理</string>
+	<string name="prem_setting_questions">ご意見やご感想がありますか？</string>
+	<string name="prem_setting_faq">Pocket Premium FAQ（よくある質問）</string>
+	<string name="prem_setting_contact">Pocket サポートに問い合わせ</string>
+	<string name="prem_setting_premium_header">Premium</string>
+	<string name="prem_setting_upgrade">Premium にアップグレード</string>
+	<string name="prem_setting_restore">既存の購読を復元</string>
+	
+	<string name="purchase_error_offline_t">オフラインのようです</string>
+	<string name="purchase_error_offline_m">Pocket Premium にアップグレードするにはオンラインである必要があります。接続をご確認のうえ、もう一度お試しください。</string>
+	<string name="purchase_error_activation_t">有効化エラー</string>
+	<string name="purchase_error_activation_m">購入には成功しましたが、アカウントの有効化でエラーが発生しました。手順を確認し、有効化を完了するには、「OK」をタップしてください。</string>
+	<string name="purchase_error_purchase_t">購入に失敗しました</string>
+	<string name="purchase_error_purchase_m">購入処理中に問題が発生しました。もう一度お試しください。</string>
+	<string name="purchase_error_progress">購入を完了しています...</string>
+	<string name="purchase_error_already_owned_t">すでに購読済みです</string>
+	<string name="purchase_error_already_owned_m">すでに Pocket Premium を購読しています。</string>
+	<string name="purchase_error_restore_none_found_t">復元できませんでした</string>
+	<string name="purchase_error_restore_none_found_m">購読が見つかりませんでした。既に購読済みであると確信している場合は、%1$sをタップしてお問い合わせください。</string>
+	<string name="purchase_restored">購読を復元しました</string>
+    <string name="purchase_error_amazon_m">Amazon App Store を通した Pocket Premium へのアップグレードは、現在利用できません。</string> <!-- no translation necessary, as it is an email to our support team -->
+
+	<string name="setting_background_sync_0">すぐに（プッシュ）</string>
+	<string name="setting_background_sync_1">1時間ごと</string>
+	<string name="setting_background_sync_2">1日2回</string>
+	<string name="setting_background_sync_3">1日1回</string>
+	<string name="setting_background_sync_4">なし</string>
+	
+    <!-- Text displayed in the enter key slot when the recipientedittextview has focus.
+         [CHAR LIMIT=12] -->
+    <string name="done">戻る</string>
+
+    <string name="setting_cache_set_offline_storage_limits">オフラインストレージ制限の設定</string>
+    <string name="setting_cache_priority">ダウンロード優先順位</string>
+    <string name="setting_cache_priority_newest">新しいアイテム順</string>
+    <string name="setting_cache_priority_oldest">古いアイテム順</string>
+    <string name="setting_cache_limit_description">Pocket がオフラインダウンロードに使用きるストレージ量の制限を設定します。</string>
+    <string name="setting_cache_currently_using" comment="Do not translate values in {brackets}">Pocket はお持ちのデバイスのストレージの約<b>{disk_space_size}</b>を使用しています。</string>
+    <string name="setting_cache_currently_adjusting">オフラインストレージ制限値を適用中…</string>
+    <string name="setting_cache_limit_to" comment="Will be used to present a disk space value like Limit to: 500 MB">制限値：</string>
+    <string name="setting_cache_unlimited">無制限</string>
+    <string name="setting_cache_approx_item_count">およそ<b>{item_count}</b>/<b>{newest_or_oldest}</b>件のアイテムがオフラインで利用できます。</string>
+    <string name="setting_cache_priority_inline_newest">最新</string>
+    <string name="setting_cache_priority_inline_oldest">最古</string>
+    <string name="setting_cache_confirm_change_t">ストレージ設定を変更しますか？</string>
+    <string name="setting_cache_confirm_change_m" comment="Please try to keep as short as possible">Pocket は変更を反映するために、他のコンテンツを削除またはダウンロードする場合があります。</string>
+    <string name="setting_cache_may_take_a_few_minutes">この処理には数分かかる場合があります。</string>
+    <string name="setting_cache_mb" comment="abbreviation for Megabytes. Used like 800 MB">MB</string>
+    <string name="setting_cache_gb" comment="abbreviation for Gigabytes. Used like 1.2 GB">GB</string>
+    <string name="setting_cache_not_saved_m">変更がまだ保存されていません。変更を破棄するか編集を続行しますか？</string>
+	
+	<string name="storage_free_space">空きスペース：%1$s</string>
+	<string name="storage_free_space_unknown">不明</string>
+	<string name="storage_location_changed">ストレージを変更しました</string>
+	<string name="storage_type_internal">内部</string>
+	<string name="storage_type_internal_specific_sandboxed">内部（Sandbox 保護）</string>
+	<string name="storage_type_internal_specific_unsandboxed">内部（公開）</string>
+	<string name="storage_type_removable">取り外し可能</string>
+	<string-array name="storage_location_specs_internal">
+        <item><b>推奨。</b></item>
+        <item>Pocket にのみ表示されるキャッシュをダウンロードします。</item>
+	</string-array>
+	<string-array name="storage_location_specs_removable">
+		<item>他のアプリでも表示されるキャッシュをダウンロードします。</item>
+		<item>ストレージが外されたり、変更されたりすると、Pocket を使用できなくなる可能性があります。</item>
+		<item>デバイスが PC に USB 接続されている間、Pocket を使用できなくなる可能性があります。</item>
+	</string-array>
+
+	<string name="onboarding_learn_more_1_title" comment="If possible without losing meaning, try to keep to 35 characters or less">関心のあるコンテンツだけを保存</string>
+	<string name="onboarding_learn_more_1_text" comment="If possible without losing meaning, try to keep to 145 characters or less">気になる記事、ビデオ、オンラインコンテンツを集めましょう。いつでもスマホやタブレット、ブラウザで閲覧できます。</string>
+	<string name="onboarding_learn_more_2_title" comment="If possible without losing meaning, try to keep to 35 characters or less">少ない時間を最大限に活用</string>
+	<string name="onboarding_learn_more_2_text" comment="If possible without losing meaning, try to keep to 145 characters or less">まずは Chrome、Twitter、YouTube、お好きなニュースアプリなどから保存してみましょう。記事やビデオを Pocket で閲覧できるようになります。</string>
+	<string name="onboarding_learn_more_3_title" comment="If possible without losing meaning, try to keep to 35 characters or less">インターネット上の静寂</string>
+	<string name="onboarding_learn_more_3_text" comment="If possible without losing meaning, try to keep to 145 characters or less">Pocket は読みやすいレイアウトで記事を保存し、ポップアップなどの邪魔も入らないため、インターネット上のノイズを避けることができます。</string>
+	
+	<string name="legacy_upgrading">Pocket はお使いのアプリをアップグレードしています。これには数分かかる場合があります。アップグレードはバックグラウンドで続行されますので、後ほどご確認ください。</string>
+	
+	<string name="report_item_overflow_option">このアイテムを報告する</string>
+	<string name="report_item_option_1">タイトル、リンク、または画像が破損しています</string>
+	<string name="report_item_option_2">カテゴリーが間違っています</string>
+	<string name="report_item_option_3">性的に露骨な表現です</string>
+	<string name="report_item_option_4">失礼、下品、または攻撃的な内容です</string>
+	<string name="report_item_option_5">誤った情報が含まれています</string>
+	<string name="report_item_option_6">その他</string>
+	<string name="report_item_hint">詳細を教えてください</string>
+	<string name="report_item_dialog_title">懸念事項を報告する</string>
+	<string name="report_item_submit_title">ありがとうございます！</string>
+	<string name="report_item_submit_text">お客様からのご報告により、Pocket コミュニティの安全が保たれます。</string>
+	
+	<string name="collection_details_error_title">コレクションを読み込めません</string>
+	<string name="collection_details_error_message">Poket はこのコレクションを読み込めませんでした。後ほどもう一度お試しください。</string>
+	
+	<string name="viewed">閲覧済み</string>
+	<string name="not_viewed">未閲覧</string>
+	
+	<string name="no_internet_connection">インターネット接続がありません</string>
+	<string name="no_internet_connection_body">オフラインのようです。モバイルデータまたは Wi-Fi の接続を確認してください。</string>
+	
+	<string name="fxa_account_migrated">アカウントが移行されました。</string>
+	
+	<string name="my_list_filter_all">すべて</string>
+	<string name="my_list_filter_tagged">タグ付けしました</string>
+	<string name="my_list_filter_favorites">お気に入り</string>
+	<string name="my_list_filter_filter">フィルタ</string>
+	<string name="my_list_filter_edit">編集</string>
+	<string name="my_list_filter">フィルタ</string>
+	<string name="edit_tags">タグを編集</string>
+	<string name="move_to_my_list">保存アイテムに移動</string>
+	<string name="highlighted">ハイライト</string>
+	<string name="delete_tag_confirmation_message">"タグ「%1$s」を削除しますか？"</string>
+	
+	<string name="empty_list_all_title">Pocket リストを作成する</string>
+	<string name="empty_list_all_action">保存方法</string>
+	<string name="empty_list_favorites_title">お気に入りはこちらに表示</string>
+	<string name="empty_list_favorites_message">記事で星型アイコンを押すと、お気に入りに登録でき、後で見つけやすくなります。</string>
+	<string name="empty_list_tagged_title">リストを整理</string>
+	<string name="empty_list_tagged_message">保存内容にトピック別のタグをつければ、後で見つけやすくなります。</string>
+	<string name="empty_list_tagged_action">タグを付ける方法</string>
+	<string name="empty_list_specific_tag_title">このタグで保存されているコンテンツはありません。</string>
+	<string name="empty_list_highlights_title">お気に入り引用文をここに保存</string>
+	<string name="empty_list_highlights_message">記事の一節を選択し、「ハイライト」を押して保存すれば、後で見つけやすくなります。</string>
+	<string name="empty_list_archive_title">リストを最新に保ちながら整理</string>
+	<string name="empty_list_archive_message">アーカイブアイコンを使用すると、読み終えた保存コンテンツをアーカイブできます。</string>
+	<string name="empty_list_archive_action">アーカイブする方法</string>
+	
+	<string name="time_to_read_filter_short">短い記事</string>
+	<string name="time_to_read_filter_short_description">10 分未満</string>
+	<string name="time_to_read_filter_long">長い記事</string>
+	<string name="time_to_read_filter_long_description">10 分以上</string>
+	<string name="short_reads">短めの記事</string>
+	<string name="long_reads">長めの記事</string>
+	
+	<string name="notification_permission_primer_title">興味深い記事をお見逃しなく！</string>
+	<string name="notification_permissions_primer_message">素晴らしい記事があった際には通知を送信してもよろしいですか？</string>
+	<string name="notification_permissions_primer_positive_button">はい</string>
+	<string name="notification_permissions_primer_negative_button">後でまた聞いてください</string>
+	
+	<string name="home_sign_in_banner">サインインしてPocketを最大限に活用</string>
+	<string name="home_see_all">すべて見る</string>
+	<string name="home_collection">コレクション</string>
+	<string name="recent_saves">最近保存したアイテム</string>
+	<string name="home_more_topics">その他のトピック</string>
+	<string name="home_footer_message">すべて読みました！また明日ご確認ください。</string>
+	<string name="home_error_title">新しい記事を取得できませんでした</string>
+	<string name="home_error_message">ホーム画面の読み込みを再試行できます。</string>
+	<string name="home_topic_error_message">記事の読み込みを再試行できます。</string>
+	
+	<string name="original_web_no_browser">このページを開くためのブラウザが見つかりません</string>
+	<string name="original_web_changed_browser_setting" comment="The format argument (%1$s) will be replaced with a browser name like &apos;Chrome&apos; or &apos;Firefox&apos; chosen from one of the browsers installed on the device.">デフォルトのシステムブラウザが設定されていないため、Pocket は優先ブラウザを%1$sに切り替えました。</string>
+	<string name="highlights">ハイライト</string>
+	<string name="end_of_article_title">こちらもおすすめ</string>
+	<string name="previous_and_next_setting_description">［次へ］ボタンと［前へ］ボタンで記事間をすばやく移動</string>
+
+	<string name="add_url_title">URL を追加</string>
+	<string name="add_url_hint" comment="Hint for an input field where you can paste a URL to save (add to your saves)">例：https://getpocket.com</string>
+	<string name="add_url_error">有効な URL を入力してください。</string>
+
+	<string name="authentication_legal_disclaimer" comment="This string uses Markdown formatting. Please preserve the formatting (including TWO spaces before the new line).">"続行することにより、次に同意したことになります:  \nPocket [利用規約](https://getpocket.com/tos) および [プライバシーに関する通知](https://getpocket.com/privacy)"</string>
+</resources>

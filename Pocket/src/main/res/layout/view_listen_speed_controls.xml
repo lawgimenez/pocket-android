@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pocket.ui.view.themed.ThemedConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/listen_speed_popup_width"
+    android:layout_height="@dimen/listen_speed_popup_height"
+    >
+    <!-- Background will be added in code -->
+    
+    <com.pocket.ui.view.button.IconButton
+        android:id="@+id/listen_speed_inc"
+        style="@style/Pkt_IconButton_Plus_Mini"
+        android:layout_width="@dimen/pkt_icon_button_width"
+        android:layout_height="@dimen/pkt_icon_button_width"
+        android:contentDescription="@string/lb_faster"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:uiEntityIdentifier="listen_speed_inc" />
+    
+    <com.pocket.ui.view.button.IconButton
+        android:id="@+id/listen_speed_dec"
+        style="@style/Pkt_IconButton_Minus_Mini"
+        android:layout_width="@dimen/pkt_icon_button_width"
+        android:layout_height="@dimen/pkt_icon_button_width"
+        android:contentDescription="@string/lb_slower"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:uiEntityIdentifier="listen_speed_dec" />
+    
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/listen_speed"
+        style="@style/Pkt_Text_Button_Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/listen_speed_dec"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listen_speed_inc"
+        />
+
+</com.pocket.ui.view.themed.ThemedConstraintLayout>

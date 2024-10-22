@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nm_icon" translatable="false">Pocket</string>
+    <string name="nm_app" translatable="false">Pocket</string>
+    <string name="alpha_settings" translatable="false">Alpha Settings</string>
+
+    <!-- Premium font list display names-->
+    <string name="blanco" translatable="false">Blanco</string>
+    <string name="graphik" translatable="false">Graphik</string>
+    <string name="idealsans" translatable="false">Ideal Sans</string>
+    <string name="inter" translatable="false">Inter</string>
+    <string name="plex_sans" translatable="false">Plex Sans</string>
+    <string name="sentinel" translatable="false">Sentinel</string>
+    <string name="tiempos" translatable="false">Tiempos</string>
+    <string name="vollkorn" translatable="false">Vollkorn</string>
+    <string name="whitney" translatable="false">Whitney</string>
+    <string name="zillaslab" translatable="false">Zilla Slab</string>
+
+    <!-- Dev settings strings -->
+    <string name="dev_enabled">Enabled</string>
+    <string name="dev_disabled">Disabled</string>
+    <string name="dev_images">Images</string>
+    <string name="dev_no_images">No Images</string>
+    <string name="dev_placeholders">Placeholders</string>
+    <string name="dev_normal">Normal</string>
+    <string name="dev_edit">Edit</string>
+
+    <!-- Values from google-services.json converted to string resources. -->
+    <string name="default_web_client_id" translatable="false">638773995762-cea365li61n411oqs8o0bin2plieq559.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://api-project-638773995762.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">638773995762</string>
+    <string name="google_app_id" translatable="false">1:638773995762:android:11ffc4bd95a81fa4</string>
+    <string name="google_storage_bucket" translatable="false">api-project-638773995762.appspot.com</string>
+    <string name="project_id" translatable="false">api-project-638773995762</string>
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pocket.ui.view.themed.ThemedFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    >
+    <include
+        android:id="@+id/signedOut"
+        layout="@layout/view_empty_list_signed_out"
+        android:visibility="gone"
+        />
+    <include
+        android:id="@+id/all"
+        layout="@layout/view_empty_list_all"
+        android:visibility="gone"
+        />
+    
+    <include
+        android:id="@+id/favorite"
+        layout="@layout/view_empty_list_favorites"
+        android:visibility="gone"/>
+    
+    <include
+        android:id="@+id/tagged"
+        layout="@layout/view_empty_list_tagged"
+        android:visibility="gone"/>
+    
+    <include
+        android:id="@+id/specificTag"
+        layout="@layout/view_empty_list_specific_tag"
+        android:visibility="gone"/>
+    
+    <include
+        android:id="@+id/highlights"
+        layout="@layout/view_empty_list_highlights"
+        android:visibility="gone"/>
+    
+    <include
+        android:id="@+id/archive"
+        layout="@layout/view_empty_list_archive"
+        android:visibility="gone"/>
+    
+    <include
+        android:id="@+id/search"
+        layout="@layout/view_empty_list_search"
+        android:visibility="gone"/>
+
+</com.pocket.ui.view.themed.ThemedFrameLayout>

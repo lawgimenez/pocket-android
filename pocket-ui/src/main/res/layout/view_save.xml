@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="com.pocket.ui.view.checkable.CheckableConstraintLayout">
+
+    <com.pocket.ui.view.button.IconButton
+        android:id="@+id/save_icon"
+        style="@style/Pkt_IconButton_Save"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@null"
+        android:clickable="false"
+        android:duplicateParentState="true"
+        android:focusable="false"
+        android:longClickable="false"
+        android:contentDescription="@null"
+        android:scaleType="centerInside"
+        app:drawableColor="@color/pkt_themed_coral_2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <com.pocket.ui.view.checkable.CheckableTextView
+        android:id="@+id/save_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:clickable="false"
+        android:duplicateParentState="true"
+        android:focusable="false"
+        android:longClickable="false"
+        android:text="@string/ac_save"
+        android:textSize="14sp"
+        app:compatTextColor="@color/pkt_home_domain_text"
+        app:lastBaselineToBottomHeight="6sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/save_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:typeface="graphik_lcg_medium"
+        />
+</merge>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pocket.app.home.slates.overflow.report.ReportItemBottomSheetViewModel"
+            />
+    </data>
+    
+    <!-- Wrapping in nested scroll view so the button at the bottom shows when the keyboard is up -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    
+        <com.pocket.ui.view.themed.ThemedLinearLayout
+            android:id="@+id/rootLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/bg_bottom_sheet"
+            android:paddingTop="20dp"
+            android:paddingBottom="40dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            >
+            
+            <com.pocket.ui.view.themed.ThemedTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/graphik"
+                android:textSize="12sp"
+                android:text="@string/report_item_dialog_title"
+                android:textColor="@color/pkt_themed_grey_1"/>
+        
+            <com.pocket.ui.view.themed.ThemedConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onBrokenClicked()}"
+                >
+            
+                <com.pocket.ui.view.themed.ThemedRadioButton
+                    android:id="@+id/brokenRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:checked="@{viewModel.uiState.reportReason.brokenSelected}"
+                    android:clickable="false"
+                    android:button="@drawable/btn_radio"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+            
+                <com.pocket.ui.view.themed.ThemedTextView
+                    style="@style/Pkt_Text_Medium"
+                    android:layout_height="54dp"
+                    android:layout_width="0dp"
+                    android:duplicateParentState="true"
+                    android:gravity="center_vertical"
+                    android:text="@string/report_item_option_1"
+                    android:layout_marginStart="@dimen/pkt_side_grid"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/brokenRadioButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+        
+            </com.pocket.ui.view.themed.ThemedConstraintLayout>
+        
+            <com.pocket.ui.view.themed.ThemedConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onWrongCategoryClicked()}"
+                >
+            
+                <com.pocket.ui.view.themed.ThemedRadioButton
+                    android:id="@+id/wrongCategoryRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:checked="@{viewModel.uiState.reportReason.wrongCategorySelected}"
+                    android:clickable="false"
+                    android:button="@drawable/btn_radio"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+            
+                <com.pocket.ui.view.themed.ThemedTextView
+                    style="@style/Pkt_Text_Medium"
+                    android:layout_height="54dp"
+                    android:layout_width="0dp"
+                    android:duplicateParentState="true"
+                    android:gravity="center_vertical"
+                    android:text="@string/report_item_option_2"
+                    android:layout_marginStart="@dimen/pkt_side_grid"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/wrongCategoryRadioButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+        
+            </com.pocket.ui.view.themed.ThemedConstraintLayout>
+        
+            <com.pocket.ui.view.themed.ThemedConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onSexuallyExplicitClicked()}"
+                >
+            
+                <com.pocket.ui.view.themed.ThemedRadioButton
+                    android:id="@+id/sexuallyExplicitRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:checked="@{viewModel.uiState.reportReason.sexuallyExplicitSelected}"
+                    android:clickable="false"
+                    android:button="@drawable/btn_radio"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+            
+                <com.pocket.ui.view.themed.ThemedTextView
+                    style="@style/Pkt_Text_Medium"
+                    android:layout_height="54dp"
+                    android:layout_width="0dp"
+                    android:duplicateParentState="true"
+                    android:gravity="center_vertical"
+                    android:text="@string/report_item_option_3"
+                    android:layout_marginStart="@dimen/pkt_side_grid"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/sexuallyExplicitRadioButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+        
+            </com.pocket.ui.view.themed.ThemedConstraintLayout>
+        
+            <com.pocket.ui.view.themed.ThemedConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onOffensiveClicked()}"
+                >
+            
+                <com.pocket.ui.view.themed.ThemedRadioButton
+                    android:id="@+id/offensiveRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:checked="@{viewModel.uiState.reportReason.offensiveSelected}"
+                    android:clickable="false"
+                    android:button="@drawable/btn_radio"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+            
+                <com.pocket.ui.view.themed.ThemedTextView
+                    style="@style/Pkt_Text_Medium"
+                    android:layout_height="54dp"
+                    android:layout_width="0dp"
+                    android:duplicateParentState="true"
+                    android:gravity="center_vertical"
+                    android:text="@string/report_item_option_4"
+                    android:layout_marginStart="@dimen/pkt_side_grid"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/offensiveRadioButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+        
+            </com.pocket.ui.view.themed.ThemedConstraintLayout>
+        
+            <com.pocket.ui.view.themed.ThemedConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onMisinformationClicked()}"
+                >
+            
+                <com.pocket.ui.view.themed.ThemedRadioButton
+                    android:id="@+id/misinformationRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:checked="@{viewModel.uiState.reportReason.misinformationSelected}"
+                    android:clickable="false"
+                    android:button="@drawable/btn_radio"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+            
+                <com.pocket.ui.view.themed.ThemedTextView
+                    style="@style/Pkt_Text_Medium"
+                    android:layout_height="54dp"
+                    android:layout_width="0dp"
+                    android:duplicateParentState="true"
+                    android:gravity="center_vertical"
+                    android:text="@string/report_item_option_5"
+                    android:layout_marginStart="@dimen/pkt_side_grid"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/misinformationRadioButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+        
+            </com.pocket.ui.view.themed.ThemedConstraintLayout>
+        
+            <com.pocket.ui.view.themed.ThemedConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onOtherClicked()}"
+                >
+            
+                <com.pocket.ui.view.themed.ThemedRadioButton
+                    android:id="@+id/otherRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:checked="@{viewModel.uiState.reportReason.otherSelected}"
+                    android:clickable="false"
+                    android:button="@drawable/btn_radio"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+            
+                <com.pocket.ui.view.themed.ThemedTextView
+                    style="@style/Pkt_Text_Medium"
+                    android:layout_height="54dp"
+                    android:layout_width="0dp"
+                    android:duplicateParentState="true"
+                    android:gravity="center_vertical"
+                    android:text="@string/report_item_option_6"
+                    android:layout_marginStart="@dimen/pkt_side_grid"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/otherRadioButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+        
+            </com.pocket.ui.view.themed.ThemedConstraintLayout>
+            
+            <com.pocket.ui.view.edittext.PktEditText
+                android:id="@+id/otherEditText"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:hint="@string/report_item_hint"
+                app:visibility="@{viewModel.uiState.reportReason.otherTextBoxVisible}"/>
+            
+            <com.pocket.ui.view.button.SubmitButton
+                android:id="@+id/submitButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/ac_submit"
+                android:onClick="@{() -> viewModel.onSubmitClicked()}"
+                android:enabled="@{viewModel.uiState.submitButtonEnabled}"
+                />
+            
+        </com.pocket.ui.view.themed.ThemedLinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+    
+</layout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pluginpackage certification="0F00" version="0">
+                <plugin version="0">
+                <feature>htcReadLater</feature>
+                <class>com.ideashower.readitlater.pro</class>
+                <description>Pocket</description>
+                <plugin_meta>com.ideashower.readitlater.pro</plugin_meta> 
+        </plugin>
+</pluginpackage>

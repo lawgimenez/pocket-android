@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="quantity_count" comment="this is two numbers denoting a selection and quantity e.g. 1/3" translatable="false">%d/%d</string>
+
+</resources>

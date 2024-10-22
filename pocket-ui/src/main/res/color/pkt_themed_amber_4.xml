@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--
+        Describes the default of what @color/pkt_amber_4 becomes in other themes.
+        Some individual components may have exceptions.
+    -->
+    <item app:state_dark="true" android:color="@color/amber_60" />
+    <item android:color="@color/pkt_amber_4" />
+</selector>

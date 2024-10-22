@@ -1,0 +1,3048 @@
+# This file was generated. Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+directive @defer(if: Boolean! = true, label: String) on FRAGMENT_SPREAD | INLINE_FRAGMENT
+
+interface BaseError {
+    message: String!
+    path: String!
+}
+
+interface ListElement {
+    "Row in a list."
+    content: Markdown!
+    "Zero-indexed level, for handling nested lists."
+    level: Int!
+}
+
+interface PocketMetadata {
+    authors: [Author!]
+    datePublished: ISOString
+    domain: DomainMetadata
+    excerpt: String
+    id: ID!
+    image: Image
+    item: Item
+    source: PocketMetadataSource!
+    title: String
+    url: Url!
+}
+
+"Interface that all state based entities must implement"
+interface RemoteEntity {
+    "Unix timestamp of when the entity was created"
+    _createdAt: Int
+    "Unix timestamp of when the entity was deleted, 30 days after this date this entity will be HARD deleted from the database and no longer exist"
+    _deletedAt: Int
+    "Unix timestamp of when the entity was last updated, if any property on the entity is modified this timestamp is set to the modified time"
+    _updatedAt: Int
+    "Version of the entity, this will increment with each modification of the entity's field"
+    _version: Int
+    """
+
+    For tags entity, id denotes the unique tag Id.
+    For savedItems, id denotes the itemId.
+    Along with the userId provided in the header, we will use id to fetch savedItems/tags for the user.
+    """
+    id: ID!
+}
+
+"""
+
+TODO: Make this type implement PocketResource when available.
+https://getpocket.atlassian.net/wiki/spaces/PE/pages/2771714049/The+Future+of+Item
+"""
+union CorpusTarget = Collection | SyndicatedArticle
+
+"Union type for items that may or may not be processed"
+union ItemResult = Item | PendingItem
+
+union MarticleComponent = Image | MarticleBlockquote | MarticleBulletedList | MarticleCodeBlock | MarticleDivider | MarticleHeading | MarticleNumberedList | MarticleTable | MarticleText | UnMarseable | Video
+
+"""
+
+Metadata of an Item in Pocket for preview purposes,
+or an ItemNotFound result if the record does not exist.
+"""
+union ReaderFallback = ItemNotFound | ReaderInterstitial
+
+"Union type for saveById - retrieving either PocketSaves or NotFound errors"
+union SaveByIdResult = NotFound | PocketSave
+
+"All types in this union should implement BaseError, for client fallback"
+union SaveMutationError = NotFound | SyncConflict
+
+"All types in this union should implement BaseError, for client fallback"
+union SavedItemMutationError = NotFound | SyncConflict
+
+union ShareResult = PocketShare | ShareNotFound
+
+"""
+
+Union type to reference a surface
+This is a future improvement, not needed now.
+"""
+union Surface = ScheduledSurface
+
+"All types in this union should implement BaseError, for client fallback"
+union TagMutationError = NotFound | SyncConflict
+
+type ArticleMarkdown {
+    images: [MarkdownImagePosition!]
+    text: String!
+}
+
+"Information about an Author of an article or some content"
+type Author {
+    "Unique id for that Author"
+    id: ID!
+    "Display name"
+    name: String
+    "A url to that Author's site"
+    url: String
+}
+
+"""
+
+Result object for bulk create/delete highlights mutation.
+Mutation is atomic -- if there is a response, all operations
+were successful.
+
+The corresponding result array will be empty, but present, if there
+were no requests for created/deleted.
+"""
+type BatchWriteHighlightsResult {
+    created: [Highlight!]!
+    deleted: [ID!]!
+}
+
+"Row in a bulleted (unordered list)"
+type BulletedListElement implements ListElement {
+    "Row in a list."
+    content: Markdown!
+    "Zero-indexed level, for handling nested lists."
+    level: Int!
+}
+
+"A requested image that is cached and has the requested image parameters"
+type CachedImage {
+    "Height of the cached image"
+    height: Int
+    "Id of the image that matches the ID from the requested options"
+    id: ID!
+    "URL of the cached image"
+    url: Url
+    "Width of the cached image"
+    width: Int
+}
+
+type Collection {
+    IABChildCategory: IABCategory
+    """
+
+    We will never return child categories in this type, so there's no need to
+    specify `IABParentCategory` here. The basic `IABCategory` is sufficient.
+    """
+    IABParentCategory: IABCategory
+    authors: [CollectionAuthor!]!
+    curationCategory: CurationCategory
+    excerpt: Markdown
+    externalId: ID!
+    imageUrl: Url
+    intro: Markdown
+    labels: [Label]
+    """
+
+    note that language is *not* being used as locale - only to specify the
+    language of the collection.
+    """
+    language: CollectionLanguage!
+    partnership: CollectionPartnership
+    "The preview of the collection"
+    preview: PocketMetadata!
+    publishedAt: DateString
+    """
+
+    Provides short url for the given_url in the format: https://pocket.co/<identifier>.
+    marked as beta because it's not ready yet for large client request.
+    """
+    shortUrl: Url
+    slug: String!
+    status: CollectionStatus!
+    stories: [CollectionStory!]!
+    title: String!
+}
+
+type CollectionAuthor {
+    active: Boolean!
+    bio: Markdown
+    externalId: ID!
+    imageUrl: Url
+    name: String!
+    slug: String
+}
+
+"""
+
+If a collection was made in partnership with an external company, this
+entity will hold all required info about that partnership.
+"""
+type CollectionPartnership {
+    blurb: Markdown!
+    externalId: String!
+    imageUrl: Url!
+    name: String!
+    type: CollectionPartnershipType!
+    url: Url!
+}
+
+type CollectionStory {
+    authors: [CollectionStoryAuthor!]!
+    excerpt: Markdown!
+    externalId: ID!
+    "if True, the story is provided by a partner and should be displayed as such"
+    fromPartner: Boolean!
+    imageUrl: Url
+    item: Item
+    publisher: String
+    sortOrder: Int
+    title: String!
+    url: Url!
+}
+
+type CollectionStoryAuthor {
+    name: String!
+    sortOrder: Int!
+}
+
+type CollectionsResult {
+    collections: [Collection!]!
+    pagination: Pagination!
+}
+
+"""
+
+Represents an item that is in the Corpus and its associated manually edited metadata.
+TODO: CorpusItem to implement PocketResource when it becomes available.
+"""
+type CorpusItem {
+    "The author names and sort orders associated with this CorpusItem."
+    authors: [CorpusItemAuthor!]!
+    "The publication date for this story."
+    datePublished: Date
+    "The excerpt of the Approved Item."
+    excerpt: String!
+    "The quality grade associated with this CorpusItem."
+    grade: ApprovedItemGrade
+    "The GUID that is stored on an approved corpus item"
+    id: ID!
+    "The image for this item's accompanying picture."
+    image: Image!
+    "The image URL for this item's accompanying picture."
+    imageUrl: Url!
+    "Experimental data point that could imply either an expiry date or an urgency to be shown."
+    isTimeSensitive: Boolean!
+    "What language this item is in. This is a two-letter code, for example, 'EN' for English."
+    language: CorpusLanguage!
+    "The preview of the search result"
+    preview: PocketMetadata!
+    "The name of the online publication that published this story."
+    publisher: String!
+    "The user's saved item, from the Corpus Item, if the corpus item was saved to the user's saves"
+    savedItem: SavedItem
+    """
+
+    Provides short url for the given_url in the format: https://pocket.co/<identifier>.
+    marked as beta because it's not ready yet for large client request.
+    """
+    shortUrl: Url
+    "If the Corpus Item is pocket owned with a specific type, this is the associated object (Collection or SyndicatedArticle)."
+    target: CorpusTarget
+    "Time to read in minutes. Is nullable."
+    timeToRead: Int
+    "The title of the Approved Item."
+    title: String!
+    "The topic associated with this CorpusItem."
+    topic: String
+    "The URL of the Approved Item."
+    url: Url!
+}
+
+"An author associated with a CorpusItem."
+type CorpusItemAuthor {
+    name: String!
+    sortOrder: Int!
+}
+
+type CorpusRecommendation {
+    "Content meta data."
+    corpusItem: CorpusItem!
+    "Clients should include this id in the `corpus_recommendation` Snowplow entity for impression, content_open, and engagement events related to this recommendation. This id is different across users, across requests, and across corpus items. The recommendation-api service associates metadata with this id to join and aggregate recommendations in our data warehouse."
+    id: ID!
+    "Reason why this CorpusItem is recommended to the user, or null if no reason is available."
+    reason: RecommendationReason
+    "Firefox clients require an integer id. Other clients should use `id` instead of this field. tileId uniquely identifies the ScheduledSurface, CorpusItem, and scheduled_date. tileId is greater than 0 and less than 2^53 to fit in a Javascript number (64-bit IEEE 754 float). The field type is a Float because a GraphQL Int is limited to 32 bit."
+    tileId: Float! @deprecated(reason: "Only to be used by Firefox. Other clients should use `id`. We plan to also migrate Firefox New Tab to use CorpusRecommendation.id instead of tileId to track recommendation telemetry.")
+}
+
+"Paginated corpus search result connection"
+type CorpusSearchConnection {
+    edges: [CorpusSearchEdge!]!
+    pageInfo: PageInfo!
+    totalCount: Int!
+}
+
+"An edge in a CorpusSearchConnection result"
+type CorpusSearchEdge {
+    cursor: String!
+    node: CorpusSearchNode!
+}
+
+"""
+
+Highlighted snippets from fields in the search results
+so clients can show users where the query matches are.
+Each field, if available, contains an array of html text
+snippets that contain a match to the search term.
+The matching text is wrapped in <em> tags, e.g.
+["Hiss at <em>vacuum</em> cleaner if it fits i sits"]
+"""
+type CorpusSearchHighlights {
+    excerpt: [HtmlString]
+    fullText: [HtmlString]
+    publisher: [HtmlString]
+    title: [HtmlString]
+}
+
+"A node in a CorpusSearchConnection result"
+type CorpusSearchNode {
+    "Attaches the item so we can use the preview field"
+    item: Item
+    "Search highlights"
+    searchHighlights: CorpusSearchHighlights
+}
+
+"This is the same as Slate but in this type all recommendations are backed by CorpusItems. This means that the editorial team has editorial control over the items served by this endpoint."
+type CorpusSlate {
+    "The display headline for the slate. Surface context may be required to render determine what to display. This will depend on if we connect the copy to the Surface, SlateExperiment, or Slate."
+    headline: String!
+    "UUID"
+    id: ID!
+    "Link to a page where the user can explore more recommendations similar to this slate, or null if no link is provided."
+    moreLink: Link
+    "Indicates the main type of reason why recommendations are included in this slate, or null if none is available."
+    recommendationReasonType: RecommendationReasonType
+    "Recommendations for the current request context."
+    recommendations(count: Int = 10): [CorpusRecommendation!]!
+    "A smaller, secondary headline that can be displayed to provide additional context on the slate."
+    subheadline: String
+    "utm_source value that can be set on the url by the caller to attribute the recommendations."
+    utmSource: String
+}
+
+"A collection of slates."
+type CorpusSlateLineup {
+    "UUID"
+    id: ID!
+    "Slates."
+    slates(count: Int = 15): [CorpusSlate!]!
+}
+
+"This type represents the information we need on a curated item."
+type CuratedInfo {
+    excerpt: String
+    "The image for this item's accompanying picture."
+    image: Image
+    imageSrc: Url
+    title: String
+}
+
+type CurationCategory {
+    externalId: ID!
+    name: String!
+    slug: String!
+}
+
+"Metadata from a domain, originally populated from ClearBit"
+type DomainMetadata {
+    "Url for the logo image"
+    logo: Url
+    "Url for the greyscale logo image"
+    logoGreyscale: Url
+    "The name of the domain (e.g., The New York Times)"
+    name: String
+}
+
+"A User-highlighted passage on a SavedItem"
+type Highlight {
+    "When the Highlight was created"
+    _createdAt: Timestamp!
+    "When the highlight was last updated"
+    _updatedAt: Timestamp!
+    "The ID for this Highlight annotation"
+    id: ID!
+    "Highlight Note associated with this Highlight"
+    note: HighlightNote
+    """
+
+    Patch string generated by 'DiffMatchPatch' library, serialized
+    into text via `patch_toText` method. Use `patch_fromText` to
+    deserialize into an object that can be used by the DiffMatchPatch
+    library. Format is similar to UniDiff but is character-based.
+    The patched text depends on version. For example, the version 2
+    patch surrounds the highlighted text portion with a pair of
+    sentinel tags: '<pkt_tag_annotation></pkt_tag_annotation>'
+    Reference: https://github.com/google/diff-match-patch
+    """
+    patch: String!
+    """
+
+    The full text of the highlighted passage. Used as a fallback for
+    rendering highlight if the patch fails.
+    """
+    quote: String!
+    "Version number for highlight data specification"
+    version: Int!
+}
+
+type HighlightNote {
+    "When the HighlightNote was created"
+    _createdAt: Timestamp!
+    "When the HighlightNote was last updated"
+    _updatedAt: Timestamp!
+    "User entered text"
+    text: String!
+}
+
+"Interactive Advertising Bureau Category - these are used on clients to serve relevant ads"
+type IABCategory {
+    externalId: String!
+    name: String!
+    slug: String!
+}
+
+type IABParentCategory {
+    children: [IABCategory!]!
+    externalId: String!
+    name: String!
+    slug: String!
+}
+
+"An image that is keyed on URL"
+type Image {
+    "Query to get a cached and modified set of images based on the image from the original url, images will be matched by the client assigned id value"
+    cachedImages(imageOptions: [CachedImageInput!]!): [CachedImage]
+    "A caption or description of the image"
+    caption: String
+    "A credit for the image, typically who the image belongs to / created by"
+    credit: String
+    "The determined height of the image at the url"
+    height: Int
+    "The id for placing within an Article View. Item.article will have placeholders of <div id='RIL_IMG_X' /> where X is this id. Apps can download those images as needed and populate them in their article view."
+    imageId: Int!
+    "Absolute url to the image"
+    src: String! @deprecated(reason: "use url property moving forward")
+    "If the image is also a link, the destination url"
+    targetUrl: String
+    "The url of the image"
+    url: Url!
+    "The determined width of the image at the url"
+    width: Int
+}
+
+"""
+
+The heart of Pocket
+A url and meta data related to it.
+"""
+type Item {
+    "If available, the url to an AMP version of this article"
+    ampUrl: Url
+    """
+
+    The pocket HTML string of the article.
+    Note: Web and Android as of 3/4/2022 use the Article field, any improvements made
+    within MArticle for parsing will not be reflected in the article field.
+    When that happens, the clients will work to move to MArticle.
+    """
+    article: String
+    "List of Authors involved with this article"
+    authors: [Author]
+    "If the item is a collection allow them to get the collection information"
+    collection: Collection
+    "The length in bytes of the content"
+    contentLength: Int @deprecated(reason: "Clients should not use this")
+    "If the item is in corpus allow the item to reference it.  Exposing curated info for consistent UX"
+    corpusItem: CorpusItem
+    "The date the article was published"
+    datePublished: DateString
+    "The date the parser resolved this item"
+    dateResolved: DateString
+    "The domain, such as 'getpocket.com' of the resolved_url"
+    domain: String
+    "The primary database id of the domain this article is from"
+    domainId: String @deprecated(reason: "Use a domain as the identifier instead")
+    "Additional information about the item domain, when present, use this for displaying the domain name"
+    domainMetadata: DomainMetadata
+    "The string encoding code of this item's web page"
+    encoding: String
+    "A snippet of text from the article"
+    excerpt: String
+    "key field to identify the Item entity in the Parser service"
+    givenUrl: Url!
+    "0=no images, 1=contains images, 2=is an image"
+    hasImage: Imageness
+    "Indicates that the item was stored via a different search_hash (using the old method), we'll need to look up a different id"
+    hasOldDupes: Boolean @deprecated(reason: "Most new items use a new hash")
+    "0=no videos, 1=contains video, 2=is a video"
+    hasVideo: Videoness
+    "Keyword highlights from search"
+    highlights: ItemHighlights
+    "A server generated unique id for this item based on itemId"
+    id: ID!
+    "Array of images within an article"
+    images: [Image]
+    "Indicates if the text of the url is a redirect to another url"
+    innerDomainRedirect: Boolean @deprecated(reason: "Clients should not use this")
+    "true if the item is an article"
+    isArticle: Boolean
+    "true if the item is an index / home page, rather than a specific single piece of content"
+    isIndex: Boolean
+    """
+
+    The Item entity is owned by the Parser service.
+    We only extend it in this service to make this service's schema valid.
+    The key for this entity is the 'itemId'
+    """
+    itemId: String!
+    "The detected language of the article"
+    language: String
+    "Estimated time to listen to the article, in seconds"
+    listenDuration: Int
+    "Indicates if the url requires a login"
+    loginRequired: Boolean @deprecated(reason: "Clients should not use this")
+    "The Marticle format of the article, used by clients for native article view."
+    marticle: [MarticleComponent!]
+    "The mime type of this item's web page"
+    mimeType: String
+    """
+
+    A normalized value of the givenUrl.
+    It will look like a url but is not guaranteed to be a valid url, just a unique string that is used to eliminate common duplicates.
+    Item's that share a normal_url should be considered the same item. For example https://getpocket.com and http://getpocket.com will be considered the same since they both normalize to http://getpocket.com
+    This is technically the true identity of an item, since this is what the backend uses to tell if two items are the same.
+    However, for the clients to use this, they would all have to ship an implementation of the normalization function that the backend has exactly.
+    And even if it did that, some items, some of the earliest saves, use a legacy normalize function and the client would have no way to know when to use which normalizing function.
+    """
+    normalUrl: String!
+    "If a the domainId is a subdomain this is the primary domain id"
+    originDomainId: String @deprecated(reason: "Use a domain as the identifier instead")
+    "The client preview/display logic for this url. The requires for each object should be kept in sync with the sub objects requires field."
+    preview: PocketMetadata
+    "A server generated unique reader slug for this item based on itemId"
+    readerSlug: String!
+    "Recommend similar articles to show in the bottom of an article."
+    relatedAfterArticle(
+        "Maximum number of recommendations to return, defaults to 10"
+        count: Int = 10
+    ): [CorpusRecommendation!]!
+    "Recommend similar articles after saving."
+    relatedAfterCreate(
+        "Maximum number of recommendations to return, defaults to 10"
+        count: Int = 10
+    ): [CorpusRecommendation!]!
+    "The item id of the resolved_url"
+    resolvedId: String
+    "The resolved url, but ran through the normalized function"
+    resolvedNormalUrl: Url @deprecated(reason: "Use the resolved url instead")
+    "If the givenUrl redirects (once or many times), this is the final url. Otherwise, same as givenUrl"
+    resolvedUrl: Url
+    "The http response code of the given url"
+    responseCode: Int @deprecated(reason: "Clients should not use this")
+    "Helper property to identify if the given item is in the user's list"
+    savedItem: SavedItem
+    """
+
+    Provides short url for the given_url in the format: https://pocket.co/<identifier>.
+    marked as beta because it's not ready yet for large client request.
+    """
+    shortUrl: Url
+    "If the url is an Article, the text in SSML format for speaking, i.e. Listen"
+    ssml: String
+    "If the item has a syndicated counterpart the syndication information"
+    syndicatedArticle: SyndicatedArticle
+    "Date this item was first parsed in Pocket"
+    timeFirstParsed: DateString @deprecated(reason: "Clients should not use this")
+    "How long it will take to read the article (TODO in what time unit? and by what calculation?)"
+    timeToRead: Int
+    "The title as determined by the parser."
+    title: String
+    "The page's / publisher's preferred thumbnail image"
+    topImage: Image
+    "The page's / publisher's preferred thumbnail image"
+    topImageUrl: Url @deprecated(reason: "use the topImage object")
+    "Indicates if the parser used fallback methods"
+    usedFallback: Int @deprecated(reason: "Clients should not use this")
+    "Array of videos within the item If the item is a video, this will likely just contain one video"
+    videos: [Video]
+    "Number of words in the article"
+    wordCount: Int
+}
+
+"Elasticsearch highlights"
+type ItemHighlights {
+    full_text: [String]
+    tags: [String]
+    title: [String]
+    url: [String]
+}
+
+type ItemNotFound {
+    message: String
+}
+
+type ItemSummary implements PocketMetadata {
+    authors: [Author!]
+    datePublished: ISOString
+    domain: DomainMetadata
+    excerpt: String
+    id: ID!
+    image: Image
+    item: Item
+    source: PocketMetadataSource!
+    title: String
+    url: Url!
+}
+
+"A label used to mark and categorize an Entity (e.g. Collection)."
+type Label {
+    externalId: ID!
+    name: String!
+}
+
+"Web link"
+type Link {
+    "The link text displayed to the user."
+    text: String!
+    "The URL to send the user to when clicking on the link."
+    url: Url!
+}
+
+"The Connection type for ListItem"
+type ListItemConnection {
+    "A list of edges."
+    edges: [ListItemEdge!]
+    "Information to aid in pagination."
+    pageInfo: PageInfo!
+    "Identifies the total count of SavedItems in the connection."
+    totalCount: Int!
+}
+
+"An Edge in a Connection"
+type ListItemEdge {
+    "A cursor for use in pagination."
+    cursor: String!
+    "The ListItem at the end of the edge."
+    node: ShareableListItem!
+}
+
+type MarkdownImagePosition {
+    index: Int!
+    position: Int!
+    "Fallback is to use the images field in the Item entity"
+    src: String
+}
+
+"Content of a blockquote"
+type MarticleBlockquote {
+    "Markdown text content."
+    content: Markdown!
+}
+
+"Content in a bulleted (unordered) list."
+type MarticleBulletedList {
+    rows: [BulletedListElement!]!
+}
+
+"A pre formatted text in the HTML content."
+type MarticleCodeBlock {
+    "Assuming the codeblock was a programming language, this field is used to identify it."
+    language: Int
+    "Content of a pre tag"
+    text: String!
+}
+
+type MarticleDivider {
+    "Always '---'; provided for convenience if building a markdown string"
+    content: Markdown!
+}
+
+"A heading in an article, with markdown formatting."
+type MarticleHeading {
+    "Heading text, in markdown."
+    content: Markdown!
+    "Heading level. Restricted to values 1-6."
+    level: Int!
+}
+
+"Content in a bulleted (unordered) list."
+type MarticleNumberedList {
+    rows: [NumberedListElement!]!
+}
+
+"Content in a table."
+type MarticleTable {
+    "Raw HTML representation of the table."
+    html: String!
+}
+
+"""
+
+A section of the article's text content, in markdown.
+A subset of gfm is supported. See README.md for more information.
+"""
+type MarticleText {
+    "Markdown text content. Typically, a paragraph."
+    content: Markdown!
+}
+
+"Default Mutation Type"
+type Mutation {
+    """
+
+    Attach share context to a Pocket Share. If a context already exists
+    on the Pocket Share, it will be overrwritten. Session ID via the `guid`
+    field on the JWT is used to determine ownership of a share.
+    That means users may only edit share links created in the same
+    session (intended to be a post-share add, not something returned to
+    later). It also lets us attribute ownership to anonymous/logged-out
+    users.
+    Null values in provided context will not overrwrite existing values
+    if there are any, but but empty values will (e.g. empty string, empty array).
+    Attempting to update a nonexistent share or a share that is not owned
+    by the session user will return ShareNotFound.
+    """
+    addShareContext(context: ShareContextInput!, slug: ID!): ShareResult
+    "Add a batch of items to an existing shareable list."
+    addToShareableList(items: [AddItemInput!]!, listExternalId: ID!): ShareableList!
+    """
+
+    Make requests to create and delete highlights in a single batch.
+    Mutation is atomic -- if there is a response, all operations were successful.
+    """
+    batchWriteHighlights(input: BatchWriteHighlightsInput): BatchWriteHighlightsResult!
+    "Remove all tags associated to a SavedItem (included for v3 proxy)."
+    clearTags(savedItem: SavedItemRef!, timestamp: ISOString): SavedItem
+    "Add a batch of items to an existing shareable list."
+    createAndAddToShareableList(itemData: [AddItemInput!]!, listData: CreateShareableListInput!): ShareableList
+    "Create new highlight annotation(s). Returns the data for the created Highlight object."
+    createHighlightByUrl(input: CreateHighlightByUrlInput!): Highlight!
+    "Create new highlight note. Returns the data for the created Highlight note."
+    createSavedItemHighlightNote(id: ID!, input: String!): HighlightNote
+    "Create new highlight annotation(s). Returns the data for the created Highlight object(s)."
+    createSavedItemHighlights(input: [CreateHighlightInput!]!): [Highlight!]!
+    """
+
+    Add tags to the savedItems
+    Inputs a list of SavedItemTagsInput(ie. savedItemId and the list of tagName)
+    Returns the list of `SavedItem` for which the tags were added
+    """
+    createSavedItemTags(input: [SavedItemTagsInput!]!, timestamp: ISOString): [SavedItem!]!
+    """
+
+    Create a Pocket Share for a provided target URL, optionally
+    with additional share context.
+    """
+    createShareLink(context: ShareContextInput, target: ValidUrl!): PocketShare
+    """
+
+    Creates a Shareable List. Takes in an optional listItemData parameter to create a ShareableListItem
+    along with a ShareableList.
+    """
+    createShareableList(listData: CreateShareableListInput!, listItemData: CreateShareableListItemWithList): ShareableList
+    "Creates a Shareable List Item."
+    createShareableListItem(data: CreateShareableListItemInput!): ShareableListItem
+    """
+
+    Deletes a SavedItem from the users list. Returns ID of the
+    deleted SavedItem
+    """
+    deleteSavedItem(id: ID!, timestamp: ISOString): ID!
+    "Delete a highlight by its ID."
+    deleteSavedItemHighlight(id: ID!): ID!
+    "Delete a highlight note by the Highlight ID."
+    deleteSavedItemHighlightNote(id: ID!): ID!
+    """
+
+    Delete one or more tags from one or more SavedItems.
+    Note that if this operation results in a Tag having no associations
+    to a SavedItem, the Tag object will be deleted.
+    """
+    deleteSavedItemTags(input: [DeleteSavedItemTagsInput!]!): [SavedItem!]!
+    "Deletes a Shareable List."
+    deleteShareableList(externalId: ID!): ShareableList!
+    "Deletes a Shareable List Item. HIDDEN Lists cannot have their items deleted."
+    deleteShareableListItem(externalId: ID!): ShareableListItem!
+    """
+
+    Deletes a Tag object. This is deletes the Tag and all SavedItem associations
+    (removes the Tag from all SavedItems). Returns ID of the deleted Tag.
+    """
+    deleteTag(id: ID!): ID!
+    """
+
+    Delete a tag entity identified by name (rather than ID), to support v3 proxy.
+    Disassociates this tag from all SavedItems.
+    """
+    deleteTagByName(tagName: String!, timestamp: ISOString): String
+    "Deletes user information and their pocket data for the given pocket userId. Returns pocket userId."
+    deleteUser: ID!
+    """
+
+    Deletes user information and their pocket data for the given firefox account ID.
+    Returns firefox account ID sent as the query parameter with the request.
+    """
+    deleteUserByFxaId(id: ID!): ID!
+    """
+
+    Expires a user's web session tokens by firefox account ID.
+    Called by fxa-webhook proxy. Need to supply a reason why to expire user web session.
+    Returns the user ID.
+    """
+    expireUserWebSessionByFxaId(id: ID!, reason: ExpireUserWebSessionReason!): ID!
+    """
+
+    temporary mutation for apple user migration.
+    called by fxa-webhook proxy to update the fxaId and email of the user.
+    Returns the pocket userId on success
+    Note: requires `transfersub` to be set in the header.
+    """
+    migrateAppleUser(email: String!, fxaId: ID!): ID!
+    """
+
+    'Re-add' a SavedItem by id. Unarchives and undeletes the SavedItem
+    as applicable, and refreshes the "createdAt" timestamp.
+    """
+    reAddById(id: ID!, timestamp: ISOString!): SavedItem
+    "Refresh an Item's article content."
+    refreshItemArticle(url: String!): Item!
+    """
+
+    Removes specific tags associated to a SavedItem,
+    referenced by name, to support v3 proxy.
+    """
+    removeTagsByName(savedItem: SavedItemRef!, tagNames: [String!]!, timestamp: ISOString): SavedItem
+    "Rename a tag identified by name (rather than ID), to support v3 proxy."
+    renameTagByName(newName: String!, oldName: String!, timestamp: ISOString): Tag
+    """
+
+    Replaces the old tags associated with the savedItem to the new tag list
+    given in the entry
+    To remove all Tags from a SavedItem, use `updateSavedItemRemoveTags`.
+    Note: if there is a new tag name in the SavedItemTagsInput, then the tag record will be created
+    Inputs a list of SavedItemTagsInput(ie. savedItemId and list of tag names)
+    Returns the SavedItem for which the tags have been modified.
+    """
+    replaceSavedItemTags(input: [SavedItemTagsInput!]!, timestamp: ISOString): [SavedItem!]! @deprecated(reason: "use saveBatchUpdateTags")
+    "Replace specific tags associated to a SavedItem, to support v3 proxy."
+    replaceTags(savedItem: SavedItemRef!, tagNames: [String!]!, timestamp: ISOString): SavedItem
+    "Archives PocketSaves"
+    saveArchive(id: [ID!]!, timestamp: ISOString!): SaveWriteMutationPayload
+    """
+
+    Batch update the Tags associated with a Save
+    by adding new tags and deleting existing tags.
+    Maximum of 150 operations (adds/deletes) per request.
+    """
+    saveBatchUpdateTags(input: [SaveUpdateTagsInput!]!, timestamp: ISOString!): SaveWriteMutationPayload!
+    """
+
+    Favorites PocketSaves
+    Accepts a list of PocketSave Ids that we want to favorite.
+    """
+    saveFavorite(id: [ID!]!, timestamp: ISOString!): SaveWriteMutationPayload
+    """
+
+    Save search to potentially appear in recentSearches response.
+    Requires premium account (otherwise will send ForbiddenError).
+    """
+    saveSearch(search: RecentSearchInput!): RecentSearch
+    "Unarchives PocketSaves"
+    saveUnArchive(id: [ID!]!, timestamp: ISOString!): SaveWriteMutationPayload
+    """
+
+    Unfavorites PocketSaves
+    Accepts a list of PocketSave Ids that we want to unfavorite.
+    """
+    saveUnFavorite(id: [ID!]!, timestamp: ISOString!): SaveWriteMutationPayload
+    """
+
+    Creates a new Save; if the Save already exists (either in List or Archive), "re-add" it.
+    "Re-adding" unarchives and undeletes the Save as applicable, and refreshes the "createdAt"
+    timestamp.
+    """
+    saveUpsert(input: [SaveUpsertInput!]!, timestamp: ISOString!): SaveWriteMutationPayload!
+    "Archive a SavedItem (identified by URL)"
+    savedItemArchive(givenUrl: Url!, timestamp: ISOString!): SavedItem
+    "'Soft-delete' a SavedItem (identified by URL)"
+    savedItemDelete(givenUrl: Url!, timestamp: ISOString!): Url
+    "Favorite a SavedItem (identified by URL)"
+    savedItemFavorite(givenUrl: Url!, timestamp: ISOString!): SavedItem
+    "Associate Tag(s) with a Save"
+    savedItemTag(input: SavedItemTagInput!, timestamp: ISOString!): SavedItem
+    "Unarchive a SavedItem (identified by URL)"
+    savedItemUnArchive(givenUrl: Url!, timestamp: ISOString!): SavedItem
+    """
+
+    Undo the 'soft-delete' operation on a SavedItem (identified by URL).
+    Does not restore tags. Does not restore SavedItems that have been
+    'hard-deleted' (record removed from the database entirely).
+    """
+    savedItemUnDelete(givenUrl: Url!, timestamp: ISOString!): SavedItem
+    "'Unfavorite' a 'favorite' SavedItem (identified by URL)"
+    savedItemUnFavorite(givenUrl: Url!, timestamp: ISOString!): SavedItem
+    """
+
+    Update the title display of a Saved Item, retrieved by URL.
+    This is user-save specific (does not update the metadata saved by the parser)
+    Clients should ensure the input fits in the utf8mb3 character set (BMP only,
+    which means no emoji) to avoid being rejected by the database.
+    In the future this will be more permissive.
+    """
+    savedItemUpdateTitle(givenUrl: Url!, timestamp: ISOString!, title: String!): SavedItem
+    """
+
+    Update an existing highlight annotation, by its ID.
+    If the given highlight ID does not exist, will return error data
+    and the highlight will not be created.
+    """
+    updateHighlight(id: ID!, input: UpdateHighlightInput!): Highlight!
+    "Archives a SavedItem"
+    updateSavedItemArchive(id: ID!, timestamp: ISOString): SavedItem!
+    "Favorites a SavedItem"
+    updateSavedItemFavorite(id: ID!, timestamp: ISOString): SavedItem!
+    """
+
+    Update an existing highlight annotation, by its ID.
+    If the given highlight ID does not exist, will return error data
+    and the highlight will not be created.
+    Note that if an ID is passed to the optional ID field in CreateHighlightInput,
+    it will be ignored, as this mutation does not allow updating the ID.
+    """
+    updateSavedItemHighlight(id: ID!, input: CreateHighlightInput!): Highlight! @deprecated(reason: "use updateHighlight")
+    """
+
+    Update an existing highlight note, by its ID.
+    If the given highlight ID does not exist, will return error data
+    and the note will not be updated.
+    """
+    updateSavedItemHighlightNote(id: ID!, input: String!): HighlightNote
+    """
+
+    Removes all Tag associations from a SavedItem. Returns the
+    SavedItem that had its Tag associations cleared.
+    Note that if this operation results in a Tag having no associations
+    to a SavedItem, the Tag object will be deleted.
+    """
+    updateSavedItemRemoveTags(savedItemId: ID, timestamp: ISOString): SavedItem! @deprecated(reason: "use saveBatchUpdateTags")
+    """
+
+    Set the Tags that are associated with a SavedItem.
+    Will replace any existing Tag associations on the SavedItem.
+    To remove all Tags from a SavedItem, use `updateSavedItemRemoveTags`.
+    """
+    updateSavedItemTags(input: SavedItemTagUpdateInput!): SavedItem! @deprecated(reason: "use saveBatchUpdateTags")
+    """
+
+    Update the title display of a Saved Item, retrieved by ID.
+    This is user-save specific (does not update the metadata saved by the parser).
+    Clients should ensure the input fits in the utf8mb3 character set (BMP only,
+    which means no emoji) to avoid being rejected by the database.
+    In the future this will be more permissive.
+    """
+    updateSavedItemTitle(id: ID!, timestamp: ISOString!, title: String!): SavedItem
+    "Unarchives a SavedItem"
+    updateSavedItemUnArchive(id: ID!, timestamp: ISOString): SavedItem!
+    "Undo the delete operation for a SavedItem"
+    updateSavedItemUnDelete(id: ID!, timestamp: ISOString): SavedItem!
+    "Unfavorites a SavedItem"
+    updateSavedItemUnFavorite(id: ID!, timestamp: ISOString): SavedItem!
+    "Updates a Shareable List. Cannot make a list public."
+    updateShareableList(data: UpdateShareableListInput!): ShareableList!
+    "Updates a single Shareable List Item."
+    updateShareableListItem(data: UpdateShareableListItemInput!): ShareableListItem!
+    "Updates an array of Shareable List Items (sortOrder)."
+    updateShareableListItems(data: [UpdateShareableListItemsInput!]!): [ShareableListItem!]!
+    """
+
+    Updates a Tag (renames the tag), and returns the updated Tag.
+    If a Tag with the updated name already exists in the database, will
+    associate that Tag to all relevant SavedItems rather than creating
+    a duplicate Tag object.
+    """
+    updateTag(input: TagUpdateInput!): Tag!
+    """
+
+    update the email of the user for the given pocket userId. Request is made by
+    an authenticated user, and the userID is inferred from the request headers `userid`.
+    """
+    updateUserEmail(email: String!): User!
+    """
+
+    update the email of the user for the given firefox account ID. Request
+    is made by a backend service. The `userid` in the headers should match
+    the FxA ID or else an authentication error will be thrown.
+    """
+    updateUserEmailByFxaId(email: String!, id: ID!): User!
+    "Updates user preferences for content recommendations across Pocket."
+    updateUserRecommendationPreferences(input: UpdateUserRecommendationPreferencesInput!): UserRecommendationPreferences!
+    """
+
+    Updates a SavedItem, undeletes and unarchives it, bringing it to the top of the user's list, if it exists
+    and creates it if it doesn't.
+    """
+    upsertSavedItem(input: SavedItemUpsertInput!): SavedItem!
+}
+
+type NotFound implements BaseError {
+    key: String
+    message: String!
+    path: String!
+    value: String
+}
+
+type NumberedListElement implements ListElement {
+    "Row in a list"
+    content: Markdown!
+    "Numeric index. If a nested item, the index is zero-indexed from the first child."
+    index: Int!
+    "Zero-indexed level, for handling nested lists."
+    level: Int!
+}
+
+type OEmbed implements PocketMetadata {
+    authors: [Author!]
+    datePublished: ISOString
+    domain: DomainMetadata
+    excerpt: String
+    htmlEmbed: String
+    id: ID!
+    image: Image
+    item: Item
+    source: PocketMetadataSource!
+    title: String
+    type: OEmbedType
+    url: Url!
+}
+
+"Information about pagination in a connection."
+type PageInfo {
+    "When paginating forwards, the cursor to continue."
+    endCursor: String
+    "When paginating forwards, are there more items?"
+    hasNextPage: Boolean!
+    "When paginating backwards, are there more items?"
+    hasPreviousPage: Boolean!
+    "When paginating backwards, the cursor to continue."
+    startCursor: String
+}
+
+type Pagination {
+    currentPage: Int!
+    perPage: Int!
+    totalPages: Int!
+    totalResults: Int!
+}
+
+type PendingItem {
+    """
+
+    URL of the item that the user gave for the SavedItem
+    that is pending processing by parser
+    """
+    itemId: String!
+    status: PendingItemStatus
+    url: Url!
+}
+
+"""
+
+New Pocket Save Type, replacing SavedItem.
+
+Represents a Pocket Item that a user has saved to their list.
+(Said otherways, indicates a saved url to a users list and associated user specific information.)
+"""
+type PocketSave {
+    "Indicates if the PocketSave is archived."
+    archived: Boolean!
+    "Timestamp that the PocketSave became archived, null if not archived."
+    archivedAt: ISOString
+    "Unix timestamp of when the PocketSave was created."
+    createdAt: ISOString!
+    "Unix timestamp of when the entity was deleted."
+    deletedAt: ISOString
+    "Indicates if the PocketSave is favorited."
+    favorite: Boolean!
+    "Timestamp that the PocketSave became favorited, null if not favorited."
+    favoritedAt: ISOString
+    "The url the user gave (as opposed to normalized URLs)."
+    givenUrl: String!
+    "Surrogate primary key."
+    id: ID!
+    """
+
+    Link to the underlying Pocket Item for the URL.
+    Temporary until resource field is added. Will hopefully
+    make it easier for clients to adopt.
+    """
+    item: ItemResult! @deprecated(reason: "use resource")
+    "The status of this PocketSave; Marked for review for possible removal."
+    status: PocketSaveStatus
+    "The Suggested Tags associated with this PocketSave, if the user is not premium or there are none, this will be empty."
+    suggestedTags: [Tag!]
+    "The Tags associated with this PocketSave."
+    tags: [Tag!]
+    "The title of the Resource; defaults to the URL."
+    title: String!
+    "Unix timestamp of when the PocketSave was last updated, if any property on the PocketSave is modified this timestamp is set to the modified time."
+    updatedAt: ISOString
+}
+
+type PocketShare {
+    context: ShareContext
+    createdAt: ISOString!
+    preview: PocketMetadata
+    shareUrl: ValidUrl!
+    slug: ID!
+    targetUrl: ValidUrl!
+}
+
+"The publisher that the curation team set for the syndicated article"
+type Publisher {
+    "Whether or not to show the article appeared on domain"
+    appearedOnDomain: Boolean!
+    "The article call to action to show if selected"
+    articleCta: PublisherArticleCta
+    "Whether or not to attribute the publisher to the article"
+    attributeCanonicalToPublisher: Boolean!
+    "Square logo to use for the publisher"
+    logo: String
+    "Wide logo to use for the publisher"
+    logoWide: String
+    "Black wide based logo to use for the publisher"
+    logoWideBlack: String
+    "Name of the publisher of the article"
+    name: String
+    "The name to show to the article in recommendations"
+    recommendationName: String
+    "Whether or not to show an article call to action"
+    showArticleCta: Boolean!
+    "Whether or not to show the authors of the article"
+    showAuthors: Boolean!
+    "Whether or not to show publisher recomendations"
+    showPublisherRecommendations: Boolean
+    "Url of the publisher"
+    url: Url
+}
+
+"""
+
+The call to action to show on a SyndicatedArticle for a specific publisher
+TODO: rename to SyndicatedPublisherArticle and move to schema-shared.graphql
+(requires client changes)
+"""
+type PublisherArticleCta {
+    "The lead in text to show"
+    leadIn: String
+    "The text to show"
+    text: String
+    "The url to link to"
+    url: String
+}
+
+"""
+
+Default root level query type. All authorization checks are done in these queries.
+TODO: These belong in a seperate User Service that provides a User object (the user settings will probably exist there too)
+"""
+type Query {
+    "Retrieves a Collection by the given slug. The Collection must be published."
+    collectionBySlug(slug: String!): Collection
+    "Retrieves a Collection by the given slug. The Collection must be published."
+    getCollectionBySlug(slug: String!): Collection @deprecated(reason: "Use collectionBySlug instead")
+    "Retrieves a paged set of published Collections."
+    getCollections(filters: CollectionsFiltersInput, page: Int, perPage: Int): CollectionsResult!
+    "Look up Item info by a url."
+    getItemByUrl(url: String!): Item @deprecated(reason: "Use itemByUrl instead")
+    "Request a specific `Slate` by id"
+    getSlate(
+        "Maximum number of recommendations to return in Slate.recommendations, defaults to 10"
+        recommendationCount: Int = 10,
+        "The Slate.id of the slate to return"
+        slateId: String!
+    ): Slate! @deprecated(reason: "Please use queries specific to the surface ex. setMomentSlate. If a named query for your surface does not yet exit please reach out to the Data Products team and they will happily provide you with a named query.")
+    "Request a specific `SlateLineup` by id"
+    getSlateLineup(
+        "Maximum number of recommendations to return in Slate.recommendations, defaults to 10"
+        recommendationCount: Int = 10,
+        "Maximum number of slates to return in SlateLineup.slates, defaults to 8"
+        slateCount: Int = 8,
+        "The SlateLineup.id of the SlateLineup to return"
+        slateLineupId: String!
+    ): SlateLineup! @deprecated(reason: "Please use queries specific to the surface ex. setMomentSlate. If a named query for your surface does not yet exit please reach out to the Data Products team and they will happily provide you with a named query.")
+    "Look up SyndicatedArticle by a slug."
+    getSyndicatedArticleBySlug(slug: String!): SyndicatedArticle @deprecated(reason: "use syndicatedArticleBySlug instead")
+    """
+
+    Returns a list of unleash toggles that are enabled for a given context.
+
+    For more details on this check out https://docs.google.com/document/d/1dYS81h-DbQEWNLtK-ajLTylw454S32llPXUyBmDd5mU/edit# and https://getpocket.atlassian.net/wiki/spaces/PE/pages/1191444582/Feature+Flags+-+Unleash
+
+    ~ For each of the enabled unleash toggles (via https://featureflags.readitlater.com/api/client/features or an unleash sdk)
+    ~ Check if the toggle is assigned/enabled for the provided {.context}
+    ~ Add an {UnleashAssignment} representing it to this list
+    ~ If no toggles are found, return an empty list
+    """
+    getUnleashAssignments(context: UnleashContext!): UnleashAssignmentList @deprecated(reason: "use unleashAssignments instead")
+    "Get ranked corpus slates and recommendations to deliver a unified Home experience. "
+    homeSlateLineup(
+        "The locale argument determines the UI and recommendation content language."
+        locale: String! = "en-US"
+    ): CorpusSlateLineup!
+    "Look up Item info by a url."
+    itemByUrl(url: String!): Item
+    "List all available topics that we have recommendations for."
+    listTopics: [Topic!]! @deprecated(reason: "Use `getSlateLineup` with a specific SlateLineup instead.")
+    "Get a slate of ranked recommendations for the Firefox New Tab. Currently supports the Italy, France, and Spain markets."
+    newTabSlate(
+        "Experimental parameter that when enabled, adjusts the ranking of items based on the region. By default this is off. Firefox Desktop will enable it by setting the pref  browser.newtabpage.activity-stream.discoverystream.pocket-feed-parameters to \"&enableRankingByRegion=1\" for the treatment branch of a Nimbus experiment."
+        enableRankingByRegion: Boolean = false,
+        "The Firefox build locale, for example 'fr-FR' or 'fr'. This determines which scheduled surface will be returned."
+        locale: String!,
+        "The geographic region, for example 'FR' or 'IT', or null if unavailable. This is currently not used, but will be used in the future to decide which scheduled surface to return when we serve multiple markets with the same language."
+        region: String
+    ): CorpusSlate!
+    """
+
+    Resolve Reader View links which might point to SavedItems that do not
+    exist, aren't in the Pocket User's list, or are requested by a logged-out
+    user (or user without a Pocket Account).
+    Fetches data which clients can use to generate an appropriate fallback view
+    that allows users to preview the content and access the original source site.
+    """
+    readerSlug(slug: ID!): ReaderViewResult!
+    "List all topics that the user can express a preference for."
+    recommendationPreferenceTopics: [Topic!]!
+    scheduledSurface(id: ID!): ScheduledSurface!
+    """
+
+    Search Pocket's corpus of recommendations and collections.
+    Note that sort will have no effect unless using keyword
+    semantic search will always be returned in relevance order
+    (most relevant first).
+    """
+    searchCorpus(filter: CorpusSearchFilters!, pagination: PaginationInput, search: CorpusSearchQueryString!, sort: CorpusSearchSort): CorpusSearchConnection
+    """
+
+    Resolve data for a Shared link, or return a Not Found
+    message if the share does not exist.
+    """
+    shareSlug(slug: ID!): ShareResult
+    """
+
+    Looks up and returns a Shareable List with a given external ID for a given user.
+    (the user ID will be coming through with the headers)
+    """
+    shareableList(externalId: ID!): ShareableList
+    "Returns a publicly-shared Shareable List. Note: this query does not require user authentication."
+    shareableListPublic(externalId: ID!, slug: String!): ShareableListPublic
+    """
+
+    Looks up and returns an array of Shareable Lists for a given user ID for a given user.
+    (the user ID will be coming through with the headers)
+    """
+    shareableLists: [ShareableList!]!
+    "Determines if the userid passed in the headers has access to the pilot program."
+    shareableListsPilotUser: Boolean!
+    "This is a future improvement, not needed now."
+    surface(id: ID!): Surface!
+    "Look up the SyndicatedArticle by a slug"
+    syndicatedArticleBySlug(slug: String!): SyndicatedArticle
+    """
+
+    Returns a list of unleash toggles that are enabled for a given context.
+
+    For more details on this check out https://docs.google.com/document/d/1dYS81h-DbQEWNLtK-ajLTylw454S32llPXUyBmDd5mU/edit# and https://getpocket.atlassian.net/wiki/spaces/PE/pages/1191444582/Feature+Flags+-+Unleash
+
+    ~ For each of the enabled unleash toggles (via https://featureflags.readitlater.com/api/client/features or an unleash sdk)
+    ~ Check if the toggle is assigned/enabled for the provided {.context}
+    ~ Add an {UnleashAssignment} representing it to this list
+    ~ If no toggles are found, return an empty list
+    """
+    unleashAssignments(context: UnleashContext!): UnleashAssignmentList
+    "Get a user entity for an authenticated client"
+    user: User
+}
+
+"""
+
+Card preview data for Items resolved from reader view
+(getpocket.com/read/) links.
+
+Should be used to create a view if Reader Mode cannot
+be rendered (e.g. the link is visited by an anonymous
+Pocket user, or a Pocket User that does not have the
+underlying Item in their Saves). Due to legal obligations
+we can only display Reader Mode for SavedItems.
+"""
+type ReaderInterstitial {
+    itemCard: PocketMetadata
+}
+
+"Result for resolving a getpocket.com/read/<slug> link."
+type ReaderViewResult {
+    fallbackPage: ReaderFallback
+    """
+
+    The SavedItem referenced by this reader view slug, if it
+    is in the Pocket User's list.
+    """
+    savedItem: SavedItem
+    slug: ID!
+}
+
+type RecentSearch {
+    context: RecentSearchContext
+    sortId: Int!
+    term: String!
+}
+
+type RecentSearchContext {
+    key: String
+    value: String
+}
+
+"Represents a Recommendation from Pocket"
+type Recommendation {
+    curatedInfo: CuratedInfo
+    "The feed id from mysql that this item was curated from (if it was curated)"
+    feedId: Int
+    "A generated id from the Data and Learning team that represents the Recommendation - Deprecated"
+    feedItemId: ID @deprecated(reason: "Use `id`")
+    "A generated id from the Data and Learning team that represents the Recommendation"
+    id: ID!
+    """
+
+    The Recommendation entity is owned by the Recommendation API service.
+    We extend it in this service to add an extra field ('curationInfo') to the Recommendation entity.
+    The key for this entity is the 'itemId' found within the Item entity which is owned by the Parser service.
+    """
+    item: Item!
+    """
+
+    The ID of the item this recommendation represents
+    TODO: Use apollo federation to turn this into an Item type.
+    """
+    itemId: ID!
+    "The publisher of the item"
+    publisher: String
+    "The source of the recommendation"
+    recSrc: String!
+}
+
+type RecommendationReason {
+    "A succinct name for the recommendation reason that can be displayed to the user."
+    name: String!
+    "The type of reason for why the recommendation is made."
+    type: RecommendationReasonType!
+}
+
+"Payload for mutations that delete Saves"
+type SaveDeleteMutationPayload {
+    "Any errors associated with the mutation. Empty if the mutation was succesful."
+    errors: [SaveMutationError!]!
+    success: Boolean!
+}
+
+"""
+
+Elasticsearch highlights.
+Highlighted snippets from the following fields in the search results
+so clients can show users where the query matches are.
+Each field, if available, contains an array of html text snippets
+that contain a match to the search term.
+The matching text is wrapped in `<em>` tags, e.g. ["Hiss at <em>vacuum</em> cleaner if it fits i sits"]
+"""
+type SaveItemSearchHighlights {
+    fullText: [String]
+    tags: [String]
+    title: [String]
+    url: [String]
+}
+
+"Payload for mutations that create or update Saves"
+type SaveWriteMutationPayload {
+    "Any errors associated with the mutation. Empty if the mutation was succesful."
+    errors: [SaveMutationError!]!
+    "The mutated Save objects; empty if the mutation did not succeed."
+    save: [PocketSave!]!
+}
+
+"""
+
+Represents a Pocket Item that a user has saved to their list.
+(Said otherways, indicates a saved url to a users list and associated user specific information.)
+"""
+type SavedItem implements RemoteEntity {
+    "Unix timestamp of when the entity was created"
+    _createdAt: Int!
+    "Unix timestamp of when the entity was deleted, 30 days after this date this entity will be HARD deleted from the database and no longer exist"
+    _deletedAt: Int
+    "Unix timestamp of when the entity was last updated, if any property on the entity is modified this timestamp is set to the modified time"
+    _updatedAt: Int
+    "Version of the entity, this will increment with each modification of the entity's field"
+    _version: Int
+    "Annotations associated to this SavedItem"
+    annotations: SavedItemAnnotations
+    "Timestamp that the SavedItem became archied, null if not archived"
+    archivedAt: Int
+    "If the item is in corpus allow the saved item to reference it.  Exposing curated info for consistent UX"
+    corpusItem: CorpusItem
+    "Timestamp that the SavedItem became favorited, null if not favorited"
+    favoritedAt: Int
+    "Surrogate primary key. This is usually generated by clients, but will be generated by the server if not passed through creation"
+    id: ID!
+    "Helper property to indicate if the SavedItem is archived"
+    isArchived: Boolean!
+    "Helper property to indicate if the SavedItem is favorited"
+    isFavorite: Boolean!
+    "Link to the underlying Pocket Item for the URL"
+    item: ItemResult!
+    "The status of this SavedItem"
+    status: SavedItemStatus
+    "The Suggested Tags associated with this SavedItem, if the user is not premium or there are none, this will be empty."
+    suggestedTags: [Tag!]
+    "The Tags associated with this SavedItem"
+    tags: [Tag!]
+    "The title for user saved item. Set by the user and if not, set by the parser."
+    title: String
+    "key field to identify the SavedItem entity in the ListApi service"
+    url: String!
+}
+
+"""
+
+Container for all annotations associated to a SavedItem.
+Can be extended when more types of annotations are added.
+"""
+type SavedItemAnnotations {
+    "User-highlighted passages on a SavedItem"
+    highlights: [Highlight]
+}
+
+"The connection type for SavedItem."
+type SavedItemConnection {
+    "A list of edges."
+    edges: [SavedItemEdge]
+    "Information to aid in pagination."
+    pageInfo: PageInfo!
+    "Identifies the total count of SavedItems in the connection."
+    totalCount: Int!
+}
+
+"Payload for mutations that delete Saves"
+type SavedItemDeleteMutationPayload {
+    "Any errors associated with the mutation. Empty if the mutation was succesful."
+    errors: [SavedItemMutationError!]!
+    success: Boolean!
+}
+
+"An edge in a connection."
+type SavedItemEdge {
+    "A cursor for use in pagination."
+    cursor: String!
+    "The SavedItem at the end of the edge."
+    node: SavedItem
+}
+
+type SavedItemSearchResult {
+    savedItem: SavedItem!
+    """
+
+    Highlighted snippets from fields in the search results
+    searchHighlights is a premium user feature. Not available for free search.
+    """
+    searchHighlights: SaveItemSearchHighlights
+}
+
+"The connection type for SavedItem."
+type SavedItemSearchResultConnection {
+    "A list of edges."
+    edges: [SavedItemSearchResultEdge!]!
+    "Information to aid in pagination."
+    pageInfo: PageInfo!
+    "Identifies the total count of items in the connection."
+    totalCount: Int!
+}
+
+"An edge in a connection."
+type SavedItemSearchResultEdge {
+    "A cursor for use in pagination."
+    cursor: String!
+    "The item at the end of the edge."
+    node: SavedItemSearchResult!
+}
+
+"A page of SavedItemSearchResult, retrieved by offset-based pagination."
+type SavedItemSearchResultPage {
+    entries: [SavedItemSearchResult!]!
+    limit: Int!
+    offset: Int!
+    totalCount: Int!
+}
+
+type SavedItemTagAssociation {
+    "The ID of the SavedItem associated with the Tag"
+    savedItemId: ID!
+    "The ID of the Tag associated with the SavedItem"
+    tagId: ID!
+}
+
+"Payload for mutations that create or update SavedItems"
+type SavedItemWriteMutationPayload {
+    "Any errors associated with the mutation. Empty if the mutation was succesful."
+    errors: [SavedItemMutationError!]!
+    "The mutated SavedItem objects; empty if the mutation did not succeed."
+    savedItem: [SavedItem!]!
+}
+
+"A page of SavedItems, retrieved by offset-based pagination."
+type SavedItemsPage {
+    entries: [SavedItem!]!
+    limit: Int!
+    offset: Int!
+    totalCount: Int!
+}
+
+"Represents a surface that has scheduled items by day"
+type ScheduledSurface {
+    "Agreed on GUID that is from our shared data pocket confluence"
+    id: ID!
+    "Subquery to get the ScheduledSurfaceItems to display to a user for a given date"
+    items(date: Date!): [ScheduledSurfaceItem!]!
+    "Internal name of the surface"
+    name: String!
+}
+
+"""
+
+A scheduled entry for an CorpusItem to appear on a Scheduled Surface.
+For example, a story that is scheduled to appear on December 31st, 2021 on the Scheduled Surface in Firefox for the US audience.
+"""
+type ScheduledSurfaceItem {
+    "The curated item that should run"
+    corpusItem: CorpusItem!
+    "A backend GUID that represents this scheduled run"
+    id: ID!
+    "The date the item should run at"
+    scheduledDate: Date!
+    "Agreed on GUID that is from our shared data pocket confluence"
+    surfaceId: ID!
+}
+
+"The return type for the search query"
+type SearchResult {
+    page: Int @deprecated(reason: "Not required by implementing clients")
+    perPage: Int @deprecated(reason: "Not required by implementing client")
+    "Items found"
+    results: [Item]
+    "Number of items found"
+    totalResults: Int!
+}
+
+type ShareContext {
+    "User-provided highlights of the content"
+    highlights: [ShareHighlight!]
+    "A user-provided comment/note on the shared content."
+    note: String
+}
+
+type ShareHighlight {
+    "Highlighted text on a piece of shared content."
+    quote: String!
+}
+
+type ShareNotFound {
+    message: String
+}
+
+"A user-created list of Pocket saves that can be shared publicly."
+type ShareableList {
+    "The timestamp of when the list was created by its owner."
+    createdAt: ISOString!
+    "Optional text description of a Shareable List. Provided by the Pocket user."
+    description: String
+    "A unique string identifier in UUID format."
+    externalId: ID!
+    "Pocket Saves that have been added to this list by the Pocket user."
+    items(pagination: PaginationInput): ListItemConnection!
+    "The visibility of notes added to list items for this list."
+    listItemNoteVisibility: ShareableListVisibility!
+    "Pocket Saves that have been added to this list by the Pocket user."
+    listItems: [ShareableListItem!]! @deprecated(reason: "use items")
+    "The moderation status of the list. Defaults to VISIBLE."
+    moderationStatus: ShareableListModerationStatus!
+    """
+
+    A URL-ready identifier of the list. Generated from the title
+    of the list when it's first made public. Unique per user.
+    """
+    slug: String
+    "The status of the list. Defaults to PRIVATE."
+    status: ShareableListVisibility!
+    "The title of the list. Provided by the Pocket user."
+    title: String!
+    """
+
+    The timestamp of when the list was last updated by its owner
+    or a member of the moderation team.
+    """
+    updatedAt: ISOString!
+    "The user who created this shareable list."
+    user: User!
+}
+
+"A Pocket Save (story) that has been added to a Shareable List."
+type ShareableListItem {
+    "A comma-separated list of story authors. Supplied by the Parser."
+    authors: String
+    "The timestamp of when this story was added to the list by its owner."
+    createdAt: ISOString!
+    "The excerpt of the story. Supplied by the Parser."
+    excerpt: String
+    "A unique string identifier in UUID format."
+    externalId: ID!
+    "The URL of the thumbnail image illustrating the story. Supplied by the Parser."
+    imageUrl: Url
+    "The Parser Item ID."
+    itemId: ID!
+    "User generated note to accompany this list item."
+    note: String
+    "The name of the publisher for this story. Supplied by the Parser."
+    publisher: String
+    "The custom sort order of stories within a list. Defaults to 1."
+    sortOrder: Int!
+    """
+
+    The title of the story. Supplied by the Parser.
+    May not be available for URLs that cannot be resolved.
+    Not editable by the Pocket user, as are all the other
+    Parser-supplied story properties below.
+    """
+    title: String
+    "The timestamp of when the story was last updated. Not used for the MVP."
+    updatedAt: ISOString!
+    "The URL of the story saved to a list."
+    url: Url!
+}
+
+"""
+
+A list that has been already shared publicly.
+This type is needed as it needs to be cached.
+"""
+type ShareableListPublic {
+    "The timestamp of when the list was created by its owner."
+    createdAt: ISOString!
+    "Optional text description of a Shareable List. Provided by the Pocket user."
+    description: String
+    "A unique string identifier in UUID format."
+    externalId: ID!
+    "The visibility of notes added to list items for this list."
+    listItemNoteVisibility: ShareableListVisibility!
+    "Pocket Saves that have been added to this list by the Pocket user."
+    listItems: [ShareableListItem!]!
+    "The moderation status of the list. Defaults to VISIBLE."
+    moderationStatus: ShareableListModerationStatus!
+    """
+
+    A URL-ready identifier of the list. Generated from the title
+    of the list when it's first made public. Unique per user.
+    """
+    slug: String
+    "The status of the list. Defaults to PRIVATE."
+    status: ShareableListVisibility!
+    "The title of the list. Provided by the Pocket user."
+    title: String!
+    """
+
+    The timestamp of when the list was last updated by its owner
+    or a member of the moderation team.
+    """
+    updatedAt: ISOString!
+    "The user who created this shareable list."
+    user: User!
+}
+
+"A grouping of item recommendations that relate to each other under a specific name and description"
+type Slate {
+    "The description of the the slate"
+    description: String
+    "The name to show to the user for this set of recommendations"
+    displayName: String
+    "A unique guid/slug, provided by the Data & Learning team that can identify a specific experiment. Production apps typically won't request a specific one, but can for QA or during a/b testing."
+    experimentId: ID!
+    id: String!
+    "An ordered list of the recommendations to show to the user"
+    recommendations: [Recommendation!]!
+    "A guid that is unique to every API request that returned slates, such as `getSlateLineup` or `getSlate`. The API will provide a new request id every time apps hit the API."
+    requestId: ID!
+}
+
+type SlateLineup {
+    "A unique guid/slug, provided by the Data & Learning team that can identify a specific experiment. Production apps typically won't request a specific one, but can for QA or during a/b testing."
+    experimentId: ID!
+    "A unique slug/id that describes a SlateLineup. The Data & Learning team will provide apps what id to use here for specific cases."
+    id: ID!
+    "A guid that is unique to every API request that returned slates, such as `getRecommendationSlateLineup` or `getSlate`. The API will provide a new request id every time apps hit the API."
+    requestId: ID!
+    "An ordered list of slates for the client to display"
+    slates: [Slate!]!
+}
+
+type SyncConflict implements BaseError {
+    message: String!
+    path: String!
+}
+
+"An article that Pocket has syndicated and we also host on our own site"
+type SyndicatedArticle {
+    "Array of author names in string format"
+    authorNames: [String]!
+    "Content for the syndicated article"
+    content: String
+    "The pocket curation category of the Article, maps to the Pocket Curation Topic lists"
+    curationCategory: String @deprecated(reason: "use topic instead")
+    "Excerpt "
+    excerpt: String
+    "When does the contract for syndication expire"
+    expiresAt: String
+    "The Sub IAB category of the article defined at https://support.aerserv.com/hc/en-us/articles/207148516-List-of-IAB-Categories"
+    iabSubCategory: String
+    "The Main IAB category of the article defined at https://support.aerserv.com/hc/en-us/articles/207148516-List-of-IAB-Categories"
+    iabTopCategory: String
+    "The item id of this Syndicated Article"
+    itemId: ID
+    "The locale country of the article"
+    localeCountry: String
+    "The language of the article"
+    localeLanguage: String
+    "Primary image to use in surfacing this content"
+    mainImage: String
+    """
+
+    The Item entity representing the original content this was
+    syndicated from.
+    """
+    originalItem: Item!
+    "The item id of the article we cloned"
+    originalItemId: ID!
+    "The preview of the syndicated article"
+    preview: PocketMetadata!
+    "AWSDateTime — Format: YYYY-MM-DDThh:mm:ss.sssZ"
+    publishedAt: String!
+    "The manually set publisher information for this article"
+    publisher: Publisher
+    "The canonical publisher URL. Automatically set at time of creation but can be changed by editor."
+    publisherUrl: String!
+    "Recommend similar syndicated articles."
+    relatedEndOfArticle(
+        "Maximum number of recommendations to return, defaults to 10"
+        count: Int = 10
+    ): [CorpusRecommendation!]!
+    "Recommend similar articles from the same publisher."
+    relatedRightRail(
+        "Maximum number of recommendations to return, defaults to 10"
+        count: Int = 10
+    ): [CorpusRecommendation!]!
+    "Should ads be shown on this article or not"
+    showAds: Boolean!
+    "Slug that pocket uses for this article in the url"
+    slug: String
+    """
+
+    DRAFT — Article is not meant to be available to the public
+    EXPIRED — Article contract is up and should be redirected to original article
+    ACTIVE — Article is clear to be shown in syndicated form
+    """
+    status: ArticleStatus!
+    "Title of syndicated article"
+    title: String!
+    "The pocket topic of the Article, maps to the Pocket Curation Topic lists"
+    topic: String
+}
+
+"Represents a Tag that a User has created for their list"
+type Tag {
+    "Unix timestamp of when the entity was deleted, 30 days after this date this entity will be HARD deleted from the database and no longer exist"
+    _deletedAt: Int
+    "Version of the entity, this will increment with each modification of the entity's field"
+    _version: Int
+    "Surrogate primary key. This is usually generated by clients, but will be generated by the server if not passed through creation"
+    id: ID!
+    "The actual tag string the user created for their list"
+    name: String!
+    "paginated listing of all SavedItems associated with this Tag for the user"
+    savedItems(filter: SavedItemsFilter, pagination: PaginationInput, sort: SavedItemsSort): SavedItemConnection
+}
+
+"The connection type for Tag."
+type TagConnection {
+    "A list of edges."
+    edges: [TagEdge]
+    "Information to aid in pagination."
+    pageInfo: PageInfo!
+    "Identifies the total count of Tags in the connection."
+    totalCount: Int!
+}
+
+"Payload for mutations that delete Tags"
+type TagDeleteMutationPayload {
+    "Any errors associated with the mutation. Empty if the mutation was succesful."
+    errors: [TagMutationError!]!
+    success: Boolean!
+}
+
+"An edge in a connection."
+type TagEdge {
+    "A cursor for use in pagination."
+    cursor: String!
+    "The Tag at the end of the edge."
+    node: Tag
+}
+
+"Payload for mutations that create or update Tags"
+type TagWriteMutationPayload {
+    "Any errors associated with the mutation. Empty if the mutation was succesful."
+    errors: [TagMutationError!]!
+    "The mutated Tag objects; empty if the mutation did not succeed."
+    tag: [Tag!]!
+}
+
+"""
+
+Represents a topic for /explore
+Deprecated for SlateLineups
+"""
+type Topic {
+    "The label the curator uses internally to get items onto this topic"
+    curatorLabel: String!
+    "The internal feed id that this topic will pull from if set"
+    customFeedId: ID
+    "The name of the topic to show to the user"
+    displayName: String! @deprecated(reason: "displayName is deprecated. Use name instead.")
+    "If returned a note to show to the user about the topic"
+    displayNote: String
+    "The legacy UUID id of the topic"
+    id: ID!
+    "Whether or not clients should show this topic ot users"
+    isDisplayed: Boolean!
+    "Whether or not this topic should be visiblly promoted (prominent on the page)"
+    isPromoted: Boolean!
+    "The name of the topic to show to the user"
+    name: String!
+    "The type of page this topic represents used in  generation"
+    pageType: PageType!
+    "The query that was used internally for elasticsearch to find items"
+    query: String!
+    "The slug that should be used in the url to represent the topic"
+    slug: String!
+    "The description to use in the HTML markup for SEO and social media sharing"
+    socialDescription: String
+    "The image to use in the HTML markup for SEO and social media sharing"
+    socialImage: String
+    "The title to use in the HTML markup for SEO and social media sharing"
+    socialTitle: String
+}
+
+"Represents content that could not be parsed into a valid Marticle* component."
+type UnMarseable {
+    "The html that could not be parsed into a Marticle* component."
+    html: String!
+}
+
+"Details on the variant/status of this toggle for a given user/context"
+type UnleashAssignment {
+    "Whether or not the provided context is assigned"
+    assigned: Boolean!
+    "The unleash toggle name, the same name as it appears in the admin interface and feature api"
+    name: String!
+    "If the variant has a payload, its payload value"
+    payload: String
+    "If the toggle has variants, the variant name it is assigned to"
+    variant: String
+}
+
+"Contains a list of all toggles."
+type UnleashAssignmentList {
+    assignments: [UnleashAssignment]!
+}
+
+"Resolve by reference the User entity in this graph to provide user data with public lists."
+type User {
+    "Timestamp of the date when account was created"
+    accountCreationDate: ISOString
+    advancedSearch(filter: AdvancedSearchFilters, pagination: PaginationInput, queryString: String, sort: SearchSortInput): SavedItemSearchResultConnection
+    advancedSearchByOffset(filter: AdvancedSearchFilters, pagination: OffsetPaginationInput, queryString: String, sort: SearchSortInput): SavedItemSearchResultPage
+    "The public avatar url for the user"
+    avatarUrl: String
+    "A users bio for their profile"
+    description: String
+    "Email address associated with the account."
+    email: String
+    "The users first name"
+    firstName: String
+    "User id, provided by the user service."
+    id: ID!
+    "Indicates if a user is FxA or not"
+    isFxa: Boolean
+    "The user's premium status"
+    isPremium: Boolean
+    "The users last name"
+    lastName: String
+    "The users first name and last name combined"
+    name: String
+    "Premium features that a user has access to"
+    premiumFeatures: [PremiumFeature]
+    "Current premium status of the user"
+    premiumStatus: PremiumStatus
+    recentSearches: [RecentSearch!]
+    "Preferences for recommendations that the user has explicitly set."
+    recommendationPreferences: UserRecommendationPreferences
+    "Get a PocketSave(s) by its id(s)"
+    saveById(ids: [ID!]!): [SaveByIdResult!]!
+    "Get a SavedItem by its id"
+    savedItemById(id: ID!): SavedItem @deprecated(reason: "Use saveById instead")
+    "Get a general paginated listing of all SavedItems for the user"
+    savedItems(filter: SavedItemsFilter, pagination: PaginationInput, sort: SavedItemsSort): SavedItemConnection
+    "Fetch SavedItems with offset pagination. Internal backend use only."
+    savedItemsByOffset(filter: SavedItemsFilter, pagination: OffsetPaginationInput, sort: SavedItemsSort): SavedItemsPage
+    "Premium search query. Name will be updated after client input"
+    search(params: SearchParams!): SearchResult! @deprecated(reason: "Use searchSavedItems")
+    "Get a paginated list of user items that match a given term"
+    searchSavedItems(filter: SearchFilterInput, pagination: PaginationInput, sort: SearchSortInput, term: String!): SavedItemSearchResultConnection
+    searchSavedItemsByOffset(filter: SearchFilterInput, pagination: OffsetPaginationInput, sort: SearchSortInput, term: String!): SavedItemSearchResultPage
+    "Get a paginated listing of all a user's Tags"
+    tags(pagination: PaginationInput): TagConnection
+    """
+
+    Get all tag names for a user.
+    If syncSince is passed, it will only return tags if changes
+    to a user's tags have occurred after syncSince. It will return
+    all of the user's tags (not just the changes).
+
+    Yes, this is bad graphql design. It's serving a specific
+    REST API which has unlimited SQL queries, and we do not want to
+    make it possible to request every associated SavedItem
+    node on a tag object. Just biting the bullet on this one.
+    """
+    tagsList(syncSince: ISOString): [String!]
+    "The public username for the user"
+    username: String
+}
+
+type UserRecommendationPreferences {
+    "Topics that the user expressed interest in."
+    preferredTopics: [Topic!]
+}
+
+"A Video, typically within an Article View of an Item or if the Item is a video itself."
+type Video {
+    "If known, the height of the video in px"
+    height: Int
+    "If known, the length of the video in seconds"
+    length: Int
+    "Absolute url to the video"
+    src: String!
+    "The type of video"
+    type: VideoType!
+    "The video's id within the service defined by type"
+    vid: String
+    "The id of the video within Article View. Item.article will have placeholders of <div id='RIL_VID_X' /> where X is this id. Apps can download those images as needed and populate them in their article view."
+    videoId: Int!
+    "If known, the width of the video in px"
+    width: Int
+}
+
+"Valid grade values for CorpusItem (public graph) and ApprovedItem (admin graph)"
+enum ApprovedItemGrade {
+    A
+    B
+    C
+}
+
+"""
+
+The status of the syndicated article
+TODO: rename to SyndicatedArticle status and move to schema-shared.graphql
+(requires client changes)
+"""
+enum ArticleStatus {
+    ACTIVE
+    DRAFT
+    EXPIRED
+}
+
+"""
+
+Apollo Server @cacheControl directive caching behavior either for a single field, or for all fields that
+return a particular type
+"""
+enum CacheControlScope {
+    PRIVATE
+    PUBLIC
+}
+
+"valid language codes for collections"
+enum CollectionLanguage {
+    "German"
+    DE
+    "English"
+    EN
+}
+
+"Type and enums related to Collections made in partnership with a company."
+enum CollectionPartnershipType {
+    PARTNERED
+    SPONSORED
+}
+
+enum CollectionStatus {
+    ARCHIVED
+    DRAFT
+    PUBLISHED
+    REVIEW
+}
+
+"Content type classification for a corpus item"
+enum CorpusContentType {
+    ARTICLE
+    COLLECTION
+    VIDEO
+}
+
+"Valid language codes for curated corpus items."
+enum CorpusLanguage {
+    "German"
+    DE
+    "English"
+    EN
+    "Spanish"
+    ES
+    "French"
+    FR
+    "Italian"
+    IT
+}
+
+"Fields that can be searched using query strings"
+enum CorpusSearchFields {
+    "Search all possible fields"
+    ALL
+    """
+
+    (Default) Search the fields which relate to the content
+    of the resource (title, article, excerpt, extracted content)
+    rather than the metadata (publisher).
+    """
+    ALL_CONTENTFUL
+    "Search terms in excerpt fields"
+    EXCERPT
+    "Search terms in parsed, extracted content fields"
+    EXTRACTED_CONTENT
+    "Search terms in publisher fields"
+    PUBLISHER
+    "Search terms in title fields"
+    TITLE
+}
+
+"Sortable properties for Corpus Search"
+enum CorpusSearchSortBy {
+    "When the content was added to the corpus"
+    DATE_ADDED_TO_CORPUS
+    """
+
+    When the content was originally published
+    (Note: this data is sparse/nullable)
+    """
+    DATE_PUBLISHED
+    "Relevance score computed by search algorithm"
+    RELEVANCE
+}
+
+"The reason a user web session is being expired."
+enum ExpireUserWebSessionReason {
+    "Expire web session upon logging out."
+    LOGOUT
+    "Expire web session on account password change."
+    PASSWORD_CHANGED
+}
+
+"The image file type"
+enum ImageFileType {
+    JPEG
+    PNG
+    WEBP
+}
+
+enum Imageness {
+    "Contains images (v3 value is 1)"
+    HAS_IMAGES
+    "Is an image (v3 value is 2)"
+    IS_IMAGE
+    "No images (v3 value is 0)"
+    NO_IMAGES
+}
+
+enum OEmbedType {
+    LINK
+    PHOTO
+    RICH
+    VIDEO
+}
+
+"""
+
+Represents a type of page for /explore
+Deprecated for SlateLineups
+"""
+enum PageType {
+    editorial_collection
+    topic_page
+}
+
+enum PendingItemStatus {
+    RESOLVED
+    UNRESOLVED
+}
+
+enum PocketMetadataSource {
+    COLLECTION
+    CURATED_CORPUS
+    OEMBED
+    OPENGRAPH
+    POCKET_PARSER
+    SYNDICATION
+}
+
+"Enum to specify the PocketSave Status (mapped to integers in data store)."
+enum PocketSaveStatus {
+    ARCHIVED
+    DELETED
+    HIDDEN
+    UNREAD
+}
+
+enum PremiumFeature {
+    "Feature where you get an ad-free experience"
+    AD_FREE
+    "Feature where you can highlight articles"
+    ANNOTATIONS
+    "Feature where pocket saves permanent copies of all your saves"
+    PERMANENT_LIBRARY
+    "Feature where pocket's search is enhanced"
+    PREMIUM_SEARCH
+    "Feature where pocket suggests tags"
+    SUGGESTED_TAGS
+}
+
+enum PremiumStatus {
+    """
+
+    User has premium and its active
+    NOTE: User will still show as active if they turn off auto-renew or have otherwise canceled but the expiration date hasn't hit yet
+    """
+    ACTIVE
+    "User has had premium, but it is expired"
+    EXPIRED
+    "User has never had premium"
+    NEVER
+}
+
+"Reasons why recommendations are made. Focuses on client needs and is not exhaustive."
+enum RecommendationReasonType {
+    "Recommendations are sourced from the Pocket Hits newsletter."
+    POCKET_HITS
+    "Recommendations that match the user's topic preferences are ranked higher."
+    PREFERRED_TOPICS
+}
+
+enum SavedItemStatus {
+    ARCHIVED
+    DELETED
+    HIDDEN
+    UNREAD
+}
+
+"Valid statuses a client may use to filter SavedItems"
+enum SavedItemStatusFilter {
+    ARCHIVED
+    HIDDEN
+    UNREAD
+}
+
+"A SavedItem can be one of these content types"
+enum SavedItemsContentType {
+    "Item is a parsed page can be opened in reader view"
+    ARTICLE @deprecated(reason: "Use `IS_READABLE`.")
+    "Item is a parsed article that contains videos"
+    HAS_VIDEO
+    "Item is a video or a parsed article that contains videos"
+    HAS_VIDEO_INCLUSIVE
+    "Item is an un-parsable page and will be opened externally"
+    IS_EXTERNAL
+    "Item is an image"
+    IS_IMAGE
+    "Item is a parsed page can be opened in reader view"
+    IS_READABLE
+    "Item is a video"
+    IS_VIDEO
+    "Item is a parsed article that contains videos"
+    VIDEO @deprecated(reason: "Use `HAS_VIDEO`.")
+}
+
+"Enum to specify the sort by field (these are the current options, we could add more in the future)"
+enum SavedItemsSortBy {
+    ARCHIVED_AT
+    CREATED_AT
+    FAVORITED_AT
+    UPDATED_AT
+}
+
+"Enum to specify the sort order of SavedItems fetched"
+enum SavedItemsSortOrder {
+    ASC
+    DESC
+}
+
+"""
+
+Used to detemermine whether to add or multiply a document's score by the
+functional boost factor
+"""
+enum SearchFunctionalBoostOperation {
+    ADD
+    MULTIPLY
+}
+
+"A SavedItem can be one of these content types"
+enum SearchItemsContentType {
+    ARTICLE
+    VIDEO
+}
+
+"Enum to specify the sort by field (these are the current options, we could add more in the future)"
+enum SearchItemsSortBy {
+    "Indicates when a SavedItem was created"
+    CREATED_AT
+    """
+
+    Sort SavedItems based on a relevance score
+    This is a feature of elasticsearch and current only available for premium search
+    """
+    RELEVANCE
+    "Estimated time to read a SavedItem"
+    TIME_TO_READ
+}
+
+"Enum to specify the sort order of user items fetched"
+enum SearchItemsSortOrder {
+    ASC
+    DESC
+}
+
+"Valid statuses a client may use to filter"
+enum SearchItemsStatusFilter {
+    ARCHIVED
+    UNREAD
+}
+
+"Sort direction of the returned items."
+enum SearchSortDirection {
+    ASC
+    DESC
+}
+
+"""
+
+An index item can be in one of these states
+QUEUED implies an item that has not been archived
+"""
+enum SearchStatus {
+    ARCHIVED
+    QUEUED
+}
+
+"The moderation status of a Shareable List. Defaults to VISIBLE."
+enum ShareableListModerationStatus {
+    """
+
+    The list and its contents have been removed from view and further editing
+    by its owner as it violated the Pocket content moderation policy.
+    """
+    HIDDEN
+    "The list and its contents abide by the Pocket content moderation policy."
+    VISIBLE
+}
+
+"The visibility levels used (e.g. list, list item note) in the Shareable List API. Defaults to PRIVATE - visible only to its owner."
+enum ShareableListVisibility {
+    "Only visible to its owner - the Pocket user who created it."
+    PRIVATE
+    "Can be viewed by anyone in the world."
+    PUBLIC
+}
+
+enum UnleashEnvironment {
+    "Internal team builds"
+    alpha
+    "User facing, beta level builds"
+    beta
+    "User facing, production builds"
+    prod
+}
+
+enum VideoType {
+    "Brightcove (v3 value is 8)"
+    BRIGHTCOVE
+    "Flash (v3 value is 6)"
+    FLASH
+    "html5 (v3 value is 5)"
+    HTML5
+    "iframe (v3 value is 7)"
+    IFRAME
+    "video iframe (v3 value is 4)"
+    VIMEO_IFRAME
+    "Vimeo Link (v3 value is 2)"
+    VIMEO_LINK
+    "Vimeo Moogaloop (v3 value is 3)"
+    VIMEO_MOOGALOOP
+    "Youtube (v3 value is 1)"
+    YOUTUBE
+}
+
+enum Videoness {
+    "Contains videos (v3 value is 1)"
+    HAS_VIDEOS
+    "Is a video (v3 value is 2)"
+    IS_VIDEO
+    "No videos (v3 value is 0)"
+    NO_VIDEOS
+}
+
+"A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar."
+scalar Date
+
+"A String representing a date in the format of `yyyy-MM-dd HH:mm:ss`"
+scalar DateString
+
+"FunctionalBoostValue custom scalar type"
+scalar FunctionalBoostValue
+
+scalar HtmlString
+
+"ISOString custom scalar type"
+scalar ISOString
+
+"""
+
+A string formatted with CommonMark markdown,
+plus the strikethrough extension from GFM.
+This Scalar is for documentation purposes; otherwise
+not treated differently from String in the API.
+"""
+scalar Markdown
+
+"String truncated to 300 characters (truncated strings indicated with ellipses)"
+scalar Max300CharString
+
+"A positive integer number."
+scalar NonNegativeInt
+
+"Integer based represention of a unix timestamp"
+scalar Timestamp
+
+"A String in the format of a url."
+scalar Url
+
+"A field whose value conforms to the standard URL format as specified in RFC3986: https://www.ietf.org/rfc/rfc3986.txt."
+scalar ValidUrl
+
+"""
+
+Input data for adding multiple items to a list.
+Appends to the end of the list.
+"""
+input AddItemInput {
+    authors: String
+    excerpt: String
+    imageUrl: Url
+    itemId: ID!
+    note: String
+    publisher: String
+    title: String
+    url: Url!
+}
+
+input AdvancedSearchFilters {
+    contentType: SearchItemsContentType
+    domain: String
+    isFavorite: Boolean
+    status: SearchItemsStatusFilter
+    """
+
+    Include only items with the following tags (exact)
+    in search results (OR combination)
+    """
+    tags: [String!]
+    title: String
+}
+
+"Input object for creating and deleting highlights using bulk mutation."
+input BatchWriteHighlightsInput {
+    create: [CreateHighlightInput!]
+    delete: [ID!]
+}
+
+"Set of parameters that will be used to change an image"
+input CachedImageInput {
+    "File type of the requested image"
+    fileType: ImageFileType
+    "Height of the image"
+    height: Int
+    "ID that will be added to the generated response object so you can find it. NOTE: Can be any string that you like, it will be added to the response so you can use it when consuming it"
+    id: ID!
+    "Quality of the image in whole percentage, 100 = full, quality 50 = half quality"
+    qualityPercentage: Int
+    "Width of the image"
+    width: Int
+}
+
+input CollectionsFiltersInput {
+    "If provided, will return all collections that match at least one of the labels."
+    labels: [String]
+    "If not provided, or if an unsupported language is requested, defaults to `en`"
+    language: String
+}
+
+"Filters to refine corpus search results."
+input CorpusSearchFilters {
+    "When the content was added to Pocket's corpus"
+    addedDateRange: DateFilter
+    "The author's name"
+    author: String
+    """
+
+    Filter to limit the result set to specific content types.
+    Multiple types are combined with OR.
+    Can use this to search collections only.
+    """
+    contentType: [CorpusContentType!]
+    "Set to true to exclude collections from the results."
+    excludeCollections: Boolean
+    "Set to true to exclude ML-generated recommendations from the results."
+    excludeML: Boolean
+    "The language of the corpus to search (letter code)"
+    language: CorpusLanguage!
+    """
+
+    Filter for when an article was published. Can provide
+    upper/lower bounds with 'before' or 'after', or use both
+    both to create a time range.
+    """
+    publishedDateRange: DateFilter
+    """
+
+    The publisher's name. This is an exact match for filtering.
+    To use publisher in search, use the publisher field in the query
+    string.
+    """
+    publisher: String
+    """
+
+    The topic (use getTopics query to retrieve valid topics).
+    Multiple topics are combined with OR.
+    """
+    topic: [String!]
+}
+
+"A search query for the corpus"
+input CorpusSearchQueryString {
+    """
+
+    A specific field to search on (e.g. title),
+    or ALL to search all available text content fields.
+    If missing, defaults to 'ALL_CONTENTFUL'
+    """
+    field: CorpusSearchFields
+    "The query string to search."
+    query: String!
+}
+
+"""
+
+Sort scheme for Corpus Search. Defaults to showing most relevant results first.
+Only relevant for indices which use keyword search.
+**Semantic search will ignore any inputs and use default only.**
+"""
+input CorpusSearchSort {
+    sortBy: CorpusSearchSortBy!
+    sortOrder: SearchItemsSortOrder
+}
+
+"Input for creating a new User-highlighted passage on a SavedItem."
+input CreateHighlightByUrlInput {
+    """
+
+    Optionally, a client-generated UUID to identify the highlight.
+    If one is not passed, it will be created. Must be in UUID format,
+    or will fail generation. Will not overwrite existing data if there
+    is an ID collision.
+    """
+    id: String
+    "Optional note generated by User"
+    note: String
+    """
+
+    Patch string generated by 'DiffMatchPatch' library, serialized
+    into text via `patch_toText` method.
+    Format is similar to UniDiff but is character-based.
+    The patched text depends on version. For example, the version 2
+    patch surrounds the highlighted text portion with a pair of
+    sentinel tags: '<pkt_tag_annotation></pkt_tag_annotation>'
+    Reference: https://github.com/google/diff-match-patch
+    """
+    patch: String!
+    """
+
+    The full text of the highlighted passage. Used as a fallback for
+    rendering highlight if the patch fails.
+    """
+    quote: String!
+    "The url of the Item that should be annotated in the User's list"
+    url: ValidUrl!
+    "Annotation data version"
+    version: Int!
+}
+
+"Input for creating a new User-highlighted passage on a SavedItem."
+input CreateHighlightInput {
+    """
+
+    Optionally, a client-generated UUID to identify the highlight.
+    If one is not passed, it will be created. Must be in UUID format,
+    or will fail generation. Will not overwrite existing data if there
+    is an ID collision.
+    """
+    id: String
+    "The ID of the Item that should be annotated in the User's list"
+    itemId: ID!
+    "Optional note generated by User"
+    note: String
+    """
+
+    Patch string generated by 'DiffMatchPatch' library, serialized
+    into text via `patch_toText` method.
+    Format is similar to UniDiff but is character-based.
+    The patched text depends on version. For example, the version 2
+    patch surrounds the highlighted text portion with a pair of
+    sentinel tags: '<pkt_tag_annotation></pkt_tag_annotation>'
+    Reference: https://github.com/google/diff-match-patch
+    """
+    patch: String!
+    """
+
+    The full text of the highlighted passage. Used as a fallback for
+    rendering highlight if the patch fails.
+    """
+    quote: String!
+    "Annotation data version"
+    version: Int!
+}
+
+"Input data for creating a Shareable List."
+input CreateShareableListInput {
+    description: String
+    listItemNoteVisibility: ShareableListVisibility
+    title: String!
+}
+
+"Input data for creating a Shareable List Item."
+input CreateShareableListItemInput {
+    authors: String
+    excerpt: String
+    imageUrl: Url
+    itemId: ID!
+    listExternalId: ID!
+    note: String
+    publisher: String
+    sortOrder: Int!
+    title: String
+    url: Url!
+}
+
+"Input data for creating a Shareable List Item during Shareable List creation."
+input CreateShareableListItemWithList {
+    authors: String
+    excerpt: String
+    imageUrl: Url
+    itemId: ID!
+    note: String
+    publisher: String
+    sortOrder: Int!
+    title: String
+    url: Url!
+}
+
+"""
+
+Filter to get documents added/published before or after a date,
+or provide both for a range of [after, before)
+Before is exclusive, after is inclusive.
+"""
+input DateFilter {
+    "Inclusive date -- results must be at or after than this time."
+    after: ISOString
+    "Exclusive date -- results must be exclusively before this time."
+    before: ISOString
+}
+
+input DeleteSavedItemTagsInput {
+    "The id of the SavedItem from which to delete a Tag association"
+    savedItemId: ID!
+    "The ids of the Tag to disassociate from the SavedItem"
+    tagIds: [ID!]!
+}
+
+"Input field to boost the score of an elasticsearch document based on a specific field and value"
+input FunctionalBoostField {
+    "A float number to boost the score by"
+    factor: Float!
+    "Field to evaluate for boosting"
+    field: String!
+    "The mathematical operation to use for boosting"
+    operation: SearchFunctionalBoostOperation!
+    "Field value to evaluate"
+    value: FunctionalBoostValue!
+}
+
+"Input for offset-pagination (internal backend use only)."
+input OffsetPaginationInput {
+    "Defaults to 30"
+    limit: Int
+    "Defaults to 0"
+    offset: Int
+}
+
+"""
+
+Pagination request. To determine which edges to return, the connection
+evaluates the `before` and `after` cursors (if given) to filter the
+edges, then evaluates `first`/`last` to slice the edges (only include a
+value for either `first` or `last`, not both). If all fields are null,
+by default will return a page with the first 30 elements.
+"""
+input PaginationInput {
+    """
+
+    Returns the elements in the list that come after the specified cursor.
+    The specified cursor is not included in the result.
+    """
+    after: String
+    """
+
+    Returns the elements in the list that come before the specified cursor.
+    The specified cursor is not included in the result.
+    """
+    before: String
+    """
+
+    Returns the first _n_ elements from the list. Must be a non-negative integer.
+    If `first` contains a value, `last` should be null/omitted in the input.
+    """
+    first: Int
+    """
+
+    Returns the last _n_ elements from the list. Must be a non-negative integer.
+    If `last` contains a value, `first` should be null/omitted in the input.
+    """
+    last: Int
+}
+
+input RecItUserProfile {
+    userModels: [String!]!
+}
+
+input RecentSearchInput {
+    "The term that was used for search"
+    term: String!
+    """
+
+    Optional, the time the search was performed.
+    Defaults to current server time at time of request.
+    """
+    timestamp: ISOString
+}
+
+input SaveUpdateTagsInput {
+    """
+
+    Tags to add, by name text; if a Tag
+    with the given name does not exist,
+    one will be created.
+    """
+    addTagNames: [String!]!
+    "Tags to remove, by ID"
+    removeTagIds: [ID!]!
+    saveId: ID!
+}
+
+"Input field for upserting a Save. Used by saveUpsert mutation"
+input SaveUpsertInput {
+    "Optional, create/update the SavedItem as a favorited item"
+    isFavorite: Boolean
+    "Optional, title of the SavedItem"
+    title: String
+    """
+
+    The url to create/update the SavedItem with. (the url to save to the list)
+    Must be at least a 4 character string which is the shortest url
+    """
+    url: String!
+}
+
+"""
+
+We don't have official oneOf support, but this will
+throw if both `id` and `url` are unset/null.
+Don't provide both... but if both are provided, it will
+default to using ID.
+"""
+input SavedItemRef {
+    id: ID
+    url: Url
+}
+
+"Input field for adding Tag Associations to a SavedItem, by givenUrl"
+input SavedItemTagInput {
+    givenUrl: Url!
+    tagNames: [String!]!
+}
+
+"Input field for setting all Tag associations on a SavedItem."
+input SavedItemTagUpdateInput {
+    "The SavedItem ID to associate Tags to"
+    savedItemId: ID!
+    "The set of Tag IDs to associate to the SavedItem"
+    tagIds: [ID!]!
+}
+
+"Input field for setting all Tag associations on a SavedItem."
+input SavedItemTagsInput {
+    "The SavedItem ID to associate Tags to"
+    savedItemId: ID!
+    "The set of Tag names to associate to the SavedItem"
+    tags: [String!]!
+}
+
+"Input field for upserting a SavedItem"
+input SavedItemUpsertInput {
+    "Optional, create/update the SavedItem as a favorited item"
+    isFavorite: Boolean
+    "Optional, time that request was submitted by client epoch/unix time"
+    timestamp: Int
+    "Optional, title of the SavedItem"
+    title: String
+    """
+
+    The url to create/update the SavedItem with. (the url to save to the list)
+    Must be at least a 4 character string which is the shortest url
+    """
+    url: String!
+}
+
+"Input field for filtering a user's list"
+input SavedItemsFilter {
+    "Optional, filter to get SavedItems based on content type"
+    contentType: SavedItemsContentType
+    """
+
+    Optional, filter to get SavedItems that have been archived.
+    This field is deprecated. Use status instead.
+    TODO: Add deprecate tag once input field deprecation is enabled.
+    Ref: https://github.com/apollographql/federation/issues/912
+    """
+    isArchived: Boolean
+    "Optional, filter to get SavedItems that have been favorited"
+    isFavorite: Boolean
+    "Optional, filter to get SavedItems with highlights"
+    isHighlighted: Boolean
+    "Optional, filter to get user items based on status. Deprecated: use statuses instead."
+    status: SavedItemStatusFilter
+    "Optional, filters to get user items based on multiple statuses (OR operator)"
+    statuses: [SavedItemStatusFilter]
+    "Optional, filter to get SavedItems associated to the specified Tag."
+    tagIds: [ID!]
+    """
+
+    Optional, filter to get SavedItems associated to the specified Tag name.
+    To get untagged items, include the string '_untagged_'.
+    """
+    tagNames: [String!]
+    """
+
+    Optional, filter to get SavedItems updated before a unix timestamp.
+    Mutually exclusive with `updatedSince` option.
+    """
+    updatedBefore: Int
+    """
+
+    Optional, filter to get SavedItems updated since a unix timestamp.
+    Mutually exclusive with `updatedBefore` option.
+    """
+    updatedSince: Int
+}
+
+"Input to sort fetched SavedItems. If unspecified, defaults to CREATED_AT, ASC."
+input SavedItemsSort {
+    "The field by which to sort SavedItems"
+    sortBy: SavedItemsSortBy!
+    "The order in which to sort SavedItems"
+    sortOrder: SavedItemsSortOrder!
+}
+
+"Input filed for filtering items"
+input SearchFilter {
+    "Optional filter to items of a specific content type"
+    contentType: String
+    """
+
+    Optional filter to get items that matches the domain
+    domain should be in the url format, e.g getpocket.com (or) list.getpocket.com
+    """
+    domain: String
+    "Optional filter to get items that are favorited"
+    favorite: Boolean
+    "Optional filter to get items in a specific state"
+    status: SearchStatus
+    "Optional fitler to get item with specific tags"
+    tags: [String]
+}
+
+input SearchFilterInput {
+    "Optional, filter to get SavedItems based on content type"
+    contentType: SearchItemsContentType
+    """
+
+    Optional filter to get items that matches the domain
+    domain should be in the url format, e.g getpocket.com (or) list.getpocket.com
+    """
+    domain: String
+    "Optional, filter to get user items that have been favorited"
+    isFavorite: Boolean
+    """
+
+    Optional, filter to get user items only based on title and url, ie Free Search
+    Note, though that if this is selected and the user is premium, they will not get search highligthing.
+    """
+    onlyTitleAndURL: Boolean
+    "Optional, filter to get user items based on status."
+    status: SearchItemsStatusFilter
+}
+
+"Input field to get elasticsearch highlights of keywords"
+input SearchHighlightField {
+    "Field to highlight"
+    field: String!
+    "The number of characters to return in addition to the keyword"
+    size: Int!
+}
+
+"Input field for search"
+input SearchParams {
+    "Fields to search for the keyword in"
+    fields: [String]!
+    "Filters to be applied to the search"
+    filters: SearchFilter
+    "Offset for pagination"
+    from: Int
+    "Operation to boost the score of a document based"
+    functionalBoosts: [FunctionalBoostField]
+    "Fields that should be highlighted if keywords are found within them"
+    highlightFields: [SearchHighlightField]
+    "Number of items to return"
+    size: Int
+    "Sorting for the search"
+    sort: SearchSort
+    "The keyword to search for"
+    term: String!
+}
+
+"Input field for sorting items"
+input SearchSort {
+    "Direction of the sort (ASC/DESC)"
+    direction: SearchSortDirection!
+    "Field in elasticsearch to sort by"
+    field: String!
+}
+
+input SearchSortInput {
+    "The field by which to sort user items"
+    sortBy: SearchItemsSortBy!
+    "The order in which to sort user items"
+    sortOrder: SearchItemsSortOrder
+}
+
+"Input for mutation which creates a new Pocket Share link."
+input ShareContextInput {
+    "Quoted content from the Share source"
+    highlights: ShareHighlightInput
+    "A note/comment about the Share (up to 500 characters)."
+    note: String
+}
+
+input ShareHighlightInput {
+    """
+
+    Highlighted text on a piece of shared content.
+    This is a permissive constraint but there needs
+    to be _a_ constraint.
+    This input is not required, but if present 'quotes'
+    is required as it is the only field.
+    Limited to 300 characters per quote (longer quotes
+    will not be rejected, but will be truncated).
+    """
+    quotes: [Max300CharString!]!
+}
+
+"Input field for creating a Tag"
+input TagCreateInput {
+    "The user provided tag string"
+    name: String!
+    "ID of the SavedItem to associate with this Tag"
+    savedItemId: ID!
+}
+
+"Input field for updating a Tag"
+input TagUpdateInput {
+    "Tag ID"
+    id: ID!
+    "The updated tag string"
+    name: String!
+}
+
+input TopicInput {
+    "The id of the topic"
+    id: ID!
+}
+
+"""
+
+Information about the user and device. Based on https://unleash.github.io/docs/unleash_context
+
+Used to calculate assignment values.
+"""
+input UnleashContext {
+    """
+
+    A unique name for one of our apps. Can be any string, but here are some known/expected values:
+
+    - `android`
+    - `ios`
+    - `web-discover`
+    - `web-app`
+    """
+    appName: String
+    """
+
+    The environment the device is running in:
+    - `prod`
+    - `beta`
+    - `alpha`
+    """
+    environment: UnleashEnvironment
+    properties: UnleashProperties
+    "The device's IP address. If omitted, inferred from either request header `x-forwarded-for` or the origin IP of the request."
+    remoteAddress: String
+    "A device specific identifier that will be consistent across sessions, typically the encoded {guid} or some session token."
+    sessionId: String
+    "If logged in, the user's encoded user id (uid). The {Account.user_id}."
+    userId: String
+}
+
+"Extended properties that Unleash can use to assign users through a toggle's strategies."
+input UnleashProperties {
+    "Only required on activation strategies that are based on account age"
+    accountCreatedAt: String
+    "If omitted, inferred from request header `accept-langauge`."
+    locale: String
+    "Only required on activation strategies that are based whether a user model exists"
+    recItUserProfile: RecItUserProfile
+}
+
+input UpdateHighlightInput {
+    "The ID of the Item that should be annotated in the User's list"
+    itemId: ID!
+    "Optional note generated by User"
+    note: String
+    """
+
+    Patch string generated by 'DiffMatchPatch' library, serialized
+    into text via `patch_toText` method.
+    Format is similar to UniDiff but is character-based.
+    The patched text depends on version. For example, the version 2
+    patch surrounds the highlighted text portion with a pair of
+    sentinel tags: '<pkt_tag_annotation></pkt_tag_annotation>'
+    Reference: https://github.com/google/diff-match-patch
+    """
+    patch: String!
+    """
+
+    The full text of the highlighted passage. Used as a fallback for
+    rendering highlight if the patch fails.
+    """
+    quote: String!
+    "Annotation data version"
+    version: Int!
+}
+
+"Input data for updating a Shareable List."
+input UpdateShareableListInput {
+    description: String
+    externalId: ID!
+    listItemNoteVisibility: ShareableListVisibility
+    status: ShareableListVisibility
+    title: String
+}
+
+"Input data for updating a single Shareable List Item."
+input UpdateShareableListItemInput {
+    externalId: ID!
+    note: String
+    sortOrder: Int
+}
+
+"Input data for updating an array of Shareable List Items, targeting sortOrder."
+input UpdateShareableListItemsInput {
+    externalId: ID!
+    sortOrder: Int!
+}
+
+input UpdateUserRecommendationPreferencesInput {
+    "Topics that the user expressed interest in."
+    preferredTopics: [TopicInput!]!
+}

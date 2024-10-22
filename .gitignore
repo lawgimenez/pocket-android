@@ -1,0 +1,11 @@
+local.properties
+
+*.iml
+
+.gradle/
+/build/
+/*/build/
+
+captures
+
+gradle.deps

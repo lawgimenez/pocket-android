@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pocket.ui.view.themed.ThemedLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pocket="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <com.pocket.ui.view.menu.SectionHeaderView
+        android:text="@string/lb_suggested_tags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.pocket.ui.view.themed.ThemedConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/suggested_tags_loading_min_height" >
+
+        <com.pocket.util.android.view.chip.ChipLayout
+            android:id="@+id/suggested_tags"
+            pocket:layout_constraintStart_toStartOf="parent"
+            pocket:layout_constraintEnd_toEndOf="parent"
+            pocket:layout_constraintTop_toTopOf="parent"
+            pocket:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingBottom="@dimen/pkt_space_md"
+            android:paddingLeft="@dimen/pkt_side_grid"
+            android:paddingRight="@dimen/pkt_side_grid"
+            android:paddingStart="@dimen/pkt_side_grid"
+            android:paddingEnd="@dimen/pkt_side_grid"
+            android:paddingTop="@dimen/pkt_space_md"
+            pocket:horizontalSpacing="@dimen/chip_layout_spacing"
+            pocket:maxFlowLines="2"
+            pocket:verticalSpacing="@dimen/chip_layout_spacing" />
+
+        <com.pocket.ui.view.progress.RainbowProgressCircleView
+            android:id="@+id/progress"
+            pocket:layout_constraintStart_toStartOf="parent"
+            pocket:layout_constraintEnd_toEndOf="parent"
+            pocket:layout_constraintTop_toTopOf="parent"
+            pocket:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <com.pocket.ui.view.themed.ThemedTextView
+            android:id="@+id/error"
+            style="@style/Pkt_Text_Mini_Medium"
+            pocket:layout_constraintStart_toStartOf="parent"
+            pocket:layout_constraintEnd_toEndOf="parent"
+            pocket:layout_constraintTop_toTopOf="parent"
+            pocket:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingLeft="@dimen/pkt_side_grid"
+            android:paddingRight="@dimen/pkt_side_grid"
+            android:paddingStart="@dimen/pkt_side_grid"
+            android:paddingEnd="@dimen/pkt_side_grid"
+            android:visibility="gone" />
+    </com.pocket.ui.view.themed.ThemedConstraintLayout>
+
+</com.pocket.ui.view.themed.ThemedLinearLayout>

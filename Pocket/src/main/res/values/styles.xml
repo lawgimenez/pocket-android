@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.Transparent" parent="android:Theme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <style name="Theme.Transparent.NoAnimation" parent="Theme.Transparent">
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <!-- Version 2 is switching the base theme to see if we can fix the abc_ic_ab_back_material.xml resource not found crash on 4.4 -->
+
+    <style name="Theme.Transparent2" parent="Theme.PocketBase.Light">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <style name="Theme.Transparent.StandaloneDialogActivity2" parent="Theme.Transparent2">
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowMinWidthMajor">100%</item>
+        <item name="android:windowMinWidthMinor">100%</item>
+    </style>
+
+    <style name="TagChipEditText">
+		<item name="android:minHeight">44dp</item>
+        <item name="android:paddingTop">8.5dp</item>
+        <item name="android:paddingBottom">8.5dp</item>
+        <item name="android:paddingLeft">@dimen/pkt_space_sm</item>
+        <item name="android:paddingStart">@dimen/pkt_space_sm</item>
+        <item name="android:paddingRight">@dimen/pkt_space_sm</item>
+        <item name="android:paddingEnd">@dimen/pkt_space_sm</item>
+		<item name="chiptext_lineMode">0</item>
+		<item name="chiptext_flowStyle">@style/TagChipEditTextFlow</item>
+		<item name="chiptext_fieldStyle">@style/TagChipEditTextField</item>
+		<item name="chiptext_fieldHeight">@dimen/chip_tag_height</item>
+		<item name="chiptext_commitChars">,</item>
+		<item name="chiptext_clearEnabled">false</item>
+		<item name="chiptext_animateAdditions">true</item>
+		<item name="chiptext_hint">@string/lb_select_tags_hint</item>
+	</style>
+	<style name="TagChipEditTextFlow">
+		<item name="horizontalSpacing">@dimen/chip_layout_spacing</item>
+		<item name="verticalSpacing">@dimen/chip_layout_spacing</item>
+	</style>
+	<style name="TagChipEditTextField">
+        <item name="typeface">graphik_lcg_regular</item>
+        <item name="android:textSize">@dimen/chip_text</item>
+        <item name="android:textColor">@color/pkt_themed_grey_1</item>
+        <item name="android:textColorHint">@color/pkt_themed_grey_4</item>
+    </style>
+    
+    <style name="ProgressCircle">
+        <item name="android:layout_width">@dimen/circle_progress_diameter</item>
+        <item name="android:layout_height">@dimen/circle_progress_diameter</item>
+    </style>
+
+    <style name="UndoBar">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_gravity">bottom|center_horizontal</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">44dp</item>
+        <item name="android:background">@drawable/undobar_background_kitkat</item>
+        <item name="android:clickable">true</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+    <style name="UndoBarMessage">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:maxWidth">190dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+    <style name="UndoBarButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:background">@drawable/selector_kitkat_undobutton</item>
+        <item name="android:drawableLeft">@drawable/icon_dark_undo_kitkat</item>
+        <item name="android:drawablePadding">6dp</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:text">@string/ac_undo</item>
+        <item name="android:textColor">#99FFFFFF</item>
+    </style>
+
+    <style name="FetchingDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/transparent</item>
+    </style>
+    
+    <style name="DrawerItemView" parent="android:Widget">
+        <item name="android:focusable">true</item>
+    </style>
+    
+    <style name="ListenTitle" parent="Pkt_Text_Title">
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:maxLines">2</item>
+    </style>
+    
+    <style name="ListenSubhead" parent="Pkt_Text_Small_Light">
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:maxLines">1</item>
+    </style>
+    
+    <!--Braze-->
+    
+    <!--Changed text size, layout height, padding-->
+    <style name="Braze.InAppMessage.Button"
+        tools:ignore="UnusedResources">
+        <item name="android:layout_height">38dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">@color/com_braze_inappmessage_button_text_light</item>
+        <item name="android:background">@drawable/com_braze_inappmessage_button_background</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minWidth">80dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:focusable">true</item>
+    </style>
+    
+    <!--Changed text size-->
+    <style name="Braze.InAppMessage.Message.Slideup"
+        tools:ignore="UnusedResources">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/com_braze_inappmessage_text_slideup</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:gravity">start</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_toRightOf">@id/com_braze_inappmessage_slideup_image_layout</item>
+        <item name="android:layout_toLeftOf">@id/com_braze_inappmessage_slideup_chevron</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:padding">0.0dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
+    <style name="Braze.InAppMessage"
+        tools:ignore="UnusedResources">
+        <item name="android:fontFamily">@font/graphik</item>
+    </style>
+    
+</resources>

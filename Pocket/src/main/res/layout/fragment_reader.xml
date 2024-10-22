@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pocket.app.reader.ReaderViewModel"
+            />
+    </data>
+
+<com.pocket.ui.view.themed.ThemedConstraintLayout2
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:navGraph="@navigation/reader_graph"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    
+    <!-- The previous and next layout needs to exactly match what we send to custom tabs.
+     If you make a change, be sure it exactly matches view_preivous_dark.xml and view_previous_light.xml-->
+    <com.pocket.ui.view.themed.ThemedConstraintLayout2
+        android:id="@+id/previousNextLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg"
+        android:layout_gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:visibility="@{viewModel.uiState.previousAndNextBarVisible}">
+    
+        <!-- The previous and next layout needs to exactly match what we send to custom tabs.
+            If you make a change, be sure it exactly matches view_preivous_dark.xml and view_previous_light.xml-->
+        <com.pocket.ui.view.themed.ThemedLinearLayout
+            android:id="@+id/previousItem"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/min_touch_target"
+            android:background="@drawable/pkt_ripple_borderless"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="@{() -> viewModel.onPreviousClicked()}"
+            app:visibility="@{viewModel.uiState.previousVisible}"
+            >
+    
+            <!-- The previous and next layout needs to exactly match what we send to custom tabs.
+                If you make a change, be sure it exactly matches view_preivous_dark.xml and view_previous_light.xml-->
+            <com.pocket.ui.view.button.IconButton
+                style="@style/Pkt_IconButton_Previous"
+                android:layout_width="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:contentDescription="@null"
+                android:focusable="false"
+                android:longClickable="false"
+                />
+    
+            <!-- The previous and next layout needs to exactly match what we send to custom tabs.
+                If you make a change, be sure it exactly matches view_preivous_dark.xml and view_previous_light.xml-->
+            <com.pocket.ui.view.themed.ThemedTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/pkt_space_sm"
+                android:clickable="false"
+                android:focusable="false"
+                android:longClickable="false"
+                android:paddingEnd="@dimen/pkt_space_sm"
+                android:paddingStart="0dp"
+                android:text="@string/ac_previous"
+                android:textColor="@color/pkt_themed_grey_3"
+                android:textSize="@dimen/pkt_medium_text"
+                />
+        
+        </com.pocket.ui.view.themed.ThemedLinearLayout>
+    
+        <!-- The previous and next layout needs to exactly match what we send to custom tabs.
+            If you make a change, be sure it exactly matches view_preivous_dark.xml and view_previous_light.xml-->
+        <com.pocket.ui.view.themed.ThemedLinearLayout
+            android:id="@+id/nextItem"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/min_touch_target"
+            android:background="@drawable/pkt_ripple_borderless"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="@{() -> viewModel.onNextClicked()}"
+            app:visibility="@{viewModel.uiState.nextVisible}"
+            >
+    
+            <!-- The previous and next layout needs to exactly match what we send to custom tabs.
+                If you make a change, be sure it exactly matches view_preivous_dark.xml and view_previous_light.xml-->
+            <com.pocket.ui.view.themed.ThemedTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/pkt_space_sm"
+                android:clickable="false"
+                android:focusable="false"
+                android:longClickable="false"
+                android:paddingStart="@dimen/pkt_space_sm"
+                android:paddingEnd="0dp"
+                android:text="@string/ac_next"
+                android:textColor="@color/pkt_themed_grey_3"
+                android:textSize="@dimen/pkt_medium_text"
+                />
+    
+            <!-- The previous and next layout needs to exactly match what we send to custom tabs.
+                If you make a change, be sure it exactly matches view_preivous_dark.xml and view_previous_light.xml-->
+            <com.pocket.ui.view.button.IconButton
+                style="@style/Pkt_IconButton_Next"
+                android:layout_width="wrap_content"
+                android:background="@null"
+                android:clickable="false"
+                android:contentDescription="@null"
+                android:focusable="false"
+                android:longClickable="false"
+                />
+        
+        </com.pocket.ui.view.themed.ThemedLinearLayout>
+    
+        <!-- The previous and next layout needs to exactly match what we send to custom tabs.
+            If you make a change, be sure it exactly matches view_preivous_dark.xml and view_previous_light.xml-->
+        <com.pocket.ui.view.themed.ThemedView
+            android:id="@+id/topDivider"
+            style="@style/Pkt_ThinDivider"
+            android:layout_width="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </com.pocket.ui.view.themed.ThemedConstraintLayout2>
+
+</com.pocket.ui.view.themed.ThemedConstraintLayout2>
+
+</layout>

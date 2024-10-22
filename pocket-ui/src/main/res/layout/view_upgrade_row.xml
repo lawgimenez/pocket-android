@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pocket="http://schemas.android.com/apk/res-auto">
+
+    <com.pocket.ui.view.themed.ThemedImageView
+        android:id="@+id/icon"
+        pocket:srcCompat="@drawable/ic_pkt_premium_diamond_mini"
+        pocket:drawableColor="@color/pkt_themed_teal_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/pkt_space_sm"
+        android:layout_marginEnd="@dimen/pkt_space_sm"
+        android:layout_marginLeft="@dimen/pkt_side_grid"
+        android:layout_marginStart="@dimen/pkt_side_grid"
+        pocket:layout_constraintStart_toStartOf="parent"
+        pocket:layout_constraintEnd_toStartOf="@+id/text"
+        pocket:layout_constraintTop_toTopOf="parent"
+        pocket:layout_constraintBottom_toTopOf="@+id/divider" />
+
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/text"
+        style="@style/Pkt_Text_Medium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        pocket:layout_constraintStart_toEndOf="@id/icon"
+        pocket:layout_constraintEnd_toStartOf="@+id/button"
+        pocket:layout_constraintTop_toTopOf="parent"
+        pocket:layout_constraintBottom_toTopOf="@+id/divider" />
+
+    <com.pocket.ui.view.button.BoxButton
+        android:id="@+id/button"
+        android:layout_marginLeft="@dimen/pkt_space_md"
+        android:layout_marginStart="@dimen/pkt_space_md"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/pkt_side_grid"
+        android:layout_marginEnd="@dimen/pkt_side_grid"
+        pocket:layout_constraintStart_toEndOf="@id/text"
+        pocket:layout_constraintEnd_toEndOf="parent"
+        pocket:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/pkt_space_md"
+        android:layout_marginBottom="@dimen/pkt_space_md"
+        pocket:layout_constraintBottom_toTopOf="@+id/divider" />
+
+    <com.pocket.ui.view.themed.ThemedView
+        android:id="@+id/divider"
+        style="@style/Pkt_ThickDivider"
+        android:layout_width="0dp"
+        pocket:layout_constraintStart_toStartOf="parent"
+        pocket:layout_constraintEnd_toEndOf="parent"
+        pocket:layout_constraintBottom_toBottomOf="parent" />
+
+</merge>

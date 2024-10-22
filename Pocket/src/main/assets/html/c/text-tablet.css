@@ -1,0 +1,85 @@
+body
+{
+	line-height: 1.5em;
+}
+body.tighter_line_height
+{
+	line-height: 1.1em;
+}
+
+body #RIL_container { margin-top: 65px; margin-bottom: 65px; }
+
+/* side margins are set dynamically via javascript after the page loads */
+#RIL_container {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	text-align: left;
+}
+
+.large_font_size h1,
+.large_font_size h2,
+.large_font_size h3,
+.large_font_size h4
+{
+	font-size: 1.1em !important;
+}
+
+ul, ol 
+{
+	line-height: 1.4em;
+}
+
+hr
+{
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+pre
+{
+	line-height: 1.3em;
+	padding: 9px 12px;
+}
+
+
+/* --- */
+
+.login_prompt
+{
+	text-align: center;
+}
+
+/* --- */
+
+#RIL_header
+{
+	padding-bottom: 1.5em;
+}
+#RIL_header h1 
+{
+	margin-bottom: 0.5em;
+	font-size: 1.7em;
+}
+#RIL_header cite 
+{
+	font-size: 0.9em;
+	line-height: 1.2em;
+}
+
+
+/* --- */
+
+/*.RIL_IMG[float="1"]
+{
+	float: right;
+	margin: 6px 0px 18px 20px;
+}
+*[isGallery="1"] .RIL_IMG[float="1"]
+{
+	float: left;
+	margin 0px 7px 15px 7px;
+}*/
+*[isGallery="1"]
+{
+	display: block;
+}

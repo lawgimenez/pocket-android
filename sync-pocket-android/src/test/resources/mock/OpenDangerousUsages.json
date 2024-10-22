@@ -1,0 +1,61 @@
+{
+  "_type": "OpenDangerousUsages",
+  "dangerous_interface": {
+    "_type": "ImplementsDangerous",
+    "safe": "safe",
+    "dangerous": "dangerous",
+    "contains": {
+      "safe": "safe",
+      "dangerous": "dangerous"
+    }
+  },
+  "dangerous_interface_list": [
+    {
+      "_type": "ImplementsDangerous",
+      "safe": "safe",
+      "dangerous": "dangerous",
+      "contains": {
+        "safe": "safe",
+        "dangerous": "dangerous"
+      }
+    },
+    {
+      "_type": "ImplementsDangerous",
+      "safe": "safe2",
+      "dangerous": "dangerous2",
+      "contains": {
+        "safe": "safe2",
+        "dangerous": "dangerous2"
+      }
+    },
+    {
+      "_type": "AlsoImplementsDangerous"
+    }
+  ],
+  "dangerous_impl": {
+    "safe": "safe",
+    "dangerous": "dangerous",
+    "contains": {
+      "safe": "safe",
+      "dangerous": "dangerous"
+    }
+  },
+  "dangerous_impl_list": [
+    {
+      "safe": "safe",
+      "dangerous": "dangerous",
+      "contains": {
+        "safe": "safe",
+        "dangerous": "dangerous"
+      }
+    },
+    {
+      "safe": "safe2",
+      "dangerous": "dangerous2",
+      "contains": {
+        "safe": "safe2",
+        "dangerous": "dangerous2"
+      }
+    }
+  ]
+}

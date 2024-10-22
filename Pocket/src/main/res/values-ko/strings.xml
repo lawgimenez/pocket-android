@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- smartling.instruction_attributes = comment -->
+<!-- smartling.placeholder_format_custom = \{[a-zA-Z0-9_-]+\}-->
+<resources>
+    <!-- LABELS, TITLES & NAMES - Prefix: nm  -->
+    <string name="nm_add_to_ril" comment="try to use a string starting with A or just leave Pocket">+ Pocket에 추가</string>
+	
+	<!-- smartling.character_limit = 17 -->
+	<string name="nm_add_tags" comment="Title of a page">태그 추가</string>
+
+	<string name="nm_theme_light" comment="Appearance/color of the app">밝게</string>
+	<string name="nm_theme_dark" comment="Appearance/color of the app">어둡게</string>
+	
+	<string name="clipboard_label_url">Pocket에서 복사된 링크</string>
+	
+	<string name="nm_archive" comment="Title in the main menu of the action bar. This is a noun.">보관소</string>
+	<string name="nm_link">링크</string>
+	
+	<!-- Setting up as plural in case other languages want to vary the label depending on quantity -->
+	<plurals name="nm_time_estimate" comment="Short label showing the number of minutes to read a story, watch a video, or listen to an article e.g. &apos;5 min&apos;">
+        <item quantity="other">%1$d분</item>
+    </plurals>
+	
+	<plurals name="nm_time_to_read_estimate" comment="Short label showing the number of minutes to read a story, watch a video, or listen to an article e.g. &apos;5 min read&apos;">
+        <item quantity="other">%1$d분 읽기</item>
+    </plurals>
+
+	<!-- Setting up as plural in case other languages want to vary the label depending on quantity -->
+	<plurals name="nm_time_left_estimate" comment="Short label showing the number of minutes to read a story, watch a video, or listen to an article e.g. &apos;5 min left&apos;">
+        <item quantity="other">%1$d분 남음</item>
+    </plurals>
+
+	<!-- UI ACTION LABELS (Buttons, Checkboxes) - Prefix: ac  -->
+	<string name="ac_login">로그인</string>
+	<string name="ac_logout">로그아웃</string>
+	<string name="ac_authenticate">등록 또는 로그인</string>
+	<string name="ac_continue_signed_out" comment="A button next to a &apos;Sign up or sign in&apos; button, that allows you to go to the Home screen without signing up or signing in.">로그인 건너뛰기</string>
+	<string name="ac_cancel">취소</string>
+	<string name="ac_close_app">앱 닫기</string>
+	<string name="ac_ok">확인</string>
+	<string name="ac_yes">예</string>
+	<string name="ac_no">아니요</string>
+	<string name="ac_retry">재시도</string>
+	<string name="ac_try_again">다시 시도</string>
+	<string name="ac_create_new_cache">새 캐시 만들기</string>
+	<string name="ac_clear_cache">캐시 지우기</string>
+	<string name="ac_get_help">도움말 가져오기</string>
+	<string name="ac_submit">제출</string>
+	<string name="ac_write_review" comment="link to leave a review on the application store">검토</string>
+	<string name="ac_no_thanks">아니요</string>
+	<string name="ac_next">다음</string>
+	<string name="ac_accept">허용</string>
+	<string name="ac_got_it_caps">확인</string>
+	<string name="ac_continue">계속</string>
+	<string name="ac_discard_changes">변경 내용 삭제</string>
+	<string name="ac_continue_editing">편집 계속</string>
+	<string name="ac_add_new_tag">새 태그 <b>\\\'{name_of_tag}\\\'</b> 추가</string>
+	<string name="ac_undo">실행 취소</string>
+	<string name="ac_highlight" comment="Label for button that highlights selected text">@string/ic_highlight</string>
+	<string name="ac_copy">@string/ic_copy</string>
+	<string name="ac_translate">번역</string>
+	<string name="ac_web_search">웹 검색</string>
+	<string name="ac_select_all">모두 선택</string>
+	<string name="ac_clear">지우기</string>
+	<string name="ac_share">공유</string>
+	<string name="ac_maybe_later">나중에 보기</string>
+	<string name="ac_install">설치</string>
+	
+	
+	<!-- UI LABELS (TextViews and labels) - Prefix: lb  -->
+	<string name="lb_tab_saves">저장소</string>
+	<string name="lb_continue_reading" comment="should be all upper case">계속 읽기</string>
+	
+	<string name="lb_add_copied_url" comment="a title asking the user if they would like to save a URL from their device clipboard">복사한 URL을 저장하시겠습니까?</string>
+    
+    <string name="lb_slower" comment="Speaking rate of the Text To Speech">천천히 읽기</string>
+    <string name="lb_faster" comment="Speaking rate of the Text To Speech">빨리 읽기</string>
+    <string name="lb_tts_language">언어</string>
+    <string name="lb_tts_voice">음성</string>
+	
+	<string name="lb_select_tags_hint">태그 선택 또는 입력</string>
+    <string name="lb_select_tags_hint_no_tags">태그 입력</string>
+    
+	<plurals comment="Header above the list of item" name="lb_selected">
+        <item quantity="other">%1$s개 선택됨</item>
+    </plurals>
+	
+	<string name="lb_suggested_tags">권장 태그</string>
+	<string name="lb_all_tags">모든 태그</string>
+	<string name="lb_recent_tags">최근 태그</string>
+	<string name="lb_tags_autocomplete">태그</string>
+	
+	<string name="lb_downloading_items_notification" comment="the number of items being currently downloaded for offline viewing. this number will count down as downloading progresses">항목 {number_of_items}개 다운로드 중…</string>
+	
+	<string name="lb_search_hint">검색</string>
+	<string name="lb_list_search_hint">목록 검색</string>
+	<string name="lb_list_archive_search_hint">보관소 검색</string>
+	<string name="lb_recent_searches_sc">최근 검색 결과</string>
+	<string name="lb_time_to_read" comment="Header for a section of filters that let you view a subset of your saved articles based on their length.">읽는 시간</string>
+	
+	<string name="lb_sort_by">정렬:</string>
+	<string name="lb_sort_by_newest">최신 항목 저장됨</string>
+	<string name="lb_sort_by_oldest">오래된 항목 저장됨</string>
+	<string name="lb_sort_by_newest_archive">최신 항목 보관됨</string>
+	<string name="lb_sort_by_oldest_archive">오래된 항목 보관됨</string>
+	<string name="lb_sort_by_shortest">가장 짧은 읽기 시간</string>
+	<string name="lb_sort_by_longest">가장 긴 읽기 시간</string>
+	
+	<string name="lb_prem_purchase_title">Pocket\nPremium에 가입</string>
+	<string name="lb_prem_purchase_perm_lib_title">영구 라이브러리 구축</string>
+	<string name="lb_prem_purchase_perm_lib_desc">저장한 페이지가 온라인에서 사라진 경우에도 Pocket에 사본이 유지됩니다.</string>
+	<string name="lb_prem_purchase_ad_free_title">집중하기</string>
+	<string name="lb_prem_purchase_ad_free_desc">조용하고 광고가 없는 환경에서 편안하게 콘텐츠를 확인할 수 있습니다.</string>
+	<string name="lb_prem_purchase_search_title">손 안의 스토리</string>
+	<string name="lb_prem_purchase_search_desc">저장한 자료를 전문 검색으로 빠르게 찾을 수 있습니다. 키워드, 주제, 저자, 태그 등을 기준으로 아티클을 찾아보십시오.</string>
+	<string name="lb_prem_purchase_tags_title">스마트 태그</string>
+	<string name="lb_prem_purchase_tags_desc">스토리를 저장할 때마다 목록에서 태그를 제안합니다 — 태그가 많을수록 제안이 더 유용해집니다.</string>
+	<string name="lb_prem_purchase_highlights_title">아이디어에 하이라이트</string>
+	<string name="lb_prem_purchase_highlights_desc">모든 아티클에 무제한으로 하이라이트가 가능해, \"감탄스런\" 모든 순간을 영구적으로 기록할 수  있습니다.</string>
+	<string name="lb_prem_purchase_reader_title">읽기 환경 맞춤화</string>
+	<string name="lb_prem_purchase_reader_desc">둥근 글꼴, 넓은 자간, 폭이 좁은 텍스트... 어떤 스타일을 원하시나요? 원하는 읽기 스타일로 Pocket을 맞춤 설정해 보십시오.</string>
+	<string name="lb_prem_purchase_per_month" comment="per month subscription label on subscription button">%1$s/월</string>
+	<string name="lb_prem_purchase_per_year" comment="per year subscription label on subscription button">%1$s/년</string>
+	<string name="lb_prem_purchase_complete_title">환영합니다!</string>
+	<string name="lb_prem_purchase_complete_message">공식적으로 Pocket Premium 회원이 되셨습니다. 광고가 없는 새로운 맞춤형, 영구 Pocket 버전에 오신 것을 환영합니다. 마음에 드실 것입니다.</string>
+	<string name="lb_prem_purchase_complete_renew_title">다시 오신 것을 환영합니다!</string>
+	<string name="lb_prem_purchase_complete_renew_message">가입 상태가 갱신되어 다시 공식적으로 Pocket Premium 회원이 되셨습니다. 광고가 없는 이 맞춤형, 영구 Pocket 버전을 잘 활용해 보시기 바랍니다.</string>
+	<string name="lb_prem_purchase_complete_button">Pocket으로 돌아가기</string>
+	<string name="lb_prem_purchase_terms">Google Play에서 취소할 때까지는 구독이 기간마다 자동으로 갱신됩니다.</string>
+
+	<string name="lb_save_25p_2_line" comment="keep as short as possible">25%\n절약</string>
+	
+	<string name="lb_annotations_upsell_t">더 많은 하이라이트를 원하시나요?</string>
+	<string name="lb_annotations_upsell_m">귀하는 현재 아티클당 하이라이트 %1$d개로 제한되어 있습니다. 지금 Pocket 프리미엄으로 업그레이드하여 무제한 하이라이트와 추가 기능을 이용하십시오.</string>
+	<string name="lb_annotations_upsell_cta" comment="Label for a button in a Highlights upgrade prompt leading to the full Premium upgrade/purchase screen.">Premium 받기</string>
+	
+	<!-- MENU OPTIONS (Context and Option) - Prefix: mu  -->
+    <string name="mu_settings" comment="this text label should be short">설정</string>
+	<string name="mu_read_later" comment="this text label should be short">Pocket에 저장</string>
+	<string name="mu_help" comment="this text label should be short">도움말</string>
+	<string name="mu_copy_link" comment="this text label should be short">링크 복사</string>
+	<string name="mu_report_article_view" comment="this text label should be short">아티클 문제 보고</string>
+	<string name="mu_refresh" comment="this text label should be short">새로 고침</string>
+	<string name="mu_find_in_page" comment="this text label should be short">페이지에서 찾기</string>
+	<string name="mu_display_settings" comment="this text label should be short">텍스트 설정</string>
+	<string name="mu_delete" comment="this text label should be short">삭제</string>
+	<string name="mu_view_original">원본 보기</string>
+	<string name="mu_switch_to_article" comment="this text label should be short">아티클 보기로 전환</string>
+	<string name="mu_add_tags" comment="this text label should be short">태그 추가</string>
+	<string name="mu_favorite" comment="this text label should be short">즐겨찾기</string>
+	<string name="mu_unfavorite" comment="this text label should be short">즐겨찾기 해제</string>
+	
+	<!-- Navigation items -->
+	<!-- smartling.character_limit = 14 -->
+	<string name="mu_home" comment="this text label should be short">홈</string>
+	<!-- smartling.character_limit = 14 -->
+	<string name="mu_saves" comment="this text label should be short">저장</string>
+	<string name="mu_annotations" comment="This text label should be short. Here &apos;Highlights&apos; references a new feature where a user can highlight text in articles to save memorable quotes.">하이라이트</string>
+	<string name="mu_premium" comment="this text label should be short">Premium</string>
+	<!-- smartling.character_limit = 14 -->
+	
+	<string name="mu_untagged" comment="make sure this phrase matches what is in setting_untagged_label and setting_untagged_sum">태그 지정되지 않음</string>
+
+	
+    <!-- DIALOGS TITLES AND MESSAGES (ContextMenus, Progress and Alert) - 
+    	Prefix: dg_
+    	Postfix: _t = title,
+    			 _m = message   
+    -->
+    <!-- Progress labels -->
+	<string name="dg_loading">로드 중…</string>
+	<string name="dg_changing_data_location">저장 위치 변경 중…</string>
+	<string name="dg_clearing_cache">캐시 지우는 중…</string>
+	<string name="dg_logging_out">로그아웃 중…</string>
+	<string name="dg_c2dm_registering">푸시 알림을 받도록 장치를 설정하는 중…</string>
+	<string name="dg_fetching">목록 검색 중…</string>
+	
+	<!-- General use titles -->
+    <string name="dg_error_t">죄송합니다</string>
+    <string name="dg_confirm_t">계속하시겠습니까?</string>
+    <string name="dg_changes_not_saved_t">변경 내용이 저장되지 않음</string>
+    
+    <!-- Connection issues (TODO: These could more than likely be cleaned up and combined)-->
+    <string name="dg_sync_error_t">동기화 오류</string>
+	<string name="dg_fetch_error_t">목록을 로드할 수 없음</string>
+	<string name="dg_fetch_error_m">서버에서 목록을 가져오는 중 문제가 발생했습니다. 인터넷에 연결되어 있는지 확인하고 다시 시도하십시오.</string>
+	<string name="dg_no_connection_m">연결 중 오류가 발생했습니다. 장치가 인터넷에 연결되어 있는지 확인하고 다시 시도하십시오.</string>
+	<string name="dg_api_generic_error">Pocket에 연결하는 중 문제가 발생했습니다.</string>
+	
+    <!-- Misc -->
+    <string name="dg_unexpected_m">예상치 못한 문제가 발생했습니다. 다시 시도하십시오. 문제가 계속되면 당사로 문의해 주십시오.</string>
+    
+    <string name="dg_report_error_m">이 오류를 보고하시겠습니까?</string>
+	
+	<string name="dg_no_email_app_t">이메일을 보낼 수 없음</string>
+	<string name="dg_no_email_app_m">이 장치에는 이메일 앱이 설치되어 있지 않습니다.</string>
+	<string name="dg_no_email_app_m_support">다른 장치에서 시도하려는 경우에는 이메일 주소로 support@getpocket.com을 사용하십시오.</string>
+
+	<!-- Storage or Cache errors -->
+	<string name="dg_storage_setting_unavailable_t">저장소 위치 접근 불가</string>
+	<string name="dg_storage_setting_unavailable_m">해당 저장소 위치를 현재 이용할 수 없습니다. 저장소 카드나 장치가 올바르게 연결되었는지 확인해 주십시오. 또한 USB를 통해 저장소가 현재 컴퓨터에 외부 저장소로 이용되고 있지 않은지 확인하십시오.</string>
+
+	<string name="bg_offline_cache_storage_is_unavailable_t">오프라인 컨텐츠 접근 불가</string>
+	<string name="bg_offline_cache_storage_is_unavailable_m">"오프라인 캐시가 저장된 저장소 위치를 현재 이용할 수 없습니다. 장치가 USB를 통해 컴퓨터에 연결되었거나, 저장소 카드를 제거했거나, Pocket의 저장소 권한을 취소한 경우에 이 문제가 발생할 수 있습니다. 이러한 변경을 원래 대로 복구하고 다시 시도해 주십시오. 그렇지 않으면 Pocket 내부 저장소의 새 캐시로 전환할 수 있습니다."</string>
+
+	<string name="bg_offline_cache_is_missing_t">오프라인 컨텐츠 접근 불가</string>
+	<string name="bg_offline_cache_is_missing_m">오프라인 캐시를 찾을 수 없습니다. 오프라인 저장소 위치가 적합하게 연결되었는지 확인해 주십시오. 캐시 파일을 재배치 또는 수정한 경우, 원래 대로 복원하고 다시 시도해 주십시오.</string>
+
+	<string name="dg_offline_cache_is_missing_permission_t">오프라인 컨텐츠 접근 불가</string>
+	<string name="dg_offline_cache_is_missing_permission_m">"Pocket에 더 이상 저장소 권한이 없으며 오프라인 캐시에 액세스할 수 없습니다. 외부 저장소 위치를 계속 사용하려면 Pocket에 대한 저장소 권한을 다시 활성화하거나 Pocket의 내부 저장소로 대신 전환하십시오."</string>
+
+	<string name="dg_offline_cache_is_missing_rw_permission_m">죄송합니다. Pocket에서 SD 카드에 액세스하는 중 문제가 발생했습니다. Android 팀이 조사할 수 있도록 이 문제를 기록했습니다. 그동안 Pocket 내부 저장소를 계속 사용해 주십시오.</string>
+
+	<string name="dg_sdcard_confirm_change_m">저장소 위치를 변경하면 다운로드한 파일이 삭제됩니다.</string>
+	
+	<string name="dg_out_of_space_t">저장 공간 부족</string>
+	<string name="dg_out_of_space_m">Pocket의 오프라인 저장소 위치에 공간이 부족합니다. Pocket 작동을 위해 추가 여유 공간이 필요합니다. 계속하려면 일부 공간을 비우십시오. 공간을 비우기 위해 Pocket의 오프라인 캐시를 지워야할 수 있습니다.</string>
+	
+	<string name="dg_after_clear_m">"장치의 메모리가 제한적인 경우, Pocket {name_of_storage_setting} 설정을 이용하여 캐시에 사용될 수 있는 공간을 제한하십시오."</string>
+	
+	<string name="dg_clear_cache_t">계속하시겠습니까?</string>
+	<string name="dg_clear_cache_m">오프라인 보기용으로 저장된 모든 파일이 삭제됩니다.</string>
+	<string name="dg_confirm_create_new_cache_m">기존 오프라인 캐시를 지우고 내부의 장치 스토리지 사용을 시작합니다.</string>
+
+	<string name="dg_forced_logout_t">로그인하십시오</string>
+	<string name="dg_forced_logout_m">다른 위치에서 로그아웃되었습니다. 다시 로그인하십시오.</string>
+
+	<string name="dg_tag_too_long_m">태그는 25자 이하여야 ㅎ합니다.</string>
+	
+	<string name="dg_invalid_tag_m">"%1$s은(는) 태그로 사용할 수 없습니다."</string>
+	<string name="dg_changes_not_saved_tags_m">태그 변경 내용이 저장되지 않았습니다. 변경 내용을 삭제하거나 편집을 계속하시겠습니까?</string>
+	
+	<string name="dg_market_not_found_t">Amazon Appstore를 찾을 수 없음</string>
+	<string name="dg_market_not_found_m">몇 가지 예기치 못한 이유로 Amazon Appstore 앱을 열 수 없습니다. 죄송합니다!</string>
+	
+	<string name="dg_browser_not_found_t">브라우저를 찾을 수 없습니다</string>
+	<string name="dg_browser_not_found_m">장치에는 이 웹 페이지를 여는 데 사용할 수 있는 브라우저 앱이 없습니다.</string>
+	
+	<!-- Push / Instant Sync (GCM) & Background Syncing Settings -->
+	<string name="dg_c2dm_unsupported_t">사용할 수 없음</string>
+	<string name="dg_c2dm_unsupported_m">인스턴트 동기화는 이 장치에서 지원되지 않습니다.</string>
+	<string name="dg_c2dm_failed_t">설치 실패</string>
+	<string name="dg_c2dm_failed_general_m">현재, 인스턴트 푸시 알림을 위해 장치를 등록할 수 없습니다. 나중에 다시 시도하십시오.</string>
+	<string name="dg_c2dm_not_connected_m">처음 인스턴트 동기화를 활성화할 때 인터넷에 연결되어 있어야 합니다. </string>
+	<string name="dg_timer_sync_no_change_t">설정을 사용할 수 없음</string>
+	<string name="dg_timer_sync_no_change_m">이 앱이 외장 스토리지(SD 카드 등)에 설치된 경우에는 시간 기반 백그라운드 동기화 설정을 사용할 수 없습니다.\n\n인스턴트를 사용하거나 백그라운드 동기화를 끌 수 있습니다.</string>
+	
+	<!-- Edit account -->
+	<string name="dg_confirm_logout_m">로그아웃되고 오프라인 보기용으로 이 장치에 저장된 모든 파일이 삭제됩니다.</string>
+	
+	<!-- Listen -->
+	<string name="listen_playing_from"><b>저장소</b>에서 재생 중</string>
+	<string name="listen_playlist_header" comment="Should be all upper case letters for any language where it makes sense">내 재생 목록</string>
+	<string name="listen_data_alert">기기가 Wi-Fi에 연결되어 있지 않은 경우 청취 시 셀룰러 데이터가 소모됩니다</string>
+    <string name="listen_offline_hint" comment="This should be less than 100 characters.">오프라인 상태입니다. 여기에서 오프라인 보이스로 전환하십시오.</string>
+	
+	<string name="listen_settings_use_listen_endpoint">최고 품질 음성으로 스트리밍</string>
+	<string name="listen_settings_network_voice_warning">Wi-Fi에 연결되어 있지 않은 경우 셀룰러 데이터를 사용합니다. 오프라인에서는 사용할 수 없음</string>
+	<string name="listen_settings_picker_summary_unavailable">자동</string>
+	<string name="listen_settings_auto_play">기사 자동 재생</string>
+	<string name="listen_settings_auto_archive">듣기 후 자동 보관</string>
+    
+	<string name="listen_error_timeout">서버 응답이 너무 오래 걸립니다. 나중에 다시 시도하십시오.</string>
+	<string name="listen_error_media_player">예상치 못한 재생 오류가 발생했습니다</string>
+	<string name="listen_error_server">이 아티클을 재생하는 도중 문제가 발생했습니다. 다른 음성으로 바꿔 보십시오.</string>
+	
+	<string name="listen_reader_tooltip">이 아티클을 이동 중 들으려면 탭하세요</string>
+	<plurals name="listen_my_list_toast_title">
+        <item quantity="other">%2$s️읽지 않은 아티클 %1$d개가 있습니다.</item>
+    </plurals>
+	<string name="listen_my_list_toast_title_5000_plus">%1$s️수많은 아티클이 있습니다.</string>
+	<string name="listen_my_list_toast_message">들어보시면 시간이 빠르게 지나갈 것입니다.</string>
+	<string name="listen_my_list_toast_button">들어보기</string>
+	
+	<!-- TTS -->
+	<string name="tts_dg_t">텍스트 읽어주기</string>
+	<string name="tts_settings">텍스트 읽어주기 설정</string>
+	<string name="tts_dg_not_available_m">선택한 텍스트 읽어주기 엔진을 시작하는 중 문제가 발생했습니다. 장치의 텍스트 읽어주기 설정에 설치했는지 확인하십시오.</string>
+	<string name="tts_dg_not_supported_m">장치가 텍스트 읽어주기(TTS)를 지원하지 않습니다.</string>
+	<string name="tts_dg_install_t">텍스트 읽어주기 설치</string>
+	<string name="tts_dg_install_m">이 기능은 Android에 내장된 텍스트 읽어주기(TTS) 기능을 사용합니다. 이 장치에 아직 설치되어 있지 않습니다.</string>
+	<string name="tts_dg_missing_settings_m" comment="TTS = Text to Speech">Pocket이 장치의 TTS 설정을 자동으로 찾을 수 없습니다.\n\n장치의 설정을 열고 검색하여 수동으로 찾아볼 수 있습니다.\n\n대부분의 장치에서 내게 필요한 설정 설정 또는 언어 및 입력 설정에 내에서 찾을 수 있습니다. </string>
+	<string name="tts_dg_choose_engine_t">텍스트 읽어주기 엔진 선택</string>
+	<string name="tts_skipping_to_next">다음 아티클로 건너뜁니다.</string>
+	<string name="tts_article_failed">텍스트 읽어주기로 이 아티클을 읽는 중 문제가 발생했습니다.</string>
+	<string name="tts_article_unavailable">이 아티클은 아직 다운로드되지 않았습니다.</string>
+	<string name="tts_speech_error">텍스트 읽어주기로 이 섹션을 읽을 수 없습니다. 네트워크 기반 음성을 사용하는 경우, 온라인으로 이동하거나 비네트워크 음성을 선택하십시오. 또는 이 경로를 건너뛰십시오.</string>
+	<string name="tts_empty_list">Pocket에 항목을 저장할 때까지는 들을 수 없습니다</string>
+	<string name="tts_network_voice_t">네트워크 음성</string>
+	<string name="tts_network_voice">네트워크 음성은 품질이 더 높지만 네트워크 데이터를 사용하거나 오프라인 중에는 사용하지 못할 수 있습니다.</string>
+	<string name="tts_voice">음성 %1$s</string>
+	<string name="tts_voice_male">남성 음성 %1$s</string>
+	<string name="tts_voice_female">여성 음성 %1$s</string>
+	<string name="tts_network" comment="Word that indicates that a text to speech voice may require network connectivity">네트워크</string>
+	
+	<string name="add_overlay_free_title" comment="Appears when a new article is saved to your list">Pocket에 저장되었습니다!</string>
+
+	<!-- TOAST MESSAGES  Prefix: ts   -->
+	<string name="ts_add_invalid_url" comment="An error message that appears when an article link could not be saved">이런! Pocket에서 이 링크를 저장할 수 없습니다.</string>
+	<string name="ts_add_saved_to_ril">Pocket에 저장됨</string>
+	<string name="ts_add_added">저장되었습니다!</string>
+	<string name="ts_add_already">이미 저장된 정보입니다!</string>
+	<string name="ts_add_already_overlay" comment="A message notifying the user an article they saved is already in their list, and that we will move (bump) it to the top for them">이미 저장했습니다. 목록의 맨 위로 올립니다.</string>
+	<string name="ts_add_error">Pocket에 링크를 저장하는 중 문제가 발생했습니다.</string>
+	<string name="ts_add_logged_out">Pocket에 저장하려면 로그인하십시오</string>
+    <string name="ts_copied">클립보드에 %1$s 복사됨</string>
+	<string name="ts_item_archived">항목이 보관됨</string>
+    <string name="ts_item_readded">항목이 다시 추가됨</string>
+    <string name="ts_item_deleted">항목이 삭제됨</string>
+    <string name="ts_item_restored">항목 복원됨</string>
+
+    <string name="ts_changes_saved">변경 내용이 저장됨</string>
+    <string name="ts_article_reported">아티클이 보고되었습니다.\n알려주셔서 감사합니다!</string>
+	<plurals name="ts_bulk_edit_archived">
+        <item quantity="other">%1$s개 항목 보관됨</item>
+    </plurals>
+	<plurals name="ts_bulk_edit_readded">
+        <item quantity="other">%1$s개 항목 다시 추가됨</item>
+    </plurals>
+	<plurals name="ts_bulk_edit_deleted">
+        <item quantity="other">%1$s개 항목 삭제됨</item>
+    </plurals>
+	<string name="ts_bulk_edit_tagged" comment="Do not translate values in {brackets}">{items}에 {tags} 추가됨</string>
+	<plurals name="ts_bulk_edit_tagged_tags" comment="in &apos;Added X TAGS to 12 items&apos;">
+        <item quantity="other">%1$s개 태그</item>
+    </plurals>
+	<plurals name="ts_bulk_edit_tagged_items" comment="in &apos;Added 12 tags to X ITEMS&apos;">
+        <item quantity="other">%1$s개 항목</item>
+    </plurals>
+
+    <string name="ts_no_apps_for_intent">이 작업에 사용할 수 있는 앱이 설치되지 않았습니다.</string>
+    
+    <string name="ts_tags_changes_saved">변경 내용 저장됨</string>
+	
+    <!--  NOTIFICATION BAR Prefix: nt -->
+	<string name="nt_downloading">다운로드 중…</string>
+	<string name="nt_cancel">다운로드를 취소하려면 누릅니다.</string>
+
+	<string name="nt_channel_functional_name">앱 제어 기능</string>
+	<string name="nt_channel_functional_description">오프라인 다운로드, 듣기(TTS) 및 기타 인앱 기능을 제어합니다.</string>
+	<string name="nt_channel_alerts_name">푸시 알림</string>
+	<string name="nt_channel_alerts_description">소셜 업데이트, 추천, 제품 뉴스 및 기타 커뮤니케이션. Pocket 설정에서 푸시 알림 기본 설정을 미세 조정합니다.</string>
+	<string name="nt_channel_article_recommendations">아티클 추천</string>
+	<string name="nt_channel_article_recommendations_description">읽을거리에 대한 알림 및 제안</string>
+	<string name="nt_channel_legal_updates">법적 고지 업데이트</string>
+	<string name="nt_channel_new_features">새 기능</string>
+
+
+    
+    <!-- MISC TEXT  Prefix: tx-->
+	<string name="tx_love_pocket">Pocket이 마음에 드시나요?</string>
+    <string name="tx_tell_others">마음에 든다는 것을 보여주는 가장 좋은 방법은\n다른 사람에게 알리는 것입니다.</string>
+	
+	<string name="suggested_tags_empty_no_tags">여기에 제안된 항목을 보려면 항목에 태그 추가하십시오.</string>
+	<string name="suggested_tags_empty_none_found">이 항목에 대해 제안할 태그를 찾을 수 없습니다.</string>
+	<string name="suggested_tags_no_connection">권장 태그를 확인하려면 온라인 상태여야 합니다. 연결 상태를 확인하고 여기를 누른 뒤 다시 시도하십시오.</string>
+	<string name="suggested_tags_unknown_error">권장 태크를 검색하는 중 문제가 발생했습니다. 누른 뒤 다시 시도하십시오. </string>
+	
+	<!-- READER ERRORS SHOWN IN ERRORVIEW (Not Dialogs)  Prefix: re   Postfix:  t = title, m = message, b = button label  -->
+	<string name="re_downloading_article_view_t">이 페이지에 대한 아티클 보기를 다운로드하는 중 오류가 발생했습니다.</string>
+	<string name="re_downloading_article_view_m">인터넷에 연결되어 있는지 확인하십시오.</string>
+	
+	<string name="list_empty_search_title">결과 없음</string>
+	<string name="list_empty_no_result_matched">검색과 일치하는 항목이 없습니다.</string>
+	
+	<string name="add_tags_list_empty_title">태그를 사용하여 정리하기</string>
+	<string name="add_tags_list_empty_body">태그는 검색 기능 또는 저장소의 필터를 사용하여 항목을 더 쉽게 찾을 수 있도록 지원합니다.\n\n태그를 만들려면 위에 입력하십시오.</string>
+	
+	<!-- SETTINGS  Prefix: setting -->
+	<string name="setting_header_account">계정</string>
+	<string name="setting_logout">로그아웃</string>
+	<string name="setting_premium">Premium</string>
+	<string name="setting_account_management">계정 관리</string>
+	<string name="setting_delete_account">계정 삭제</string>
+	<string name="setting_delete_account_header">계정 삭제</string>
+	<string name="setting_delete_account_warning">경고: 이 작업은 취소할 수 없습니다</string>
+	<string name="setting_delete_account_cancel_premium">계정을 삭제하려면 먼저 <b><annotation link="https://help.getpocket.com/article/986-canceling-your-pocket-premium-subscription">여기에서 Premium 구독을 취소</annotation></b>해야 합니다.</string>
+	<string name="setting_delete_account_permanently_delete">귀하는 귀하의 Pocket 계정과 데이터가 <b>영구적으로 삭제됨</b>을 이해합니다.</string>
+	<string name="setting_delete_account_error">요청을 처리할 수 없습니다. 나중에 다시 시도하십시오.</string>
+	<string name="setting_delete_account_in_progress">계정을 삭제하는 중...</string>
+	<string name="setting_delete_account_toast_title">Pocket 계정을 삭제하셨습니다</string>
+	<string name="setting_delete_account_toast_message">Pocket이 개선해야 할 부분이 있을까요?</string>
+	<string name="setting_delete_account_toast_button">약식 설문 조사</string>
+	<string name="setting_header_general">일반</string>
+	<string name="setting_rotation_label">앱 회전 잠금</string>
+	<string name="setting_rotation_sum">이 옵션을 활성화하면 장치 회전 후 잠금 버튼이 화면 가운데에 나타납니다. 현재 방향을 잠그려면 아이콘을 누르고 잠금을 해제하려면 다시 누릅니다.</string>
+	<string name="setting_header_theme">앱 테마</string>
+	<string name="setting_theme">테마</string>
+	<string name="setting_auto_dark_theme_threshold_automatic">자동</string>
+	<string name="setting_system_theme_label">시스템 테마 매칭</string>
+	<string name="setting_header_reading">읽는 중</string>
+	<string name="setting_always_open_original_label">항상 원본 웹사이트 열기</string>
+	<string name="setting_always_open_original_sum">Pocket이 아티클 보기 대신 항상 원본 웹사이트를 엽니다</string>
+	<string name="setting_default_browser_label" comment="Setting that allows you to choose a browser. This header is followed by the name of the chosen browser on the next line.">다음 브라우저에서 원본 웹사이트 열기:</string>
+	<string name="setting_default_browser_system" comment="Default value of the &apos;setting_default_browser_label&apos; setting, which means we will use the default browser from system settings.">기본 시스템 브라우저</string>
+	<string name="setting_text_align_label">텍스트 양쪽 맞춤</string>
+	<string name="setting_text_align_sum">아티클 보기에서 올바르게 텍스트 표시</string>
+	<string name="setting_auto_fullscreen_label">자동 전체 화면</string>
+	<string name="setting_auto_fullscreen_sum">읽거나 아래로 스크롤하는 동안 도구 모음을 숨깁니다. 위로 스크롤하는 동안 도구 모음 표시</string>
+	<string name="setting_continue_reading_label">계속 읽기</string>
+	<string name="setting_continue_reading_sum">Pocket으로 돌아갈 때 진행 중이던 마지막 작업을 표시합니다.</string>
+	<string name="setting_tts_label">텍스트 읽어주기 엔진</string>
+	<string name="setting_tts_sum_fallback">설치된 항목 없음</string>
+	<string name="setting_header_offline">오프라인 다운로드</string>
+	<string name="setting_download_article_label">항상 아티클 보기 가져오기</string>
+	<string name="setting_download_article_sum_unavailable">최적 보기 자동 다운로드 시 사용 불가</string>
+	<string name="setting_download_article_sum">목록의 모든 항목에 대한 아티클 자동 다운로드</string>
+	<string name="setting_only_wifi_label">Wi-Fi 연결 시에만 다운로드</string>
+	<string name="setting_mobile_useragent_label">모바일 사용자 에이전트</string>
+	<string name="setting_mobile_useragent_sum">사용 가능한 경우 모바일 버전 다운로드</string>
+	<string name="setting_clear_download_label">다운로드한 파일 지우기</string>
+	<string name="setting_storage_location">오프라인 저장소 위치</string>
+	<string name="setting_header_syncing">동기화</string>
+	<string name="setting_sync_on_open_label">앱을 열 때 동기화</string>
+	<string name="setting_background_sync_label">백그라운드 동기화</string>
+	<string name="setting_header_notifications">알림</string>
+	<string name="setting_manage_notification_settings">장치 알림 설정</string>
+	<string name="setting_manage_notification_settings_sum">Android 설정에서 알림 사운드, 진동 등을 사용자 지정</string>
+	<string name="setting_notify_sound_label">알림 사운드</string>
+	<string name="setting_notify_sound_silent_sum">묵음</string>
+	<string name="setting_notify_light_label">LED</string>
+	<string name="setting_notify_light_sum">새 알림이 있을 때 LED 깜박임</string>
+	<string name="setting_share_overlay_label">빠른 저장 작업</string>
+	<string name="setting_share_overlay_sum">다른 앱에서 Pocket에 저장할 때 새 항목에서 수행할 수 있는 작업을 간단히 표시합니다.</string>
+	<string name="setting_header_about">정보</string>
+	<string name="setting_help">도움말 및 지원 받기</string>
+	<string name="setting_twitter_label">Twitter에서 @Pocket 팔로우</string>
+	<string name="setting_facebook_label">Facebook에서 팔로우</string>
+	<string name="setting_legal_label">법률 및 정책</string>
+	<string name="setting_contact_us">연락처</string>
+	<string name="setting_thank_you">다운로드해 주셔서 감사합니다. 유익하게 활용하시기 바랍니다!</string>
+	<string name="setting_header_version">버전</string>
+	<string name="setting_version_label">Pocket %1$s</string>
+	<string name="setting_previous_and_next">이전 및 다음 화살표 표시</string>
+	<string name="setting_app_icon_label">앱 아이콘</string>
+	<string name="setting_app_icon_header_automatic">Pocket이 아이콘을 대신 선택합니다</string>
+	<string name="setting_app_icon_header_all">좋아하는 아이콘을 직접 선택합니다</string>
+	<string name="setting_app_icon_classic" comment="As in &apos;classic icon&apos;, so for gendered languages should follow the gender of &apos;App icon&apos; from setting_app_icon_label">클래식</string>
+	<string name="setting_app_icon_pride_flag" comment="As in &apos;Pride icon&apos;, so for gendered languages should follow the gender of &apos;App icon&apos; from setting_app_icon_label">프라이드</string>
+	<string name="setting_app_icon_monochrome" comment="As in &apos;monochrome icon&apos;, so for gendered languages should follow the gender of &apos;App icon&apos; from setting_app_icon_label">단색화</string>
+
+	<string name="prem_setting_thanks">Pocket Premium 에 구독해 주셔서 감사합니다!</string>
+	
+	<string name="prem_setting_status">구독 상태</string>
+	<string name="prem_setting_subscription">구독</string>
+	<string name="prem_setting_subscription_monthly">월간</string>
+	<string name="prem_setting_subscription_annual" comment="occurring once per year">연간</string>
+	<string name="prem_setting_date_purchased">구매 날짜</string>
+	<string name="prem_setting_renewal_date">갱신 날짜</string>
+	<string name="prem_setting_renew_subscription">구독 갱신</string>
+	<string name="prem_setting_inactive_subscription">해제</string>
+	<string name="prem_setting_subscription_ended_tap_to_renew">구독이 종료되었습니다. Premium 구독을 갱신하려면 누르십시오.</string>
+	<string name="prem_setting_date_ended">종료 날짜</string>
+	<string name="prem_setting_purchase_location">구매 위치</string>
+	<string name="prem_setting_your_premium_features">Premium 기능</string>
+	<string name="prem_setting_your_subscription">구독</string>
+	<string name="prem_setting_manage_your_subscription">구독 관리</string>
+	<string name="prem_setting_questions">질문 또는 피드백을 보내시겠습니까?</string>
+	<string name="prem_setting_faq">Pocket Premium FAQ</string>
+	<string name="prem_setting_contact">Pocket 지원팀 문의</string>
+	<string name="prem_setting_premium_header">Premium</string>
+	<string name="prem_setting_upgrade">Premium 으로 업그레이드</string>
+	<string name="prem_setting_restore">기존 구독 복원</string>
+	
+	<string name="purchase_error_offline_t">오프라인 상태인 것 같습니다</string>
+	<string name="purchase_error_offline_m">Pocket Premium으로 업그레이드하려면 온라인 상태여야 합니다. 연결 상태를 확인하고 다시 시도하십시오.</string>
+	<string name="purchase_error_activation_t">활성화 오류</string>
+	<string name="purchase_error_activation_m">구매를 마쳤지만 계정을 활성화에 문제가 있습니다. 활성화 완료 지침을 보려면 확인을 누르십시오.</string>
+	<string name="purchase_error_purchase_t">구매 실패</string>
+	<string name="purchase_error_purchase_m">구매를 완료하는 중 문제가 발생했습니다. 다시 시도하십시오. </string>
+	<string name="purchase_error_progress">구매 완료 중…</string>
+	<string name="purchase_error_already_owned_t">이미 구독함</string>
+	<string name="purchase_error_already_owned_m">이미 Pocket Premium 구독하고 있습니다.</string>
+	<string name="purchase_error_restore_none_found_t">복원 실패</string>
+	<string name="purchase_error_restore_none_found_m">구독을 찾을 수 없습니다. 구독하고 있다면 %1$s을(를) 눌러 당사에 알려 주십시오.</string>
+	<string name="purchase_restored">구독이 복원됨</string>
+    <string name="purchase_error_amazon_m">현재 Amazon 앱 스토어를 통해 Pocket Premium으로 업그레이드할 수 없습니다.</string> <!-- no translation necessary, as it is an email to our support team -->
+
+	<string name="setting_background_sync_0">즉시(푸시)</string>
+	<string name="setting_background_sync_1">매 시간</string>
+	<string name="setting_background_sync_2">하루에 두 번</string>
+	<string name="setting_background_sync_3">하루에 한 번</string>
+	<string name="setting_background_sync_4">안 함</string>
+	
+    <!-- Text displayed in the enter key slot when the recipientedittextview has focus.
+         [CHAR LIMIT=12] -->
+    <string name="done">반환</string>
+
+    <string name="setting_cache_set_offline_storage_limits">오프라인 스토리지 제한값 설정</string>
+    <string name="setting_cache_priority">다운로드 우선순위</string>
+    <string name="setting_cache_priority_newest">가장 최신 항목 먼저</string>
+    <string name="setting_cache_priority_oldest">가장 오래 된 항목 먼저</string>
+    <string name="setting_cache_limit_description">Pocket이 오프라인 다운로드에 사용하도록 허용할 스토리지 크기 제한값을 설정합니다.</string>
+    <string name="setting_cache_currently_using" comment="Do not translate values in {brackets}">Pocket이 장치 스토리지 중 약 <b>{disk_space_size}</b>를 사용하고 있습니다.</string>
+    <string name="setting_cache_currently_adjusting">현재 오프라인 스토리지 제한값을 적용하는 중입니다...</string>
+    <string name="setting_cache_limit_to" comment="Will be used to present a disk space value like Limit to: 500 MB">한계값:</string>
+    <string name="setting_cache_unlimited">무제한</string>
+    <string name="setting_cache_approx_item_count"><b>{newest_or_oldest}</b>개 항목 중 약 <b>{item_count}</b>개를 오프라인으로 사용할 수 있습니다.</string>
+    <string name="setting_cache_priority_inline_newest">최신 항목</string>
+    <string name="setting_cache_priority_inline_oldest">가장 오래된 항목</string>
+    <string name="setting_cache_confirm_change_t">스토리지 설정을 변경합니까?</string>
+    <string name="setting_cache_confirm_change_m" comment="Please try to keep as short as possible">Pocket이 변경 사항을 반영하기 위해 추가 콘텐츠를 제거하거나 다운로드할 수도 있습니다.</string>
+    <string name="setting_cache_may_take_a_few_minutes">이 작업을 완료하는 데 몇 분이 소요될 수 있습니다.</string>
+    <string name="setting_cache_mb" comment="abbreviation for Megabytes. Used like 800 MB">MB</string>
+    <string name="setting_cache_gb" comment="abbreviation for Gigabytes. Used like 1.2 GB">GB</string>
+    <string name="setting_cache_not_saved_m">아직 변경 사항을 저장하지 않았습니다. 변경 사항을 삭제하시겠습니까? 또는 편집을 계속하시겠습니까?</string>
+	
+	<string name="storage_free_space">여유 공간: %1$s</string>
+	<string name="storage_free_space_unknown">알 수 없음</string>
+	<string name="storage_location_changed">저장소 위치를 성공적으로 변경함</string>
+	<string name="storage_type_internal">내장</string>
+	<string name="storage_type_internal_specific_sandboxed">내장(샌드박스 이용)</string>
+	<string name="storage_type_internal_specific_unsandboxed">내장(공용)</string>
+	<string name="storage_type_removable">이동식</string>
+	<string-array name="storage_location_specs_internal">
+        <item><b>추천됨.</b></item>
+        <item>Pocket에 인식되는 캐시만 다운로드합니다.</item>
+	</string-array>
+	<string-array name="storage_location_specs_removable">
+		<item>다른 앱에 인식되는 캐시를 다운로드합니다.</item>
+		<item>저장소 위치를 제거하거나 변경하면 Pocket을 사용하지 못할 수 있습니다.</item>
+		<item>USB를 통해 장치가 컴퓨터에 연결되있는 동안 Pocket을 사용하지 못할 수 있습니다.</item>
+	</string-array>
+
+	<string name="onboarding_learn_more_1_title" comment="If possible without losing meaning, try to keep to 35 characters or less">정말 관심있는 내용을 저장하세요</string>
+	<string name="onboarding_learn_more_1_text" comment="If possible without losing meaning, try to keep to 145 characters or less">기사, 동영상 또는 좋아하는 온라인 콘텐츠를 수집합니다. 언제든지 어느 휴대폰, 태블릿, 브라우저에서나 사용 가능합니다.</string>
+	<string name="onboarding_learn_more_2_title" comment="If possible without losing meaning, try to keep to 35 characters or less">어떤 순간이든 최대한 활용할 수 있습니다</string>
+	<string name="onboarding_learn_more_2_text" comment="If possible without losing meaning, try to keep to 145 characters or less">Chrome, Twitter, YouTube나 좋아하는 뉴스 앱에서 저장합니다(초보자의 경우). Pocket에 귀하를 위한 기사와 동영상이 준비됩니다.</string>
+	<string name="onboarding_learn_more_3_title" comment="If possible without losing meaning, try to keep to 35 characters or less">인터넷의 조용한 구석</string>
+	<string name="onboarding_learn_more_3_text" comment="If possible without losing meaning, try to keep to 145 characters or less">Pocket은 중단이나 팝업 없이 읽기 편하게 설계된 깔끔한 레이아웃으로 기사를 저장하므로 주의를 흐트러뜨리는 인터넷상의 콘텐츠를 피할 수 있습니다.</string>
+	
+	<string name="legacy_upgrading">Pocket이 앱을 업그레이드하고 있습니다. 이 작업은 몇 분 정도의 시간이 소요됩니다. 업그레이드는 백그라운드에서 계속 진행되므로 나중에 다시 확인하십시오.</string>
+	
+	<string name="report_item_overflow_option">이 항목 보고</string>
+	<string name="report_item_option_1">제목, 링크 또는 이미지가 손상되었습니다</string>
+	<string name="report_item_option_2">잘못된 카테고리에 있습니다</string>
+	<string name="report_item_option_3">성적으로 노골적입니다</string>
+	<string name="report_item_option_4">무례하거나, 저속하거나, 모욕적입니다</string>
+	<string name="report_item_option_5">잘못된 정보가 포함되어 있습니다</string>
+	<string name="report_item_option_6">기타</string>
+	<string name="report_item_hint">자세히 말씀해 주십시오</string>
+	<string name="report_item_dialog_title">우려 사항 보고</string>
+	<string name="report_item_submit_title">감사합니다!</string>
+	<string name="report_item_submit_text">귀하의 보고서는 Pocket 커뮤니티를 안전하게 보호하는 데 도움이 됩니다.</string>
+	
+	<string name="collection_details_error_title">컬렉션을 로드할 수 없음</string>
+	<string name="collection_details_error_message">Pocket에서 이 컬렉션을 로드하는 중 문제가 발생했습니다. 나중에 다시 시도하십시오.</string>
+	
+	<string name="viewed">확인함</string>
+	<string name="not_viewed">확인하지 않음</string>
+	
+	<string name="no_internet_connection">인터넷 연결 없음</string>
+	<string name="no_internet_connection_body">오프라인 상태이신 것 같습니다. 모바일 데이터나 wifi를 확인해 보십시오.</string>
+	
+	<string name="fxa_account_migrated">귀하의 계정이 마이그레이션되었습니다.</string>
+	
+	<string name="my_list_filter_all">전체</string>
+	<string name="my_list_filter_tagged">태그 지정됨</string>
+	<string name="my_list_filter_favorites">즐겨찾기</string>
+	<string name="my_list_filter_filter">필터</string>
+	<string name="my_list_filter_edit">편집</string>
+	<string name="my_list_filter">필터</string>
+	<string name="edit_tags">태그 편집</string>
+	<string name="move_to_my_list">저장소로 이동</string>
+	<string name="highlighted">하이라이트 표시됨</string>
+	<string name="delete_tag_confirmation_message">"%1$s 태그를 삭제하시겠습니까?"</string>
+	
+	<string name="empty_list_all_title">지금 Pocket 목록 구축을 시작하세요</string>
+	<string name="empty_list_all_action">저장 방법</string>
+	<string name="empty_list_favorites_title">여기에서 즐겨찾기를 확인해 보세요</string>
+	<string name="empty_list_favorites_message">별 아이콘을 눌러서 아티클을 즐겨찾기에 추가하면 더 빨리 찾을 수 있습니다.</string>
+	<string name="empty_list_tagged_title">목록 정리</string>
+	<string name="empty_list_tagged_message">나중에 찾아볼 수 있도록 저장된 항목에 주제별로 태그를 지정하세요.</string>
+	<string name="empty_list_tagged_action">태그 지정 방법</string>
+	<string name="empty_list_specific_tag_title">이 태그가 지정된 저장 항목이 없습니다.</string>
+	<string name="empty_list_highlights_title">여기에 가장 좋아하는 한 마디를 보관해 보세요</string>
+	<string name="empty_list_highlights_message">아티클의 한 줄을 선택하고 나중에 볼 수 있도록 \'하이라이트\'를 눌러 저장해 보세요.</string>
+	<string name="empty_list_archive_title">목록을 깔끔하게 정리해 보세요</string>
+	<string name="empty_list_archive_message">보관 아이콘을 사용하여 작업이 완료된 저장 항목을 보관해 보세요.</string>
+	<string name="empty_list_archive_action">보관 방법</string>
+	
+	<string name="time_to_read_filter_short">짧게</string>
+	<string name="time_to_read_filter_short_description">10분 미만</string>
+	<string name="time_to_read_filter_long">길게</string>
+	<string name="time_to_read_filter_long_description">10분 이상</string>
+	<string name="short_reads">간단히 읽기</string>
+	<string name="long_reads">자세히 읽기</string>
+	
+	<string name="notification_permission_primer_title">멋진 아티클을 놓치지 마세요</string>
+	<string name="notification_permissions_primer_message">가끔 좋은 글을 알려 드려도 될까요?</string>
+	<string name="notification_permissions_primer_positive_button">물론입니다</string>
+	<string name="notification_permissions_primer_negative_button">나중에 다시 확인</string>
+	
+	<string name="home_sign_in_banner">Pocket을 최대한 활용하려면 로그인하세요</string>
+	<string name="home_see_all">모두 보기</string>
+	<string name="home_collection">콜렉션</string>
+	<string name="recent_saves">최근 저장한 내용</string>
+	<string name="home_more_topics">더 많은 주제</string>
+	<string name="home_footer_message">다 되었습니다! 자세한 내용은 내일 다시 확인해주십시오.</string>
+	<string name="home_error_title">새 아티클을 가져올 수 없습니다</string>
+	<string name="home_error_message">홈을 다시 로드할 수 있습니다.</string>
+	<string name="home_topic_error_message">아티클을 다시 로드할 수 있습니다.</string>
+	
+	<string name="original_web_no_browser">이 페이지를 열 브라우저를 찾을 수 없습니다</string>
+	<string name="original_web_changed_browser_setting" comment="The format argument (%1$s) will be replaced with a browser name like &apos;Chrome&apos; or &apos;Firefox&apos; chosen from one of the browsers installed on the device.">기본 시스템 브라우저가 구성되어 있지 않아 Pocket이 선호 브라우저를 %1$s (으)로 변경했습니다.</string>
+	<string name="highlights">하이라이트</string>
+	<string name="end_of_article_title">추천 콘텐츠</string>
+	<string name="previous_and_next_setting_description">\'다음\' 및 \'이전\' 버튼을 사용하여 아티클 간에 빠르게 이동할 수 있습니다</string>
+
+	<string name="add_url_title">URL 추가</string>
+	<string name="add_url_hint" comment="Hint for an input field where you can paste a URL to save (add to your saves)">예 https://getpocket.com</string>
+	<string name="add_url_error">유효한 URL을 입력하십시오</string>
+
+	<string name="authentication_legal_disclaimer" comment="This string uses Markdown formatting. Please preserve the formatting (including TWO spaces before the new line).">"계속 진행하면  \nPocket [서비스 약관](https://getpocket.com/tos) 및 [개인정보 보호정책](https://getpocket.com/privacy)에 동의하는 것으로 간주됩니다"</string>
+</resources>
