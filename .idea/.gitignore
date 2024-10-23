@@ -4,6 +4,9 @@
 # Keep some exceptions.
 !.gitignore
 !codeStyles
+!codeStyles/Project.xml
 !icon.png
 !icon_dark.png
 !externalDependencies.xml
+!runConfigurations
+!runConfigurations/*
