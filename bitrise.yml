@@ -135,6 +135,10 @@ workflows:
         - update_submodules: "no"
     - cache-pull@2: {}
     - script:
+        title: Update versionName
+        inputs:
+        - content: scripts/set-version-name-build-number.sh $BITRISE_BUILD_NUMBER
+    - script:
         title: Decrypt secrets
         inputs:
         - content: secrets/decrypt.sh
