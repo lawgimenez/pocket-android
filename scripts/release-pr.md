@@ -30,6 +30,6 @@
 * Beta
   * [ ] Edit the GitHub release, uncheck "Set as a pre-release", check "Set as the latest release".
   * [ ] Merge the PR into `beta` (**do not squash!**).
-  * [ ] Create a PR of `beta` into `alpha`. (`beta` is protected, so we can't literally merge it, because it would delete it. Instead create a new branch from `beta`, merge `alpha` to resolve any conflicts and open a PR to merge this branch to `alpha`.)
+  * [ ] Create a PR of `beta` into `main`. (`beta` is protected, so we can't literally merge it, because it would delete it. Instead create a new branch from `beta`, merge `main` to resolve any conflicts and open a PR to merge this branch to `main`.)
     * [ ] Add `ignore-for-release` label.
     * [ ] Merge it (**do not squash!**).

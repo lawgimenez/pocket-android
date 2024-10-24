@@ -1,5 +1,3 @@
-TODO before merging to  alpha, come back  and update this doc with latest standards
-
 # Pocket UI Components
 
 This module contains reusable UI and UX building blocks for Pocket apps that follow Pocket's design guidelines.
