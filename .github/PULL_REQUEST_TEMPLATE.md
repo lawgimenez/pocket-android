@@ -26,8 +26,7 @@ Setup:
 Review:
 * [ ] Code Review approved
 <!--
-* [ ] If modified GraphQL spec or queries, checked the [usage file](../blob/alpha/sync-pocket/sync-pocket-usage.txt)
-      for invalid or no longer used definitions and [cleaned it up](https://mozilla-hub.atlassian.net/wiki/spaces/PE/pages/390645389/Development+Workflow#Final-checks) if necessary
+* [ ] If modified GraphQL spec or queries, checked the usage file for invalid or no longer used definitions and [cleaned it up](https://mozilla-hub.atlassian.net/wiki/spaces/PE/pages/390645389/Development+Workflow#Final-checks) if necessary
 -->
 
 <!-- Optional section for cases where we might need to do some tasks after the code is approved and merged.

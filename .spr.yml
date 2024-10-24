@@ -1,6 +1,6 @@
 githubRepoOwner: Pocket
 githubRepoName: Android
-githubBranch: alpha
+githubBranch: main
 prTemplatePath: .github/PULL_REQUEST_TEMPLATE.md
 prTemplateInsertStart: "<!-- If you opened this PR with `git spr` feel free to copy anything it generated here into the PR body."
 prTemplateInsertEnd: "spr -->"

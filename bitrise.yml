@@ -27,8 +27,8 @@ meta:
     stack: linux-docker-android-22.04
 trigger_map:
 - type: push
-  workflow: onAlphaUpdated
-  push_branch: alpha
+  workflow: onMainUpdated
+  push_branch: main
 - type: push
   workflow: onReleaseBranchUpdated
   push_branch: release-*.*.*
@@ -40,22 +40,9 @@ trigger_map:
   pull_request_source_branch: '*'
   pull_request_target_branch: '*'
 workflows:
-  onAlphaUpdated:
+  onMainUpdated:
     after_run:
     - publishAlphaToAppCenter
-    steps:
-    - set-java-version@1:
-        inputs:
-        - set_java_version: "17"
-    - activate-ssh-key@4:
-        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
-    - git-clone:
-        inputs:
-        - update_submodules: "no"
-    - script@1:
-        title: Run onAlphaUpdate Scripts
-        inputs:
-        - content: scripts/on-alpha-updated.sh
   onMergeQueueUpdated:
     after_run:
     - runPreMergeChecks
