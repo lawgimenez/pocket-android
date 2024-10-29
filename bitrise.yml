@@ -122,7 +122,6 @@ workflows:
             git add .
             git commit -m "chore(ci): prepare release [skip ci]"
             git push origin $BITRISE_GIT_BRANCH
-    - cache-push: {}
   publishAlphaToAppCenter:
     steps:
     - set-java-version@1:
@@ -187,4 +186,3 @@ workflows:
     - deploy-to-bitrise-io@2:
         inputs:
         - notify_user_groups: none
-    - cache-push: {}
