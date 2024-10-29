@@ -3,8 +3,8 @@
     package="com.ideashower.readitlater.pro"
     android:installLocation="auto"
     android:targetSandboxVersion="2"
-    android:versionCode="82601000"
-    android:versionName="8.26.1.0" >
+    android:versionCode="82700000"
+    android:versionName="8.27.0.0" >
 
     <uses-sdk
         android:minSdkVersion="23"
@@ -56,6 +56,9 @@
         </intent>
         <intent>
             <action android:name="com.android.vending.billing.InAppBillingService.BIND" />
+        </intent>
+        <intent>
+            <action android:name="com.google.android.apps.play.billingtestcompanion.BillingOverrideService.BIND" />
         </intent>
 
         <package android:name="com.facebook.katana" />
@@ -160,27 +163,6 @@
             android:name="com.pocket.app.settings.account.DeleteAccountActivity"
             android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
-
-        <!-- Help Activities -->
-        <activity
-            android:name="com.pocket.app.help.HelpPageActivity"
-            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
-        <activity
-            android:name="com.pocket.app.help.HelpListActivity"
-            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
-        <activity
-            android:name="com.pocket.app.help.HTSActivity"
-            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
-        <activity
-            android:name="com.pocket.sdk.util.activity.FramedWebViewActivity"
-            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
-        <activity
-            android:name="com.pocket.sdk.util.activity.BasicWebViewActivity"
-            android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" />
         <activity
             android:name="com.pocket.app.settings.beta.TCActivity"
             android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" />
@@ -507,7 +489,7 @@
 
         <meta-data
             android:name="com.google.android.play.billingclient.version"
-            android:value="7.0.0" />
+            android:value="7.1.1" />
 
         <activity
             android:name="com.android.billingclient.api.ProxyBillingActivity"
