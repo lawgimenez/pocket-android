@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+       xmlns:tools="http://schemas.android.com/tools"
+       tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <!--
+        On small screens, this view will fill the width and then be scrollable vertically if needed.
+        On large screens, the content will have a max width and be centered vertically and horizontally.
+    -->
+
+    <com.pocket.ui.view.scroll.YieldingNestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <com.pocket.ui.view.visualmargin.VisualMarginConstraintLayout
+            android:id="@+id/info_page_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pkt_space_sm"
+                android:paddingBottom="@dimen/pkt_space_lg"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/viewPager"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/viewPager"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <com.pocket.ui.view.info.PageIndicatedViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginBottom="@dimen/pkt_space_lg"
+                app:layout_constraintBottom_toTopOf="@+id/actionButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/header"
+                />
+
+            <com.pocket.ui.view.button.BoxButton
+                android:id="@+id/actionButton"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/actionLinkText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_max="@dimen/pkt_info_page_max_width"
+                />
+
+            <com.pocket.ui.view.themed.ThemedTextView
+                android:id="@+id/actionLinkText"
+                style="@style/Pkt_Text_Small_Link_Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:paddingLeft="40dp"
+                android:paddingTop="10dp"
+                android:paddingRight="40dp"
+                android:paddingBottom="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/actionButton"
+                app:visualMargin_top="@dimen/pkt_space_md"
+                />
+
+        </com.pocket.ui.view.visualmargin.VisualMarginConstraintLayout>
+    </com.pocket.ui.view.scroll.YieldingNestedScrollView>
+
+</merge>

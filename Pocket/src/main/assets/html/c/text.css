@@ -1,0 +1,766 @@
+/*
+Note:
+textStyle="0" = Light Theme
+textStyle="1" = Dark Theme
+*/
+
+:root {
+  --pkt_grey_1: #1A1A1A;
+  --pkt_grey_6: #D9D9D9;
+  --pkt_dm_grey_1: #F2F2F2;
+  --pkt_dm_grey_6: #404040;
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body { 
+	color: #111111;
+	font-family: GraphikLcg, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-align: center;
+	visibility: hidden;
+	line-height: 1.4em;
+	-webkit-text-size-adjust: none; /* Never autoresize text */
+}
+
+body[lineHeightSetting="1"] { line-height: 1.2em; }
+body[lineHeightSetting="2"] { line-height: 1.3em; }
+body[lineHeightSetting="3"] { line-height: 1.4em; }
+body[lineHeightSetting="4"] { line-height: 1.5em; }
+body[lineHeightSetting="5"] { line-height: 1.6em; }
+body[lineHeightSetting="6"] { line-height: 1.7em; }
+body[lineHeightSetting="7"] { line-height: 1.8em; }
+body[lineHeightSetting="8"] { line-height: 1.9em; }
+body[lineHeightSetting="9"] { line-height: 2.0em; }
+body[lineHeightSetting="10"] { line-height: 2.2em; }
+body[lineHeightSetting="11"] { line-height: 2.4em; }
+body[lineHeightSetting="12"] { line-height: 2.6em; }
+body[lineHeightSetting="13"] { line-height: 3.0em; }
+
+body.tighter_line_height
+{
+	line-height: 1.1em;
+}
+
+body[textStyle="0"] {
+    background: #FFFFFF !important;
+    color: var(--pkt_grey_1);
+    transition: color 0.3s linear, background-color 0.3s linear;
+}
+body[textStyle="0"] a {
+    color: var(--pkt_grey_1);
+    text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, var(--pkt_grey_1) 1px, var(--pkt_grey_1) 2px, rgba(0, 0, 0, 0) 2px);
+    transition: color 0.3s linear;
+}
+body[textStyle="0"] a:active {
+    color: var(--pkt_grey_6);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, var(--pkt_grey_6) 1px, var(--pkt_grey_6) 2px, rgba(0, 0, 0, 0) 2px);
+    transition: color 0.3s linear;
+}
+
+body[textStyle="1"] {
+    background: #1A1A1A !important;
+    color: var(--pkt_dm_grey_1);
+    transition: background-color 0.3s linear;
+}
+body[textStyle="1"] a {
+    color: var(--pkt_dm_grey_1);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, var(--pkt_dm_grey_1) 1px, var(--pkt_dm_grey_1) 2px, rgba(0, 0, 0, 0) 2px);
+    transition: color 0.3s linear;
+}
+body[textStyle="1"] a:active {
+    color: var(--pkt_dm_grey_6);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, var(--pkt_dm_grey_6) 1px, var(--pkt_dm_grey_6) 2px, rgba(0, 0, 0, 0) 2px);
+    transition: color 0.3s linear;
+}
+
+body[textStyle="1"] table.ril_dataTable th
+{
+	border-color: #cccccc !important;
+}
+
+body[fontType="0"] {
+    font-family: Blanco, Georgia, serif;
+    font-size: 1.0em;
+}
+body[fontType="1"] {
+    font-family: GraphikLcg, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.9em;
+}
+body[fontType="2"] {
+    font-family: IdealSans, Blanco, Georgia, serif;
+    font-size: 0.85em;
+}
+body[fontType="3"] {
+    font-family: Inter, Blanco, Georgia, serif;
+    font-size: 0.9em;
+}
+body[fontType="4"] {
+    font-family: IBMPlexSans, Blanco, Georgia, serif;
+    font-size: 0.95em;
+}
+body[fontType="5"] {
+    font-family: Sentinel, Blanco, Georgia, serif;
+    font-size: 0.95em;
+}
+body[fontType="6"] {
+    font-family: Tiempos, Blanco, Georgia, serif;
+    font-size: 0.9em;
+}
+body[fontType="7"] {
+    font-family: Vollkorn, Blanco, Georgia, serif;
+    font-size: 0.95em;
+}
+body[fontType="8"] {
+    font-family: Whitney, Blanco, Georgia, serif;
+    font-size: 0.85em;
+}
+body[fontType="9"] {
+    font-family: ZillaSlab, Blanco, Georgia, serif;
+    font-size: 0.95em;
+}
+
+#RIL_domain
+{ display: none; }
+
+#RIL_media
+{ text-align: center; }
+#RIL_media object,
+#RIL_media embed,
+#RIL_media img
+{
+	margin-bottom: 15px;
+}
+
+/* --- */
+
+h1, h2 {
+	line-height: 1.3em;
+	font-size: 25px;
+	font-size: 1.4em;
+	margin: 1.7em 0px 0.7em 0px;
+}
+h3 {
+	line-height: 1.3em;
+	font-size: 1.3em;
+	margin: 1.7em 0px 0.5em 0px;
+}
+h4 {
+	line-height: 1.3em;
+	font-size: 1.2em;
+	margin: 1.7em 0px 0.5em 0px;
+}	
+h5,h6 {
+	font-size: 1.1em;
+	font-weight: bold;
+	margin: 1.7em 0px 0.4em 0px;
+}
+
+/* headers over imgs and videos */
+h3+.RIL_IMG,
+h4+.RIL_IMG,
+h5+.RIL_IMG,
+h6+.RIL_IMG,
+h3+.RIL_VIDEO,
+h4+.RIL_VIDEO,
+h5+.RIL_VIDEO,
+h6+.RIL_VIDEO
+{
+	margin-top: 1.1em !important;
+}
+
+p {
+	margin: 0 0 1em 0px;
+	text-align: left;
+}
+.hyphenate *[lang] p,
+.hyphenate p[lang]
+{
+	text-align: justify;
+	-webkit-hyphens: auto;
+}
+.force_left *[lang] p,
+.force_left p[lang]
+{
+	text-align: left;
+}
+li { 
+	text-align: left;
+}
+
+ul, ol {
+	margin: 1.5em 0px 1.5em 2em;
+}
+li {
+	margin: 0px 0px 0.4em 0px;
+}
+ul ul,
+ol ol {
+	margin: 0.75em 0 1em 2em;
+	min-width: 250px;
+}
+
+/* spacing of headers of lists */
+h3+ul,
+h3+ol,
+h4+ul,
+h4+ol
+{
+	margin-top: 1.1em;
+}
+
+/* spacing of headers of lists */
+h5+ul,
+h5+ol,
+h6+ul,
+h6+ol
+{
+	margin-top: 0.8em;
+}
+
+pre, blockquote {
+	display: block;
+	margin: 1.5em 7% 1.5em 7%;
+}
+
+pre{
+	margin-left: 0px;
+	margin-right: 0px;
+	padding: 4px;
+	font-size: 0.8em;
+}
+
+body.isAtLeastICS pre{
+	overflow-x: scroll;
+	-webkit-overflow-scrolling: touch;
+	box-sizing: border-box;
+}
+
+/* prevent sup and sub from breaking line-height */
+sup, sub {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4em;
+}
+sub { top: 0.4em; }
+
+body.isAtLeastICS pre{
+	border: 1px solid #ccc;
+	background: #f5f5f5;
+}
+
+body.isAtLeastICS[textStyle="1"] pre{
+	border: 1px solid #333;
+	background: #111;
+    transition: background-color 0.3s linear;
+}
+
+blockquote { font-style: italic; }
+
+a {
+    cursor: pointer;
+    color: var(--pkt_grey_1);
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+a.selected {
+	color: #111111;
+	font-style: italic;
+	text-decoration: none;
+}
+
+a img,
+a.noLinkStyle {
+    border: 0px;
+    text-decoration:none;
+    background-image: none !important;
+    text-shadow: none !important;
+}
+
+hr
+{
+	margin: 1em 0px;
+	border: 0px;
+	padding: 0px;
+	height: 1px;
+	background: #DDDDDD;
+}
+
+.RIL_clear { clear: both; }
+
+/* -- from elements.css -- */
+
+.RIL_button
+{
+    display: block;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.7);
+    box-shadow:  0px 1px 0px rgba(149, 144, 130, 1), inset 0px -1px 1px rgba(153, 121, 0, 0.5);
+    -webkit-box-shadow:  0px 1px 0px rgba(149, 144, 130, 1), inset 0px -1px 1px rgba(153, 121, 0, 0.5);
+    border-radius: 6px;
+	border: 0px;
+    padding: 9px 3px;
+    width: 74px;
+    
+    font-size: 13px;
+    font-weight: bold;
+    color: #000000;
+    
+    text-transform: uppercase;
+    
+    background: #fdec04; /* Old browsers */
+	background: -moz-linear-gradient(top, #fad540 1%, #f6b146 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#fad540), color-stop(100%,#f6b146)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #fad540 1%,#f6b146 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #fad540 1%,#f6b146 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #fad540 1%,#f6b146 100%); /* IE10+ */
+	background: linear-gradient(top, #fad540 1%, #f6b146 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fad540', endColorstr='#f6b146',GradientType=0 ); /* IE6-9 */
+}
+
+.RIL_button 
+{ 
+	margin-left: auto;
+	margin-right: auto;
+	color: black !important; 
+	max-width: 250px;
+	width: 80% !important;
+	padding-top: 5px !important;
+	padding-bottom: 5px !important;
+	text-align: center;
+	text-decoration: none;
+}
+
+.login_prompt .RIL_button
+{
+	margin-top: 15px !important;
+	margin-bottom: 5px !important;
+}
+
+/* --- */
+
+/* side margins are set dynamically after the page is loaded */
+#RIL_container {
+	margin-top: 25px;
+	margin-bottom: 30px;
+	text-align: left;
+}
+#RIL_container.imageAtTop
+{
+	margin-top: 0px;
+}
+
+#RIL_top {
+	position: relative;	
+}
+#RIL_top .i {
+	position: absolute;
+	cursor: pointer;
+	display: block;
+	width: 15px;
+	height: 15px;
+	text-indent: -789em;
+	background: top left no-repeat;
+}
+
+#RIL_header
+{
+	text-align: center;
+}
+#RIL_header cite
+{
+	position: relative;
+	display: inline-block;
+	margin-bottom: 25px;
+	line-height: 18px;
+	font-size: 13px;
+	font-style: normal;
+	text-align: center;
+	color: #6d6c6c;
+	font-family: GraphikLcg, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#RIL_header cite a {
+    color: #6d6c6c;
+    background-image: none;
+    text-shadow: none;
+}
+#RIL_header .RIL_author
+{
+	color: #6d6c6c;
+	font-weight: bold;
+}
+#RIL_header .RIL_date
+{
+	padding-top: 3px
+}
+
+body[textStyle="1"] #RIL_header cite,
+body[textStyle="1"] #RIL_header cite a,
+body[textStyle="1"] #RIL_header .RIL_author
+{
+	color: #bbbbbb;
+    transition: color 0.3s linear;
+}
+
+#RIL_header h1 {
+	font-weight: bold;
+	padding-bottom: 0.4em;
+	margin-top: 0.2em;
+	margin-bottom: 11px;
+	line-height: 1.3em;
+	font-size: 23px;
+	text-align: center;
+	font-family: GraphikLcg, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* night mode lines */
+body[textStyle="1"] #RIL_header h1,
+body[textStyle="1"] .RIL_IMG.hasCaption,
+body[textStyle="1"] table.ril_dataTable td
+{
+	border-color: #cccccc !important;
+}
+body[textStyle="1"] hr
+{
+	background-color: #cccccc;
+    transition: background-color 0.3s linear;
+}
+
+
+/* --- */
+
+#RIL_nav {
+	position: relative;
+	float: right;
+	list-style: none;
+	margin: 0 0px 3em 0px;
+	font-size: 14px;
+}
+#RIL_nav li {
+	float: left;
+	margin-left: 25px;
+	color: #999999;
+}
+#RIL_nav li a {
+	font-size: 14px;
+}
+
+#less #nav_less a,
+#more #nav_more a {
+	color: #000000;
+	font-weight: bold;
+	text-decoration: none;
+}
+body[textStyle="1"]#less #nav_less a,
+body[textStyle="1"]#more #nav_more a {
+	color: #EBEBEB;
+    transition: color 0.3s linear;
+}
+
+#less #RIL_more { display: none; }
+#more #RIL_less { display: none; }
+
+/* --- */
+
+#RIL_body { 
+	clear: both;
+}
+
+/* --- */
+
+.RIL_IMG
+{
+	display: none;
+	position: relative;
+	
+	margin: 0 auto; 
+	overflow: visible;
+}
+.RIL_IMG:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.RIL_IMG.loaded
+{
+	display: block;
+	text-align: center;
+	margin-bottom: 0.8em; 
+}
+.RIL_IMG.hasCaption
+{
+	margin-bottom: 0.8em;
+}
+#RIL_container > .RIL_IMG /* top header image */
+{
+	margin-bottom: 12px;
+}
+
+.RIL_IMG .ril_wrapper
+{
+	width: 100%; 
+	display: inline-block; 
+	position:relative; 
+	float: right; 
+	right: 50%;
+}
+
+.RIL_IMG a
+{
+	display: block;
+	margin: 0px auto;
+	border: 0px !important;
+	text-decoration: none !important;	
+	
+	position: relative; 
+    right:-50%;
+    width: 100%;
+    text-align: left;
+}
+
+.RIL_IMG img
+{
+	width: 100%;
+}
+
+.RIL_IMG .ril_caption,
+.RIL_IMG cite
+{
+	display: none;
+	clear: both;
+}
+.RIL_IMG.hasCaption .ril_caption,
+.RIL_IMG.hasCaption cite
+{
+	display: block;
+}
+.RIL_IMG.notFullBleed .ril_caption,
+.RIL_IMG.notFullBleed cite
+{
+	text-align: center;
+}
+.RIL_IMG .ril_caption,
+a .RIL_IMG .ril_caption
+{
+	padding: 6px 0px 0px 0px;
+	color: #6d6c6c !important;
+	font-size: 0.8em;
+	line-height: 1.2em;
+	text-align: left;
+	text-decoration: none !important;
+}
+body[textStyle="1"] .RIL_IMG .ril_caption,
+body[textStyle="1"] a .RIL_IMG .ril_caption
+{
+	color: #bbbbbb !important;
+    transition: color 0.3s linear;
+}
+
+.RIL_VIDEO
+{
+	text-align: center;
+	margin: 0px auto 18px 0px;
+	overflow: visible;
+}
+
+.RIL_VIDEO .ril_wrapper
+{
+	width: 100%; 
+	display: inline-block; 
+	position:relative; 
+	float: right; 
+	right: 50%;
+}
+
+.RIL_VIDEO .ril_wrapper .embed_wrapper
+{	
+	margin: 0px auto;
+	border: 0px !important;
+	text-decoration: none !important;	
+	
+	position: relative; 
+    right:-50%;
+    width: 100%;
+    text-align: left;
+}
+
+/* --- */
+
+table.ril_dataTable,
+table.ril_layoutTable {
+	border-collapse: collapse;
+	width: 100%;
+	margin: 20px 0px 20px 0px;	
+}
+table.ril_dataTable td,
+table.ril_layoutTable td {
+	width: auto;
+	text-align: left;
+	padding: 0px;
+	background: none;	
+	border: 0px;
+}
+
+.ril_layoutTable td,
+.ril_layoutTable tr,
+.ril_layoutTable th {
+	display: block;
+}
+
+table.ril_dataTable
+{
+	margin: 1.5em 0px 1.5em 0px;
+}
+table.ril_dataTable th
+{	
+	font-weight: bold;
+	border: 0px;
+	padding: 0px 5px 0.3em 5px !important;
+	border-bottom: 2px solid rgba(0,0,0,0.8);
+	text-align: left;
+}
+table.ril_dataTable td
+{
+	border: 0px;
+	border-bottom: 1px solid #DDD;
+	padding: 0.3em 5px !important;
+	vertical-align: top;
+	font-size: 0.8em;
+}
+
+
+/* --- */
+body .note {
+	padding: 10px;
+	margin-bottom: 15px;
+}
+
+body[textStyle="0"] .note {
+	color: #666666;
+	background: #EEEEEE;
+	transition: color 0.3s linear, background-color 0.3s linear;
+}
+body[textStyle="0"] .note a {
+	color: #666666;
+    text-shadow: -1px -1px 0 #EEEEEE, 1px -1px 0 #EEEEEE, -1px 1px 0 #EEEEEE, 1px 1px 0 #EEEEEE;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, #666666 1px, #666666 2px, rgba(0, 0, 0, 0) 2px);
+    transition: color 0.3s linear;
+}
+body[textStyle="0"] .note a:active {
+	color: var(--pkt_grey_6);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, var(--pkt_grey_6) 1px, var(--pkt_grey_6) 2px, rgba(0, 0, 0, 0) 2px);
+    transition: color 0.3s linear;
+}
+
+body[textStyle="1"] .note {
+	color: #CCCCCC;
+	background: var(--pkt_grey_1);
+	transition: color 0.3s linear, background-color 0.3s linear;
+}
+body[textStyle="1"] .note a {
+	color: #CCCCCC;
+    text-shadow: -1px -1px 0 var(--pkt_grey_1), 1px -1px 0 var(--pkt_grey_1), -1px 1px 0 var(--pkt_grey_1), 1px 1px 0 var(--pkt_grey_1);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, #CCCCCC 1px, #CCCCCC 2px, rgba(0, 0, 0, 0) 2px);
+    transition: color 0.3s linear;
+}
+body[textStyle="1"] .note a:active {
+    color: var(--pkt_dm_grey_6);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, var(--pkt_dm_grey_6) 1px, var(--pkt_dm_grey_6) 2px, rgba(0, 0, 0, 0) 2px);
+    transition: color 0.3s linear;
+}
+
+/* --- */
+
+.mark_as_read {
+	margin-top: 25px;
+	text-align: center;
+}
+
+/* --- */
+
+.scrollbar
+{
+	position: fixed;
+	top: -15%;
+	right: 0px;
+	width: 10px;
+	border-left: 1px solid var(--pkt_grey_6);
+	height: 133%;
+	z-index: 10000;
+	background: #f0f0f0; /* Old browsers */
+	background: -moz-linear-gradient(left, #f0f0f0 0%, #fcfcfc 44%, #fdfdfd 60%, #fcfcfc 77%, #ededed 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#f0f0f0), color-stop(44%,#fcfcfc), color-stop(60%,#fdfdfd), color-stop(77%,#fcfcfc), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, #f0f0f0 0%,#fcfcfc 44%,#fdfdfd 60%,#fcfcfc 77%,#ededed 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, #f0f0f0 0%,#fcfcfc 44%,#fdfdfd 60%,#fcfcfc 77%,#ededed 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, #f0f0f0 0%,#fcfcfc 44%,#fdfdfd 60%,#fcfcfc 77%,#ededed 100%); /* IE10+ */
+	background: linear-gradient(left, #f0f0f0 0%,#fcfcfc 44%,#fdfdfd 60%,#fcfcfc 77%,#ededed 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', endColorstr='#ededed',GradientType=1 ); /* IE6-9 */
+	
+	opacity: 0;
+	-webkit-transition: opacity ease-in 0.3s;
+}
+.opaque
+{
+	opacity: 1;
+}
+
+/* --- */
+
+.page_blocker
+{	
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	z-index: 1000000;
+	-webkit-transform: translate(0,0);
+	-webkit-transition: opacity ease-in 0.01s;
+	background: none !Important; /* make it invisible as these are now only to prevent touches */
+}
+.page_blocker.allowFade
+{
+	-webkit-transition-duration: 0.2s;
+}
+
+.page_blocker.passTouch
+{
+	pointer-events: none; /* prevents the blocker from being hit by elementAtPoint */
+}
+
+.page_blocker.hide
+{
+	display: none;
+	pointer-events: none; /* prevents the blocker from being hit by elementAtPoint */
+}
+
+/* block touches over the sides of images when paginated */
+/*
+.RIL_IMG::after
+{
+    content:"";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 20%;
+    height: 100%;
+    z-index: 10000;
+}
+.RIL_IMG::before
+{
+    content:"";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 20%;
+    height: 100%;
+    z-index: 10000;
+}
+*/

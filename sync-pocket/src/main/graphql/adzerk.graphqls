@@ -1,0 +1,282 @@
+extend schema @remote(name: "ADZERK")
+# Our current provider of ads and spocs
+#
+# Showing In-App SPOCs Served by Adzerk Ad-server
+#
+# **Note:** Adzerk is now called Kevel.
+#
+# ## Relevant "Words"
+#
+# * **SPOC**: SPOnsored Content
+# * **Site** (Adzerk): lets us target SPOCs by platform (iOS/Android/Web). There's also one "staging" site for all platforms to use.
+# * **Zone** (Adzerk): lets us target SPOCs by parts/screens of the apps. Currently each site has zones for My List, Discover and Social Recs.
+# * **Creative**, **flight**, **campaign** and more Adzerk terms are explained best in [Adzerk Glossary](https://dev.adzerk.com/docs/glossary-adzerk-terms)
+"""
+The Decision API enables you to make ad requests without using ad code.
+By posting to a RESTful endpoint, Adzerk's ad engine will return decision data and creative
+contents that can be used to serve ads in your application.
+
+We modelled a cleaned-up approach:
+* We only allow a single {.placement}.
+* We always include {.placement.count}. If not specified we default to 1.
+  Leaving it out results in a different response schema.
+* We simplified {.decisions} field in the response (thanks to only allowing a single {.placement}).
+
+See: https://dev.kevel.co/reference/request
+"""
+type getAdzerkDecisions @figment(address: "https://e-10250.adzerk.net/api/v2") {
+    """
+    A single {AdzerkPlacement} representing a "slot" in which an ad may be served.
+    This is the main part of the request, where you can select between staging and production
+    or between My List and Discover.
+
+    Note: The underlying REST API allows you to request multiple placements in a single POST
+    and then it returns multiple decisions in the response. To simplify we limited it to one placement per request.
+    """
+    placement: AdzerkPlacement! @id
+
+    """
+    Object containing the UserKey used for UserDB targeting.
+    Optional, but it enables some features on Adzerk side, like per-user frequency capping.
+    Apps typically would generate one on their first request and then store it and reuse it
+    here for future calls. Recommended to use a type 4 UUID (or other random ID
+    with low chance of duplication). Clear this id on logout.
+    """
+    user: AdzerkUser @id
+
+    """
+    Numeric creative ids to disregard for ad selection. If a user selects to block/hide
+    a SPOC, this can be used to avoid it being returned in the response.
+    """
+    blockedCreatives: [Int] @id
+
+    """
+    If making a client-side request, set to true.
+    Defaults to false to ensure a server isn't seen as a bot.
+    """
+    enableBotFiltering: Boolean @id
+
+    """
+    {AdzerkDecision}s representing the ads that were selected for the {AdzerkPlacement}.
+    The maximum number of returned decisions is {.placement.count}. Less decisions may be
+    returned, including none at all if there are no ads to show currently.
+    """
+    decisions: [AdzerkDecision]
+
+    """
+    Local only, doesn't come from Adzerk.
+    Set it to whenever you received this from Adzerk.
+    """
+    received_at: Timestamp @local
+}
+
+"""
+Represents a "slot" in which an ad may be served.
+The various ids are defined in this doc https://docs.google.com/document/d/1L1waDkoTvgSIoieREKns9ymxP5gHEGVWj766ol0cuDg/edit and are also setup in our Adzerk account.
+* Site id lets us target SPOCs by platform (iOS/Android/Web). There's also one "staging" site for all platforms to use. Dev and alpha builds/branches should pull from the staging site by default and allow easy switching to appropriate production site for testing.
+* Zone id lets us target SPOCs by parts/screens of the apps. Currently each site has zones for My List, Discover and Social Recs.
+"""
+type AdzerkPlacement {
+    """
+    A unique name for the placement. These are not based on anything in the API reference
+    or anything setup in our Adzerk account. We could use any string.
+    Adzerk sends back a matching key in the raw {getAdzerkDecisions} response,
+    but since we only ever request one placement per request,
+    we ignore it completely and just look for the only value in the map.
+    """
+    divName: AdzerkPlacementName
+
+    """
+    The numeric network ID unique to each Adzerk account. This is our Adzerk account ID.
+    We need to include it in the request and you can find in the URL as well.
+    """
+    networkId: AdzerkNetworkId
+
+    "The numeric site ID unique to each app or environment."
+    siteId: AdzerkSiteId
+
+    "One or more integer ad types. Currently we have just one in-app ad type defined."
+    adTypes: [AdzerkAdType]
+
+    "Zone IDs to use, corresponding to screens or parts of the app."
+    zoneIds: [AdzerkZoneId]
+
+    """
+    If this is a Multi-Winner Placement the number of decisions to return for it.
+    If not specified, a single decision is returned.
+
+    See: https://dev.kevel.co/reference/multi-winner-placements
+    """
+    count: Int
+}
+
+enum AdzerkPlacementName {
+    IN_LIST
+    DISCOVER
+    SOCIAL_RECS
+    GERMAN_DISCOVER
+}
+
+"""
+The numeric network ID unique to each Adzerk account.
+"""
+enum AdzerkNetworkId {
+    "Network ID for Pocket account."
+    POCKET @figment(enum_value: "10250")
+}
+
+"""
+The numeric site ID unique to each app or environment.
+"""
+enum AdzerkSiteId {
+    POCKET_APP_STAGING @figment(enum_value: "1116650")
+    POCKET_APP_PRODUCTION_IOS @figment(enum_value: "1116651")
+    POCKET_APP_PRODUCTION_ANDROID @figment(enum_value: "1116652")
+    POCKET_APP_PRODUCTION_WEB @figment(enum_value: "1116653")
+}
+
+"""
+The single ad type defined for in-app ads that we have to send to Adzerk's Decision API.
+"""
+enum AdzerkAdType {
+    "Pocket in-app ad"
+    POCKET_IN_APP_1X1 @figment(enum_value: "163")
+}
+
+"""
+IDs corresponding to screens or parts of the app.
+"""
+enum AdzerkZoneId {
+    POCKET_APP_PRODUCTION_WEB_DISCOVER @figment(enum_value: "217796")
+    POCKET_APP_PRODUCTION_WEB_IN_LIST @figment(enum_value: "217797")
+
+    POCKET_APP_PRODUCTION_ANDROID_IN_LIST @figment(enum_value: "217798")
+    POCKET_APP_PRODUCTION_ANDROID_DISCOVER @figment(enum_value: "217799")
+
+    POCKET_APP_PRODUCTION_IOS_IN_LIST @figment(enum_value: "217800")
+    POCKET_APP_PRODUCTION_IOS_DISCOVER @figment(enum_value: "217801")
+
+    POCKET_APP_STAGING_IN_LIST @figment(enum_value: "217802")
+    POCKET_APP_STAGING_DISCOVER @figment(enum_value: "217803")
+
+    POCKET_APP_PRODUCTION_WEB_SOCIAL_RECS @figment(enum_value: "218147")
+    POCKET_APP_PRODUCTION_ANDROID_SOCIAL_RECS @figment(enum_value: "218148")
+    POCKET_APP_PRODUCTION_IOS_SOCIAL_RECS @figment(enum_value: "218149")
+    POCKET_APP_STAGING_SOCIAL_RECS @figment(enum_value: "218150")
+
+    POCKET_APP_STAGING_LOGGED_OUT_DISCOVER @figment(enum_value: "218998")
+    POCKET_APP_PRODUCTION_IOS_LOGGED_OUT_DISCOVER @figment(enum_value: "218999")
+    POCKET_APP_PRODUCTION_ANDROID_LOGGED_OUT_DISCOVER @figment(enum_value: "219000")
+    POCKET_APP_PRODUCTION_WEB_LOGGED_OUT_DISCOVER @figment(enum_value: "219001")
+
+    POCKET_APP_PRODUCTION_ANDROID_GERMAN_DISCOVER @figment(enum_value: "248165")
+    POCKET_APP_STAGING_GERMAN_DISCOVER @figment(enum_value: "248166")
+}
+
+"""
+Object containing the UserKey used for UserDB targeting.
+"""
+type AdzerkUser {
+    "The unique ID associated with that {AdzerkUser}."
+    key: String @id
+}
+
+"""
+Each Decision Object represents the ad that was selected to be served for a given Placement.
+The main part of the response. It has some IDs, URLs to hit for reporting impressions and clicks and our custom data to bind to our native SPOC views buried deep down in the `contents` field. That's why there are some "derived" fields defined with more readable names and showing the path to the actual data.
+"""
+type AdzerkDecision {
+    "The Ad's ID."
+    adId: Int @id
+
+    "The Creative's ID."
+    creativeId: Int
+
+    "The url endpoint that, using a GET, triggers the recording of the click and redirects to the target. Append the query string `noredirect` to count the click without the redirect."
+    clickUrl: Url
+
+    "One or more {AdzerkContent}s."
+    contents: [AdzerkContent]
+
+    "The url endpoint that, using a GET, triggers the recording of the impression."
+    impressionUrl: Url
+
+    "Text to use as spoc view's \"item title\"."
+    title: String @derives(first_available: ".contents[0].data.ctTitle")
+
+    "Text to use as spoc view's \"item domain/host\"."
+    domain: String @derives(first_available: ".contents[0].data.ctDomain")
+
+    "URL to open as a deep link or as an item in Reader."
+    url: Url @derives(first_available: ".contents[0].data.ctUrl")
+
+    "An image to use as spoc view's \"item thumbnail\"."
+    thumbnail: Url @derives(first_available: ".contents[0].data.ctFullimagepath")
+
+    "Sponsor name to use as spoc view's \"profile name\"."
+    sponsor: String @derives(first_available: ".contents[0].data.ctSponsor")
+
+    "A sponsor logo to use as spoc view's \"profile avatar\"."
+    sponsorLogo: Url @derives(first_available: ".contents[0].data.ctFullLogopath")
+
+    "Hide the sponsored label if true."
+    removeSponsoredLabel: Boolean
+        @derives(reactive: ".contents[0].data.ctRemoveSponsorLabel")
+        @derives(instructions: "true if {.contents[0].data.ctRemoveSponsorLabel} is the string \"true\", false otherwise")
+}
+
+"""
+Represents the creative that should be displayed.
+"""
+type AdzerkContent {
+    "An object that has fields used to build the content."
+    data: AdzerkContentData
+}
+
+"""
+Custom Pocket template data to bind to our SPOC views.
+"""
+type AdzerkContentData {
+    "Sponsor name to use as spoc view's \"profile name\"."
+    ctSponsor: String
+
+    "Text to use as spoc view's \"item title\"."
+    ctTitle: String
+
+    "Text to use as spoc view's \"item domain/host\"."
+    ctDomain: String
+
+    "URL to open as a deep link or as an item in Reader."
+    ctUrl: Url
+
+    "A sponsor logo to use as spoc view's \"profile avatar\"."
+    ctFullLogopath: Url
+
+    "An image to use as spoc view's \"item thumbnail\"."
+    ctFullimagepath: Url
+
+    "Hide the \"Sponsored\" label if this equals \"true\"."
+    ctRemoveSponsorLabel: String
+}
+
+extend type Mutation {
+    """
+    Report SPOC impression to Adzerk.
+    Fire this action when at least 50% of the spoc has been visible for 1 second.
+    Only fire once per session for the same {AdzerkSpoc.decision.creativeId}
+    Note: retrying Adzerk impressions/clicks is fine and we should try to do it for up to 24h since receiving the response at which point the URL will become invalid.
+    """
+    adzerk_track_impression(
+        "The {AdzerkSpoc.decision.impressionUrl} of the spoc." impression_url: Url
+    ): Void @figment(address: "{.impression_url}") @figment(priority: "ASAP")
+
+    """
+    Report SPOC click to Adzerk.
+    Fire this action when a spoc has been tapped/clicked to be opened/viewed
+    Note: retrying Adzerk impressions/clicks is fine and we should try to do it for up to 24h since receiving the response at which point the URL will become invalid.
+    """
+    adzerk_track_click(
+        "The {AdzerkSpoc.decision.clickUrl} of the spoc." click_url: Url,
+        "Count the click without a redirect. In adzerk's api this parameter doesn't need a value, so to have this off, don't set this to false, just don't declare it." noredirect: Boolean
+    ): Void @figment(address: "{.click_url}") @figment(priority: "ASAP")
+}

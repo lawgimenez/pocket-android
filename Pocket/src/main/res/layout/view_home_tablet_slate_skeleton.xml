@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pocket.ui.view.themed.ThemedConstraintLayout2 xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg">
+    
+    <com.pocket.ui.view.themed.ThemedView
+        android:id="@+id/slateName"
+        android:layout_width="142dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/bg_skeleton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    
+    <com.pocket.ui.view.themed.ThemedView
+        android:id="@+id/seeAll"
+        android:layout_width="64dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_skeleton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    
+    <include
+        android:id="@+id/heroCard"
+        layout="@layout/view_home_tablet_slate_hero_card_skeleton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@id/seeAll"
+        app:layout_constraintStart_toStartOf="@id/slateName"
+        app:layout_constraintTop_toBottomOf="@id/slateName" />
+    
+    <include
+        android:id="@+id/minorCard1"
+        layout="@layout/view_home_slate_minor_card_skeleton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@id/minorCard2"
+        app:layout_constraintStart_toStartOf="@id/heroCard"
+        app:layout_constraintTop_toBottomOf="@id/heroCard" />
+    
+    <include
+        android:id="@+id/minorCard2"
+        layout="@layout/view_home_slate_minor_card_skeleton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="@id/heroCard"
+        app:layout_constraintStart_toEndOf="@id/minorCard1"
+        app:layout_constraintTop_toTopOf="@id/minorCard1" />
+    
+    <include
+        android:id="@+id/minorCard3"
+        layout="@layout/view_home_slate_minor_card_skeleton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/minorCard4"
+        app:layout_constraintStart_toStartOf="@id/heroCard"
+        app:layout_constraintTop_toBottomOf="@id/minorCard1" />
+    
+    <include
+        android:id="@+id/minorCard4"
+        layout="@layout/view_home_slate_minor_card_skeleton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/heroCard"
+        app:layout_constraintStart_toEndOf="@id/minorCard3"
+        app:layout_constraintTop_toTopOf="@id/minorCard3" />
+
+</com.pocket.ui.view.themed.ThemedConstraintLayout2>

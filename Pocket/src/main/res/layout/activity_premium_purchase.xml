@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pocket.ui.view.themed.ThemedRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/cl_pkt_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.pocket.ui.view.AppBar
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_below="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.pocket.ui.view.visualmargin.VisualMarginConstraintLayout
+            android:id="@+id/content"
+            android:animateLayoutChanges="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/pkt_space_sm">
+            <com.pocket.ui.view.themed.ThemedTextView
+                style="@style/Pkt_Text_Extra_Large_Title"
+                android:id="@+id/title"
+                app:layout_constraintVertical_chainStyle="packed"
+                android:gravity="center"
+                android:text="@string/lb_prem_purchase_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/info"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintWidth_max="@dimen/pkt_info_page_max_width"
+                app:visualMargin_top="@dimen/pkt_space_sm"
+                android:paddingStart="@dimen/pkt_side_grid"
+                android:paddingLeft="@dimen/pkt_side_grid"
+                android:paddingRight="@dimen/pkt_side_grid"
+                android:paddingEnd="@dimen/pkt_side_grid" />
+
+            <com.pocket.ui.view.info.InfoPagingView
+                android:id="@+id/info"
+                app:layout_constraintVertical_chainStyle="packed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/purchase_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:visualMargin_top="@dimen/pkt_space_lg" />
+
+            <com.pocket.ui.view.button.PurchaseStateButtons
+                android:id="@+id/purchase_button"
+                app:layout_constraintVertical_chainStyle="packed"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintWidth_max="@dimen/pkt_info_page_max_width"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/info"
+                app:layout_constraintBottom_toTopOf="@+id/purchase_terms"
+                android:layout_marginStart="@dimen/pkt_side_grid"
+                android:layout_marginLeft="@dimen/pkt_side_grid"
+                android:layout_marginRight="@dimen/pkt_side_grid"
+                android:layout_marginEnd="@dimen/pkt_side_grid" />
+
+            <com.pocket.ui.view.themed.ThemedTextView
+                android:id="@+id/purchase_terms"
+                style="@style/Pkt_Text_Teeny_Tiny_Light"
+                app:layout_constraintVertical_chainStyle="packed"
+                android:gravity="center"
+                android:text="@string/lb_prem_purchase_terms"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/purchase_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintWidth_max="@dimen/pkt_info_page_max_width"
+                app:visualMargin_top="@dimen/pkt_space_sm"
+                android:paddingStart="@dimen/pkt_side_grid"
+                android:paddingLeft="@dimen/pkt_side_grid"
+                android:paddingRight="@dimen/pkt_side_grid"
+                android:paddingEnd="@dimen/pkt_side_grid" />
+
+        </com.pocket.ui.view.visualmargin.VisualMarginConstraintLayout>
+    </ScrollView>
+
+    <com.pocket.app.premium.view.PremiumUpgradeWebView
+        android:id="@+id/flow_upgrade_web_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appbar"
+        android:visibility="gone" />
+
+    <com.pocket.ui.view.progress.FullscreenProgressView
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</com.pocket.ui.view.themed.ThemedRelativeLayout>

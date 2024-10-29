@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        app:layout_constraintWidth_max="280dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.pocket.ui.view.visualmargin.VisualMarginConstraintLayout
+        android:id="@+id/caption_wrap"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image">
+        <com.pocket.ui.view.themed.ThemedTextView
+            android:id="@+id/title"
+            style="@style/Pkt_Text_Title"
+            android:layout_width="0dp"
+            app:visualMargin_top="@dimen/pkt_space_md"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.pocket.ui.view.themed.ThemedTextView
+            android:id="@+id/text"
+            style="@style/Pkt_Text_Small_Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:visualMargin_top="@dimen/pkt_space_md"
+            android:gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+    </com.pocket.ui.view.visualmargin.VisualMarginConstraintLayout>
+</merge>

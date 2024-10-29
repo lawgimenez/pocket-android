@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style>
+html { width: 100%; height: 100%; }
+body
+{
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+	background: black;
+}
+a
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: black url(play.png) center no-repeat;
+}
+</style>
+</head>
+
+<body style="" onclick="">
+
+<a onclick="tryToLoadVideo(true)">&nbsp;</a>
+
+<script>
+
+
+function tryToLoadVideo(warn)
+{
+	if (location.hash.length > 2 && PocketAndroidWebInterface.isConnected())
+		window.location = location.hash.replace(/^#/,'');
+	
+	else if (warn)
+		alert('Offline video is not supported at this time.  Please connect to the internet to view this video.');
+}
+
+window.onload = function() { tryToLoadVideo(false) };
+
+</script>
+
+</body>
+</html>

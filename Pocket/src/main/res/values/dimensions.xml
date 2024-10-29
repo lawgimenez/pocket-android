@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bottom_nav_height">63dp</dimen>
+    <dimen name="webview_progress_height">3dp</dimen>
+    <dimen name="dialog_min_padding">33dp</dimen>
+    <dimen name="dialog_max_width">700dp</dimen>
+    <dimen name="dialog_max_height">700dp</dimen>
+    <dimen name="suggested_tags_loading_min_height">64dp</dimen>
+    
+    <dimen name="circle_progress_diameter">55dp</dimen>
+
+    <dimen name="chip_tag_height">24dp</dimen>
+    <dimen name="chip_text">16dp</dimen>
+    <dimen name="chip_layout_spacing">6dp</dimen>
+
+    <dimen name="pref_inner_cell_padding_horizontal">18dp</dimen>
+    
+    <dimen name="bottom_nav_elevation">8dp</dimen>
+
+    <dimen name="listen_mini_player_height">68dp</dimen>
+    <dimen name="listen_space_lg">24dp</dimen>
+    <dimen name="listen_scrub_button_size">10dp</dimen>
+    <dimen name="listen_speed_popup_height">126dp</dimen>
+    <dimen name="listen_speed_popup_width">54dp</dimen>
+
+    <dimen name="rainbow_bar_height">3dp</dimen>
+    
+    <dimen name="home_max_width">775dp</dimen>
+    <dimen name="home_minor_card_title_and_image_height">86dp</dimen>
+    <dimen name="home_minor_card_width">312dp</dimen>
+    
+    <dimen name="saves_image_width">90dp</dimen>
+    <dimen name="saves_image_height">60dp</dimen>
+</resources>

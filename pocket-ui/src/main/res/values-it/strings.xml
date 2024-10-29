@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- smartling.instruction_attributes = comment -->
+<!-- smartling.placeholder_format_custom = \{[a-zA-Z0-9_-]+\}-->
+<resources>
+    <!-- Accessibility and tooltip labels for icons -->
+    <string name="ic_overflow">Altro…</string>
+    <string name="ic_up">Torna indietro</string>
+    <string name="ic_archive" comment="Label for a button that archives an item. This is a verb.">Archivia</string>
+    <string name="ic_save">Salva</string>
+    <string name="ic_saved">Salvato</string>
+    <string name="ic_readd">Aggiungi di nuovo</string>
+    <string name="ic_favorite">Preferito</string>
+    <string name="ic_unfavorite">Rimuovi dai preferiti</string>
+    <string name="ic_mark_as_viewed">Segna come visualizzato</string>
+    <string name="ic_mark_as_not_viewed">Segna come non visualizzato</string>
+    <string name="ic_share">Condividi</string>
+    <string name="ic_delete">Elimina</string>
+    <string name="ic_add_tags">Aggiungi tag</string>
+    <string name="ic_filters">Filtri</string>
+    <string name="ic_play">Riproduci</string>
+    <string name="ic_pause">Pausa</string>
+    <string name="ic_skip">Vai avanti veloce</string>
+    <string name="ic_back">Salta indietro</string>
+    <string name="ic_cancel">Annulla</string>
+    <string name="ic_listen">Ascolto</string>
+    <string name="ic_like">Mi piace</string>
+    <string name="ic_remove_like">Elimina Mi piace</string>
+    <string name="ic_repost">Repost</string>
+    <string name="ic_remove_repost">Elimina post</string>
+    <string name="ic_plus">+</string>
+    <string name="ic_minus">-</string>
+    <string name="ic_close">Chiudi</string>
+    <string name="ic_edit">Modifica</string>
+    <string name="ic_highlight" comment="Label for button that highlights selected text">In evidenza</string>
+    <string name="ic_copy">Copia</string>
+    <string name="ic_brightness_down">Diminuire la luminosità dello schermo</string>
+    <string name="ic_brightness_up">Aumentare la luminosità dello schermo</string>
+    <string name="ic_brightness_control">Luminosità dello schermo</string>
+    <string name="ic_settings">Impostazioni</string>
+    <string name="ic_premium">Pocket Premium</string>
+    <string name="ic_pocket_menu">Menu di Pocket</string>
+
+    <string name="ac_save">Salva</string>
+    <string name="ac_save_to_pocket">Salva in Pocket</string>
+    <string name="ac_previous">Indietro</string>
+    <string name="ac_next">Avanti</string>
+    
+    <string name="upgrade">Aggiorna</string>
+    <string name="upgrade_upsell">Sblocca altre opzioni di personalizzazione</string>
+    <string name="get_premium">Passa a Premium</string>
+    
+    <string name="counts_thousands" comment="number abbreviated to thousands. such as 1k for 1,000. as short as possible.">%1$d000</string>
+    <string name="counts_millions" comment="number abbreviated to millions. such as 1m for 1,000,000. as short as possible">%1$d mln</string>
+    
+    <!-- content descriptions -->
+    <string name="setting_incrementor" comment="{setting} is a placeholder for a text style setting, eg Text Size, Line Height, or Margin, do not translate the content within {}">Aumenta {setting}</string>
+    <string name="setting_decrementor" comment="{setting} is a placeholder for a text style setting, eg Text Size, Line Height, or Margin, do not translate the content within {}">Diminuisci {setting}</string>
+    <string name="text_setting_text_size">Dimensioni testo</string>
+    <string name="text_setting_line_height">Altezza linea</string>
+    <string name="text_setting_margin">Margine</string>
+
+    <string name="current_typeface" comment="{typeface} is a placeholder for the current text typeface setting, eg Blanco, Graphik, do not translate the content within {}">Modifica carattere tipografico da {typeface}</string>
+
+    <string name="theme_toggle_light_desc">Cambia il tema in chiaro</string>
+    <string name="theme_toggle_dark_desc">Cambia il tema in scuro</string>
+    <string name="theme_toggle_auto_desc">Modifica tema automaticamente</string>
+
+    <!-- Strings only used for ux playground-->
+    <string name="light">Chiaro</string>
+    <string name="dark">Scuro</string>
+</resources>

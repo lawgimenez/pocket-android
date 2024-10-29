@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pocket.app.list.filter.FilterBottomSheetViewModel"
+            />
+    </data>
+
+<com.pocket.ui.view.themed.ThemedLinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_bottom_sheet"
+    android:paddingBottom="40dp"
+    >
+    
+    <com.pocket.ui.view.themed.ThemedLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="20dp"
+        android:paddingBottom="11dp"
+        >
+        
+        <com.pocket.ui.view.button.IconButton
+            android:layout_width="22dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_filter"
+            android:layout_marginStart="29dp"
+            android:tint="@color/pkt_themed_grey_5"
+            />
+        
+        <com.pocket.ui.view.themed.ThemedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="19dp"
+            android:textSize="16sp"
+            android:textColor="@color/pkt_themed_grey_5"
+            android:text="@string/my_list_filter"
+            />
+    
+    </com.pocket.ui.view.themed.ThemedLinearLayout>
+    
+    <com.pocket.ui.view.checkable.CheckableTextView
+        android:id="@+id/viewed"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:paddingStart="68dp"
+        android:textSize="16sp"
+        android:textColor="@color/pkt_themed_grey_1"
+        android:text="@string/viewed"
+        android:background="@drawable/pkt_checkable_text_view_background"
+        android:onClick="@{() -> viewModel.onViewedClicked()}"
+        app:checked="@{viewModel.uiState.filters.viewed.checked}"
+        app:visibility="@{viewModel.uiState.filters.viewed.visible}"
+        />
+    
+    <com.pocket.ui.view.checkable.CheckableTextView
+        android:id="@+id/notViewed"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:paddingStart="68dp"
+        android:textSize="16sp"
+        android:textColor="@color/pkt_themed_grey_1"
+        android:text="@string/not_viewed"
+        android:background="@drawable/pkt_checkable_text_view_background"
+        android:onClick="@{() -> viewModel.onNotViewedClicked()}"
+        app:checked="@{viewModel.uiState.filters.notViewed.checked}"
+        app:visibility="@{viewModel.uiState.filters.notViewed.visible}"
+        />
+    
+    <com.pocket.ui.view.checkable.CheckableTextView
+        android:id="@+id/shortReads"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:paddingStart="68dp"
+        android:textSize="16sp"
+        android:textColor="@color/pkt_themed_grey_1"
+        android:text="@string/short_reads"
+        android:background="@drawable/pkt_checkable_text_view_background"
+        android:onClick="@{() -> viewModel.onShortReadsClicked()}"
+        app:checked="@{viewModel.uiState.filters.shortReads.checked}"
+        app:visibility="@{viewModel.uiState.filters.shortReads.visible}"
+        />
+    
+    <com.pocket.ui.view.checkable.CheckableTextView
+        android:id="@+id/longReads"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:paddingStart="68dp"
+        android:textSize="16sp"
+        android:textColor="@color/pkt_themed_grey_1"
+        android:text="@string/long_reads"
+        android:background="@drawable/pkt_checkable_text_view_background"
+        android:onClick="@{() -> viewModel.onLongReadsClicked()}"
+        app:checked="@{viewModel.uiState.filters.longReads.checked}"
+        app:visibility="@{viewModel.uiState.filters.longReads.visible}"
+        />
+    
+    <com.pocket.ui.view.themed.ThemedLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="20dp"
+        android:paddingBottom="11dp"
+        >
+        
+        <com.pocket.ui.view.button.IconButton
+            android:layout_width="18dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_pkt_sort_line"
+            android:layout_marginStart="29dp"
+            android:tint="@color/pkt_themed_grey_5"
+            />
+        
+        <com.pocket.ui.view.themed.ThemedTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:textSize="16sp"
+            android:textColor="@color/pkt_themed_grey_5"
+            android:text="@string/lb_sort_by"
+            />
+    
+    </com.pocket.ui.view.themed.ThemedLinearLayout>
+    
+    <com.pocket.ui.view.checkable.CheckableTextView
+        android:id="@+id/newest"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:paddingStart="68dp"
+        android:textSize="16sp"
+        android:textColor="@color/pkt_themed_grey_1"
+        android:text="@{viewModel.uiState.sortNewestLabel}"
+        android:background="@drawable/pkt_checkable_text_view_background"
+        android:onClick="@{() -> viewModel.onNewestClicked()}"
+        app:checked="@{viewModel.uiState.sortOrders.newest.checked}"
+        app:visibility="@{viewModel.uiState.sortOrders.newest.visible}"
+        tools:text="Newest saved"
+        />
+    
+    <com.pocket.ui.view.checkable.CheckableTextView
+        android:id="@+id/oldest"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:paddingStart="68dp"
+        android:textSize="16sp"
+        android:textColor="@color/pkt_themed_grey_1"
+        android:text="@{viewModel.uiState.sortOldestLabel}"
+        android:background="@drawable/pkt_checkable_text_view_background"
+        android:onClick="@{() -> viewModel.onOldestClicked()}"
+        app:checked="@{viewModel.uiState.sortOrders.oldest.checked}"
+        app:visibility="@{viewModel.uiState.sortOrders.oldest.visible}"
+        tools:text="Oldest saved"
+        />
+    
+    <com.pocket.ui.view.checkable.CheckableTextView
+        android:id="@+id/shortest"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:paddingStart="68dp"
+        android:textSize="16sp"
+        android:textColor="@color/pkt_themed_grey_1"
+        android:text="@string/lb_sort_by_shortest"
+        android:background="@drawable/pkt_checkable_text_view_background"
+        android:onClick="@{() -> viewModel.onShortestClicked()}"
+        app:checked="@{viewModel.uiState.sortOrders.shortest.checked}"
+        app:visibility="@{viewModel.uiState.sortOrders.shortest.visible}"
+        />
+    
+    <com.pocket.ui.view.checkable.CheckableTextView
+        android:id="@+id/longest"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:paddingStart="68dp"
+        android:textSize="16sp"
+        android:textColor="@color/pkt_themed_grey_1"
+        android:text="@string/lb_sort_by_longest"
+        android:background="@drawable/pkt_checkable_text_view_background"
+        android:onClick="@{() -> viewModel.onLongestClicked()}"
+        app:checked="@{viewModel.uiState.sortOrders.longest.checked}"
+        app:visibility="@{viewModel.uiState.sortOrders.longest.visible}"
+        />
+
+</com.pocket.ui.view.themed.ThemedLinearLayout>
+
+</layout>

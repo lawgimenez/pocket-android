@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:layout_height="wrap_content"
+    tools:parentTag="com.pocket.ui.view.menu.SectionHeaderView">
+
+    <com.pocket.ui.view.themed.ThemedView
+        android:id="@+id/top_divider"
+        style="@style/Pkt_ThickDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <com.pocket.ui.view.themed.ThemedView
+        android:id="@+id/bottom_divider"
+        style="@style/Pkt_ThinDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/label"
+        style="@style/Pkt_Text_Small_LightTitle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/pkt_menu_option_height"
+        android:layout_marginLeft="@dimen/pkt_side_grid"
+        android:layout_marginStart="@dimen/pkt_side_grid"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_divider"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_divider"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_goneMarginEnd="@dimen/pkt_side_grid"
+        tools:text="Social Notifications"
+        />
+
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/button"
+        style="@style/Pkt_Text_Link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/pkt_side_grid"
+        android:layout_marginLeft="@dimen/pkt_space_md"
+        android:layout_marginRight="@dimen/pkt_side_grid"
+        android:layout_marginStart="@dimen/pkt_space_md"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/label"
+        app:layout_constraintTop_toBottomOf="@+id/top_divider"
+        app:layout_constraintVertical_bias="0.5"
+        />
+
+</merge>

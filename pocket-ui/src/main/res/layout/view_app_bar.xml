@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pocket="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:layout_height="wrap_content"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout"
+    >
+
+    <com.pocket.ui.view.button.IconButton
+        android:id="@+id/leftIcon"
+        style="@style/Pkt_IconButton"
+        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="@dimen/pkt_side_grid"
+        pocket:layout_constraintBottom_toBottomOf="parent"
+        pocket:layout_constraintStart_toStartOf="parent"
+        pocket:layout_constraintTop_toTopOf="parent" />
+
+    <com.pocket.ui.view.themed.ThemedView
+        style="@style/Pkt_ThinDivider"
+        android:id="@+id/divider"
+        pocket:layout_constraintBottom_toBottomOf="parent" />
+
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/title"
+        style="@style/Pkt_Text_AppBarTitle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/pkt_app_bar_height"
+        android:paddingStart="@dimen/pkt_side_grid"
+        android:paddingLeft="@dimen/pkt_side_grid"
+        pocket:layout_constraintHorizontal_bias="0.5"
+        pocket:layout_constraintEnd_toStartOf="@+id/titleBarrier"
+        pocket:layout_constraintBottom_toBottomOf="parent"
+        pocket:layout_constraintStart_toEndOf="@id/leftIcon"
+        pocket:layout_constraintTop_toTopOf="parent"
+        pocket:paddingVerticalCenter="true" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/titleBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        pocket:barrierDirection="start"
+        pocket:barrierAllowsGoneWidgets="false"
+        pocket:constraint_referenced_ids="centerContainer,actions" />
+
+    <com.pocket.ui.view.themed.ThemedFrameLayout
+        android:id="@+id/centerContainer"
+        pocket:layout_constraintStart_toStartOf="parent"
+        pocket:layout_constraintEnd_toEndOf="parent"
+        pocket:layout_constraintTop_toTopOf="parent"
+        pocket:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp" />
+
+    <com.pocket.ui.view.themed.ThemedLinearLayout
+        android:id="@+id/actions"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:paddingRight="@dimen/pkt_side_grid"
+        android:paddingEnd="@dimen/pkt_side_grid"
+        pocket:layout_constraintEnd_toEndOf="parent"
+        pocket:layout_constraintBottom_toBottomOf="parent"
+        pocket:layout_constraintTop_toTopOf="parent" />
+
+</merge>

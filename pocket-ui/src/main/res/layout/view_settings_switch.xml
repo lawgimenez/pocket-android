@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       xmlns:app="http://schemas.android.com/apk/res-auto"
+       xmlns:tools="http://schemas.android.com/tools"
+       tools:parentTag="com.pocket.ui.view.settings.SettingsSwitchView">
+
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/title"
+        style="@style/Pkt_Text_Title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/pkt_side_grid"
+        android:layout_marginLeft="@dimen/pkt_side_grid"
+        android:layout_marginEnd="@dimen/pkt_space_md"
+        android:layout_marginRight="@dimen/pkt_space_md"
+        android:gravity="left"
+        app:layout_constraintBottom_toTopOf="@+id/subtitle"
+        app:layout_constraintEnd_toStartOf="@+id/toggleSwitch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_goneMarginBottom="@dimen/pkt_space_md"
+        app:layout_goneMarginEnd="@dimen/pkt_side_grid"
+        app:visualMargin_top="@dimen/pkt_space_md"/>
+
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/subtitle"
+        style="@style/Pkt_Text_Light"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/pkt_side_grid"
+        android:layout_marginLeft="@dimen/pkt_side_grid"
+        android:layout_marginEnd="@dimen/pkt_space_md"
+        android:layout_marginRight="@dimen/pkt_space_md"
+        android:layout_marginBottom="@dimen/pkt_space_md"
+        android:gravity="left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/toggleSwitch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_goneMarginEnd="@dimen/pkt_side_grid"/>
+
+    <com.pocket.ui.view.menu.ThemedSwitch
+        android:id="@+id/toggleSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pkt_space_md"
+        android:layout_marginEnd="@dimen/pkt_side_grid"
+        android:layout_marginRight="@dimen/pkt_side_grid"
+        android:layout_marginBottom="@dimen/pkt_space_md"
+        android:clickable="false"
+        android:duplicateParentState="true"
+        android:focusable="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+</merge>

@@ -1,0 +1,20 @@
+changelog:
+  exclude:
+    labels:
+    - ignore-for-release
+    authors:
+    - smartling-github-connector
+  categories:
+  - title: Features and bug fixes
+    labels:
+    - '*'
+    exclude:
+      labels:
+      - build-setup
+      - dependencies
+  - title: Build setup updates
+    labels:
+    - build-setup
+  - title: Dependency updates
+    labels:
+    - dependencies

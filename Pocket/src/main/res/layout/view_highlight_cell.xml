@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pocket.ui.view.themed.ThemedConstraintLayout2
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    
+    <com.pocket.ui.view.themed.ThemedView
+        android:id="@+id/bar"
+        android:layout_width="4dp"
+        android:layout_height="0dp"
+        android:background="@drawable/highlight_bar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/highlightText"
+        />
+    
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/highlightText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:textColor="@color/pkt_text_primary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/bar"
+        tools:text="Skinny jeans and “in style” may be approximately antipodal points today, but that only means tight pants are almost ready to start happening again. "/>
+
+    <com.pocket.ui.view.button.IconButton
+        android:id="@+id/shareButton"
+        style="@style/Pkt_IconButton"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:padding="5dp"
+        android:layout_marginEnd="18dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_pkt_android_share_solid"
+        app:layout_constraintTop_toTopOf="@id/deleteButton"
+        app:layout_constraintBottom_toBottomOf="@id/deleteButton"
+        app:layout_constraintEnd_toStartOf="@id/deleteButton"/>
+    
+    <com.pocket.ui.view.button.IconButton
+        android:id="@+id/deleteButton"
+        style="@style/Pkt_IconButton"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:padding="5dp"
+        android:layout_marginTop="5dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_pkt_delete_line"
+        app:layout_constraintTop_toBottomOf="@id/highlightText"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    
+</com.pocket.ui.view.themed.ThemedConstraintLayout2>

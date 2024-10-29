@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_pkt_bottom_sheet"
+    android:clipChildren="false"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+    <!-- Background will be added in code -->
+    
+    <com.pocket.ui.view.bottom.BottomSheetDragHandle
+        android:id="@+id/handle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:paddingBottom="@dimen/pkt_space_sm"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/listen_playing_from"
+        style="@style/Pkt_Text_Small_Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/pkt_space_md"
+        android:text="@string/listen_playing_from"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/handle" />
+    
+    <com.pocket.ui.view.button.IconButton
+        android:id="@+id/listen_settings"
+        style="@style/Pkt_IconButton_Settings"
+        android:layout_height="@dimen/pkt_icon_button_width"
+        android:layout_marginRight="@dimen/pkt_space_sm"
+        app:layout_constraintBottom_toBottomOf="@+id/listen_playing_from"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/listen_playing_from"
+        app:uiEntityIdentifier="listen_settings" />
+    
+    <com.pocket.app.listen.CoverflowView
+        android:id="@+id/coverflow"
+        android:layout_width="0dp"
+        android:layout_height="216dp"
+        android:clipToPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listen_playing_from"
+        app:visualMargin_top="@dimen/pkt_space_md"
+        />
+    
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/listen_headline"
+        style="@style/ListenTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coverflow"
+        app:visualMargin_top="@dimen/listen_space_lg"
+        tools:text="The Title of The Article" />
+    
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/listen_subhead"
+        style="@style/ListenSubhead"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/listen_headline"
+        app:layout_constraintStart_toStartOf="@+id/listen_headline"
+        app:layout_constraintTop_toBottomOf="@+id/listen_headline"
+        app:visualMargin_top="@dimen/pkt_space_sm"
+        tools:text="Domain • Author Name" />
+    
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/listen_current_time"
+        style="@style/Pkt_Text_Mini_Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/listen_scrub_button_size"
+        app:layout_constraintStart_toStartOf="@+id/scrubber"
+        app:layout_constraintTop_toBottomOf="@+id/listen_subhead"
+        app:visualMargin_top="@dimen/listen_space_lg"
+        tools:text="1:19" />
+    
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/listen_time_left"
+        style="@style/Pkt_Text_Mini_Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/listen_scrub_button_size"
+        app:layout_constraintEnd_toEndOf="@+id/scrubber"
+        app:layout_constraintTop_toTopOf="@+id/listen_current_time"
+        tools:text="-4:19" />
+    
+    <com.pocket.ui.view.themed.ThemedSeekBar
+        android:id="@+id/scrubber"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:max="@integer/listen_max_progress"
+        android:paddingLeft="@dimen/listen_scrub_button_size"
+        android:paddingTop="@dimen/pkt_space_sm"
+        android:paddingRight="@dimen/listen_scrub_button_size"
+        android:paddingBottom="@dimen/listen_space_lg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listen_current_time" />
+    
+    <ProgressBar
+        android:id="@+id/listen_progress"
+        style="?android:progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="51dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:max="@integer/listen_max_progress"
+        android:paddingBottom="@dimen/listen_space_lg"
+        android:paddingTop="@dimen/listen_space_lg"
+        android:progressDrawable="@drawable/listen_progress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listen_subhead" />
+    
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/progress_barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="scrubber, listen_progress" />
+    
+    <com.pocket.ui.view.themed.ThemedView
+        android:id="@+id/listen_playlist_top_divider"
+        style="@style/Pkt_ThinDivider"
+        android:layout_width="0dp"
+        android:layout_marginTop="@dimen/listen_space_lg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listen_controls" />
+    
+    <com.pocket.ui.view.menu.SectionHeaderView
+        android:id="@+id/listen_playlist_header"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:paddingTop="4dp"
+        android:text="@string/listen_playlist_header"
+        app:showDividerBottom="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listen_playlist_top_divider"
+        />
+    
+    <com.pocket.app.listen.ListenControlsView
+        android:id="@+id/listen_controls"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progress_barrier" />
+</merge>

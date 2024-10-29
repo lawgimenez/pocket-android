@@ -1,0 +1,18 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "local>Pocket/renovate-config"
+  ],
+  "ignorePaths": ["buildSrc/**"],
+  "ignorePresets": [":dependencyDashboardApproval"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "matchManagers": ["gradle", "gradle-wrapper"],
+      "commitMessageTopic": "{{depName}}"
+    }
+  ]
+}

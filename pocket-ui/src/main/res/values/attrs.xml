@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="appTheme">
+        <attr name="state_light" format="boolean" />
+        <attr name="state_dark" format="boolean" />
+    </declare-styleable>
+
+    <attr name="typeface" format="enum">
+        <enum name="graphik_lcg_medium" value="1" />
+        <enum name="graphik_lcg_medium_italic" value="2" />
+        <enum name="graphik_lcg_regular" value="3" />
+        <enum name="graphik_lcg_regular_italic" value="4" />
+        <enum name="blanco_regular" value="5" />
+        <enum name="blanco_bold" value="6" />
+        <enum name="blanco_italic" value="7" />
+        <enum name="blanco_bold_italic" value="8" />
+        <enum name="doyle_medium" value="9" />
+    </attr>
+
+    <declare-styleable name="DefaultStyles">
+        <attr name="simpleDrawerRowStyle" format="reference" />
+        <attr name="subheaderStyle" format="reference" />
+        <!-- TODO  decide if we want to use this -->
+        <attr name="iconButtonStyle" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ThemedImageView">
+        <attr name="drawableColor" format="color" />
+        <attr name="heightRatio" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="CheckableHelper">
+        <attr name="isCheckable" format="boolean" />
+        <!-- A content description to use when checked. When not, it will use the default one. -->
+        <attr name="checkedContentDescription" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="ThemedTextView">
+        <attr name="visualPadding" format="boolean" /> <!-- TODO when we get around to doing OptionRowView again, i think we can remove this -->
+        <attr name="paddingVerticalCenter" format="boolean" />
+        <attr name="compatTextColor" format="reference" />
+        <attr name="typeface" />
+    </declare-styleable>
+
+    <declare-styleable name="SectionHeaderView">
+        <attr name="showDividerTop" format="boolean" />
+        <attr name="showDividerBottom" format="boolean" />
+        <attr name="android:text" />
+    </declare-styleable>
+
+    <declare-styleable name="ThemedEditText">
+        <attr name="compatEditTextColor" format="reference" />
+        <attr name="compatEditTextHintColor" format="reference" />
+        <attr name="typeface" />
+    </declare-styleable>
+
+    <declare-styleable name="IconButton">
+        <!-- Optionally use these colors while the view is "checked" -->
+        <attr name="checkedDrawableColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ItemActionsView">
+        <attr name="actionLayout" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="BottomDrawer">
+        <attr name="sheetLayout" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="ItemActionsBarView">
+        <attr name="itemActionBarSidePadding" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="VisualMarginConstraintLayout_Layout">
+        <attr name="visualMargin_top" format="dimension" />
+        <attr name="visualMargin_goneTop" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="RainbowProgressCircleView">
+        <attr name="progressColorsExcludeCoral" format="boolean" />
+        <attr name="progressStartAsArc" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CountIconButton">
+        <attr name="countIconSrc" format="reference" />
+        <attr name="countIconColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="SettingsSwitchView">
+        <attr name="android:title" />
+        <attr name="android:text" />
+        <attr name="android:enabled" />
+        <attr name="isToggle" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="LabeledEditText">
+        <attr name="android:hint" />
+        <attr name="android:inputType" />
+        <attr name="android:drawableRight" />
+        <attr name="underLine" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="AppBar">
+        <attr name="android:title" />
+        <attr name="leftIcon" format="enum">
+            <enum name="none" value="0" />
+            <enum name="up" value="1" />
+            <enum name="close" value="2" />
+            <enum name="chevron" value="3" />
+        </attr>
+        <attr name="bottomDivider" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SkeletonView">
+        <attr name="randomWidthPercentFloor" format="float" />
+        <attr name="randomWidthPercentCeil" format="float" />
+        <attr name="compatBackgroundColor" format="reference" />
+        <attr name="cornerRadius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="SkeletonParagraphView">
+        <attr name="minLines" format="integer" />
+        <attr name="maxLines" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="SkeletonList">
+        <attr name="size" format="integer" />
+        <attr name="type" format="enum">
+            <enum name="item" value="0" />
+            <enum name="grid" value="1" />
+            <enum name="tile" value="2" />
+            <enum name="activity" value="3" />
+            <enum name="avatar" value="4" />
+            <enum name="singleLine" value="5" />
+        </attr>
+    </declare-styleable>
+    
+    <declare-styleable name="BottomNavigationButton">
+        <attr name="imageSrc" format="reference" />
+        <attr name="labelText" format="string"/>
+    </declare-styleable>
+    
+    <declare-styleable name="PocketChip">
+        <attr name="chipText" format="string"/>
+        <attr name="chipIcon" format="reference"/>
+        <attr name="chipIconUnselected" format="reference"/>
+        <attr name="chipSelectable" format="boolean"/>
+    </declare-styleable>
+    
+    <declare-styleable name="FilterTile">
+        <attr name="foregroundColor" format="color|reference"/>
+        <attr name="titleText" format="string|reference"/>
+        <attr name="descriptionText" format="string|reference"/>
+    </declare-styleable>
+</resources>

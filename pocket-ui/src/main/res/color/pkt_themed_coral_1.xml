@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--
+        Describes the default of what @color/pkt_coral_1 becomes in other themes.
+        Some individual components may have exceptions.
+    -->
+    <item app:state_dark="true" android:color="@color/pkt_dm_coral_1"/>
+    <item android:color="@color/pkt_coral_1"/>
+</selector>

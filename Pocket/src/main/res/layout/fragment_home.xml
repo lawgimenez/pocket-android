@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pocket.app.home.HomeViewModel"
+            />
+    </data>
+    
+<com.pocket.ui.view.themed.ThemedConstraintLayout2
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    >
+    
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:isRefreshing="@{viewModel.uiState.refreshing}"
+        >
+    
+        <com.pocket.ui.view.themed.ThemedNestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+        
+            <com.pocket.ui.view.themed.ThemedConstraintLayout2
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+    
+                <View
+                    android:id="@+id/centerGuideline"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintWidth_max="@dimen/home_max_width"/>
+        
+                <com.pocket.ui.view.themed.ThemedTextView
+                    android:id="@+id/homeLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/mu_home"
+                    android:textSize="32sp"
+                    android:textColor="@color/pkt_themed_black_2"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@id/centerGuideline"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+    
+                <com.pocket.ui.view.button.IconButton
+                    android:id="@+id/upgrade_icon"
+                    style="@style/Pkt_IconButton_Premium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="16dp"
+                    android:paddingStart="16dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:layout_marginBottom="2dp"
+                    app:drawableColor="@color/pkt_themed_teal_home"
+                    android:onClick="@{() -> viewModel.onPremiumUpgradeClicked()}"
+                    app:visibility="@{viewModel.uiState.upgradeButtonVisible}"
+                    app:layout_constraintEnd_toEndOf="@id/centerGuideline"
+                    app:layout_constraintBottom_toBottomOf="@id/homeLabel"
+                    app:layout_constraintTop_toTopOf="@id/homeLabel"
+                    />
+                <com.pocket.app.home.views.SignInBanner
+                    android:id="@+id/signInBanner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:paddingTop="@dimen/pkt_space_md"
+                    android:paddingBottom="2dp"
+                    app:layout_constraintTop_toBottomOf="@id/homeLabel"
+                    app:layout_constraintStart_toStartOf="@id/centerGuideline"
+                    app:layout_constraintEnd_toEndOf="@id/centerGuideline"
+                    app:onSignInClick="@{viewModel::onSignInClicked}"
+                    app:visibility="@{viewModel.uiState.signInBannerVisible}"
+                    />
+                <include
+                    android:id="@+id/recentSavesLayout"
+                    layout="@layout/view_home_recent_saves"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/pkt_space_lg"
+                    app:layout_constraintTop_toBottomOf="@id/signInBanner"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                
+                <com.pocket.ui.view.themed.ThemedFrameLayout
+                    android:id="@+id/slatesLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/centerGuideline"
+                    app:layout_constraintEnd_toEndOf="@id/centerGuideline"
+                    app:layout_constraintTop_toBottomOf="@id/recentSavesLayout">
+    
+                    <com.pocket.app.home.loading.SlatesSkeletonView
+                        android:id="@+id/slatesSkeleton"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="70dp"
+                        app:visibility="@{viewModel.uiState.screenState.slatesSkeletonVisible}"
+                        tools:visibility="gone"
+                        />
+    
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/slatesRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="1000dp"
+                        app:visibility="@{viewModel.uiState.screenState.slatesVisible}"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/view_home_slate_default"
+                        tools:itemCount="1"
+                        />
+                    
+                </com.pocket.ui.view.themed.ThemedFrameLayout>
+        
+                <com.pocket.ui.view.themed.ThemedTextView
+                    android:id="@+id/moreTopicsTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginEnd="20dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/graphik"
+                    android:textColor="@color/pkt_themed_grey_1"
+                    android:textSize="20sp"
+                    android:text="@string/home_more_topics"
+                    app:visibility="@{viewModel.uiState.screenState.topicsVisible}"
+                    app:layout_constraintTop_toBottomOf="@id/slatesLayout"
+                    app:layout_constraintStart_toStartOf="@id/centerGuideline"
+                    app:layout_constraintEnd_toEndOf="@id/centerGuideline"/>
+        
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/topicsRecyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintTop_toBottomOf="@id/moreTopicsTitle"
+                    app:layout_constraintStart_toStartOf="@id/centerGuideline"
+                    app:layout_constraintEnd_toEndOf="@id/centerGuideline"
+                    app:visibility="@{viewModel.uiState.screenState.topicsVisible}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/view_home_topic_item"
+                    tools:itemCount="5"
+                    />
+                
+                <com.pocket.ui.view.info.FeedFooterView
+                    android:id="@+id/bookAnimationView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/pkt_space_md"
+                    android:layout_marginEnd="@dimen/pkt_space_md"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/topicsRecyclerView"
+                    app:layout_constraintStart_toStartOf="@id/centerGuideline"
+                    app:layout_constraintEnd_toEndOf="@id/centerGuideline"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+                
+            </com.pocket.ui.view.themed.ThemedConstraintLayout2>
+            
+        </com.pocket.ui.view.themed.ThemedNestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    
+    <com.pocket.app.home.views.HomeErrorSnackBar
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="21dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintWidth_max="400dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:onErrorSnackBarDismissed="@{viewModel::onErrorSnackBarDismissed}"
+        app:isLoading="@{viewModel.uiState.errorSnackBarRefreshing}"
+        app:onRetryClicked="@{() -> viewModel.onErrorRetryClicked()}"
+        app:isShowing="@{viewModel.uiState.errorSnackBarVisible}"/>
+
+</com.pocket.ui.view.themed.ThemedConstraintLayout2>
+
+</layout>

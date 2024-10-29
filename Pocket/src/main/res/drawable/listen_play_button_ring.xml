@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A modified version of progress_indeterminate_anim_medium_material -->
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:aapt="http://schemas.android.com/aapt"
+	xmlns:tools="http://schemas.android.com/tools"
+	tools:ignore="NewApi">
+	
+	<aapt:attr name="android:drawable">
+		<vector
+			android:width="64dp"
+			android:height="64dp"
+			android:tint="@color/pkt_themed_grey_3"
+			android:viewportWidth="64"
+			android:viewportHeight="64">
+			
+			<group
+				android:name="root"
+				android:translateX="32.0"
+				android:translateY="32.0">
+				<path
+					android:name="progressBar"
+					android:fillColor="#00000000"
+					android:pathData="M0, 0 m 0, -31 a 31,31 0 1,1 0,62 a 31,31 0 1,1 0,-62 a 31,31 0 1,1 0,62 a 31,31 0 1,1 0,-62"
+					android:strokeWidth="2"
+					android:strokeColor="@color/white"
+					android:strokeLineCap="round"
+					android:strokeLineJoin="miter"
+					android:trimPathStart="0"
+					android:trimPathEnd="1"
+					android:trimPathOffset="0" />
+			</group>
+		</vector>
+	</aapt:attr>
+	
+	<target android:name="progressBar">
+		<aapt:attr name="android:animation">
+			<set>
+				<objectAnimator
+					android:duration="1333"
+					android:interpolator="@anim/trim_start_interpolator"
+					android:propertyName="trimPathStart"
+					android:repeatCount="-1"
+					android:valueFrom="0"
+					android:valueTo="0.38"
+					android:valueType="floatType" />
+				<objectAnimator
+					android:duration="1333"
+					android:interpolator="@anim/trim_end_interpolator"
+					android:propertyName="trimPathEnd"
+					android:repeatCount="-1"
+					android:valueFrom="0.5"
+					android:valueTo="0.88"
+					android:valueType="floatType" />
+				<objectAnimator
+					android:duration="1333"
+					android:interpolator="@android:anim/linear_interpolator"
+					android:propertyName="trimPathOffset"
+					android:repeatCount="-1"
+					android:valueFrom="0"
+					android:valueTo="0.25"
+					android:valueType="floatType" />
+			</set>
+		</aapt:attr>
+	</target>
+	
+	<target android:name="root">
+		<aapt:attr name="android:animation">
+			<objectAnimator
+				android:duration="2222"
+				android:interpolator="@android:anim/accelerate_decelerate_interpolator"
+				android:propertyName="rotation"
+				android:repeatCount="-1"
+				android:valueFrom="0"
+				android:valueTo="360"
+				android:valueType="floatType" />
+		</aapt:attr>
+	</target>
+</animated-vector>

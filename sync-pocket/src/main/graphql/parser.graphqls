@@ -1,0 +1,177 @@
+extend schema @remote(name: "PARSER")
+# Shares the same spec as {V3} with the following exceptions:
+# * `status` and `error` are not returned in the response object.
+
+"""
+Download the article view for a page, TODO get more of the response into here
+clients: if status of 415 and 413 mark as invalid, no need to try again TODO what are these codes?
+"""
+type articleView @figment(related_to: "ArticleViewFeature") @figment(related_to: "PermanentLibraryFeature") @figment(auth: "UserOptionalAuth") @figment(address: "https://text.getpocket.com/v3beta/mobile") {
+    "The url of the page to get article content for"
+    url: Url @id
+
+    "True to potentially include a message in the article view when a page requires login. See https://github.com/Pocket/Parser/blob/master/includes/v3beta/templates/mobile.php#L30"
+    promptSubs: Boolean @id
+
+    "True to request Publisher Messaging support."
+    msg: Boolean @deprecated @id
+
+    "True to return {.item}"
+    getItem: Boolean @id
+
+    "As of Feb 18 2021, couldn't find any references to this in Parser code, not sure what it was."
+    formfactor: FormFactor @deprecated @id
+
+    "Force reparsing of latest version available online"
+    refresh: Boolean @id
+
+    "If a paywalled site that your device has access to, provide the source to be parsed"
+    source: String @id
+
+    "UID.  TODO is this actually used?"
+    u: String @id
+
+    "If requesting the user's Permanent Library copy, set this as the {Item.item_id} of the item you are requesting. If not known, you can use {.pl_gu} instead."
+    pl_i: String @id
+
+    "If requesting the user's Permanent Library copy, set this as the {Item.given_url} of the item you are requesting. If not known, you can use {.pl_i} instead. TODO it looks like this value may need to be url-encoded, rather than the url itself? If so, can we type this as a Url and let Client API handle encoding it before passing it to the parser? Then app's don't need to deal with this quirk."
+    pl_gu: String @id
+
+    "If requesting the user's Permanent Library copy, set this as the hash. The hash can be created by apps by concat'ing \":\" + (the value you passed to {.pl_t}) + \":\" + (the item identifer you sent, either the value you passed to {.pl_i} or {.pl_gu}) + \":\" + (The salt. Ask someone on the parser team for it.) and then taking that result string and doing a sha256 hash encoded as a hex string."
+    pl_h: String @id
+
+    "If requesting the user's Permanent Library copy, the user's {Account.user_id}"
+    pl_u: String @id
+
+    "If requesting the user's Permanent Library copy, the current time as a {Timestamp}"
+    pl_t: String @id
+
+    """
+    If requesting the user's Permanent Library copy, the {Item.given_url} TODO it looks like this value may need to be url-encoded, rather than the url itself? If so, can we type this as a Url and let Client API handle encoding it before passing it to the parser? Then app's don't need to deal with this quirk.
+    Note about this param extracted from code: https://github.com/Pocket/PocketCore-Backend/blob/e6648e44299a375a072bd07229fc208746200827/includes/functions_library.php#L159
+    If a client passed a fallback url, then redirect to that instead
+    We use this in the scenario where an item was being opened from the client that wasn't in the users list.
+    For example, in the project-x/recommended feed. We do not want to redirect them to the actual url based on
+    a item_id because of privacy/security reasons (prevent someone from hitting the endpoint to find urls).
+    But if a client passes a url then we can safely use that url.
+    """
+    fallback_url: String @id
+
+    # Fields related to the article html
+    "The article view html markup"
+    article: String
+
+    "Confidence level of what this is... is maybe 80%, but believe this is a way for the parser to tell apps that in addition to {.item.images}, they will also need to download these additional assets in order to cache this for offline viewing. These might be some additional images the article includes in a hardcoded way. Looking at Parser code, https://github.com/Pocket/Parser/blob/2e30f2c0dbeeb5b8606a9d7ff66aed835bbdbc4d/includes/v3beta/templates/mobile.php#L192, it appears to be related to Publisher Messaging and can be deprecated."
+    resources: [ArticleResource] @deprecated
+
+    # Item fields that also appear top level in the parser response:
+    # Why this occurs rather than just looking at {.item} has some historical use case from the very first usages of the parser,
+    # and may have predated the item model or some use case that isn't clear now.
+    # Apps should request {.getItem} and extract the data from there instead.
+    "The {Item.resolved_id}"
+    resolved_id: String @deprecated @figment(client_api_alias: "resolvedId")
+
+    "The {Item.resolved_url}"
+    resolvedUrl: Url @deprecated
+
+    "The {Item.title}"
+    title: String @deprecated
+
+    "The {Item.excerpt}"
+    excerpt: String @deprecated
+
+    "The {Item.authors}"
+    authors: [Author] @deprecated
+
+    "The {Item.images}"
+    images: [Image] @deprecated
+
+    "The {Item.videos}"
+    videos: [Video] @deprecated
+
+    "The {Item.word_count}"
+    wordCount: Int @deprecated
+
+    "The {Item.is_article}"
+    isArticle: Boolean @deprecated
+
+    "The {Item.has_video} TODO or is this a boolean?"
+    isVideo: Videoness @deprecated
+
+    "The {Item.is_index}"
+    isIndex: Boolean @deprecated
+
+    "The {Item.top_image_url}"
+    topImageUrl: Boolean @deprecated
+
+    "The {Item.login_required}"
+    requiresLogin: Boolean @deprecated
+
+    "The {Item.response_code}"
+    responseCode: String @deprecated
+
+    "The {Item.date_published}"
+    datePublished: DateString @deprecated
+
+    "The {Item.used_fallback}"
+    usedFallback: Boolean @deprecated
+
+    "Same as {Item.date_published} but converted to a {Timestamp}"
+    timePublished: Timestamp @deprecated
+
+    "Just the domain part of {Item.resolved_url}"
+    host: String @deprecated
+
+    """
+    The item, only if {.getItem} was requested
+
+    IMPORTANT NOTE:  It appears that the parser returns some incorrect values in here.
+    Namely, the {.item.resolved_id} as the {.item.item_id} and also returns the {.item.normal_url} as the {.item.resolved_normal_url}
+    Also, if the permanent library parameters (the ones that start with `pl_`) are included, then the parser can return {.item.resolved_url} as the {.item.given_url}.
+    So you should not trust {.item.given_url}, {.item.item_id} or {.item.normal_url} in this item, otherwise you could end up accidentally setting the wrong item_id pairing for the {.item.given_url}.
+    The workaround is to strip out item_id, normal_url from this item response, and to set it's given_url to the url you provided in {.url}
+
+    More discussion here https://pocket.slack.com/archives/C03QVL4SU/p1569337926221300 and here https://getpocket.atlassian.net/browse/BUG-3162.
+    """
+    item: Item
+}
+
+enum FormFactor {
+    phone
+    tablet
+    smalltablet
+}
+
+"""
+See {articleView.resources}
+"""
+type ArticleResource @_deprecated @figment(related_to: "ArticleViewFeature") {
+    url: Url
+}
+
+"""
+Loads a website from a user's Permanent Library.
+Returns the web page out of the web cache.  Can be accessed directly as a loadable webpage.
+"""
+type PermanentLibraryPage @figment(related_to: "PermanentLibraryFeature") @figment(auth: "UserAuth") @figment(address: "https://text.getpocket.com/v3beta/loadWebCache") {
+    "Item id Permanent Library Value TODO document these"
+    pl_i: String @id
+
+    "Item given url, make sure encoded Permanent Library Value TODO document these"
+    pl_gu: String @id
+
+    "hash. Permanent Library Value TODO document these"
+    pl_h: String @id
+
+    "uid. Permanent Library Value TODO document these"
+    pl_u: String @id
+
+    "time. Permanent Library Value TODO document these"
+    pl_t: String @id
+
+    "item given url. Permanent Library Value TODO document these"
+    fallback_url: Url @id
+
+    "The web page's content"
+    _value: Html @root_value
+}

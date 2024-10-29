@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-selector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="NewApi">
+  
+  <item
+      android:id="@+id/checked"
+      android:drawable="@drawable/ic_pkt_check_filled_solid"
+      android:state_checked="true" />
+  <item
+      android:id="@+id/unchecked"
+      android:drawable="@drawable/ic_pkt_check_open_line" />
+</animated-selector>

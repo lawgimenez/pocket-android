@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="@color/white"
+    >
+    
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/splitGuide"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05"/>
+    
+    <com.pocket.ui.view.themed.ThemedImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/pkt_space_md"
+        android:layout_marginEnd="@dimen/pkt_space_md"
+        android:src="@drawable/ic_empty_list"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/splitGuide"/>
+    
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/title"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:text="@string/empty_list_highlights_title"
+        android:gravity="center_horizontal"
+        android:textColor="@color/pkt_text_primary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        />
+    
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/message"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="19sp"
+        android:textColor="@color/pkt_text_primary"
+        android:text="@string/empty_list_highlights_message"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"/>
+    
+</androidx.constraintlayout.widget.ConstraintLayout>

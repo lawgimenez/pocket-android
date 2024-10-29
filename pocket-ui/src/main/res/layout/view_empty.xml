@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pocket.ui.view.visualmargin.VisualMarginConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:parentTag="com.pocket.ui.view.visualmargin.VisualMarginConstraintLayout">
+
+    <!-- Content is vertically centered when it isn't tall enough to be scrollable -->
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.pocket.ui.view.visualmargin.VisualMarginConstraintLayout
+                android:id="@+id/message_info"
+                android:padding="@dimen/pkt_space_lg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.pocket.ui.view.themed.ThemedTextView
+                    android:id="@+id/title"
+                    style="@style/Pkt_Text_Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="List empty"/>
+
+                <com.pocket.ui.view.themed.ThemedTextView
+                    android:id="@+id/message"
+                    style="@style/Pkt_Text_Small_Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title"
+                    app:visualMargin_top="@dimen/pkt_space_md"
+                    tools:text="There are no items in your list"/>
+
+                <com.pocket.ui.view.button.BoxButton
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/message"
+                    app:visualMargin_top="@dimen/pkt_space_md"
+                    tools:text="Learn More"/>
+
+                <com.pocket.ui.view.button.ErrorButton
+                    android:id="@+id/error_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/message"
+                    app:visualMargin_top="@dimen/pkt_space_md"
+                    tools:text="Learn More"/>
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/content_barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="error_button,button,message,title"/>
+
+                <com.pocket.ui.view.themed.ThemedView
+                    android:id="@+id/detail_divider"
+                    style="@style/Pkt_ThinDivider"
+                    app:layout_constraintEnd_toEndOf="@+id/details"
+                    app:layout_constraintStart_toStartOf="@+id/details"
+                    app:layout_constraintTop_toBottomOf="@+id/content_barrier"
+                    app:visualMargin_top="@dimen/pkt_space_lg"/>
+
+                <com.pocket.ui.view.themed.ThemedTextView
+                    android:id="@+id/details"
+                    style="@style/Pkt_Text_Mini_Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detail_divider"
+                    app:visualMargin_top="@dimen/pkt_space_lg"/>
+
+            </com.pocket.ui.view.visualmargin.VisualMarginConstraintLayout>
+
+            <FrameLayout
+                android:id="@+id/animation_container"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintWidth_max="@dimen/pkt_rec_tile_width_max"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/message_info" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</com.pocket.ui.view.visualmargin.VisualMarginConstraintLayout>

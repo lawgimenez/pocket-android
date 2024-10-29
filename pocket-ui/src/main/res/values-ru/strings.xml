@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- smartling.instruction_attributes = comment -->
+<!-- smartling.placeholder_format_custom = \{[a-zA-Z0-9_-]+\}-->
+<resources>
+    <!-- Accessibility and tooltip labels for icons -->
+    <string name="ic_overflow">Дополнительно…</string>
+    <string name="ic_up">Вернуться назад</string>
+    <string name="ic_archive" comment="Label for a button that archives an item. This is a verb.">Архив</string>
+    <string name="ic_save">Сохранить</string>
+    <string name="ic_saved">Сохранено</string>
+    <string name="ic_readd">Добавить повторно</string>
+    <string name="ic_favorite">Избранное</string>
+    <string name="ic_unfavorite">Не избранное</string>
+    <string name="ic_mark_as_viewed">Отметить как просмотренное</string>
+    <string name="ic_mark_as_not_viewed">Отметить как непросмотренное</string>
+    <string name="ic_share">Поделиться</string>
+    <string name="ic_delete">Удалить</string>
+    <string name="ic_add_tags">Добавить теги</string>
+    <string name="ic_filters">Фильтры</string>
+    <string name="ic_play">Воспроизвести</string>
+    <string name="ic_pause">Пауза</string>
+    <string name="ic_skip">Вперед</string>
+    <string name="ic_back">Назад</string>
+    <string name="ic_cancel">Отмена</string>
+    <string name="ic_listen">Слушать</string>
+    <string name="ic_like">Нравится</string>
+    <string name="ic_remove_like">Удалить отметку \"Понравилось\"</string>
+    <string name="ic_repost">Репост</string>
+    <string name="ic_remove_repost">Удалить сообщение</string>
+    <string name="ic_plus">+</string>
+    <string name="ic_minus">-</string>
+    <string name="ic_close">Закрыть</string>
+    <string name="ic_edit">Редактировать</string>
+    <string name="ic_highlight" comment="Label for button that highlights selected text">Выделить</string>
+    <string name="ic_copy">Копировать</string>
+    <string name="ic_brightness_down">Понизить яркость экрана</string>
+    <string name="ic_brightness_up">Повысить яркость экрана</string>
+    <string name="ic_brightness_control">Яркость экрана</string>
+    <string name="ic_settings">Настройки</string>
+    <string name="ic_premium">Pocket Premium</string>
+    <string name="ic_pocket_menu">Меню Pocket</string>
+
+    <string name="ac_save">Сохранить</string>
+    <string name="ac_save_to_pocket">Сохранить в Pocket</string>
+    <string name="ac_previous">Назад</string>
+    <string name="ac_next">Вперед</string>
+    
+    <string name="upgrade">Улучшить</string>
+    <string name="upgrade_upsell">Больше настроек</string>
+    <string name="get_premium">Перейти на Premium</string>
+    
+    <string name="counts_thousands" comment="number abbreviated to thousands. such as 1k for 1,000. as short as possible.">%1$dK</string>
+    <string name="counts_millions" comment="number abbreviated to millions. such as 1m for 1,000,000. as short as possible">%1$dM</string>
+    
+    <!-- content descriptions -->
+    <string name="setting_incrementor" comment="{setting} is a placeholder for a text style setting, eg Text Size, Line Height, or Margin, do not translate the content within {}">Увеличить {setting}</string>
+    <string name="setting_decrementor" comment="{setting} is a placeholder for a text style setting, eg Text Size, Line Height, or Margin, do not translate the content within {}">Уменьшить {setting}</string>
+    <string name="text_setting_text_size">Размер шрифта</string>
+    <string name="text_setting_line_height">Высота строки</string>
+    <string name="text_setting_margin">Поле</string>
+
+    <string name="current_typeface" comment="{typeface} is a placeholder for the current text typeface setting, eg Blanco, Graphik, do not translate the content within {}">Изменить шрифт {typeface}</string>
+
+    <string name="theme_toggle_light_desc">Сменить тему на светлую</string>
+    <string name="theme_toggle_dark_desc">Сменить тему на темную</string>
+    <string name="theme_toggle_auto_desc">Переключать тему автоматически</string>
+
+    <!-- Strings only used for ux playground-->
+    <string name="light">Светлый</string>
+    <string name="dark">Темный</string>
+</resources>

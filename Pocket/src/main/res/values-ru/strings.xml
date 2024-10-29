@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- smartling.instruction_attributes = comment -->
+<!-- smartling.placeholder_format_custom = \{[a-zA-Z0-9_-]+\}-->
+<resources>
+    <!-- LABELS, TITLES & NAMES - Prefix: nm  -->
+    <string name="nm_add_to_ril" comment="try to use a string starting with A or just leave Pocket">+ Добавить в Pocket</string>
+	
+	<!-- smartling.character_limit = 17 -->
+	<string name="nm_add_tags" comment="Title of a page">Добавить теги</string>
+
+	<string name="nm_theme_light" comment="Appearance/color of the app">Светлый</string>
+	<string name="nm_theme_dark" comment="Appearance/color of the app">Темный</string>
+	
+	<string name="clipboard_label_url">Ссылка скопирована из Pocket</string>
+	
+	<string name="nm_archive" comment="Title in the main menu of the action bar. This is a noun.">Архив</string>
+	<string name="nm_link">Ссылка</string>
+	
+	<!-- Setting up as plural in case other languages want to vary the label depending on quantity -->
+	<plurals name="nm_time_estimate" comment="Short label showing the number of minutes to read a story, watch a video, or listen to an article e.g. &apos;5 min&apos;">
+        <item quantity="one">%1$d мин.</item>
+        <item quantity="few">%1$d мин.</item>
+        <item quantity="many">%1$d мин.</item>
+        <item quantity="other">%1$d мин.</item>
+    </plurals>
+	
+	<plurals name="nm_time_to_read_estimate" comment="Short label showing the number of minutes to read a story, watch a video, or listen to an article e.g. &apos;5 min read&apos;">
+        <item quantity="one">%1$d мин. прочитано</item>
+        <item quantity="few">%1$d мин. прочитано</item>
+        <item quantity="many">%1$d мин. прочитано</item>
+        <item quantity="other">%1$d мин. прочитано</item>
+    </plurals>
+
+	<!-- Setting up as plural in case other languages want to vary the label depending on quantity -->
+	<plurals name="nm_time_left_estimate" comment="Short label showing the number of minutes to read a story, watch a video, or listen to an article e.g. &apos;5 min left&apos;">
+        <item quantity="one">Осталось %1$d мин.</item>
+        <item quantity="few">Осталось %1$d мин.</item>
+        <item quantity="many">Осталось %1$d мин.</item>
+        <item quantity="other">Осталось %1$d мин.</item>
+    </plurals>
+
+	<!-- UI ACTION LABELS (Buttons, Checkboxes) - Prefix: ac  -->
+	<string name="ac_login">Войти</string>
+	<string name="ac_logout">Выйти</string>
+	<string name="ac_authenticate">Зарегистрируйтесь или войдите</string>
+	<string name="ac_continue_signed_out" comment="A button next to a &apos;Sign up or sign in&apos; button, that allows you to go to the Home screen without signing up or signing in.">Пропустить вход</string>
+	<string name="ac_cancel">Отмена</string>
+	<string name="ac_close_app">Закрыть приложение</string>
+	<string name="ac_ok">ОК</string>
+	<string name="ac_yes">Да</string>
+	<string name="ac_no">Нет</string>
+	<string name="ac_retry">Повторить</string>
+	<string name="ac_try_again">Попробуйте еще раз</string>
+	<string name="ac_create_new_cache">Создать новый кэш</string>
+	<string name="ac_clear_cache">Очистить кэш</string>
+	<string name="ac_get_help">Помощь</string>
+	<string name="ac_submit">Отправить</string>
+	<string name="ac_write_review" comment="link to leave a review on the application store">Оставить отзыв</string>
+	<string name="ac_no_thanks">Нет, cпасибо</string>
+	<string name="ac_next">Вперед</string>
+	<string name="ac_accept">Принять</string>
+	<string name="ac_got_it_caps">ПОНЯТНО</string>
+	<string name="ac_continue">Продолжить</string>
+	<string name="ac_discard_changes">Отменить изменения</string>
+	<string name="ac_continue_editing">Продолжить редактирование</string>
+	<string name="ac_add_new_tag">добавить новый тег <b>\\‘{name_of_tag}\\‘</b></string>
+	<string name="ac_undo">ОТМЕНА</string>
+	<string name="ac_highlight" comment="Label for button that highlights selected text">@string/ic_highlight</string>
+	<string name="ac_copy">@string/ic_copy</string>
+	<string name="ac_translate">Перевести</string>
+	<string name="ac_web_search">Поиск в Интернете</string>
+	<string name="ac_select_all">Выбрать все</string>
+	<string name="ac_clear">Очистить</string>
+	<string name="ac_share">Поделиться</string>
+	<string name="ac_maybe_later">Может позже</string>
+	<string name="ac_install">Установить</string>
+	
+	
+	<!-- UI LABELS (TextViews and labels) - Prefix: lb  -->
+	<string name="lb_tab_saves">Сохраненное</string>
+	<string name="lb_continue_reading" comment="should be all upper case">Продолжить чтение</string>
+	
+	<string name="lb_add_copied_url" comment="a title asking the user if they would like to save a URL from their device clipboard">Сохранить скопированную ссылку?</string>
+    
+    <string name="lb_slower" comment="Speaking rate of the Text To Speech">Говорите медленнее</string>
+    <string name="lb_faster" comment="Speaking rate of the Text To Speech">Говорите быстрее</string>
+    <string name="lb_tts_language">Язык</string>
+    <string name="lb_tts_voice">Голос</string>
+	
+	<string name="lb_select_tags_hint">Выберите или введите тег</string>
+    <string name="lb_select_tags_hint_no_tags">Введите тег</string>
+    
+	<plurals comment="Header above the list of item" name="lb_selected">
+        <item quantity="one">%1$s выбрано</item>
+        <item quantity="few">%1$s выбрано</item>
+        <item quantity="many">%1$s выбрано</item>
+        <item quantity="other">%1$s выбрано</item>
+    </plurals>
+	
+	<string name="lb_suggested_tags">Рекомендованные теги</string>
+	<string name="lb_all_tags">Все теги</string>
+	<string name="lb_recent_tags">Недавний тег</string>
+	<string name="lb_tags_autocomplete">Теги</string>
+	
+	<string name="lb_downloading_items_notification" comment="the number of items being currently downloaded for offline viewing. this number will count down as downloading progresses">Скачивание {number_of_items} материалов...</string>
+	
+	<string name="lb_search_hint">Поиск</string>
+	<string name="lb_list_search_hint">Поиск по вашему списку</string>
+	<string name="lb_list_archive_search_hint">Поиск в архиве</string>
+	<string name="lb_recent_searches_sc">Недавно искали</string>
+	<string name="lb_time_to_read" comment="Header for a section of filters that let you view a subset of your saved articles based on their length.">Время на чтение</string>
+	
+	<string name="lb_sort_by">Сортировать по</string>
+	<string name="lb_sort_by_newest">Новые сохранения</string>
+	<string name="lb_sort_by_oldest">Старые сохранения</string>
+	<string name="lb_sort_by_newest_archive">Новое в архиве</string>
+	<string name="lb_sort_by_oldest_archive">Самое старое в архиве</string>
+	<string name="lb_sort_by_shortest">Самое короткое для прочтения</string>
+	<string name="lb_sort_by_longest">Самое длинное для прочтения</string>
+	
+	<string name="lb_prem_purchase_title">Присоединяйтесь к Pocket\nPremium</string>
+	<string name="lb_prem_purchase_perm_lib_title">Стройте постоянную библиотеку</string>
+	<string name="lb_prem_purchase_perm_lib_desc">Даже если сохраненная вами страница будет удалена, у вас все равно останется ее копия в Pocket.</string>
+	<string name="lb_prem_purchase_ad_free_title">Сосредоточенное внимание</string>
+	<string name="lb_prem_purchase_ad_free_desc">Спокойное пространство для чтения без рекламы даст вашему мозгу отдых, которого он давно ждет</string>
+	<string name="lb_prem_purchase_search_title">Истории на кончиках ваших пальцев</string>
+	<string name="lb_prem_purchase_search_desc">Быстро находите среди своих материалов с помощью полнотекстового поиска. Ищите статьи по ключевому слову, теме, автору, тегам и многому другому.</string>
+	<string name="lb_prem_purchase_tags_title">Умные теги</string>
+	<string name="lb_prem_purchase_tags_desc">При сохранении каждого материала мы будем предлагать теги из вашего списка — чем больше тегов, тем более полезными станут рекомендации.</string>
+	<string name="lb_prem_purchase_highlights_title">Ваши идеи, помеченные</string>
+	<string name="lb_prem_purchase_highlights_desc">С неограниченным количеством пометок в каждой статье у вас будет постоянная библиотека всех тех моментов \"Ага!\".</string>
+	<string name="lb_prem_purchase_reader_title">Собственный режим чтения</string>
+	<string name="lb_prem_purchase_reader_desc">Вам нравятся округлые шрифты, более широкие интервалы или сжатый текст? Настройте Pocket по своему читательскому вкусу.</string>
+	<string name="lb_prem_purchase_per_month" comment="per month subscription label on subscription button">%1$s в месяц</string>
+	<string name="lb_prem_purchase_per_year" comment="per year subscription label on subscription button">%1$s в год</string>
+	<string name="lb_prem_purchase_complete_title">Поздравляем!</string>
+	<string name="lb_prem_purchase_complete_message">Теперь вы официально стали пользователем Pocket Premium. Добро пожаловать в новую настраиваемую и постоянную версию вашего Pocket без рекламы. Мы надеемся, что вам понравится.</string>
+	<string name="lb_prem_purchase_complete_renew_title">Добро пожаловать обратно!</string>
+	<string name="lb_prem_purchase_complete_renew_message">Мы продлили вашу подписку, и вы снова официально являетесь участником Pocket Premium. Мы надеемся, вам понравится эта настраиваемая и постоянная версия вашего Pocket без рекламы.</string>
+	<string name="lb_prem_purchase_complete_button">Назад к Pocket</string>
+	<string name="lb_prem_purchase_terms">Подписки будут автоматически продлены по окончании очередного расчетного периода, пока вы ее не отмените в Google Play.</string>
+
+	<string name="lb_save_25p_2_line" comment="keep as short as possible">Скидка\n25%</string>
+	
+	<string name="lb_annotations_upsell_t">Нужно больше пометок?</string>
+	<string name="lb_annotations_upsell_m">Ваш аккаунт ограничен %1$d пометками на каждую статью. Приобретите Pocket Premium и получите неограниченное количество пометок (и многое другое).</string>
+	<string name="lb_annotations_upsell_cta" comment="Label for a button in a Highlights upgrade prompt leading to the full Premium upgrade/purchase screen.">Перейти на Premium</string>
+	
+	<!-- MENU OPTIONS (Context and Option) - Prefix: mu  -->
+    <string name="mu_settings" comment="this text label should be short">Настройки</string>
+	<string name="mu_read_later" comment="this text label should be short">Сохранить в Pocket</string>
+	<string name="mu_help" comment="this text label should be short">Помощь</string>
+	<string name="mu_copy_link" comment="this text label should be short">Скопировать ссылку</string>
+	<string name="mu_report_article_view" comment="this text label should be short">Сообщить об ошибке</string>
+	<string name="mu_refresh" comment="this text label should be short">Обновить</string>
+	<string name="mu_find_in_page" comment="this text label should be short">Найти на странице</string>
+	<string name="mu_display_settings" comment="this text label should be short">Настройки текста</string>
+	<string name="mu_delete" comment="this text label should be short">Удалить</string>
+	<string name="mu_view_original">Посмотреть оригинал</string>
+	<string name="mu_switch_to_article" comment="this text label should be short">Отобразить в виде Статьи</string>
+	<string name="mu_add_tags" comment="this text label should be short">Добавить теги</string>
+	<string name="mu_favorite" comment="this text label should be short">Избранное</string>
+	<string name="mu_unfavorite" comment="this text label should be short">Не избранное</string>
+	
+	<!-- Navigation items -->
+	<!-- smartling.character_limit = 14 -->
+	<string name="mu_home" comment="this text label should be short">На Главную</string>
+	<!-- smartling.character_limit = 14 -->
+	<string name="mu_saves" comment="this text label should be short">Сохраненное</string>
+	<string name="mu_annotations" comment="This text label should be short. Here &apos;Highlights&apos; references a new feature where a user can highlight text in articles to save memorable quotes.">Выделение</string>
+	<string name="mu_premium" comment="this text label should be short">Premium</string>
+	<!-- smartling.character_limit = 14 -->
+	
+	<string name="mu_untagged" comment="make sure this phrase matches what is in setting_untagged_label and setting_untagged_sum">Без тегов</string>
+
+	
+    <!-- DIALOGS TITLES AND MESSAGES (ContextMenus, Progress and Alert) - 
+    	Prefix: dg_
+    	Postfix: _t = title,
+    			 _m = message   
+    -->
+    <!-- Progress labels -->
+	<string name="dg_loading">Загрузка...</string>
+	<string name="dg_changing_data_location">Замена места хранения…</string>
+	<string name="dg_clearing_cache">Очистка кэша…</string>
+	<string name="dg_logging_out">Выход…</string>
+	<string name="dg_c2dm_registering">Настройка устройства для получения push-уведомлений…</string>
+	<string name="dg_fetching">Получение списка…</string>
+	
+	<!-- General use titles -->
+    <string name="dg_error_t">Ой</string>
+    <string name="dg_confirm_t">Вы уверены?</string>
+    <string name="dg_changes_not_saved_t">Изменения не сохранены</string>
+    
+    <!-- Connection issues (TODO: These could more than likely be cleaned up and combined)-->
+    <string name="dg_sync_error_t">Ошибка синхронизации</string>
+	<string name="dg_fetch_error_t">Не удалось загрузить список</string>
+	<string name="dg_fetch_error_m">При загрузке списка с сервера возникла проблема. Убедитесь, что вы подключены к Интернет, и попробуйте снова.</string>
+	<string name="dg_no_connection_m">При попытке подключения возникла проблема. Убедитесь, что вы подключены к Интернет, и попробуйте снова.</string>
+	<string name="dg_api_generic_error">При подключении к Pocket возникли проблемы.</string>
+	
+    <!-- Misc -->
+    <string name="dg_unexpected_m">Ой, случилось нечто непредвиденное. Повторите попытку. Если проблема не изчезнет, дайте нам знать.</string>
+    
+    <string name="dg_report_error_m">Желаете отправить сообщение об ошибке?</string>
+	
+	<string name="dg_no_email_app_t">Невозможно отправить email</string>
+	<string name="dg_no_email_app_m">В этом устройстве не установлен клиент email.</string>
+	<string name="dg_no_email_app_m_support">Если вы хотите отправить email c другого устройства, наш email адрес support@getpocket.com.</string>
+
+	<!-- Storage or Cache errors -->
+	<string name="dg_storage_setting_unavailable_t">Хранилище недоступно</string>
+	<string name="dg_storage_setting_unavailable_m">Это хранилище в данный момент недоступно. Убедитесь, что соответствующая карта памяти или устройство подключено. Также убедитесь, что оно не подключено к компьютеру в качестве внешнего USB-накопителя.</string>
+
+	<string name="bg_offline_cache_storage_is_unavailable_t">Офлайн материалы недоступны</string>
+	<string name="bg_offline_cache_storage_is_unavailable_m">"Хранилище, в котором сохраняется ваш офлайн-кэш, в данный момент недоступно. Это может произойти, если устройство подключено к компьютеру в качестве USB-накопителя, если вы извлекли карту памяти, или отозвали разрешение на доступ Pocket к хранилищу. Отмените это действие и попробуйте еще раз. Альтернативно вы можете создать новый кэш во внутреннем хранилище Pocket."</string>
+
+	<string name="bg_offline_cache_is_missing_t">Офлайн материалы недоступны</string>
+	<string name="bg_offline_cache_is_missing_m">Офлайн-кэш не обнаружен. Убедитесь, что хранилище для офлайн-кэша подключено должным образом. Если вы переместили или изменили файлы кэша, восстановите их и попробуйте снова.</string>
+
+	<string name="dg_offline_cache_is_missing_permission_t">Офлайн материалы недоступны</string>
+	<string name="dg_offline_cache_is_missing_permission_m">"У Pocket больше нет разрешения на доступ к хранилищу, и он не может получить доступ к офлайн-кэшу. Чтобы снова использовать внешнее хранилище, предоставьте Pocket разрешение на доступ к хранилищу или переключитесь на внутреннее хранилище."</string>
+
+	<string name="dg_offline_cache_is_missing_rw_permission_m">К сожалению, у Pocket возникли проблемы с доступом к SD-карте Мы зафиксировали эту проблему, и наша команда Android будет ее изучать. В течение этого времени продолжайте использовать Pocket с внутренним хранилищем.</string>
+
+	<string name="dg_sdcard_confirm_change_m">Смена расположения хранилища приведет к удалению скачанных файлов.</string>
+	
+	<string name="dg_out_of_space_t">Закончилось свободное пространство</string>
+	<string name="dg_out_of_space_m">В офлайн-хранилище Pocket закончилось свободное место. Для нормальной работы Pocket необходимо больше свободного места. Чтобы продолжить, очистите немного памяти. Чтобы освободить память, также можно очистить офлайн-кэш Pocket.</string>
+	
+	<string name="dg_after_clear_m">"Если у вашего устройства ограничено свободное место, включите настройку {name_of_storage_setting} в Pocket, чтобы ограничить объем используемой памяти."</string>
+	
+	<string name="dg_clear_cache_t">Вы уверены?</string>
+	<string name="dg_clear_cache_m">Это приведет к удалению всех файлов, сохраненных для просмотра в офлайне.</string>
+	<string name="dg_confirm_create_new_cache_m">Это приведет к очистке всего текущего кэша и использованию внутренней памяти устройства вместо SD-карты.</string>
+
+	<string name="dg_forced_logout_t">Войдите</string>
+	<string name="dg_forced_logout_m">Ваш сеанс работы завершен с другого компьютера. Попробуйте войти снова.</string>
+
+	<string name="dg_tag_too_long_m">Тег не может быть длиннее 25 символов.</string>
+	
+	<string name="dg_invalid_tag_m">"Простите, %1$s не может быть тегом."</string>
+	<string name="dg_changes_not_saved_tags_m">Изменения в тегах не сохранены. Вы хотите отменить изменения или продолжить редактирование?</string>
+	
+	<string name="dg_market_not_found_t">Amazon Appstore не найден</string>
+	<string name="dg_market_not_found_m">По неизвестным причинам приложение Amazon Appstore не открывается. Приносим свои извинения!</string>
+	
+	<string name="dg_browser_not_found_t">Браузер не найден</string>
+	<string name="dg_browser_not_found_m">На устройстве нет браузера, чтобы открыть эту страницу.</string>
+	
+	<!-- Push / Instant Sync (GCM) & Background Syncing Settings -->
+	<string name="dg_c2dm_unsupported_t">Не доступно</string>
+	<string name="dg_c2dm_unsupported_m">Мгновенная синхронизация не поддерживается на этом устройстве.</string>
+	<string name="dg_c2dm_failed_t">Установка не удалась</string>
+	<string name="dg_c2dm_failed_general_m">Не удается зарегистрировать ваше устройство для отправки мгновенных push-уведомлений. Попробуйте позже.</string>
+	<string name="dg_c2dm_not_connected_m">Вы должны быть подключены к Интернет при первой активации мгновенной синхронизации</string>
+	<string name="dg_timer_sync_no_change_t">Настройка параметров недоступна</string>
+	<string name="dg_timer_sync_no_change_m">В случае, если это приложение установлено на внешних накопителях (например, SD-карта), некоторые параметры фоновой синхронизации могут быть недоступны.\n\nВы можете использовать Мгновенную синхронизацию или отключить Фоновую синхронизацию.</string>
+	
+	<!-- Edit account -->
+	<string name="dg_confirm_logout_m">Работа будет завершена и все файлы, сохраненные на этом устройстве для офлайнового просмотра, будут удалены.</string>
+	
+	<!-- Listen -->
+	<string name="listen_playing_from">Воспроизведение из <b>Сохраненного</b></string>
+	<string name="listen_playlist_header" comment="Should be all upper case letters for any language where it makes sense">Мой список</string>
+	<string name="listen_data_alert">Функция прослушивания будет использовать мобильную передачу данных, если устройство не подключено к Wi-Fi.</string>
+    <string name="listen_offline_hint" comment="This should be less than 100 characters.">Вы не в сети. Переключиться на голосовое сопровождение оффлайн можно здесь.</string>
+	
+	<string name="listen_settings_use_listen_endpoint">Поток с наилучшим качеством голоса</string>
+	<string name="listen_settings_network_voice_warning">Будет использоваться мобильная передача данных при отсутствии Wi-Fi. Не доступно оффлайн</string>
+	<string name="listen_settings_picker_summary_unavailable">Автоматически</string>
+	<string name="listen_settings_auto_play">Автоматическое воспроизведение статей</string>
+	<string name="listen_settings_auto_archive">Автоматическое архивирование после воспроизведения</string>
+    
+	<string name="listen_error_timeout">Наш сервер слишком долго не отвечает. Попробуйте позже.</string>
+	<string name="listen_error_media_player">При воспроизведении возникла непредвиденная ошибка.</string>
+	<string name="listen_error_server">При воспроизведении этой статьи произошла ошибка. Попробуйте выбрать другой голос.</string>
+	
+	<string name="listen_reader_tooltip">Нажмите, чтобы попробовать прослушать эту статью в дороге</string>
+	<plurals name="listen_my_list_toast_title">
+        <item quantity="one">%2$s️У вас %1$d непрочитанная статья.</item>
+        <item quantity="few">%2$s️У вас %1$d непрочитанные статьи.</item>
+        <item quantity="many">%2$s️У вас %1$d непрочитанных статей.</item>
+        <item quantity="other">%2$s️У вас %1$d непрочитанные статьи.</item>
+    </plurals>
+	<string name="listen_my_list_toast_title_5000_plus">%1$s️У вас тысячи статей.</string>
+	<string name="listen_my_list_toast_message">Попробуйте прослушать их, и время пролетит незаметно.</string>
+	<string name="listen_my_list_toast_button">Попробовать прослушать</string>
+	
+	<!-- TTS -->
+	<string name="tts_dg_t">Text to Speech</string>
+	<string name="tts_settings">Настройки Text To Speech</string>
+	<string name="tts_dg_not_available_m">С запуском выбранного модуля синтетической речи возникли проблемы. Убедитесь, что он установлен в настройках синтетической речи на вашем устройстве.</string>
+	<string name="tts_dg_not_supported_m">К сожалению, ваше устройство, похоже, не поддерживает функцию Text To Speech (TTS).</string>
+	<string name="tts_dg_install_t">Установка Text To Speech</string>
+	<string name="tts_dg_install_m">Эта функция использует встроенную в Android функцию Text To Speech (TTS). Ваше устройство требует установки этой функции.</string>
+	<string name="tts_dg_missing_settings_m" comment="TTS = Text to Speech">Pocket не смог сам найти настройки Text To Speech (TTS) вашего устройства.\n\nМожете попробовать найти их вручную, открыв настройки устройства и поискать там.\n\nВ большинстве устройств эта функция находится в настройках \"Дополнительные возможности\" или \"Язык и средства ввода\".</string>
+	<string name="tts_dg_choose_engine_t">Выберите инструмент Text to Speech</string>
+	<string name="tts_skipping_to_next">Автоматический переход к следующей статье.</string>
+	<string name="tts_article_failed">Модуль синтетической речи не может прочитать эту статью.</string>
+	<string name="tts_article_unavailable">Статья еще не загрузилась.</string>
+	<string name="tts_speech_error">Модуль синтетической речи не может прочитать этот раздел. Если вы используете онлайн-модуль синтезированной речи, войдите в сеть или выберите офлайн-модуль. В противном случае попробуйте пропустить этот отрывок.</string>
+	<string name="tts_empty_list">Прослушивание материалов недоступно, пока вы не сохраните их в Pocket</string>
+	<string name="tts_network_voice_t">Онлайн-модули синтетической речи</string>
+	<string name="tts_network_voice">Имейте ввиду: онлайн-модули синтетической речи более высокого качества, но могут использовать мобильную передачу данных и быть недоступными офлайн.</string>
+	<string name="tts_voice">Голос %1$s</string>
+	<string name="tts_voice_male">Мужской голос %1$s</string>
+	<string name="tts_voice_female">Женский голос %1$s</string>
+	<string name="tts_network" comment="Word that indicates that a text to speech voice may require network connectivity">Сеть</string>
+	
+	<string name="add_overlay_free_title" comment="Appears when a new article is saved to your list">Сохранено в Pocket!</string>
+
+	<!-- TOAST MESSAGES  Prefix: ts   -->
+	<string name="ts_add_invalid_url" comment="An error message that appears when an article link could not be saved">К сожалению, Pocket не удалось сохранить эту ссылку.</string>
+	<string name="ts_add_saved_to_ril">Сохранено в Pocket</string>
+	<string name="ts_add_added">Сохранено!</string>
+	<string name="ts_add_already">Вы уже сохранили этот материал!</string>
+	<string name="ts_add_already_overlay" comment="A message notifying the user an article they saved is already in their list, and that we will move (bump) it to the top for them">Вы уже сохранили этот материал! Мы поднимем его в начало списка.</string>
+	<string name="ts_add_error">Не удалось сохранить в Pocket</string>
+	<string name="ts_add_logged_out">Войдите, чтобы сохранить в Pocket</string>
+    <string name="ts_copied">%1$s скопировано в буфер обмена</string>
+	<string name="ts_item_archived">Материал архивирован</string>
+    <string name="ts_item_readded">Материал добавлен вновь</string>
+    <string name="ts_item_deleted">Материал удален</string>
+    <string name="ts_item_restored">Материал восстановлен</string>
+
+    <string name="ts_changes_saved">Изменения сохранены</string>
+    <string name="ts_article_reported">О статье сообщено.\nСпасибо, что сообщили нам!</string>
+	<plurals name="ts_bulk_edit_archived">
+        <item quantity="one">%1$s материал перенесен в архив</item>
+        <item quantity="few">%1$s материала перенесено в архив</item>
+        <item quantity="many">%1$s материалов перенесено в архив</item>
+        <item quantity="other">%1$s материала перенесено в архив</item>
+    </plurals>
+	<plurals name="ts_bulk_edit_readded">
+        <item quantity="one">%1$s материал добавлен вновь</item>
+        <item quantity="few">%1$s материала добавлено вновь</item>
+        <item quantity="many">%1$s материалов добавлено вновь</item>
+        <item quantity="other">%1$s материала добавлено вновь</item>
+    </plurals>
+	<plurals name="ts_bulk_edit_deleted">
+        <item quantity="one">Удален %1$s материал</item>
+        <item quantity="few">Удалено %1$s материала</item>
+        <item quantity="many">Удалено %1$s материалов</item>
+        <item quantity="other">Удалено %1$s материала</item>
+    </plurals>
+	<string name="ts_bulk_edit_tagged" comment="Do not translate values in {brackets}">Назначено {tags} тегов на {items} материалах</string>
+	<plurals name="ts_bulk_edit_tagged_tags" comment="in &apos;Added X TAGS to 12 items&apos;">
+        <item quantity="one">%1$s тег</item>
+        <item quantity="few">%1$s тега</item>
+        <item quantity="many">%1$s тегов</item>
+        <item quantity="other">%1$s тега</item>
+    </plurals>
+	<plurals name="ts_bulk_edit_tagged_items" comment="in &apos;Added 12 tags to X ITEMS&apos;">
+        <item quantity="one">%1$s материал</item>
+        <item quantity="few">%1$s материала</item>
+        <item quantity="many">%1$s материалов</item>
+        <item quantity="other">%1$s материала</item>
+    </plurals>
+
+    <string name="ts_no_apps_for_intent">Для выполнения этого действия не установлено ни одного приложения.</string>
+    
+    <string name="ts_tags_changes_saved">Изменения сохранены</string>
+	
+    <!--  NOTIFICATION BAR Prefix: nt -->
+	<string name="nt_downloading">Загружаю…</string>
+	<string name="nt_cancel">Нажмите, чтобы отменить загрузку.</string>
+
+	<string name="nt_channel_functional_name">Управление приложением</string>
+	<string name="nt_channel_functional_description">Управляйте скачиванием в офлайн, прослушиванием (синтетический голос) и другими функциями приложения.</string>
+	<string name="nt_channel_alerts_name">Push-уведомления</string>
+	<string name="nt_channel_alerts_description">Социальные обновления, рекомендации, новости о продукте и другие сообщения. Тонкая настройка push-уведомлений доступна в настройках Pocket.</string>
+	<string name="nt_channel_article_recommendations">Рекомендации статьи</string>
+	<string name="nt_channel_article_recommendations_description">Напоминания и предложения для прочтения</string>
+	<string name="nt_channel_legal_updates">Юридические обновления</string>
+	<string name="nt_channel_new_features">Новые функции</string>
+
+
+    
+    <!-- MISC TEXT  Prefix: tx-->
+	<string name="tx_love_pocket">Нравится Pocket?</string>
+    <string name="tx_tell_others">Лучший способ поддержать - рассказать другим.</string>
+	
+	<string name="suggested_tags_empty_no_tags">Начните добавлять теги к вашим материалам, чтобы увидеть рекомендованные теги здесь.</string>
+	<string name="suggested_tags_empty_none_found">Не удалось найти ни одного рекомендованного тега для этого материала.</string>
+	<string name="suggested_tags_no_connection">Для просмотра рекомендованных тегов вы должны быть онлайн. Проверьте подключение и попробуйте еще раз.</string>
+	<string name="suggested_tags_unknown_error">При получении рекомендованных тегов произошла ошибка. Попробуйте еще раз.</string>
+	
+	<!-- READER ERRORS SHOWN IN ERRORVIEW (Not Dialogs)  Prefix: re   Postfix:  t = title, m = message, b = button label  -->
+	<string name="re_downloading_article_view_t">При сохранении этой страницы в виде Статьи произошла ошибка.</string>
+	<string name="re_downloading_article_view_m">Убедитесь, что вы подключены к Интернет.</string>
+	
+	<string name="list_empty_search_title">Результатов нет</string>
+	<string name="list_empty_no_result_matched">Нет материалов, соответствующих критериям поиска.</string>
+	
+	<string name="add_tags_list_empty_title">Упорядочивайте материалы с помощью тегов</string>
+	<string name="add_tags_list_empty_body">Теги упрощают повторный поиск ваших материалов в Сохраненном с помощью поиска или фильтров.\n\nЧтобы создать тег, введите его в эту строку.</string>
+	
+	<!-- SETTINGS  Prefix: setting -->
+	<string name="setting_header_account">Учетная запись</string>
+	<string name="setting_logout">Выйти</string>
+	<string name="setting_premium">Premium</string>
+	<string name="setting_account_management">Управление учетной записью</string>
+	<string name="setting_delete_account">Удалить аккаунт</string>
+	<string name="setting_delete_account_header">Удалить ваш аккаунт</string>
+	<string name="setting_delete_account_warning">Предупреждение: это действие нельзя отменить</string>
+	<string name="setting_delete_account_cancel_premium">Чтобы удалить учетную запись, необходимо сначала <b><annotation link="https://help.getpocket.com/article/986-canceling-your-pocket-premium-subscription">отменить подписку Premium здесь</annotation></b>.</string>
+	<string name="setting_delete_account_permanently_delete">Вы понимаете, что ваша учетная запись Pocket и данные будут <b>безвозвратно удалены</b>.</string>
+	<string name="setting_delete_account_error">Ваш запрос не может быть обработан. Попробуйте позже.</string>
+	<string name="setting_delete_account_in_progress">Удаление вашей учетной записи…</string>
+	<string name="setting_delete_account_toast_title">Вы удалили свою учетную запись Pocket</string>
+	<string name="setting_delete_account_toast_message">Что мы могли бы улучшить?</string>
+	<string name="setting_delete_account_toast_button">Быстрый опрос</string>
+	<string name="setting_header_general">Общее</string>
+	<string name="setting_rotation_label">Заблокировать поворот экрана</string>
+	<string name="setting_rotation_sum">Если эта функция включена, кнопка блокировки появится в центре экрана после поворота устройства. Нажмите на иконку, чтобы заблокировать текущую ориентацию экрана, и нажмите снова, чтобы разблокировать</string>
+	<string name="setting_header_theme">Тема приложения</string>
+	<string name="setting_theme">Тема</string>
+	<string name="setting_auto_dark_theme_threshold_automatic">Автоматически</string>
+	<string name="setting_system_theme_label">В соответствии с системной темой</string>
+	<string name="setting_header_reading">Чтение</string>
+	<string name="setting_always_open_original_label">Всегда открывать исходный веб-сайт</string>
+	<string name="setting_always_open_original_sum">Pocket всегда будет открывать исходный веб-сайт вместо просмотра статьи</string>
+	<string name="setting_default_browser_label" comment="Setting that allows you to choose a browser. This header is followed by the name of the chosen browser on the next line.">Открывать исходные веб-сайты в</string>
+	<string name="setting_default_browser_system" comment="Default value of the &apos;setting_default_browser_label&apos; setting, which means we will use the default browser from system settings.">Системный браузер по умолчанию</string>
+	<string name="setting_text_align_label">Выровненный текст</string>
+	<string name="setting_text_align_sum">Отображает текст в виде статьи с выравниванием</string>
+	<string name="setting_auto_fullscreen_label">Автоматический переход в полноэкранный режим</string>
+	<string name="setting_auto_fullscreen_sum">Прятать панель инструментов во время чтения/прокрутки вниз. Показывать панель инструментов во время прокрутки вверх</string>
+	<string name="setting_continue_reading_label">Продолжить чтение</string>
+	<string name="setting_continue_reading_sum">При входе в Pocket отображать последний открытый мною материал.</string>
+	<string name="setting_tts_label">Инструмент Text to Speech</string>
+	<string name="setting_tts_sum_fallback">Ничего не установлено</string>
+	<string name="setting_header_offline">Скачивание в офлайн</string>
+	<string name="setting_download_article_label">Всегда загружать в виде статьи</string>
+	<string name="setting_download_article_sum_unavailable">Недоступно при скачивании с автоматическим выбором лучшего вида</string>
+	<string name="setting_download_article_sum">Автоматически скачивать в виде статьи - для всех материалов из списка</string>
+	<string name="setting_only_wifi_label">Скачивать только через Wi-Fi</string>
+	<string name="setting_mobile_useragent_label">Идентификатор мобильного браузера</string>
+	<string name="setting_mobile_useragent_sum">Скачать мобильную версию, если доступна</string>
+	<string name="setting_clear_download_label">Удалить скачанные файлы</string>
+	<string name="setting_storage_location">Расположение офлайн-хранилища</string>
+	<string name="setting_header_syncing">Синхронизация</string>
+	<string name="setting_sync_on_open_label">Синхронизировать при запуске приложения</string>
+	<string name="setting_background_sync_label">Фоновая синхронизация</string>
+	<string name="setting_header_notifications">Уведомления</string>
+	<string name="setting_manage_notification_settings">Настройки уведомлений устройства</string>
+	<string name="setting_manage_notification_settings_sum">Настройка звуков, вибрации и других параметров уведомлений доступна в настройках Android</string>
+	<string name="setting_notify_sound_label">Звуковое уведомление</string>
+	<string name="setting_notify_sound_silent_sum">Беззвучный</string>
+	<string name="setting_notify_light_label">Светодиод</string>
+	<string name="setting_notify_light_sum">Включить световой сигнал об уведомлении</string>
+	<string name="setting_share_overlay_label">Команды быстрого сохранения</string>
+	<string name="setting_share_overlay_sum">Краткий список действий, которые можно выбрать при сохранении в Pocket новых элементов из другого приложения.</string>
+	<string name="setting_header_about">О нас</string>
+	<string name="setting_help">Получить помощь и поддержку</string>
+	<string name="setting_twitter_label">Подпишитесь на @Pocket в Twitter</string>
+	<string name="setting_facebook_label">Подпишитесь на нашу страницу в Facebook</string>
+	<string name="setting_tos">Условия использования</string>
+	<string name="setting_privacy">Политика конфиденциальности</string>
+	<string name="setting_oss">Лицензии с открытым кодом</string>
+	<string name="setting_contact_us">Связаться с нами</string>
+	<string name="setting_thank_you">Спасибо за скачивание. Наслаждайтесь!</string>
+	<string name="setting_header_version">Версия</string>
+	<string name="setting_version_label">Pocket %1$s</string>
+	<string name="setting_previous_and_next">Показать стрелки «Назад» и «Далее»</string>
+	<string name="setting_app_icon_label">Значок приложения</string>
+	<string name="setting_app_icon_header_automatic">Позвольте Pocket выбрать вам значок</string>
+	<string name="setting_app_icon_header_all">Или выберите понравившийся значок сами</string>
+	<string name="setting_app_icon_classic" comment="As in &apos;classic icon&apos;, so for gendered languages should follow the gender of &apos;App icon&apos; from setting_app_icon_label">Классика</string>
+	<string name="setting_app_icon_pride_flag" comment="As in &apos;Pride icon&apos;, so for gendered languages should follow the gender of &apos;App icon&apos; from setting_app_icon_label">Прайд</string>
+	<string name="setting_app_icon_monochrome" comment="As in &apos;monochrome icon&apos;, so for gendered languages should follow the gender of &apos;App icon&apos; from setting_app_icon_label">Монохромная</string>
+
+	<string name="prem_setting_thanks">Спасибо за подписку на Pocket Premium!</string>
+	
+	<string name="prem_setting_status">Статус подписки</string>
+	<string name="prem_setting_subscription">Подписка</string>
+	<string name="prem_setting_subscription_monthly">Ежемесячно</string>
+	<string name="prem_setting_subscription_annual" comment="occurring once per year">Годовой</string>
+	<string name="prem_setting_date_purchased">Дата покупки</string>
+	<string name="prem_setting_renewal_date">Дата обновления</string>
+	<string name="prem_setting_renew_subscription">Продлить подписку</string>
+	<string name="prem_setting_inactive_subscription">Неактивна</string>
+	<string name="prem_setting_subscription_ended_tap_to_renew">Срок вашей подписки завершен. Коснитесь, чтобы продлить свою подписку Premium.</string>
+	<string name="prem_setting_date_ended">Дата окончания</string>
+	<string name="prem_setting_purchase_location">Расположение покупки</string>
+	<string name="prem_setting_your_premium_features">Ваши функции Premium</string>
+	<string name="prem_setting_your_subscription">Ваша подписка</string>
+	<string name="prem_setting_manage_your_subscription">Управление подпиской</string>
+	<string name="prem_setting_questions">Вопросы или пожелания?</string>
+	<string name="prem_setting_faq">Часто задаваемые вопросы по Pocket Premium</string>
+	<string name="prem_setting_contact">Связаться со Службой поддержки Pocket</string>
+	<string name="prem_setting_premium_header">Premium</string>
+	<string name="prem_setting_upgrade">Перейти на Premium</string>
+	<string name="prem_setting_restore">Восстановить существующую пописку</string>
+	
+	<string name="purchase_error_offline_t">Похоже, вы не в сети</string>
+	<string name="purchase_error_offline_m">Для перехода на Premium вы должны быть онлайн. Проверьте подключение и попробуйте еще раз.</string>
+	<string name="purchase_error_activation_t">Ошибка активации</string>
+	<string name="purchase_error_activation_m">Покупка была успешной, но возникли проблемы с активацией аккаунта. Нажмите ОК для инструкций по завершению активации.</string>
+	<string name="purchase_error_purchase_t">Во время обработки покупки произошла ошибка</string>
+	<string name="purchase_error_purchase_m">При обработке вашей покупки возникла проблема. Попробуйте еще раз.</string>
+	<string name="purchase_error_progress">Завершение покупки...</string>
+	<string name="purchase_error_already_owned_t">Уже подписаны</string>
+	<string name="purchase_error_already_owned_m">У вас уже есть подписка Pocket Premium.</string>
+	<string name="purchase_error_restore_none_found_t">Восстановление не удалось</string>
+	<string name="purchase_error_restore_none_found_m">Не удалось найти подписку. Если вы считаете, что она у вас есть, то коснитесь %1$s, чтобы сообщить нам.</string>
+	<string name="purchase_restored">Подписка восстановлена</string>
+    <string name="purchase_error_amazon_m">Подписка на Pocket Premium в данный момент не доступна в Amazon App Store.</string> <!-- no translation necessary, as it is an email to our support team -->
+
+	<string name="setting_background_sync_0">Мгновенные (push)</string>
+	<string name="setting_background_sync_1">Каждый час</string>
+	<string name="setting_background_sync_2">Два раза в день</string>
+	<string name="setting_background_sync_3">Один раз в день</string>
+	<string name="setting_background_sync_4">Никогда</string>
+	
+    <!-- Text displayed in the enter key slot when the recipientedittextview has focus.
+         [CHAR LIMIT=12] -->
+    <string name="done">Назад</string>
+
+    <string name="setting_cache_set_offline_storage_limits">Установить ограничения офлайн-хранилища</string>
+    <string name="setting_cache_priority">Приоритет скачивания</string>
+    <string name="setting_cache_priority_newest">Сначала новые материалы</string>
+    <string name="setting_cache_priority_oldest">Сначала старые материалы</string>
+    <string name="setting_cache_limit_description">Установите предел хранилища, которое Pocket может использовать для скачивания офлайн.</string>
+    <string name="setting_cache_currently_using" comment="Do not translate values in {brackets}">Pocket использует приблизительно <b>{disk_space_size}</b> памяти вашего устройства.</string>
+    <string name="setting_cache_currently_adjusting">Установка ограничений офлайн-хранилища…</string>
+    <string name="setting_cache_limit_to" comment="Will be used to present a disk space value like Limit to: 500 MB">Ограничить до:</string>
+    <string name="setting_cache_unlimited">Неограничено</string>
+    <string name="setting_cache_approx_item_count">Приблизительно <b>{item_count}</b> самых <b>{newest_or_oldest}</b> материалов будут доступны офлайн.</string>
+    <string name="setting_cache_priority_inline_newest">новые</string>
+    <string name="setting_cache_priority_inline_oldest">старые</string>
+    <string name="setting_cache_confirm_change_t">Изменить параметры хранилища?</string>
+    <string name="setting_cache_confirm_change_m" comment="Please try to keep as short as possible">Pocket может удалять или загружать дополнительный контент в соответствии с вашими изменениями.</string>
+    <string name="setting_cache_may_take_a_few_minutes">Процесс может занять некоторое время.</string>
+    <string name="setting_cache_mb" comment="abbreviation for Megabytes. Used like 800 MB">Мб</string>
+    <string name="setting_cache_gb" comment="abbreviation for Gigabytes. Used like 1.2 GB">Гб</string>
+    <string name="setting_cache_not_saved_m">Изменения еще не сохранены. Вы хотите отменить изменения или продолжить редактирование?</string>
+	
+	<string name="storage_free_space">Свободная память: %1$s</string>
+	<string name="storage_free_space_unknown">Неизвестно</string>
+	<string name="storage_location_changed">Местоположение хранилища изменено</string>
+	<string name="storage_type_internal">Внутреннее</string>
+	<string name="storage_type_internal_specific_sandboxed">Внутреннее (только для Pocket)</string>
+	<string name="storage_type_internal_specific_unsandboxed">Внутреннее (общее)</string>
+	<string name="storage_type_removable">Съемное</string>
+	<string-array name="storage_location_specs_internal">
+        <item><b>Рекомендовано.</b></item>
+        <item>Кэш скачанных файлов доступен только для Pocket.</item>
+	</string-array>
+	<string-array name="storage_location_specs_removable">
+		<item>Кэш скачанных файлов доступен другим приложениям.</item>
+		<item>Pocket может работать некорректно, если местоположение хранилища изменено или удалено. </item>
+		<item>Pocket может работать некорректно, если устройство подключено к компьютеру в качестве USB-накопителя.</item>
+	</string-array>
+
+	<string name="onboarding_learn_more_1_title" comment="If possible without losing meaning, try to keep to 35 characters or less">Сохраняйте самое интересное</string>
+	<string name="onboarding_learn_more_1_text" comment="If possible without losing meaning, try to keep to 145 characters or less">Собирайте статьи, видео и любой онлайн-контент, который вам нравится. Устраивайтесь с ними поудобнее в любое время, с любым телефоном или планшетом.</string>
+	<string name="onboarding_learn_more_2_title" comment="If possible without losing meaning, try to keep to 35 characters or less">Получайте максимум от текущего момента</string>
+	<string name="onboarding_learn_more_2_text" comment="If possible without losing meaning, try to keep to 145 characters or less">Сохраняйте материалы из Chrome, Twitter, YouTube или вашего любимого новостного приложения (для начинающих). Ваши статьи и видео будут ждать вас в Pocket.</string>
+	<string name="onboarding_learn_more_3_title" comment="If possible without losing meaning, try to keep to 35 characters or less">Ваша тихая гавань в Интернете</string>
+	<string name="onboarding_learn_more_3_text" comment="If possible without losing meaning, try to keep to 145 characters or less">Pocket сохраняет статьи в упрощенном формате, специально предназначенном для чтения — отвлекающих элементов и всплывающих окон — чтобы вы могли отдохнуть от шума Интернета.</string>
+	
+	<string name="legacy_upgrading">Pocket обновляет ваше приложение. Это может занять несколько минут. Обновление будет продолжено в фоновом режиме, вы можете проверить приложение позже.</string>
+	
+	<string name="report_item_overflow_option">Пожаловаться на этот материал</string>
+	<string name="report_item_option_1">Заголовок, ссылка или изображение не работает</string>
+	<string name="report_item_option_2">Неправильная категория</string>
+	<string name="report_item_option_3">Материал откровенно сексуального характера</string>
+	<string name="report_item_option_4">Грубый, вульгарный или оскорбительный материал</string>
+	<string name="report_item_option_5">Содержит дезинформацию</string>
+	<string name="report_item_option_6">Другое</string>
+	<string name="report_item_hint">Расскажите нам подробнее</string>
+	<string name="report_item_dialog_title">Сообщить о проблеме</string>
+	<string name="report_item_submit_title">Спасибо!</string>
+	<string name="report_item_submit_text">Ваш отчет помогает сохранить безопасность сообщества Pocket.</string>
+	
+	<string name="collection_details_error_title">Не удалось загрузить коллекцию</string>
+	<string name="collection_details_error_message">Pocket не удалось загрузить эту коллекцию. Попробуйте позже.</string>
+	
+	<string name="viewed">Просмотрено</string>
+	<string name="not_viewed">Не просмотрено</string>
+	
+	<string name="no_internet_connection">Нет подключения к Интернету</string>
+	<string name="no_internet_connection_body">Похоже, вы не в сети. Проверьте подключение к мобильному интернету или сети wi-fi.</string>
+	
+	<string name="fxa_account_migrated">Ваш аккаунт успешно перенесен.</string>
+	
+	<string name="my_list_filter_all">Все</string>
+	<string name="my_list_filter_tagged">Обозначено тегом</string>
+	<string name="my_list_filter_favorites">Избранное</string>
+	<string name="my_list_filter_filter">Фильтр</string>
+	<string name="my_list_filter_edit">Редактировать</string>
+	<string name="my_list_filter">Фильтр</string>
+	<string name="edit_tags">Редактировать теги</string>
+	<string name="move_to_my_list">Перейти к Сохраненному</string>
+	<string name="highlighted">Выделенное</string>
+	<string name="delete_tag_confirmation_message">"Удалить тег %1$s?"</string>
+	
+	<string name="empty_list_all_title">Начните создавать свой список Pocket</string>
+	<string name="empty_list_all_action">Как сохранять</string>
+	<string name="empty_list_favorites_title">Найдите избранные материалы для себя здесь</string>
+	<string name="empty_list_favorites_message">Нажмите на значок звезды, чтобы добавить статью в избранное и находить ее быстрее.</string>
+	<string name="empty_list_tagged_title">Упорядочивайтесь свой список</string>
+	<string name="empty_list_tagged_message">Отмечайте свои сохранения тегом по темам, чтобы найти их позже.</string>
+	<string name="empty_list_tagged_action">Как отметить тегом</string>
+	<string name="empty_list_specific_tag_title">Нет сохранений с этим тегом.</string>
+	<string name="empty_list_highlights_title">Храните здесь свои избранные отрывки</string>
+	<string name="empty_list_highlights_message">Выберите строку в статье, затем нажмите \"выделить\", чтобы сохранить ее на потом.</string>
+	<string name="empty_list_archive_title">Храните свой список свежим и упорядоченным</string>
+	<string name="empty_list_archive_message">Архивируйте сохраненные материалы с помощью значка архива.</string>
+	<string name="empty_list_archive_action">Как архивировать</string>
+	
+	<string name="time_to_read_filter_short">Короткие</string>
+	<string name="time_to_read_filter_short_description">Менее 10 мин</string>
+	<string name="time_to_read_filter_long">Много</string>
+	<string name="time_to_read_filter_long_description">10 минут или больше</string>
+	<string name="short_reads">Короткие материалы</string>
+	<string name="long_reads">Большие материалы</string>
+	
+	<string name="notification_permission_primer_title">Никогда не пропускайте интересные статьи</string>
+	<string name="notification_permissions_primer_message">Можем ли мы периодически уведомлять вас об интересных материалах?</string>
+	<string name="notification_permissions_primer_positive_button">Конечно</string>
+	<string name="notification_permissions_primer_negative_button">Спросить позже</string>
+	
+	<string name="home_sign_in_banner">Войдите в учетную запись, чтобы получить максимум от Pocket</string>
+	<string name="home_see_all">Смотреть все</string>
+	<string name="home_collection">Коллекция</string>
+	<string name="recent_saves">Недавно сохраненное</string>
+	<string name="home_more_topics">Больше тем</string>
+	<string name="home_footer_message">На этом все! Возвращайтесь завтра, чтобы узнать больше.</string>
+	<string name="home_error_title">Не удалось получить новые статьи</string>
+	<string name="home_error_message">Можно повторить загрузку Домашней страницы.</string>
+	<string name="home_topic_error_message">Можно повторить загрузку статей еще раз.</string>
+	
+	<string name="original_web_no_browser">Не удалось найти браузер, чтобы открыть эту страницу</string>
+	<string name="original_web_changed_browser_setting" comment="The format argument (%1$s) will be replaced with a browser name like &apos;Chrome&apos; or &apos;Firefox&apos; chosen from one of the browsers installed on the device.">Pocket сменил предпочтительный браузер на %1$s, поскольку системный браузер по умолчанию не настроен.</string>
+	<string name="highlights">Выделение</string>
+	<string name="end_of_article_title">Вам также может понравиться</string>
+	<string name="previous_and_next_setting_description">Быстрое перемещение между статьями с помощью кнопок «Далее» и «Назад»</string>
+
+	<string name="add_url_title">Добавьте URL,</string>
+	<string name="add_url_hint" comment="Hint for an input field where you can paste a URL to save (add to your saves)">например https://getpocket.com</string>
+	<string name="add_url_error">Введите правильный URL</string>
+
+	<string name="authentication_legal_disclaimer" comment="This string uses Markdown formatting. Please preserve the formatting (including TWO spaces before the new line).">"Продолжая, вы соглашаетесь с:  \n[Условиями использования](https://getpocket.com/tos) и [Уведомлением о конфиденциальности](https://getpocket.com/privacy) Pocket"</string>
+</resources>

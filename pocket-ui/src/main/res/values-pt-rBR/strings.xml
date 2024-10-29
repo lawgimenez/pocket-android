@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- smartling.instruction_attributes = comment -->
+<!-- smartling.placeholder_format_custom = \{[a-zA-Z0-9_-]+\}-->
+<resources>
+    <!-- Accessibility and tooltip labels for icons -->
+    <string name="ic_overflow">Mais…</string>
+    <string name="ic_up">Voltar</string>
+    <string name="ic_archive" comment="Label for a button that archives an item. This is a verb.">Arquivar</string>
+    <string name="ic_save">Salvar</string>
+    <string name="ic_saved">Salvo</string>
+    <string name="ic_readd">Adicionar novamente</string>
+    <string name="ic_favorite">Favorito</string>
+    <string name="ic_unfavorite">Não favorito</string>
+    <string name="ic_mark_as_viewed">Marcar como visualizado</string>
+    <string name="ic_mark_as_not_viewed">Marcar como não visualizado</string>
+    <string name="ic_share">Compartilhar</string>
+    <string name="ic_delete">Excluir</string>
+    <string name="ic_add_tags">Adicionar tags</string>
+    <string name="ic_filters">Filtros</string>
+    <string name="ic_play">Reproduzir</string>
+    <string name="ic_pause">Pausa</string>
+    <string name="ic_skip">Avançar</string>
+    <string name="ic_back">Voltar</string>
+    <string name="ic_cancel">Cancelar</string>
+    <string name="ic_listen">Escutar</string>
+    <string name="ic_like">Curtir</string>
+    <string name="ic_remove_like">Remover curtida</string>
+    <string name="ic_repost">Republicar</string>
+    <string name="ic_remove_repost">Remover republicação</string>
+    <string name="ic_plus">+</string>
+    <string name="ic_minus">-</string>
+    <string name="ic_close">Fechar</string>
+    <string name="ic_edit">Editar</string>
+    <string name="ic_highlight" comment="Label for button that highlights selected text">Destacar</string>
+    <string name="ic_copy">Copiar</string>
+    <string name="ic_brightness_down">Reduzir brilho da tela</string>
+    <string name="ic_brightness_up">Aumentar brilho da tela</string>
+    <string name="ic_brightness_control">Brilho da tela</string>
+    <string name="ic_settings">Configurações</string>
+    <string name="ic_premium">Pocket Premium</string>
+    <string name="ic_pocket_menu">Menu do Pocket</string>
+
+    <string name="ac_save">Salvar</string>
+    <string name="ac_save_to_pocket">Salvar no Pocket</string>
+    <string name="ac_previous">Anterior</string>
+    <string name="ac_next">Próximo</string>
+    
+    <string name="upgrade">Upgrade</string>
+    <string name="upgrade_upsell">Desbloquear mais opções de personalização</string>
+    <string name="get_premium">Adquirir o Premium</string>
+    
+    <string name="counts_thousands" comment="number abbreviated to thousands. such as 1k for 1,000. as short as possible.">%1$dk</string>
+    <string name="counts_millions" comment="number abbreviated to millions. such as 1m for 1,000,000. as short as possible">%1$dM</string>
+    
+    <!-- content descriptions -->
+    <string name="setting_incrementor" comment="{setting} is a placeholder for a text style setting, eg Text Size, Line Height, or Margin, do not translate the content within {}">Aumentar {setting}</string>
+    <string name="setting_decrementor" comment="{setting} is a placeholder for a text style setting, eg Text Size, Line Height, or Margin, do not translate the content within {}">Diminuir {setting}</string>
+    <string name="text_setting_text_size">Tamanho do texto</string>
+    <string name="text_setting_line_height">Espaçamento</string>
+    <string name="text_setting_margin">Margem</string>
+
+    <string name="current_typeface" comment="{typeface} is a placeholder for the current text typeface setting, eg Blanco, Graphik, do not translate the content within {}">Alterar a fonte de {typeface}</string>
+
+    <string name="theme_toggle_light_desc">Alterar para Tema Claro</string>
+    <string name="theme_toggle_dark_desc">Alterar para Tema Escuro</string>
+    <string name="theme_toggle_auto_desc">Alterar tema automaticamente</string>
+
+    <!-- Strings only used for ux playground-->
+    <string name="light">Claro</string>
+    <string name="dark">Escuro</string>
+</resources>

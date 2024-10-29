@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:parentTag="com.pocket.ui.view.themed.ThemedLinearLayout"
+    >
+    <!-- root layout params are set in the view class PocketChip.kt -->
+    
+    <com.pocket.ui.view.themed.ThemedImageView
+        android:id="@+id/icon"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_gravity="center_vertical"
+        app:tint="@color/pkt_chip_foreground"
+        tools:src="@drawable/ic_pkt_list_line"
+        />
+    
+    <Space
+        android:id="@+id/spaceBetweenIconAndText"
+        android:layout_width="8dp"
+        android:layout_height="0dp"
+        />
+    
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="@color/pkt_chip_foreground"
+        android:layout_gravity="center_vertical"
+        android:maxLines="1"
+        tools:text="My List"
+        />
+    
+    <com.pocket.ui.view.themed.ThemedImageView
+        android:id="@+id/badge"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
+        android:src="@drawable/ic_circle"
+        android:tint="@color/pkt_themed_coral_2"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="6dp"
+        />
+    
+    <com.pocket.ui.view.themed.ThemedImageView
+        android:id="@+id/close"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:src="@drawable/ic_pkt_close_x_circle"
+        android:tint="@color/pkt_chip_foreground"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="12dp"
+        />
+
+</merge>

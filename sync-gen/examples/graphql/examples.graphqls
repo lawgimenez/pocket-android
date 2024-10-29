@@ -1,0 +1,145 @@
+extend schema @remote(name: "Remote")
+
+"A value that should be considered dangerous"
+scalar Dangerous
+scalar Timestamp
+
+extend type Mutation {
+    """
+    An example action with all of the syntax features
+    {action_example} Description
+    """
+    action_example(
+        "{.input} Description" input : String
+        input_thing : ThingExample
+        deprecated : String @_deprecated
+    ) : Void
+    @figment(address: "endpoint/{.input}")
+    @figment(auth: "UserAuth")
+    @figment(priority: "ASAP")
+    @figment(effect: "Effect")
+
+    "An example action that doesn't declare an effect"
+    no_effect_action(input : String) : Void
+
+    "An example action that resolves to Thing"
+    resolved_action : ThingExample
+}
+
+"An example thing with all of the syntax features"
+type ThingExample @figment(related_to: "ExampleFeature") @figment(address: "endpoint/{.val}") @figment(auth: "UserAuth") {
+    # Different types of id fields
+    id : String @id
+    id_derived : String @id @derives(first_available: [".id", ".val"])
+    hash_target : String @id @hash_target
+
+    # Different ways values can be used
+    val : String
+    val_list : [String]
+    val_map : [String] @map
+    bool : Boolean
+
+    deprecated : String @deprecated
+
+    # Different ways sub things that have identity can be used
+    id_thing : IdentifiableByValue
+    id_list : [IdentifiableByValue]
+    id_map : [IdentifiableByValue] @map
+
+    # Different ways sub things that do not have identity can be used
+    non_id_thing : NonIdentifiable
+    non_id_list : [NonIdentifiable]
+    non_id_map : [NonIdentifiable] @map
+
+    # All of the deriving methods
+    
+    # First available
+    derived_first_available : String @derives(first_available: [".val", ".id"])
+
+    # Remap
+    remap_target : [IdentifiableByValue]
+    derived_remap : [String] @derives(remap: "remap_target.val")
+
+    # Instructions with the various types of reactives
+    reactive_to_type : String @derives(reactive: "IdentifiableByValue") @derives(instructions: "Do something")
+    reactive_to_type_field : String @derives(reactive: "IdentifiableByValue.val") @derives(instructions: "Do something")
+    reactive_to_sibling_field : String @derives(reactive: ".val") @derives(instructions: "Do something")
+    reactive_to_any_sibling_field : String @derives(reactive: ".") @derives(instructions: "Do something")
+    reactive_collection_field : String @derives(reactive: ".id_list.val") @derives(instructions: "Do something")
+
+    # Dangerous values
+    dangerous : Dangerous
+    dangerous_list : [Dangerous]
+    dangerous_map : [Dangerous] @map
+    has_dangerous : HasDangerousValue
+    has_dangerous_list : [HasDangerousValue]
+    has_dangerous_map : [HasDangerousValue] @map
+
+    # Open types
+    variety : VarietyExample
+    variety_list : [VarietyExample]
+    variety_map : [VarietyExample] @map
+    interface : InterfaceExample
+    interface_list : [InterfaceExample]
+    interface_map : [InterfaceExample] @map
+}
+
+"Identifying fields are values"
+type IdentifiableByValue {
+    id : String @id
+    val : String
+}
+
+"Identifying fields are things that have identity themselves"
+type IdentifiableByIdentifiableThing {
+    id : IdentifiableByValue @id
+    val : String
+}
+
+"Identifying fields are things that are non identifiable"
+type IdentifiableByNonIdentifiableThing {
+    id : NonIdentifiable @id
+    val : String
+}
+
+"Has no identifying fields"
+type NonIdentifiable {
+    val : String
+}
+
+type HasDangerousValue implements InterfaceExample {
+    dangerous : Dangerous
+}
+
+extend type Mutation {
+    "An action that is deprecated"
+    deprecated_action(no_more : String) : Void @deprecated
+}
+
+
+
+
+enum IntegerEnum {
+    "One"
+    ONE @figment(enum_value: "1")
+    "Two"
+    TWO @figment(enum_value: "2")
+}
+
+enum BasicEnum {
+    one
+    two
+}
+
+union VarietyExample = NonIdentifiable | HasDangerousValue
+
+interface InterfaceExample {
+    dangerous : Dangerous
+}
+
+type Query {
+    example: ThingExample
+}
+type Mutation {
+    inputs: ThingExample
+}

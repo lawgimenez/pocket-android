@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="com.pocket.ui.view.edittext.CharCountEditText">
+    <com.pocket.ui.view.edittext.PktEditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <com.pocket.ui.view.edittext.CharCounter
+        android:id="@+id/char_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</merge>

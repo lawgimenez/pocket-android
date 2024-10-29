@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <!-- The 20dp fixed size is to wrap the RadioButton's icon tightly, avoiding its built in view port padding. -->
+    <com.pocket.ui.view.themed.ThemedImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pkt_side_grid"
+        android:layout_marginStart="@dimen/pkt_side_grid"
+        android:duplicateParentState="true"
+        app:drawableColor="@color/pkt_themed_grey_1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/label"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"/>
+
+    <com.pocket.ui.view.checkable.CheckableTextView
+        android:id="@+id/label"
+        style="@style/Pkt_Text_Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/pkt_side_grid"
+        android:layout_marginLeft="@dimen/pkt_space_sm"
+        android:layout_marginRight="@dimen/pkt_side_grid"
+        android:layout_marginStart="@dimen/pkt_space_sm"
+        android:clickable="false"
+        android:duplicateParentState="true"
+        android:focusable="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        app:visualPadding="true"
+        tools:text="Label"/>
+
+</merge>

@@ -1,0 +1,74 @@
+fragment itemFields on Item {
+    itemId
+    normalUrl
+    ampUrl
+    authors {
+        id
+        name
+        url
+    }
+    collection {
+        slug
+    }
+    domain
+    domainMetadata {
+        name
+        logo
+        logoGreyscale
+    }
+    encoding
+    excerpt
+    hasImage
+    hasVideo
+    images {
+        caption
+        credit
+        height
+        imageId
+        src
+        width
+    }
+    isArticle
+    mimeType
+    resolvedId
+    resolvedUrl
+    title
+    topImageUrl
+    videos {
+        height
+        src
+        type
+        vid
+        videoId
+        width
+        length
+    }
+    wordCount
+    syndicatedArticle {
+        slug
+        publisher {
+            name
+            url
+        }
+    }
+}
+
+query getItemByUrl($url: String!) {
+    item: itemByUrl(url: $url) {
+        ...itemFields
+    }
+}
+
+query getItemByShareSlug($slug: ID!) {
+    result: shareSlug(slug: $slug) {
+        _type: __typename
+        ... on PocketShare {
+            preview {
+                _type: __typename
+                item {
+                    ...itemFields
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,190 @@
+format_version: "11"
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: android
+app:
+  envs:
+  - PROJECT_LOCATION: .
+    opts:
+      is_expand: false
+  - MODULE: Pocket
+    opts:
+      is_expand: false
+  - PR_BUILD_VARIANT: teamReviewTeamRelease
+    opts:
+      is_expand: false
+  - _JAVA_OPTIONS: -Xmx6144M -XX:MaxMetaspaceSize=512m
+    opts:
+      is_expand: false
+  - RELEASE_BUILD_INFO_KEY: releaseBuildInfoKey
+    opts:
+      is_expand: false
+  - GRADLEW_PATH: ./gradlew
+    opts:
+      is_expand: false
+meta:
+  bitrise.io:
+    machine_type: standard
+    stack: linux-docker-android-22.04
+trigger_map:
+- type: push
+  workflow: onMainUpdated
+  push_branch: main
+- type: push
+  workflow: onReleaseBranchUpdated
+  push_branch: release-*.*.*
+- type: push
+  workflow: onMergeQueueUpdated
+  push_branch: gh-readonly-queue/*
+- type: pull_request
+  workflow: onPullRequest
+  pull_request_source_branch: '*'
+  pull_request_target_branch: '*'
+workflows:
+  onMainUpdated:
+    after_run:
+    - publishAlphaToAppCenter
+  onMergeQueueUpdated:
+    after_run:
+    - runPreMergeChecks
+  onPullRequest:
+    after_run:
+    - runPreMergeChecks
+  onReleaseBranchUpdated:
+    steps:
+    - set-java-version@1:
+        inputs:
+        - set_java_version: "17"
+    - activate-ssh-key:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone: {}
+    - cache-pull: {}
+    - script:
+        title: Update build version
+        inputs:
+        - content: |-
+            set -e
+            set -x
+            java -jar project-tools/tools.jar updateBuildVersionForRelease $BITRISE_GIT_BRANCH
+
+            versionName=$(java -jar project-tools/legacyTools.jar -printVersionName Pocket/build.gradle.kts)
+            versionCode=$(java -jar project-tools/legacyTools.jar -printVersionCode Pocket/build.gradle.kts)
+
+            echo $versionName
+            echo $versionCode
+    - script:
+        title: Decrypt secrets
+        inputs:
+        - content: secrets/decrypt.sh
+    - script:
+        title: Update merged manifest copy
+        inputs:
+        - content: |-
+            set -e
+            set -x
+            ./gradlew Pocket:copyMergedManifest
+    - install-missing-android-tools:
+        inputs:
+        - gradlew_path: $PROJECT_LOCATION/gradlew
+    - android-build:
+        inputs:
+        - variant: playUnsignedRelease
+        - module: Pocket
+    - script:
+        title: Sign build
+        inputs:
+        - content: |-
+            set -e
+            set -x
+            curl -F "input=@./Pocket/build/outputs/apk/play/unsignedRelease/Pocket-play-unsignedRelease-unsigned.apk" -o ./Pocket/build/outputs/apk/play/unsignedRelease/signed.apk -H "Authorization: $EDGE_API_KEY" https://edge.prod.autograph.services.mozaws.net/sign
+    - deploy-to-bitrise-io@2:
+        inputs:
+        - notify_user_groups: none
+        - deploy_path: ./Pocket/build/outputs/apk/play/unsignedRelease/signed.apk
+    - google-play-deploy:
+        inputs:
+        - service_account_json_key_path: $BITRISEIO_GOOGLE_SERVICE_ACCOUNT_JSON_URL
+        - package_name: com.ideashower.readitlater.pro
+        - app_path: ./Pocket/build/outputs/apk/play/unsignedRelease/signed.apk
+        - track: internal
+        - status: completed
+    - script:
+        title: Push changes to github
+        inputs:
+        - script_file_path: null
+        - content: |-
+            set -e
+            set -x
+
+            git config --global user.name "Bitrise Bot"
+            git config --global user.email "max+bitrisebot@getpocket.com"
+
+            git checkout $BITRISE_GIT_BRANCH
+            git add .
+            git commit -m "chore(ci): prepare release [skip ci]"
+            git push origin $BITRISE_GIT_BRANCH
+    - cache-push: {}
+  publishAlphaToAppCenter:
+    steps:
+    - set-java-version@1:
+        inputs:
+        - set_java_version: "17"
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone:
+        inputs:
+        - update_submodules: "no"
+    - cache-pull@2: {}
+    - script:
+        title: Update versionName
+        inputs:
+        - content: scripts/set-version-name-build-number.sh $BITRISE_BUILD_NUMBER
+    - script:
+        title: Decrypt secrets
+        inputs:
+        - content: secrets/decrypt.sh
+    - install-missing-android-tools:
+        inputs:
+        - gradlew_path: $PROJECT_LOCATION/gradlew
+    - android-build@1:
+        inputs:
+        - variant: teamATeamRelease
+        - module: Pocket
+    - deploy-to-bitrise-io@2:
+        inputs:
+        - notify_user_groups: none
+    - appcenter-deploy-android@2:
+        inputs:
+        - api_token: $APPCENTER_API_ID
+        - owner_name: pocket-app
+        - app_name: Android-Alpha-Team-Only
+        - release_notes: $BITRISE_BUILD_URL
+        - notify_testers: "no"
+        - app_path: $BITRISE_APK_PATH
+        - distribution_group: All-users-of-Android-Alpha-Team-Only
+        - debug: "yes"
+        - mapping_path: $BITRISE_MAPPING_PATH
+    - cache-push@2: {}
+  runPreMergeChecks:
+    steps:
+    - set-java-version@1:
+        inputs:
+        - set_java_version: "17"
+    - activate-ssh-key:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone: {}
+    - cache-pull: {}
+    - script:
+        title: Decrypt secrets
+        inputs:
+        - content: secrets/decrypt.sh
+    - install-missing-android-tools: {}
+    - gradle-unit-test@1: {}
+    - android-build:
+        title: Review Build
+        inputs:
+        - variant: $PR_BUILD_VARIANT
+        - module: Pocket
+    - deploy-to-bitrise-io@2:
+        inputs:
+        - notify_user_groups: none
+    - cache-push: {}

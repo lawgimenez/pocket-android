@@ -1,0 +1,21 @@
+projects:
+  prod:
+    schema: sync-pocket/src/main/graphql/pocket-client-api@current.graphqls
+    include:
+    - sync-pocket/src/main/graphql/**
+    - figment.graphql
+    extensions:
+      endpoints:
+        Pocket Graph – Production:
+          url: https://client-api.getpocket.com
+          headers:
+            user-agent: JS GraphQL
+          introspect: false
+  test:
+    include:
+    - sync-pocket-android/src/test/graphql/**
+    - figment.graphql
+  examples:
+    include:
+    - sync-gen/examples/graphql/**
+    - figment.graphql

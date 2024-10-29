@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.pocket.sdk.util.PocketActivityContentView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ViewStub
+        android:id="@+id/stub_listen"
+        android:inflatedId="@+id/listen"
+        android:layout="@layout/stub_listen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <ViewStub
+        android:id="@+id/stub_lock"
+        android:inflatedId="@+id/locks"
+        android:layout="@layout/rotation_lock"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</merge>

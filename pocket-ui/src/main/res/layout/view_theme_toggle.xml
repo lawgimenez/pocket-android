@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="com.pocket.ui.view.menu.ThemeToggle">
+
+    <com.pocket.ui.view.checkable.CheckableImageView
+        android:id="@+id/theme_light"
+        android:contentDescription="@string/theme_toggle_light_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/min_touch_target"
+        android:layout_margin="@dimen/pkt_side_grid"
+        android:layout_weight="1"
+        android:background="@drawable/pkt_ripple_borderless"
+        android:gravity="center"
+        android:scaleType="center"
+        app:srcCompat="@drawable/ic_pkt_theme_light" />
+
+    <com.pocket.ui.view.checkable.CheckableImageView
+        android:id="@+id/theme_dark"
+        android:contentDescription="@string/theme_toggle_dark_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/min_touch_target"
+        android:layout_margin="@dimen/pkt_side_grid"
+        android:layout_weight="1"
+        android:background="@drawable/pkt_ripple_borderless"
+        android:gravity="center"
+        android:scaleType="center"
+        app:srcCompat="@drawable/ic_pkt_theme_dark" />
+
+    <com.pocket.ui.view.checkable.CheckableImageView
+        android:id="@+id/theme_auto"
+        android:contentDescription="@string/theme_toggle_auto_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/min_touch_target"
+        android:layout_margin="@dimen/pkt_side_grid"
+        android:layout_weight="1"
+        android:background="@drawable/pkt_ripple_borderless"
+        android:gravity="center"
+        android:scaleType="center"
+        app:srcCompat="@drawable/ic_pkt_theme_auto" />
+
+</merge>

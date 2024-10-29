@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pocket.app.list.bulkedit.BulkEditOverflowBottomSheetViewModel"
+            />
+    </data>
+    
+<com.pocket.ui.view.themed.ThemedLinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_bottom_sheet"
+    android:paddingBottom="40dp"
+    >
+    
+    <com.pocket.ui.view.themed.ThemedLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        
+        <com.pocket.ui.view.themed.ThemedTextView
+            android:id="@+id/title"
+            style="@style/Pkt_Text_Title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="@dimen/pkt_space_md"
+            android:maxLines="3"
+            android:text="@{viewModel.uiState.title}"
+            tools:text="This is a title"
+            />
+        
+        <com.pocket.ui.view.item.ItemThumbnailView
+            android:id="@+id/image"
+            android:layout_width="110dp"
+            android:layout_height="70dp"
+            android:layout_margin="@dimen/pkt_space_md"
+            />
+    
+    </com.pocket.ui.view.themed.ThemedLinearLayout>
+
+    <com.pocket.ui.view.themed.ThemedConstraintLayout
+        android:id="@+id/favorite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.onFavoriteClicked()}"
+        app:uiEntityIdentifier="bulkEditFavorite"
+        >
+    
+        <com.pocket.ui.view.themed.ThemedImageView
+            android:id="@+id/favoriteIcon"
+            android:src="@drawable/ic_pkt_favorite_line"
+            android:tint="@color/pkt_themed_grey_1"
+            android:scaleType="center"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/pkt_side_grid"
+            android:layout_marginEnd="@dimen/pkt_space_md"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+    
+        <com.pocket.ui.view.themed.ThemedTextView
+            style="@style/Pkt_Text_Medium"
+            android:layout_height="54dp"
+            android:layout_width="0dp"
+            android:duplicateParentState="true"
+            android:gravity="center_vertical"
+            android:text="@{viewModel.uiState.favoriteText}"
+            android:layout_marginStart="@dimen/pkt_side_grid"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/favoriteIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Favorite"/>
+
+    </com.pocket.ui.view.themed.ThemedConstraintLayout>
+    
+    <com.pocket.ui.view.themed.ThemedConstraintLayout
+        android:id="@+id/addTags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.onEditTagsClicked()}"
+        app:uiEntityIdentifier="bulkEditAddTags"
+        >
+        
+        <com.pocket.ui.view.themed.ThemedImageView
+            android:id="@+id/tagIcon"
+            android:src="@drawable/ic_pkt_tag_line"
+            android:tint="@color/pkt_themed_grey_1"
+            android:scaleType="center"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/pkt_side_grid"
+            android:layout_marginEnd="@dimen/pkt_space_md"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        
+        <com.pocket.ui.view.themed.ThemedTextView
+            style="@style/Pkt_Text_Medium"
+            android:layout_height="54dp"
+            android:layout_width="0dp"
+            android:duplicateParentState="true"
+            android:gravity="center_vertical"
+            android:text="@string/ic_add_tags"
+            android:layout_marginStart="@dimen/pkt_side_grid"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tagIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    
+    </com.pocket.ui.view.themed.ThemedConstraintLayout>
+    
+    <com.pocket.ui.view.themed.ThemedConstraintLayout
+        android:id="@+id/markAsViewed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.onMarkAsViewedClicked()}"
+        app:uiEntityIdentifier="bulkEditMarkAsViewed"
+        >
+        
+        <com.pocket.ui.view.themed.ThemedImageView
+            android:id="@+id/viewedIcon"
+            android:src="@drawable/ic_viewed"
+            android:tint="@color/pkt_themed_grey_1"
+            android:scaleType="center"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/pkt_side_grid"
+            android:layout_marginEnd="@dimen/pkt_space_md"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+        
+        <com.pocket.ui.view.themed.ThemedTextView
+            style="@style/Pkt_Text_Medium"
+            android:layout_height="54dp"
+            android:layout_width="0dp"
+            android:duplicateParentState="true"
+            android:gravity="center_vertical"
+            android:text="@string/ic_mark_as_viewed"
+            android:layout_marginStart="@dimen/pkt_side_grid"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/viewedIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_goneMarginStart="@dimen/pkt_side_grid" />
+    
+    </com.pocket.ui.view.themed.ThemedConstraintLayout>
+
+    <com.pocket.ui.view.themed.ThemedConstraintLayout
+        android:id="@+id/markAsNotViewed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> viewModel.onMarkAsNotViewedClicked()}"
+        app:uiEntityIdentifier="bulkEditMarkAsNotViewed"
+        >
+    
+        <com.pocket.ui.view.themed.ThemedImageView
+            android:id="@+id/notViewedIcon"
+            android:src="@drawable/ic_viewed_not"
+            android:tint="@color/pkt_themed_grey_1"
+            android:scaleType="center"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/pkt_side_grid"
+            android:layout_marginEnd="@dimen/pkt_space_md"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+    
+        <com.pocket.ui.view.themed.ThemedTextView
+            style="@style/Pkt_Text_Medium"
+            android:layout_height="54dp"
+            android:layout_width="0dp"
+            android:duplicateParentState="true"
+            android:gravity="center_vertical"
+            android:text="@string/ic_mark_as_not_viewed"
+            android:layout_marginStart="@dimen/pkt_side_grid"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/notViewedIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_goneMarginStart="@dimen/pkt_side_grid" />
+
+    </com.pocket.ui.view.themed.ThemedConstraintLayout>
+
+</com.pocket.ui.view.themed.ThemedLinearLayout>
+
+</layout>

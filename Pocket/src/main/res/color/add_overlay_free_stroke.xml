@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:state="http://schemas.android.com/tools">
+
+    <!-- in dark mode, show a gray stroke outline whether pressed or not -->
+    <item app:state_dark="true" android:color="@color/pkt_grey_3" />
+
+    <!-- by default, no stroke, just touchable colors -->
+    <item android:color="@color/pkt_bg" />
+</selector>

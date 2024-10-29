@@ -1,0 +1,58 @@
+query Home($recommendationCount: Int, $locale: String) {
+    homeSlateLineup(locale: $locale) {
+        slates {
+            headline
+            subheadline
+            moreLink {
+                text
+                url
+            }
+            recommendationReasonType
+            recommendations(count: $recommendationCount) {
+                id
+                corpusItem {
+                    ...CorpusItemFields
+                }
+            }
+            id
+        }
+    }
+}
+
+query RelatedAfterArticle($url: String!, $count: Int!) {
+    itemByUrl(url: $url) {
+        relatedAfterArticle(count: $count) {
+            corpusItem {
+                ...CorpusItemFields
+                savedItem {
+                    id
+                    _version
+                    _createdAt
+                    _deletedAt
+                    _updatedAt
+                    status
+                    item {
+                        _type: __typename
+                        ...on Item {
+                            givenUrl
+                        }
+                    }
+                }
+            }
+            id
+        }
+    }
+}
+
+fragment CorpusItemFields on CorpusItem {
+    preview {
+        _type: __typename
+        url
+        excerpt
+        id
+        image { url }
+        domain { name }
+        title
+    }
+    target { _type: __typename }
+}

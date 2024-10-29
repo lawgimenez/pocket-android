@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- smartling.instruction_attributes = comment -->
+<!-- smartling.placeholder_format_custom = \{[a-zA-Z0-9_-]+\}-->
+<resources>
+    <!-- Accessibility and tooltip labels for icons -->
+    <string name="ic_overflow">Plus…</string>
+    <string name="ic_up">Retour en arrière</string>
+    <string name="ic_archive" comment="Label for a button that archives an item. This is a verb.">Archiver</string>
+    <string name="ic_save">Sauvegarder</string>
+    <string name="ic_saved">Sauvegardé</string>
+    <string name="ic_readd">Rajouter</string>
+    <string name="ic_favorite">Marquer</string>
+    <string name="ic_unfavorite">Retirer des favoris</string>
+    <string name="ic_mark_as_viewed">Marquer comme vu</string>
+    <string name="ic_mark_as_not_viewed">Marquer comme non vu</string>
+    <string name="ic_share">Partager</string>
+    <string name="ic_delete">Supprimer</string>
+    <string name="ic_add_tags">Ajouter des étiquettes</string>
+    <string name="ic_filters">Filtres</string>
+    <string name="ic_play">Jouer</string>
+    <string name="ic_pause">Pause</string>
+    <string name="ic_skip">Avancer</string>
+    <string name="ic_back">Revenir en arrière</string>
+    <string name="ic_cancel">Annuler</string>
+    <string name="ic_listen">Écouter</string>
+    <string name="ic_like">Mention J\'aime</string>
+    <string name="ic_remove_like">Enlever la Mention j\'aime</string>
+    <string name="ic_repost">Republier</string>
+    <string name="ic_remove_repost">Supprimer republication</string>
+    <string name="ic_plus">+</string>
+    <string name="ic_minus">-</string>
+    <string name="ic_close">Fermer</string>
+    <string name="ic_edit">Modifier</string>
+    <string name="ic_highlight" comment="Label for button that highlights selected text">Surligneur</string>
+    <string name="ic_copy">Copier</string>
+    <string name="ic_brightness_down">Diminuer la luminosité de l’écran</string>
+    <string name="ic_brightness_up">Augmenter la luminosité de l’écran</string>
+    <string name="ic_brightness_control">Luminosité de l’écran</string>
+    <string name="ic_settings">Paramètres</string>
+    <string name="ic_premium">Pocket Premium </string>
+    <string name="ic_pocket_menu">Menu Pocket</string>
+
+    <string name="ac_save">Sauvegarder</string>
+    <string name="ac_save_to_pocket">Sauvegarder dans Pocket</string>
+    <string name="ac_previous">Précédent</string>
+    <string name="ac_next">Suivant</string>
+    
+    <string name="upgrade">Mettre à jour</string>
+    <string name="upgrade_upsell">Déverrouillez plus d\'options de personnalisation</string>
+    <string name="get_premium">Obtenir la version Premium</string>
+    
+    <string name="counts_thousands" comment="number abbreviated to thousands. such as 1k for 1,000. as short as possible.">%1$dk</string>
+    <string name="counts_millions" comment="number abbreviated to millions. such as 1m for 1,000,000. as short as possible">%1$dM</string>
+    
+    <!-- content descriptions -->
+    <string name="setting_incrementor" comment="{setting} is a placeholder for a text style setting, eg Text Size, Line Height, or Margin, do not translate the content within {}">Augmenter la {setting}</string>
+    <string name="setting_decrementor" comment="{setting} is a placeholder for a text style setting, eg Text Size, Line Height, or Margin, do not translate the content within {}">Diminuer la {setting}</string>
+    <string name="text_setting_text_size">Taille du texte</string>
+    <string name="text_setting_line_height">Hauteur de ligne</string>
+    <string name="text_setting_margin">Marge</string>
+
+    <string name="current_typeface" comment="{typeface} is a placeholder for the current text typeface setting, eg Blanco, Graphik, do not translate the content within {}">Changer le type de caractères actuel de {typeface}</string>
+
+    <string name="theme_toggle_light_desc">Passer au thème clair</string>
+    <string name="theme_toggle_dark_desc">Passer au thème foncé</string>
+    <string name="theme_toggle_auto_desc">Changer le thème automatiquement</string>
+
+    <!-- Strings only used for ux playground-->
+    <string name="light">Clair</string>
+    <string name="dark">Foncé</string>
+</resources>

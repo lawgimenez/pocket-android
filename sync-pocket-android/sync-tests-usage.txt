@@ -1,0 +1,308 @@
+enum AnIntegerEnum
+enum AnIntegerEnum.0 1
+enum AnIntegerEnum.1 2
+enum AnIntegerEnum.2 3
+thing Animal
+thing Animal.animal 1
+thing AnotherReactiveImplementation
+thing AnotherReactiveImplementation.id 1
+thing AnotherReactiveImplementation.watched 2
+thing AnotherReactiveImplementation.not_watched 3
+thing AnotherReactiveImplementation.reactive_interface_field 4
+thing AnotherReactiveImplementation.reactive_implementation_field 5
+thing AnotherReactiveImplementation.reactive_interface 6
+thing AnotherReactiveImplementation.reactive_implementation 7
+thing AnotherReactiveImplementation.reactive_self_field 8
+thing AnotherReactiveImplementation.reactive_self 9
+thing Bird
+thing Bird.animal 1
+thing Bird.bird 2
+value Boolean
+thing Cat
+thing Cat.animal 1
+thing Cat.domesticated 2
+thing Cat.cat 3
+thing Chicken
+thing Chicken.animal 1
+thing Chicken.bird 2
+thing Chicken.chicken 3
+thing ContainsDangerous
+thing ContainsDangerous.safe 1
+thing ContainsDangerous.dangerous 2
+value Dangerous
+thing DangerousInterface
+thing DangerousInterface.safe 1
+thing DangerousInterface.dangerous 2
+thing DangerousInterface.contains 3
+thing DeepCollectionsTest
+thing DeepCollectionsTest.id 1
+thing DeepCollectionsTest.val0 2
+thing DeepCollectionsTest.obj0 3
+thing DeepCollectionsTest.obj_list0 4
+thing DeepCollectionsTest.obj_map0 5
+thing DeepCollectionsTest.val_list0 6
+thing DeepCollectionsTest.val_map0 7
+thing DeepCollectionsTest.ref_list0 8
+thing DeepCollectionsTest.ref_map0 9
+thing Depth1
+thing Depth1.val1 1
+thing Depth1.obj1 2
+thing Depth1.obj_list1 3
+thing Depth1.obj_map1 4
+thing Depth1.val_list1 5
+thing Depth1.val_map1 6
+thing Depth1.ref_list1 7
+thing Depth1.ref_map1 8
+thing Depth2
+thing Depth2.val2 1
+thing Depth2.obj2 2
+thing Depth2.obj_list2 3
+thing Depth2.obj_map2 4
+thing Depth2.val_list2 5
+thing Depth2.val_map2 6
+thing Depth2.ref_list2 7
+thing Depth2.ref_map2 8
+thing Depth3
+thing Depth3.val3 1
+thing Depth3.obj3 2
+thing Depth3.obj_list3 3
+thing Depth3.obj_map3 4
+thing Depth3.val_list3 5
+thing Depth3.val_map3 6
+thing Depth3.ref_list3 7
+thing Depth3.ref_map3 8
+thing Dog
+thing Dog.animal 1
+thing Dog.domesticated 2
+thing Dog.dog 3
+thing Domesticated
+thing Domesticated.domesticated 1
+thing EnumHolderThing
+thing EnumHolderThing.the_enum 1
+value Float
+thing GraphQlInput
+thing GraphQlInput.scalar 1
+thing GraphQlInterface
+thing GraphQlInterface.scalar 1
+thing GraphQlInterfaceImpl1
+thing GraphQlInterfaceImpl1.scalar 1
+thing GraphQlInterfaceImpl2
+thing GraphQlInterfaceImpl2.scalar 1
+thing GraphQlInterfaceImpl2.second 2
+thing GraphQlObject1
+thing GraphQlObject1.scalar 1
+thing GraphQlObject1.object 2
+thing GraphQlObject1.union 3
+thing GraphQlObject1.interface 4
+thing GraphQlObject2
+thing GraphQlObject2.scalar 1
+thing GraphQlQueryReturnsScalar
+thing GraphQlQueryReturnsScalar.scalar 1
+thing GraphQlQueryReturnsThing
+thing GraphQlQueryReturnsThing.thing 1
+thing GraphQlQueryWithArgs
+thing GraphQlQueryWithArgs.required 1
+thing GraphQlQueryWithArgs.optional 2
+thing GraphQlQueryWithArgs.required_list 3
+thing GraphQlQueryWithArgs.optional_list 4
+thing GraphQlQueryWithArgs.input 5
+thing GraphQlQueryWithArgs.args 6
+thing HasComplexIdentityWithNonIdThing
+thing HasComplexIdentityWithNonIdThing.id 1
+thing HasComplexIdentityWithNonIdThing.id2 2
+thing HasComplexIdentityWithNonIdThing.state 3
+thing HasComplexIdentityWithThing
+thing HasComplexIdentityWithThing.id 1
+thing HasComplexIdentityWithThing.id2 2
+thing HasComplexIdentityWithThing.state 3
+thing HasIdentityWithNonIdThing
+thing HasIdentityWithNonIdThing.id 1
+thing HasIdentityWithNonIdThing.state 2
+thing HasIdentityWithThing
+thing HasIdentityWithThing.id 1
+thing HasIdentityWithThing.state 2
+thing HasNestedIdentity
+thing HasNestedIdentity.id 1
+thing HasNestedIdentity.nested 2
+thing HasNestedIdentity.state 3
+value ID
+thing ImplementsDangerous
+thing ImplementsDangerous.safe 1
+thing ImplementsDangerous.dangerous 2
+thing ImplementsDangerous.contains 3
+thing ImplementsDangerous.state 4
+value Integer
+thing InterfaceAllIdentifiable
+thing InterfaceAllIdentifiable.id_i 1
+thing InterfaceAllIdentifiable.state 2
+thing InterfaceAllIdentifiableImpl1
+thing InterfaceAllIdentifiableImpl1.id_i 1
+thing InterfaceAllIdentifiableImpl1.state 2
+thing InterfaceAllIdentifiableImpl1.id_1 3
+thing InterfaceAllIdentifiableImpl2
+thing InterfaceAllIdentifiableImpl2.id_i 1
+thing InterfaceAllIdentifiableImpl2.state 2
+thing InterfaceAllIdentifiableImpl2.id_2 3
+thing InterfaceAllNonIdentifiable
+thing InterfaceAllNonIdentifiable.state_i 1
+thing InterfaceAllNonIdentifiableImpl1
+thing InterfaceAllNonIdentifiableImpl1.state_i 1
+thing InterfaceAllNonIdentifiableImpl1.state_1 2
+thing InterfaceAllNonIdentifiableImpl2
+thing InterfaceAllNonIdentifiableImpl2.state_i 1
+thing InterfaceAllNonIdentifiableImpl2.state_2 2
+thing InterfaceMixIdentifiable
+thing InterfaceMixIdentifiable.state_i 1
+thing InterfaceMixIdentifiableDeep
+thing InterfaceMixIdentifiableDeep.state_i 1
+thing InterfaceMixIdentifiableDeep.state_contains_id 2
+thing InterfaceMixIdentifiableId
+thing InterfaceMixIdentifiableId.state_i 1
+thing InterfaceMixIdentifiableId.id 2
+thing InterfaceMixIdentifiableNon
+thing InterfaceMixIdentifiableNon.state_i 1
+thing InterfaceMixIdentifiableNon.state 2
+thing NestedIdentity
+thing NestedIdentity.nested 1
+thing OpenDangerousUsages
+thing OpenDangerousUsages.dangerous_interface 1
+thing OpenDangerousUsages.dangerous_interface_list 2
+thing OpenDangerousUsages.dangerous_impl 3
+thing OpenDangerousUsages.dangerous_impl_list 4
+thing OpenUsages
+thing OpenUsages.variety 1
+thing OpenUsages.variety_list 2
+thing OpenUsages.variety_map 3
+thing OpenUsages.interface 4
+thing OpenUsages.interface_list 5
+thing OpenUsages.interface_map 6
+thing OpenUsages.interface_of_ids 7
+thing OpenUsages.interface_of_non_ids 8
+thing OpenUsages.interface_of_mix_ids 9
+thing OpenUsages.interface_of_ids_list 10
+thing OpenUsages.interface_of_non_ids_list 11
+thing OpenUsages.interface_of_mix_ids_list 12
+thing PathParams
+thing PathParams.path_one 1
+thing PathParams.path_two 2
+thing PathParams.path_three_aliased 3
+thing PathParams.query 4
+thing PathParams.query_two_aliased 5
+thing Reaction
+thing Reaction.id 1
+thing Reaction.watched 2
+thing Reaction.not_watched 3
+thing ReactionWatchedAlsoAsConcreteImplementation
+thing ReactionWatchedAlsoAsConcreteImplementation.id 1
+thing ReactionWatchedAlsoAsConcreteImplementation.watched 2
+thing ReactionWatchedAlsoAsConcreteImplementation.not_watched 3
+thing ReactionWatchedOnlyAsInterface
+thing ReactionWatchedOnlyAsInterface.id 1
+thing ReactionWatchedOnlyAsInterface.watched 2
+thing ReactionWatchedOnlyAsInterface.not_watched 3
+thing ReactiveImplementation
+thing ReactiveImplementation.id 1
+thing ReactiveImplementation.watched 2
+thing ReactiveImplementation.not_watched 3
+thing ReactiveImplementation.reactive_interface_field 4
+thing ReactiveImplementation.reactive_implementation_field 5
+thing ReactiveImplementation.reactive_interface 6
+thing ReactiveImplementation.reactive_implementation 7
+thing ReactiveImplementation.reactive_self_field 8
+thing ReactiveImplementation.reactive_self 9
+thing ReactiveInterface
+thing ReactiveInterface.id 1
+thing ReactiveInterface.watched 2
+thing ReactiveInterface.not_watched 3
+thing ReactiveInterface.reactive_interface_field 4
+thing ReactiveInterface.reactive_implementation_field 5
+thing ReactiveInterface.reactive_interface 6
+thing ReactiveInterface.reactive_implementation 7
+thing ReactiveInterface.reactive_self_field 8
+thing ReactiveInterface.reactive_self 9
+thing ReactiveTarget
+thing ReactiveTarget.id 1
+thing ReactiveTarget.a 2
+thing ReactiveTarget.b 3
+thing ReactiveThing
+thing ReactiveThing.id 1
+thing ReactiveThing.field 2
+thing ReactiveThing.field2 3
+thing ReactiveThing.collection 4
+thing ReactiveThing.reactive_type 5
+thing ReactiveThing.reactive_type_field 6
+thing ReactiveThing.reactive_field 7
+thing ReactiveThing.reactive_self 8
+thing ReactiveThing.reactive_collection_field 9
+thing Remapped
+thing Remapped.list 1
+thing Remapped.sort_ids 2
+thing Remapped.info 3
+thing SomethingElseWithoutIdentity
+thing SomethingElseWithoutIdentity.value 1
+thing SomethingWithIdentity
+thing SomethingWithIdentity.id 1
+thing SomethingWithIdentity.state 2
+thing SomethingWithoutIdentity
+thing SomethingWithoutIdentity.value 1
+thing SomethingWithoutIdentity.obj 2
+thing StateHasIdentifiable
+thing StateHasIdentifiable.state 1
+value String
+value Timestamp
+thing Tree
+thing Tree.tree 1
+thing UnknownAnimal
+thing UnknownAnimal.animal 1
+thing UnknownBird
+thing UnknownBird.animal 1
+thing UnknownBird.bird 2
+thing UnknownDangerousInterface
+thing UnknownDangerousInterface.safe 1
+thing UnknownDangerousInterface.dangerous 2
+thing UnknownDangerousInterface.contains 3
+thing UnknownDomesticated
+thing UnknownDomesticated.domesticated 1
+thing UnknownGraphQlInterface
+thing UnknownGraphQlInterface.scalar 1
+thing UnknownGraphQlUnion
+thing UnknownInterfaceAllIdentifiable
+thing UnknownInterfaceAllIdentifiable.id_i 1
+thing UnknownInterfaceAllIdentifiable.state 2
+thing UnknownInterfaceAllNonIdentifiable
+thing UnknownInterfaceAllNonIdentifiable.state_i 1
+thing UnknownInterfaceMixIdentifiable
+thing UnknownInterfaceMixIdentifiable.state_i 1
+thing UnknownPet
+thing UnknownReaction
+thing UnknownReaction.id 1
+thing UnknownReaction.watched 2
+thing UnknownReaction.not_watched 3
+thing UnknownReactiveInterface
+thing UnknownReactiveInterface.id 1
+thing UnknownReactiveInterface.watched 2
+thing UnknownReactiveInterface.not_watched 3
+thing UnknownReactiveInterface.reactive_interface_field 4
+thing UnknownReactiveInterface.reactive_implementation_field 5
+thing UnknownReactiveInterface.reactive_interface 6
+thing UnknownReactiveInterface.reactive_implementation 7
+thing UnknownReactiveInterface.reactive_self_field 8
+thing UnknownReactiveInterface.reactive_self 9
+thing WithTest
+thing WithTest.identifiable_thing 1
+thing WithTest.non_identifiable_thing 2
+thing WithTest.list_of_identifiable_thing 3
+thing WithTest.list_of_non_identifiable_thing 4
+thing WithTest.map_of_identifiable_thing 5
+thing WithTest.map_of_non_identifiable_thing 6
+action base_action
+action base_action.time 1
+action equality_action
+action equality_action.time 1
+action equality_action.val1 2
+action equality_action.val2 3
+action equality_action.array 4
+action equality_action.id_thing 5
+action equality_action.non_id_thing 6
+action equality_action.id_thing_array 7
+action equality_action.non_id_thing_array 8

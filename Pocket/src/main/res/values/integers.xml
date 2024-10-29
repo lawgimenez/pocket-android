@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer-array name="article_font_sizes">
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>27</item>
+        <item>29</item>
+        <item>33</item>
+        <item>45</item>
+    </integer-array>
+    <integer-array name="article_line_heights">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+    </integer-array>
+    <integer-array name="article_margins">
+        <item>12</item>
+        <item>16</item>
+        <item>18</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </integer-array>
+    <integer name="article_default_font_size">18</integer>
+    <integer name="article_max_margin">20</integer>
+    <integer name="article_min_margin">20</integer>
+
+    <integer name="article_default_line_height">3</integer>
+    <integer name="article_default_margin">18</integer>
+
+    <integer name="listen_max_progress">1000</integer>
+</resources>

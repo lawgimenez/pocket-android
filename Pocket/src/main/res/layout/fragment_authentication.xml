@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pocket.app.auth.AuthenticationViewModel"
+            />
+    </data>
+    
+    <com.pocket.ui.view.themed.ThemedNestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/cl_pkt_bg"
+        android:layout_gravity="center">
+        
+        <com.pocket.ui.view.themed.ThemedConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingBottom="40dp"
+            >
+        
+            <com.pocket.ui.view.info.InfoPagingView
+                android:id="@+id/intro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:visibility="@{viewModel.uiState.screenState.mainLayoutVisible}"
+                />
+            
+            <com.pocket.ui.view.button.BoxButton
+                android:id="@+id/authenticateButton"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:text="@string/ac_authenticate"
+                android:onClick="@{() -> viewModel.onAuthenticateClicked()}"
+                android:onLongClick="@{() -> viewModel.onAuthenticateLongClicked()}"
+                app:layout_constraintTop_toBottomOf="@id/intro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_max="@dimen/pkt_info_page_max_width"
+                app:visibility="@{viewModel.uiState.screenState.mainLayoutVisible}"
+                />
+            <com.pocket.ui.view.themed.ThemedTextView
+                android:id="@+id/continueSignedOutButton"
+                style="@style/Pkt_Text_Title"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="@dimen/pkt_space_sm"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:onClick="@{() -> viewModel.onContinueSignedOutClicked()}"
+                android:text="@string/ac_continue_signed_out"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/authenticateButton"
+                app:layout_constraintWidth_max="@dimen/pkt_info_page_max_width"
+                app:textUnderline="@{true}"
+                />
+            <com.pocket.ui.view.themed.ThemedTextView
+                android:id="@+id/legalDisclaimer"
+                style="@style/Pkt_Text_Small_Light"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/pkt_space_sm"
+                android:gravity="center_horizontal"
+                android:paddingHorizontal="@dimen/pkt_side_grid"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/continueSignedOutButton"
+                app:textMarkdown="@{@string/authentication_legal_disclaimer}"
+                />
+            <FrameLayout
+                android:id="@+id/progressBar"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/cl_pkt_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:visibility="@{viewModel.uiState.screenState.loadingVisible}"
+                tools:visibility="gone">
+                
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
+            
+            </FrameLayout>
+            
+            <com.pocket.ui.view.themed.ThemedConstraintLayout
+                android:id="@+id/offlineView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:background="@drawable/cl_pkt_bg"
+                app:visibility="@{viewModel.uiState.screenState.offlineVisible}"
+                tools:visibility="gone">
+                
+                <com.pocket.ui.view.button.IconButton
+                    android:id="@+id/offlineCloseButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_pkt_close_x_line"
+                    android:tint="@color/pkt_text_primary"
+                    android:layout_marginTop="20dp"
+                    android:onClick="@{() -> viewModel.onOfflineCloseButtonClicked()}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+                
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/offlineTopImageGuideline"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent=".23"/>
+            
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/offlineBottomImageGuideline"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent=".4"/>
+            
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/offlineTopTextGuideline"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent=".45"/>
+            
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/ic_looking"
+                    app:layout_constraintTop_toBottomOf="@id/offlineTopImageGuideline"
+                    app:layout_constraintBottom_toBottomOf="@id/offlineBottomImageGuideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                
+                <com.pocket.ui.view.themed.ThemedTextView
+                    android:id="@+id/noInternetConnectionText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Pkt_Text_H5"
+                    android:textColor="@color/pkt_text_primary"
+                    android:textSize="28sp"
+                    android:gravity="center"
+                    android:text="@string/no_internet_connection"
+                    app:layout_constraintTop_toBottomOf="@id/offlineTopTextGuideline"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+            
+                <com.pocket.ui.view.themed.ThemedTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    style="@style/Pkt_Text_P3"
+                    android:textColor="@color/pkt_text_primary"
+                    android:textSize="19sp"
+                    android:gravity="center"
+                    android:text="@string/no_internet_connection_body"
+                    app:layout_constraintTop_toBottomOf="@id/noInternetConnectionText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                
+            </com.pocket.ui.view.themed.ThemedConstraintLayout>
+        </com.pocket.ui.view.themed.ThemedConstraintLayout>
+    </com.pocket.ui.view.themed.ThemedNestedScrollView>
+</layout>

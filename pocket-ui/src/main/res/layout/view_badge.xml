@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    tools:parentTag="com.pocket.ui.view.themed.ThemedLinearLayout"
+    >
+    
+    <com.pocket.ui.view.themed.ThemedImageView
+        android:id="@+id/icon"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_gravity="center_vertical"
+        tools:src="@drawable/ic_pkt_tag_line"
+        />
+    
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:textSize="12sp"
+        android:maxLines="1"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"
+        tools:text="my tag"
+        />
+
+</merge>
