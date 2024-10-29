@@ -3,7 +3,7 @@
   "extends": [
     "local>Pocket/renovate-config"
   ],
-  "ignorePaths": ["buildSrc/**"],
+  "ignorePaths": ["buildSrc/src/main/kotlin/Deps.kt"],
   "ignorePresets": [":dependencyDashboardApproval"],
   "packageRules": [
     {
@@ -13,6 +13,10 @@
     {
       "matchManagers": ["gradle", "gradle-wrapper"],
       "commitMessageTopic": "{{depName}}"
+    },
+    {
+      "matchDepNames": ["plugin-*"],
+      "semanticCommitType": "chore"
     }
   ]
 }
