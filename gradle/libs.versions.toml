@@ -31,7 +31,7 @@ androidx-fragment = { module = "androidx.fragment:fragment-ktx", version.ref = "
 androidx-fragment-compose = { module = "androidx.fragment:fragment-compose", version.ref = "androidx-fragment" }
 androidx-media = { module = "androidx.media:media", version = "1.7.0" }
 androidx-navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidx-navigation" }
-androidx-work = { module = "androidx.work:work-runtime", version = "2.9.1" }
+androidx-work = { module = "androidx.work:work-runtime", version = "2.10.0" }
 appcenter-distribute = { module = "com.microsoft.appcenter:appcenter-distribute", version.ref = "appcenter" }
 appcenter-distribute-play = { module = "com.microsoft.appcenter:appcenter-distribute-play", version.ref = "appcenter" }
 braze = { module = "com.braze:android-sdk-ui", version = "33.0.0" }
