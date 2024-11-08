@@ -3,7 +3,6 @@
   "extends": [
     "local>Pocket/renovate-config"
   ],
-  "baseBranches": ["$default", "renovate/reconfigure"],
   "ignorePaths": ["buildSrc/src/main/kotlin/Deps.kt"],
   "ignorePresets": [":dependencyDashboardApproval"],
   "packageRules": [

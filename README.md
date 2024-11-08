@@ -66,14 +66,6 @@ Use a set of Pocket-wide defaults. See [Pocket/renovate-config](https://github.c
 for more details and documentation.
 ```json
 {
-  "baseBranches": ["$default", "renovate/reconfigure"]
-}
-```
-Detect and process the special renovate configuration change validation branch
-in addition to the repository's default branch.
-This allows testing a full renovate run before merging the updated configuration.
-```json
-{
   "ignorePaths": ["buildSrc/src/main/kotlin/Deps.kt"]
 }
 ```
