@@ -14,9 +14,14 @@ fi
 RELEASE_VERSION=${RELEASE_BRANCH#release-}
 
 echo "Opening release PR…"
-gh pr create \
-  --title "Release $RELEASE_VERSION" \
-  --body-file "scripts/release-pr.md" \
-  --base "beta" \
-  --head "$RELEASE_BRANCH" \
-  --label "ignore-for-release" \
+sed -e "s/{release-version}/$RELEASE_VERSION/g" "scripts/release-pr.md" | \
+  gh pr create \
+    --title "Release $RELEASE_VERSION" \
+    --body-file - \
+    --base "beta" \
+    --head "$RELEASE_BRANCH" \
+    --label "ignore-for-release" \
+
+# sed is a "stream editor", used here to replace placeholders in the PR body template
+# the result is piped to gh (GitHub CLI)
+# --body-file - tells it to read body from standard input, in this case the piped result from sed
