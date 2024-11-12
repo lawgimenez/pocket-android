@@ -3,8 +3,8 @@
     package="com.ideashower.readitlater.pro"
     android:installLocation="auto"
     android:targetSandboxVersion="2"
-    android:versionCode="82700000"
-    android:versionName="8.27.0.0" >
+    android:versionCode="82800000"
+    android:versionName="8.28.0.0" >
 
     <uses-sdk
         android:minSdkVersion="23"
@@ -656,6 +656,12 @@
                 <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
             </intent-filter>
         </receiver>
+
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:directBootAware="true"
+            android:exported="false" />
+
         <receiver
             android:name="com.braze.BrazeFlushPushDeliveryReceiver"
             android:exported="false" >
@@ -679,11 +685,6 @@
         <uses-library
             android:name="androidx.window.sidecar"
             android:required="false" />
-
-        <service
-            android:name="androidx.room.MultiInstanceInvalidationService"
-            android:directBootAware="true"
-            android:exported="false" />
 
         <receiver
             android:name="androidx.profileinstaller.ProfileInstallReceiver"
