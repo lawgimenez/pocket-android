@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- smartling.instruction_attributes = comment -->
+<!-- smartling.placeholder_format_custom = \{[a-zA-Z0-9_-]+\}-->
+<resources>
+    <!-- Accessibility and tooltip labels for icons -->
+    <string name="ic_overflow">자세히…</string>
+    <string name="ic_up">뒤로 이동</string>
+    <string name="ic_archive" comment="Label for a button that archives an item. This is a verb.">보관소</string>
+    <string name="ic_save">저장</string>
+    <string name="ic_saved">저장됨</string>
+    <string name="ic_readd">다시 추가</string>
+    <string name="ic_favorite">즐겨찾기</string>
+    <string name="ic_unfavorite">즐겨찾기 해제</string>
+    <string name="ic_mark_as_viewed">확인한 것으로 표시</string>
+    <string name="ic_mark_as_not_viewed">확인하지 않은 것으로 표시</string>
+    <string name="ic_share">공유</string>
+    <string name="ic_delete">삭제</string>
+    <string name="ic_add_tags">태그 추가</string>
+    <string name="ic_filters">필터</string>
+    <string name="ic_play">실행</string>
+    <string name="ic_pause">일시 중지</string>
+    <string name="ic_skip">앞으로 건너뛰기</string>
+    <string name="ic_back">뒤로 건너뛰기</string>
+    <string name="ic_cancel">취소</string>
+    <string name="ic_listen">듣기</string>
+    <string name="ic_like">좋아요</string>
+    <string name="ic_remove_like">좋아요 삭제</string>
+    <string name="ic_repost">리포스팅</string>
+    <string name="ic_remove_repost">리포스팅 제거</string>
+    <string name="ic_plus">+</string>
+    <string name="ic_minus">-</string>
+    <string name="ic_close">닫기</string>
+    <string name="ic_edit">편집</string>
+    <string name="ic_highlight" comment="Label for button that highlights selected text">하이라이트</string>
+    <string name="ic_copy">복사</string>
+    <string name="ic_brightness_down">화면 밝기 감소</string>
+    <string name="ic_brightness_up">화면 밝기 증가</string>
+    <string name="ic_brightness_control">화면 밝기</string>
+    <string name="ic_settings">설정</string>
+    <string name="ic_premium">Pocket Premium</string>
+    <string name="ic_pocket_menu">Pocket 메뉴</string>
+
+    <string name="ac_save">저장</string>
+    <string name="ac_save_to_pocket">Pocket에 저장</string>
+    <string name="ac_previous">이전</string>
+    <string name="ac_next">다음</string>
+    
+    <string name="upgrade">업그레이드</string>
+    <string name="upgrade_upsell">더 많은 맞춤화 옵션 잠금 해제</string>
+    <string name="get_premium">Premium 받기</string>
+    
+    <string name="counts_thousands" comment="number abbreviated to thousands. such as 1k for 1,000. as short as possible.">%1$d천</string>
+    <string name="counts_millions" comment="number abbreviated to millions. such as 1m for 1,000,000. as short as possible">%1$d백만</string>
+    
+    <!-- content descriptions -->
+    <string name="setting_incrementor" comment="{setting} is a placeholder for a text style setting, eg Text Size, Line Height, or Margin, do not translate the content within {}">{setting} 증가</string>
+    <string name="setting_decrementor" comment="{setting} is a placeholder for a text style setting, eg Text Size, Line Height, or Margin, do not translate the content within {}">{setting} 감소</string>
+    <string name="text_setting_text_size">텍스트 크기</string>
+    <string name="text_setting_line_height">라인 높이</string>
+    <string name="text_setting_margin">여백</string>
+
+    <string name="current_typeface" comment="{typeface} is a placeholder for the current text typeface setting, eg Blanco, Graphik, do not translate the content within {}">{typeface}에서 서체 변경</string>
+
+    <string name="theme_toggle_light_desc">밝게 테마로 변경</string>
+    <string name="theme_toggle_dark_desc">어둡게 테마로 변경</string>
+    <string name="theme_toggle_auto_desc">테마 자동 변경</string>
+
+    <!-- Strings only used for ux playground-->
+    <string name="light">밝게</string>
+    <string name="dark">어둡게</string>
+</resources>

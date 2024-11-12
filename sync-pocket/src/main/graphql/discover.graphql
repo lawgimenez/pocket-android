@@ -1,0 +1,43 @@
+query getSlate($slateId: String!, $recommendationCount: Int) @_deprecated(reason: "Use queries specific to the surface, e.g. homeSlateLineup") {
+    slate: getSlate(
+        slateId: $slateId,
+        recommendationCount: $recommendationCount
+    ) {
+        ...slateFields
+    }
+}
+
+query getSlateLineup($slateLineupId: String!, $slateCount: Int, $recommendationCount: Int) @_deprecated(reason: "Use queries specific to the surface, e.g. homeSlateLineup") {
+    lineup: getSlateLineup(
+        slateLineupId: $slateLineupId,
+        slateCount: $slateCount,
+        recommendationCount: $recommendationCount
+    ) {
+        id
+        requestId
+        experimentId
+        slates {
+            ...slateFields
+        }
+    }
+}
+
+fragment slateFields on Slate @_deprecated(reason: "Queries using `Slate` were deprecated in favor of ones using `CorpusSlate`.") {
+    id
+    displayName
+    description
+    requestId
+    experimentId
+    recommendations {
+        item {
+            ...itemFields
+        }
+        id
+        publisher
+        curatedInfo {
+            title
+            excerpt
+            imageSrc
+        }
+    }
+}

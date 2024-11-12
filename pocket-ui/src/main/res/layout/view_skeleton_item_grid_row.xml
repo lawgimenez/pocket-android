@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="com.pocket.ui.view.progress.skeleton.row.SkeletonItemRow">
+
+    <com.pocket.ui.view.progress.skeleton.SkeletonView
+        android:id="@+id/image"
+        style="@style/Pkt_SkeletonImage"
+        android:layout_marginTop="@dimen/pkt_space_md"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="H,3:2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.pocket.ui.view.progress.skeleton.SkeletonParagraphView
+        android:id="@id/paragraph"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        app:minLines="3"
+        app:maxLines="3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image" />
+
+    <com.pocket.ui.view.themed.ThemedView
+        style="@style/Pkt_ThinDivider"
+        app:layout_constraintTop_toBottomOf="@id/paragraph"
+        android:layout_marginTop="@dimen/pkt_space_md"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</merge>

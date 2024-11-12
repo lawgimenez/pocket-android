@@ -1,0 +1,89 @@
+/*
+textStyle="0" = Light Theme
+textStyle="1" = Dark Theme
+*/
+
+:root {
+  --pkt_grey_1: #1A1A1A;
+  --pkt_grey_6: #D9D9D9;
+  --pkt_amber_4: #FEE8C3;
+  --pkt_dm_grey_1: #F2F2F2;
+  --pkt_dm_grey_6: #404040;
+  --amber_60: #984605;
+  --pkt_text_search_highlight: #FCB643;
+  --pkt_text_search_highlight_dm: #FCB643;
+  --pkt_text_search_highlight_selected: #F79FAA;
+  --pkt_text_search_highlight_selected_dm: #842D38;
+}
+
+body ::selection {
+    background: #ade1f6;
+    text-shadow: none;
+}
+
+body[textStyle="0"] .highlight {
+    background-color: var(--pkt_amber_4);
+    transition: background-color 0.3s linear;
+}
+body[textStyle="0"] a .highlight {
+	text-shadow: -1px -1px 0 var(--pkt_amber_4), 1px -1px 0 var(--pkt_amber_4), -1px 1px 0 var(--pkt_amber_4), 1px 1px 0 var(--pkt_amber_4);
+	background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, var(--pkt_grey_1) 1px, var(--pkt_grey_1) 2px, rgba(0, 0, 0, 0) 2px);
+}
+body[textStyle="0"] a:active .highlight {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, var(--pkt_grey_6) 1px, var(--pkt_grey_6) 2px, rgba(0, 0, 0, 0) 2px);
+}
+
+body[textStyle="1"] .highlight {
+    background-color: var(--amber_60);
+    transition: background-color 0.3s linear;
+}
+body[textStyle="1"] a .highlight {
+	text-shadow: -1px -1px 0 var(--amber_60), 1px -1px 0 var(--amber_60), -1px 1px 0 var(--amber_60), 1px 1px 0 var(--amber_60);
+	background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, var(--pkt_dm_grey_1) 1px, var(--pkt_dm_grey_1) 2px, rgba(0, 0, 0, 0) 2px);
+}
+body[textStyle="1"] a:active .highlight {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, var(--pkt_dm_grey_6) 1px, var(--pkt_dm_grey_6) 2px, rgba(0, 0, 0, 0) 2px);
+}
+
+body .wasHighlighted {
+    background-color: red;
+    text-shadow: none;
+}
+
+body[textStyle="0"] .text_search_highlight {
+    background-color: var(--pkt_text_search_highlight);
+    transition: background-color 0.3s linear;
+}
+body[textStyle="0"] a .text_search_highlight {
+	text-shadow: -1px -1px 0 var(--pkt_text_search_highlight), 1px -1px 0 var(--pkt_text_search_highlight), -1px 1px 0 var(--pkt_text_search_highlight), 1px 1px 0 var(--pkt_text_search_highlight);
+	background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, var(--pkt_grey_1) 1px, var(--pkt_grey_1) 2px, rgba(0, 0, 0, 0) 2px);
+}
+body[textStyle="0"] a:active .text_search_highlight {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, var(--pkt_grey_6) 1px, var(--pkt_grey_6) 2px, rgba(0, 0, 0, 0) 2px);
+}
+
+body[textStyle="1"] .text_search_highlight {
+    background-color: var(--pkt_text_search_highlight_dm);
+    transition: background-color 0.3s linear;
+}
+body[textStyle="1"] a .text_search_highlight {
+	text-shadow: -1px -1px 0 var(--pkt_text_search_highlight_dm), 1px -1px 0 var(--pkt_text_search_highlight_dm), -1px 1px 0 var(--pkt_text_search_highlight_dm), 1px 1px 0 var(--pkt_text_search_highlight_dm);
+	background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, var(--pkt_dm_grey_1) 1px, var(--pkt_dm_grey_1) 2px, rgba(0, 0, 0, 0) 2px);
+}
+body[textStyle="1"] a:active .text_search_highlight {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, var(--pkt_dm_grey_6) 1px, var(--pkt_dm_grey_6) 2px, rgba(0, 0, 0, 0) 2px);
+}
+
+body[textStyle="0"] .selected_highlight {
+    background-color: var(--pkt_text_search_highlight_selected) !important;
+    background-image: unset !important;
+    text-shadow: unset !important;
+    transition: background-color 0.3s linear;
+}
+
+body[textStyle="1"] .selected_highlight {
+    background-color: var(--pkt_text_search_highlight_selected_dm) !important;
+    background-image: unset !important;
+    text-shadow: unset !important;
+    transition: background-color 0.3s linear;
+}

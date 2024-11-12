@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pocket.ui.view.themed.ThemedConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pocket="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar_layout"
+    android:animateLayoutChanges="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/cl_pkt_bg">
+
+    <com.pocket.ui.view.AppBar
+        android:id="@+id/appbar"
+        pocket:bottomDivider="false"
+        pocket:leftIcon="close"
+        pocket:layout_constraintStart_toStartOf="parent"
+        pocket:layout_constraintEnd_toEndOf="parent"
+        pocket:layout_constraintTop_toTopOf="parent"
+        pocket:layout_constraintBottom_toTopOf="@+id/content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+
+    <com.pocket.ui.view.themed.ThemedRelativeLayout
+        android:id="@+id/content"
+        pocket:layout_constraintStart_toStartOf="parent"
+        pocket:layout_constraintEnd_toEndOf="parent"
+        pocket:layout_constraintTop_toBottomOf="@id/appbar"
+        pocket:layout_constraintBottom_toBottomOf="parent"
+        pocket:layout_constraintHeight_default="wrap"
+        android:layout_width="0dp"
+        android:layout_height="0dp">
+
+        <com.pocket.util.android.view.MaxHeightScrollView
+            android:id="@+id/edit_tags_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            pocket:maxHeight="120dp"
+            android:layout_marginBottom="@dimen/pkt_space_md"
+            android:layout_marginLeft="@dimen/pkt_side_grid"
+            android:layout_marginStart="@dimen/pkt_side_grid"
+            android:layout_marginRight="@dimen/pkt_side_grid"
+            android:layout_marginEnd="@dimen/pkt_side_grid"
+            android:padding="1dp"
+            android:addStatesFromChildren="true">
+            <com.pocket.util.android.view.chip.ChipEditText
+                android:id="@+id/edit_tags"
+                style="@style/TagChipEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.pocket.util.android.view.MaxHeightScrollView>
+
+        <com.pocket.ui.view.themed.ThemedView
+            android:id="@+id/divider"
+            android:layout_below="@id/edit_tags_container"
+            style="@style/Pkt_ThinDivider" />
+
+        <com.pocket.ui.view.themed.ThemedRecyclerView
+            android:id="@+id/list"
+            android:layout_below="@id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="52dp" />
+
+        <com.pocket.ui.view.menu.SectionHeaderView
+            android:id="@+id/header_fixed"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/cl_pkt_bg"
+            android:text="@string/lb_all_tags"
+            android:layout_alignTop="@id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.pocket.ui.view.themed.ThemedRelativeLayout>
+
+    <com.pocket.ui.view.progress.RainbowProgressCircleView
+        android:id="@+id/progress"
+        style="@style/ProgressCircle"
+        pocket:layout_constraintStart_toStartOf="parent"
+        pocket:layout_constraintEnd_toEndOf="parent"
+        pocket:layout_constraintTop_toTopOf="parent"
+        pocket:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone" />
+
+    <com.pocket.ui.view.button.SubmitButton
+        android:id="@+id/save"
+        android:text="@string/ac_save"
+        android:textAllCaps="true"
+        pocket:layout_constraintStart_toStartOf="parent"
+        pocket:layout_constraintEnd_toEndOf="parent"
+        pocket:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+
+</com.pocket.ui.view.themed.ThemedConstraintLayout>

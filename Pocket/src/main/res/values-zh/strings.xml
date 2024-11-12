@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- smartling.instruction_attributes = comment -->
+<!-- smartling.placeholder_format_custom = \{[a-zA-Z0-9_-]+\}-->
+<resources>
+    <!-- LABELS, TITLES & NAMES - Prefix: nm  -->
+    <string name="nm_add_to_ril" comment="try to use a string starting with A or just leave Pocket">添加到 Pocket</string>
+	
+	<!-- smartling.character_limit = 17 -->
+	<string name="nm_add_tags" comment="Title of a page">添加标签</string>
+
+	<string name="nm_theme_light" comment="Appearance/color of the app">浅色</string>
+	<string name="nm_theme_dark" comment="Appearance/color of the app">深色</string>
+	
+	<string name="clipboard_label_url">从 Pocket 复制的链接</string>
+	
+	<string name="nm_archive" comment="Title in the main menu of the action bar. This is a noun.">存档</string>
+	<string name="nm_link">链接</string>
+	
+	<!-- Setting up as plural in case other languages want to vary the label depending on quantity -->
+	<plurals name="nm_time_estimate" comment="Short label showing the number of minutes to read a story, watch a video, or listen to an article e.g. &apos;5 min&apos;">
+        <item quantity="other">%1$d 分钟</item>
+    </plurals>
+	
+	<plurals name="nm_time_to_read_estimate" comment="Short label showing the number of minutes to read a story, watch a video, or listen to an article e.g. &apos;5 min read&apos;">
+        <item quantity="other">读完需要 %1$d 分钟</item>
+    </plurals>
+
+	<!-- Setting up as plural in case other languages want to vary the label depending on quantity -->
+	<plurals name="nm_time_left_estimate" comment="Short label showing the number of minutes to read a story, watch a video, or listen to an article e.g. &apos;5 min left&apos;">
+        <item quantity="other">还剩 %1$d 分钟</item>
+    </plurals>
+
+	<!-- UI ACTION LABELS (Buttons, Checkboxes) - Prefix: ac  -->
+	<string name="ac_login">登录</string>
+	<string name="ac_logout">注销</string>
+	<string name="ac_authenticate">注册或登录</string>
+	<string name="ac_continue_signed_out" comment="A button next to a &apos;Sign up or sign in&apos; button, that allows you to go to the Home screen without signing up or signing in.">跳过登录</string>
+	<string name="ac_cancel">取消</string>
+	<string name="ac_close_app">关闭应用程序</string>
+	<string name="ac_ok">确定</string>
+	<string name="ac_yes">是</string>
+	<string name="ac_no">否</string>
+	<string name="ac_retry">重试</string>
+	<string name="ac_try_again">重试</string>
+	<string name="ac_create_new_cache">新建缓存</string>
+	<string name="ac_clear_cache">清除缓存</string>
+	<string name="ac_get_help">获取帮助</string>
+	<string name="ac_submit">提交</string>
+	<string name="ac_write_review" comment="link to leave a review on the application store">检查</string>
+	<string name="ac_no_thanks">不，谢谢</string>
+	<string name="ac_next">下一步</string>
+	<string name="ac_accept">接受</string>
+	<string name="ac_got_it_caps">知道了</string>
+	<string name="ac_continue">继续</string>
+	<string name="ac_discard_changes">放弃更改</string>
+	<string name="ac_continue_editing">继续编辑</string>
+	<string name="ac_add_new_tag">添加新标记 <b>\\‘{name_of_tag}\\‘</b></string>
+	<string name="ac_undo">撤消</string>
+	<string name="ac_highlight" comment="Label for button that highlights selected text">@string/ic_highlight</string>
+	<string name="ac_copy">@string/ic_copy</string>
+	<string name="ac_translate">翻译</string>
+	<string name="ac_web_search">Web 搜索</string>
+	<string name="ac_select_all">全选</string>
+	<string name="ac_clear">清除</string>
+	<string name="ac_share">分享</string>
+	<string name="ac_maybe_later">稍后再说</string>
+	<string name="ac_install">安装</string>
+	
+	
+	<!-- UI LABELS (TextViews and labels) - Prefix: lb  -->
+	<string name="lb_tab_saves">保存内容</string>
+	<string name="lb_continue_reading" comment="should be all upper case">继续阅读</string>
+	
+	<string name="lb_add_copied_url" comment="a title asking the user if they would like to save a URL from their device clipboard">保存复制的 URL？</string>
+    
+    <string name="lb_slower" comment="Speaking rate of the Text To Speech">减慢语速</string>
+    <string name="lb_faster" comment="Speaking rate of the Text To Speech">加快语速</string>
+    <string name="lb_tts_language">语言</string>
+    <string name="lb_tts_voice">语音</string>
+	
+	<string name="lb_select_tags_hint">选择或输入标记</string>
+    <string name="lb_select_tags_hint_no_tags">输入标记</string>
+    
+	<plurals comment="Header above the list of item" name="lb_selected">
+        <item quantity="other">%1$s 已选择</item>
+    </plurals>
+	
+	<string name="lb_suggested_tags">建议的标记</string>
+	<string name="lb_all_tags">所有标签</string>
+	<string name="lb_recent_tags">最近的标记</string>
+	<string name="lb_tags_autocomplete">标签</string>
+	
+	<string name="lb_downloading_items_notification" comment="the number of items being currently downloaded for offline viewing. this number will count down as downloading progresses">正在下载 {number_of_items} 个项目…</string>
+	
+	<string name="lb_search_hint">搜索</string>
+	<string name="lb_list_search_hint">搜索您的列表</string>
+	<string name="lb_list_archive_search_hint">搜索您的存档</string>
+	<string name="lb_recent_searches_sc">最近的搜索</string>
+	<string name="lb_time_to_read" comment="Header for a section of filters that let you view a subset of your saved articles based on their length.">阅读时间</string>
+	
+	<string name="lb_sort_by">排序方式</string>
+	<string name="lb_sort_by_newest">最新保存</string>
+	<string name="lb_sort_by_oldest">最旧保存</string>
+	<string name="lb_sort_by_newest_archive">最新存档</string>
+	<string name="lb_sort_by_oldest_archive">最旧存档</string>
+	<string name="lb_sort_by_shortest">最短阅读</string>
+	<string name="lb_sort_by_longest">最长阅读</string>
+	
+	<string name="lb_prem_purchase_title">加入 Pocket \n Premium</string>
+	<string name="lb_prem_purchase_perm_lib_title">建立永久的存储库</string>
+	<string name="lb_prem_purchase_perm_lib_desc">即使您已保存的页面在网上被删除，您仍将在 Pocket 中拥有该页面的副本。</string>
+	<string name="lb_prem_purchase_ad_free_title">专注的注意力</string>
+	<string name="lb_prem_purchase_ad_free_desc">平静、无广告的阅读环境能让您的心灵得到应有的宁静。</string>
+	<string name="lb_prem_purchase_search_title">故事触手可得</string>
+	<string name="lb_prem_purchase_search_desc">使用全文搜索，快速查找您已保存的任何内容。按关键字、主题、作者、标记等查找文章。</string>
+	<string name="lb_prem_purchase_tags_title">智能标记</string>
+	<string name="lb_prem_purchase_tags_desc">您每次保存故事时，我们都会从您的列表中建议标记——标记使用得越多，标记就越有用。</string>
+	<string name="lb_prem_purchase_highlights_title">您的创意，逐一标记</string>
+	<string name="lb_prem_purchase_highlights_desc">借助每篇文章中的无限标记，您将可以永久记录所有这些灵光一现的时刻。</string>
+	<string name="lb_prem_purchase_reader_title">自定义阅读体验</string>
+	<string name="lb_prem_purchase_reader_desc">喜欢更圆的字体、更宽的字距，或是紧密的字样？定制 Pocket 以适合您的阅读风格。</string>
+	<string name="lb_prem_purchase_per_month" comment="per month subscription label on subscription button">%1$s/月</string>
+	<string name="lb_prem_purchase_per_year" comment="per year subscription label on subscription button">%1$s/年</string>
+	<string name="lb_prem_purchase_complete_title">好消息！</string>
+	<string name="lb_prem_purchase_complete_message">您现在已正式成为 Pocket Premium 会员。欢迎使用全新无广告、可自定义的永久版本 Pocket。您会喜欢上 Pocket 的。</string>
+	<string name="lb_prem_purchase_complete_renew_title">欢迎回来！</string>
+	<string name="lb_prem_purchase_complete_renew_message">我们已续订您的订购，您再次正式成为 Pocket Premium 会员。我们希望您喜欢这款无广告、可自定义的永久版本 Pocket。</string>
+	<string name="lb_prem_purchase_complete_button">返回 Pocket</string>
+	<string name="lb_prem_purchase_terms">订阅将在每个期限自动续订，直至在 Google Play 中取消为止。</string>
+
+	<string name="lb_save_25p_2_line" comment="keep as short as possible">节省\n25%</string>
+	
+	<string name="lb_annotations_upsell_t">需要更多标记？</string>
+	<string name="lb_annotations_upsell_m">目前，您在每篇文章中仅限 %1$d 处标记。立即升级至 Pocket Premium，即可无限标记，还有更多功能。</string>
+	<string name="lb_annotations_upsell_cta" comment="Label for a button in a Highlights upgrade prompt leading to the full Premium upgrade/purchase screen.">获取 Premium</string>
+	
+	<!-- MENU OPTIONS (Context and Option) - Prefix: mu  -->
+    <string name="mu_settings" comment="this text label should be short">设置</string>
+	<string name="mu_read_later" comment="this text label should be short">保存到 Pocket</string>
+	<string name="mu_help" comment="this text label should be short">帮助</string>
+	<string name="mu_copy_link" comment="this text label should be short">复制链接</string>
+	<string name="mu_report_article_view" comment="this text label should be short">报告文本问题</string>
+	<string name="mu_refresh" comment="this text label should be short">刷新</string>
+	<string name="mu_find_in_page" comment="this text label should be short">在页面中查找</string>
+	<string name="mu_display_settings" comment="this text label should be short">文本设置</string>
+	<string name="mu_delete" comment="this text label should be short">删除</string>
+	<string name="mu_view_original">查看原始文档</string>
+	<string name="mu_switch_to_article" comment="this text label should be short">切换到文本视图</string>
+	<string name="mu_add_tags" comment="this text label should be short">添加标签</string>
+	<string name="mu_favorite" comment="this text label should be short">收藏</string>
+	<string name="mu_unfavorite" comment="this text label should be short">取消收藏</string>
+	
+	<!-- Navigation items -->
+	<!-- smartling.character_limit = 14 -->
+	<string name="mu_home" comment="this text label should be short">主页</string>
+	<!-- smartling.character_limit = 14 -->
+	<string name="mu_saves" comment="this text label should be short">保存内容</string>
+	<string name="mu_annotations" comment="This text label should be short. Here &apos;Highlights&apos; references a new feature where a user can highlight text in articles to save memorable quotes.">精彩集锦</string>
+	<string name="mu_premium" comment="this text label should be short">Premium</string>
+	<!-- smartling.character_limit = 14 -->
+	
+	<string name="mu_untagged" comment="make sure this phrase matches what is in setting_untagged_label and setting_untagged_sum">未标记</string>
+
+	
+    <!-- DIALOGS TITLES AND MESSAGES (ContextMenus, Progress and Alert) - 
+    	Prefix: dg_
+    	Postfix: _t = title,
+    			 _m = message   
+    -->
+    <!-- Progress labels -->
+	<string name="dg_loading">正在加载…</string>
+	<string name="dg_changing_data_location">正在更改存储位置…</string>
+	<string name="dg_clearing_cache">正在清除缓存…</string>
+	<string name="dg_logging_out">正在注销…</string>
+	<string name="dg_c2dm_registering">正在设置设备接收推送通知…</string>
+	<string name="dg_fetching">正在检索列表…</string>
+	
+	<!-- General use titles -->
+    <string name="dg_error_t">糟糕</string>
+    <string name="dg_confirm_t">您确定吗？</string>
+    <string name="dg_changes_not_saved_t">更改未保存</string>
+    
+    <!-- Connection issues (TODO: These could more than likely be cleaned up and combined)-->
+    <string name="dg_sync_error_t">同步错误</string>
+	<string name="dg_fetch_error_t">无法加载列表</string>
+	<string name="dg_fetch_error_m">从服务器获取列表时出现问题。请确认已连接到互联网，然后重试。</string>
+	<string name="dg_no_connection_m">尝试连接时出错，请确认设备已连接到互联网，然后重试。</string>
+	<string name="dg_api_generic_error">连接到 Pocket 时发生问题。</string>
+	
+    <!-- Misc -->
+    <string name="dg_unexpected_m">糟糕，发生了意外。请重试，如果问题仍然存在，请联系我们。</string>
+    
+    <string name="dg_report_error_m">是否要报告此错误？</string>
+	
+	<string name="dg_no_email_app_t">无法发送电子邮件</string>
+	<string name="dg_no_email_app_m">此设备未安装任何电子邮件应用程序。</string>
+	<string name="dg_no_email_app_m_support">如果要从另一设备尝试，请发送电子邮件到 support@getpocket.com。</string>
+
+	<!-- Storage or Cache errors -->
+	<string name="dg_storage_setting_unavailable_t">无法访问存储位置</string>
+	<string name="dg_storage_setting_unavailable_m">该存储位置现在不可用。请确保已正确连接存储卡或设备。也请确保存储卡或设备当前未作为外部存储通过 USB 连接至计算机。</string>
+
+	<string name="bg_offline_cache_storage_is_unavailable_t">无法访问脱机内容</string>
+	<string name="bg_offline_cache_storage_is_unavailable_m">"保存脱机缓存的存储位置现在不可用。如果您的设备通过 USB 连接至计算机、您已删除存储卡或撤消 Pocket 的存储权限，会出现这种情况。请撤消此更改，然后重试。或者，您可以切换到 Pocket 内部存储中的新缓存。"</string>
+
+	<string name="bg_offline_cache_is_missing_t">无法访问脱机内容</string>
+	<string name="bg_offline_cache_is_missing_m">找不到脱机缓存。请确保已正确连接您的脱机存储位置。如果您已重新安排或修改缓存文件，请恢复这些缓存文件，然后重试。</string>
+
+	<string name="dg_offline_cache_is_missing_permission_t">无法访问脱机内容</string>
+	<string name="dg_offline_cache_is_missing_permission_m">"Pocket 不再拥有存储权限，无法访问脱机缓存。如需继续使用外部存储位置，请为 Pocket 重新启用存储权限，否则请切换至内部存储。"</string>
+
+	<string name="dg_offline_cache_is_missing_rw_permission_m">抱歉，Pocket 无法访问您的 SD 卡。我们已经记录下这个问题，供我们的 Android 团队调查。在此期间，请继续为 Pocket 使用内部存储。</string>
+
+	<string name="dg_sdcard_confirm_change_m">更改存储位置将会清除您已下载的文件。</string>
+	
+	<string name="dg_out_of_space_t">存储空间用尽</string>
+	<string name="dg_out_of_space_m">Pocket 的脱机存储位置已没有空间。Pocket 需要额外的可用空间才能正常运行。请释放一些空间以继续。为了腾出空间，您可能需要清除 Pocket 的脱机缓存。</string>
+	
+	<string name="dg_after_clear_m">"如果设备内存有限，请使用 Pocket 的 {name_of_storage_setting} 设置限制缓存可以使用的空间量。"</string>
+	
+	<string name="dg_clear_cache_t">您确定吗？</string>
+	<string name="dg_clear_cache_m">这将删除已保存用于脱机查看的所有文件。</string>
+	<string name="dg_confirm_create_new_cache_m">这将清除现有脱机缓存并开始使用内部设备存储空间。</string>
+
+	<string name="dg_forced_logout_t">请登录</string>
+	<string name="dg_forced_logout_m">您已从另一个位置注销。请重新登录。</string>
+
+	<string name="dg_tag_too_long_m">标签最多包含 25 个字符。</string>
+	
+	<string name="dg_invalid_tag_m">"抱歉，%1$s 不能作为标签。"</string>
+	<string name="dg_changes_not_saved_tags_m">对标签的更改尚未保存。是放弃更改还是继续编辑？</string>
+	
+	<string name="dg_market_not_found_t">找不到 Amazon Appstore</string>
+	<string name="dg_market_not_found_m">由于某种非预期的原因，Amazon Appstore 应用程序无法打开。很抱歉！</string>
+	
+	<string name="dg_browser_not_found_t">找不到浏览器</string>
+	<string name="dg_browser_not_found_m">您的设备没有可以打开此网页的浏览器应用程序。</string>
+	
+	<!-- Push / Instant Sync (GCM) & Background Syncing Settings -->
+	<string name="dg_c2dm_unsupported_t">不可用</string>
+	<string name="dg_c2dm_unsupported_m">此设备不支持即时同步。</string>
+	<string name="dg_c2dm_failed_t">设置失败</string>
+	<string name="dg_c2dm_failed_general_m">目前无法注册设备用于即时推送通知。请稍后重试。</string>
+	<string name="dg_c2dm_not_connected_m">第一次启用即时同步时，必须连接到互联网</string>
+	<string name="dg_timer_sync_no_change_t">设置不可用</string>
+	<string name="dg_timer_sync_no_change_m">当此应用程序安装在外部存储设备（例如 SD 卡）上时，基于时间的后台同步选项不可用。\n\n可以使用“即时”或关闭后台同步。</string>
+	
+	<!-- Edit account -->
+	<string name="dg_confirm_logout_m">您将会注销，已保存到此设备供脱机查看的所有文件将会删除。</string>
+	
+	<!-- Listen -->
+	<string name="listen_playing_from">从<b>保存内容</b>播放</string>
+	<string name="listen_playlist_header" comment="Should be all upper case letters for any language where it makes sense">我的播放列表</string>
+	<string name="listen_data_alert">如果您的设备未连接到 Wi-Fi，朗读功能将使用移动数据。</string>
+    <string name="listen_offline_hint" comment="This should be less than 100 characters.">您处于离线状态。在此处切换到离线语音。</string>
+	
+	<string name="listen_settings_use_listen_endpoint">串流最佳音质</string>
+	<string name="listen_settings_network_voice_warning">未连接到 Wi-Fi 时将使用蜂窝数据。脱机不可用</string>
+	<string name="listen_settings_picker_summary_unavailable">自动</string>
+	<string name="listen_settings_auto_play">自动播放文本</string>
+	<string name="listen_settings_auto_archive">听后自动存档</string>
+    
+	<string name="listen_error_timeout">我们的服务器过了太久才响应。请稍后重试。</string>
+	<string name="listen_error_media_player">出现意外的播放错误</string>
+	<string name="listen_error_server">播放文章时发生问题。请尝试切换为其他语音。</string>
+	
+	<string name="listen_reader_tooltip">点击以尝试随时朗读此文本</string>
+	<plurals name="listen_my_list_toast_title">
+        <item quantity="other">%2$s️您有 %1$d 份未读文本。</item>
+    </plurals>
+	<string name="listen_my_list_toast_title_5000_plus">%1$s️您有数千份文本。</string>
+	<string name="listen_my_list_toast_message">尝试朗读这些文本，时间就会飞逝。</string>
+	<string name="listen_my_list_toast_button">尝试朗读</string>
+	
+	<!-- TTS -->
+	<string name="tts_dg_t">文本到语音转换</string>
+	<string name="tts_settings">文本到语音转换设置</string>
+	<string name="tts_dg_not_available_m">我们无法启动您选择的文本到语音转换引擎。请在设备的文本到语音转换设置中，核实是否已安装此引擎。</string>
+	<string name="tts_dg_not_supported_m">很抱歉，您的设备可能不支持文本到语音转换 (TTS)。</string>
+	<string name="tts_dg_install_t">安装文本到语音转换</string>
+	<string name="tts_dg_install_m">此功能使用 Android 的内置文本到语音转换 (TTS) 功能。 您的设备尚未安装。</string>
+	<string name="tts_dg_missing_settings_m" comment="TTS = Text to Speech">Pocket 无法自动查找设备的 TTS 设置。\n\n您可以打开设备的设置进行搜索，尝试手动查找它们。\n\n在大多数设备上，可在“辅助功能”设置或“语言和输入”设置中找到此设置。</string>
+	<string name="tts_dg_choose_engine_t">选择文本到语音转换引擎</string>
+	<string name="tts_skipping_to_next">即将跳到下一篇文章。</string>
+	<string name="tts_article_failed">我们无法通过文本到语音转换朗读这篇文章。</string>
+	<string name="tts_article_unavailable">这篇文章尚未下载。</string>
+	<string name="tts_speech_error">文本到语音转换无法阅读这部分内容。如果您使用的是基于网络的语音，请联网或选择非网络语音。否则，请尝试跳过此段落。</string>
+	<string name="tts_empty_list">在将项目保存到 Pocket 之前，您无法朗读</string>
+	<string name="tts_network_voice_t">网络语音</string>
+	<string name="tts_network_voice">温馨提示，网络语音质量更高，但是可能会使用网络数据，或者离线时不可用。</string>
+	<string name="tts_voice">语音 %1$s</string>
+	<string name="tts_voice_male">男声 %1$s</string>
+	<string name="tts_voice_female">女声 %1$s</string>
+	<string name="tts_network" comment="Word that indicates that a text to speech voice may require network connectivity">网络</string>
+	
+	<string name="add_overlay_free_title" comment="Appears when a new article is saved to your list">已保存到 Pocket！</string>
+
+	<!-- TOAST MESSAGES  Prefix: ts   -->
+	<string name="ts_add_invalid_url" comment="An error message that appears when an article link could not be saved">糟糕！ Pocket 无法保存此链接。</string>
+	<string name="ts_add_saved_to_ril">已保存到 Pocket</string>
+	<string name="ts_add_added">已保存！</string>
+	<string name="ts_add_already">您已保存此内容！</string>
+	<string name="ts_add_already_overlay" comment="A message notifying the user an article they saved is already in their list, and that we will move (bump) it to the top for them">您已保存此内容！我们会将其排在您列表的顶部。</string>
+	<string name="ts_add_error">保存链接到 Pocket 时发生问题</string>
+	<string name="ts_add_logged_out">登录以保存到 Pocket</string>
+    <string name="ts_copied">%1$s 已复制到剪贴板</string>
+	<string name="ts_item_archived">项目已存档</string>
+    <string name="ts_item_readded">项目已重新添加</string>
+    <string name="ts_item_deleted">项目已删除</string>
+    <string name="ts_item_restored">项目已恢复</string>
+
+    <string name="ts_changes_saved">更改已保存</string>
+    <string name="ts_article_reported">文章已报告。\n谢谢您告诉我们！</string>
+	<plurals name="ts_bulk_edit_archived">
+        <item quantity="other">已存档 %1$s 个项目</item>
+    </plurals>
+	<plurals name="ts_bulk_edit_readded">
+        <item quantity="other">已重新添加 %1$s 个项目</item>
+    </plurals>
+	<plurals name="ts_bulk_edit_deleted">
+        <item quantity="other">已删除 %1$s 个项目</item>
+    </plurals>
+	<string name="ts_bulk_edit_tagged" comment="Do not translate values in {brackets}">已添加 {tags} 到 {items}</string>
+	<plurals name="ts_bulk_edit_tagged_tags" comment="in &apos;Added X TAGS to 12 items&apos;">
+        <item quantity="other">%1$s 个标记</item>
+    </plurals>
+	<plurals name="ts_bulk_edit_tagged_items" comment="in &apos;Added 12 tags to X ITEMS&apos;">
+        <item quantity="other">%1$s 个项目</item>
+    </plurals>
+
+    <string name="ts_no_apps_for_intent">没有已安装的应用程序适合执行此操作。</string>
+    
+    <string name="ts_tags_changes_saved">更改已保存</string>
+	
+    <!--  NOTIFICATION BAR Prefix: nt -->
+	<string name="nt_downloading">正在下载…</string>
+	<string name="nt_cancel">点击以取消下载。</string>
+
+	<string name="nt_channel_functional_name">应用程序控件</string>
+	<string name="nt_channel_functional_description">控制离线下载、朗读 (TTS) 和其他应用内功能。</string>
+	<string name="nt_channel_alerts_name">推送通知</string>
+	<string name="nt_channel_alerts_description">社交网络更新、推荐、产品新闻和其他通信……您可以在 Pocket 设置中微调推送通知首选项。</string>
+	<string name="nt_channel_article_recommendations">文章建议</string>
+	<string name="nt_channel_article_recommendations_description">阅读提醒和建议</string>
+	<string name="nt_channel_legal_updates">法律更新</string>
+	<string name="nt_channel_new_features">新功能</string>
+
+
+    
+    <!-- MISC TEXT  Prefix: tx-->
+	<string name="tx_love_pocket">喜欢 Pocket？</string>
+    <string name="tx_tell_others">表达支持的最佳\n方式是告诉他人。</string>
+	
+	<string name="suggested_tags_empty_no_tags">开始将标记添加到您的项目，以查看此处建议的标记。</string>
+	<string name="suggested_tags_empty_none_found">找不到建议用于此项目的标记。</string>
+	<string name="suggested_tags_no_connection">必须在线才可查看建议标签。请检查您的连接，然后点击这里重试。</string>
+	<string name="suggested_tags_unknown_error">我们在检索建议标签时遇到问题。请点击以重试。</string>
+	
+	<!-- READER ERRORS SHOWN IN ERRORVIEW (Not Dialogs)  Prefix: re   Postfix:  t = title, m = message, b = button label  -->
+	<string name="re_downloading_article_view_t">下载此页面的文本视图时出错。</string>
+	<string name="re_downloading_article_view_m">请确认已连接到互联网。</string>
+	
+	<string name="list_empty_search_title">找不到结果</string>
+	<string name="list_empty_no_result_matched">没有与您的搜索匹配的项目。</string>
+	
+	<string name="add_tags_list_empty_title">使用标记进行整理</string>
+	<string name="add_tags_list_empty_body">标记便于您在“保存内容”中使用搜索或筛选条件再次找到项目。\n\n要创建标签，请在上面输入一个。</string>
+	
+	<!-- SETTINGS  Prefix: setting -->
+	<string name="setting_header_account">帐号</string>
+	<string name="setting_logout">注销</string>
+	<string name="setting_premium">Premium</string>
+	<string name="setting_account_management">帐号管理</string>
+	<string name="setting_delete_account">删除帐号</string>
+	<string name="setting_delete_account_header">删除帐号</string>
+	<string name="setting_delete_account_warning">警告：此操作无法恢复</string>
+	<string name="setting_delete_account_cancel_premium">要删除您的帐号，您必须先<b><annotation link="https://help.getpocket.com/article/986-canceling-your-pocket-premium-subscription">在此处取消您的 Premium 订购</annotation></b>。</string>
+	<string name="setting_delete_account_permanently_delete">您了解您的 Pocket 帐号和数据将被<b>永久删除</b>。</string>
+	<string name="setting_delete_account_error">无法处理您的请求。稍后再试。</string>
+	<string name="setting_delete_account_in_progress">正在删除您的帐号…</string>
+	<string name="setting_delete_account_toast_title">您已删除 Pocket 帐号</string>
+	<string name="setting_delete_account_toast_message">我们还可以在哪些方面做得更好？</string>
+	<string name="setting_delete_account_toast_button">快速调查</string>
+	<string name="setting_header_general">常规</string>
+	<string name="setting_rotation_label">应用程序旋转锁定</string>
+	<string name="setting_rotation_sum">启用后，锁定按钮将在旋转设备后出现于屏幕中心。点击该图标可锁定当前方向，再点击一下将解锁。</string>
+	<string name="setting_header_theme">应用程序主题</string>
+	<string name="setting_theme">主题</string>
+	<string name="setting_auto_dark_theme_threshold_automatic">自动</string>
+	<string name="setting_system_theme_label">匹配系统主题</string>
+	<string name="setting_header_reading">阅读</string>
+	<string name="setting_always_open_original_label">始终打开原始网站</string>
+	<string name="setting_always_open_original_sum">Pocket 将始终打开原始网站而不是文本视图</string>
+	<string name="setting_default_browser_label" comment="Setting that allows you to choose a browser. This header is followed by the name of the chosen browser on the next line.">在以下浏览器中打开原始网站：</string>
+	<string name="setting_default_browser_system" comment="Default value of the &apos;setting_default_browser_label&apos; setting, which means we will use the default browser from system settings.">默认系统浏览器</string>
+	<string name="setting_text_align_label">两端对齐的文本</string>
+	<string name="setting_text_align_sum">在文本视图中显示两端对齐的文本</string>
+	<string name="setting_auto_fullscreen_label">自动全屏</string>
+	<string name="setting_auto_fullscreen_sum">阅读/向下滚动时隐藏工具栏。向上滚动时显示工具栏</string>
+	<string name="setting_continue_reading_label">继续阅读</string>
+	<string name="setting_continue_reading_sum">当我返回 Pocket 时，显示我之前查看的最后一个项目。</string>
+	<string name="setting_tts_label">文本到语音转换引擎</string>
+	<string name="setting_tts_sum_fallback">未安装</string>
+	<string name="setting_header_offline">脱机下载</string>
+	<string name="setting_download_article_label">始终获取文本视图</string>
+	<string name="setting_download_article_sum_unavailable">自动下载最佳视图时不可用</string>
+	<string name="setting_download_article_sum">自动为列表中的每个项目下载文本</string>
+	<string name="setting_only_wifi_label">只通过 Wi-Fi 下载</string>
+	<string name="setting_mobile_useragent_label">移动用户代理</string>
+	<string name="setting_mobile_useragent_sum">可用时下载移动版本</string>
+	<string name="setting_clear_download_label">清除已下载的文件</string>
+	<string name="setting_storage_location">脱机存储位置</string>
+	<string name="setting_header_syncing">同步</string>
+	<string name="setting_sync_on_open_label">应用程序打开时同步</string>
+	<string name="setting_background_sync_label">后台同步</string>
+	<string name="setting_header_notifications">通知</string>
+	<string name="setting_manage_notification_settings">设备通知设置</string>
+	<string name="setting_manage_notification_settings_sum">在 Android 设置中自定义通知声音、震动等</string>
+	<string name="setting_notify_sound_label">通知音</string>
+	<string name="setting_notify_sound_silent_sum">静音</string>
+	<string name="setting_notify_light_label">LED</string>
+	<string name="setting_notify_light_sum">有新通知时闪烁 LED</string>
+	<string name="setting_share_overlay_label">快速保存操作</string>
+	<string name="setting_share_overlay_sum">从其他应用程序保存到 Pocket 时，会短暂显示您可以对新项目执行的操作。</string>
+	<string name="setting_header_about">关于</string>
+	<string name="setting_help">获取帮助和支持</string>
+	<string name="setting_twitter_label">在 Twitter 上关注 @Pocket</string>
+	<string name="setting_facebook_label">在 Facebook 上关注我们</string>
+	<string name="setting_tos">服务条款</string>
+	<string name="setting_privacy">隐私政策</string>
+	<string name="setting_oss">开源许可证</string>
+	<string name="setting_contact_us">联系我们</string>
+	<string name="setting_thank_you">谢谢下载。尽情享受吧！</string>
+	<string name="setting_header_version">版本</string>
+	<string name="setting_version_label">Pocket %1$s</string>
+	<string name="setting_previous_and_next">显示上一个和下一个箭头</string>
+	<string name="setting_app_icon_label">应用程序图标</string>
+	<string name="setting_app_icon_header_automatic">让 Pocket 选择您的图标</string>
+	<string name="setting_app_icon_header_all">或选择您喜欢的图标</string>
+	<string name="setting_app_icon_classic" comment="As in &apos;classic icon&apos;, so for gendered languages should follow the gender of &apos;App icon&apos; from setting_app_icon_label">经典</string>
+	<string name="setting_app_icon_pride_flag" comment="As in &apos;Pride icon&apos;, so for gendered languages should follow the gender of &apos;App icon&apos; from setting_app_icon_label">骄傲</string>
+	<string name="setting_app_icon_monochrome" comment="As in &apos;monochrome icon&apos;, so for gendered languages should follow the gender of &apos;App icon&apos; from setting_app_icon_label">单色</string>
+
+	<string name="prem_setting_thanks">谢谢订购 Pocket Premium！</string>
+	
+	<string name="prem_setting_status">订购状态</string>
+	<string name="prem_setting_subscription">订购</string>
+	<string name="prem_setting_subscription_monthly">每月</string>
+	<string name="prem_setting_subscription_annual" comment="occurring once per year">年度</string>
+	<string name="prem_setting_date_purchased">购买日期</string>
+	<string name="prem_setting_renewal_date">续订日期</string>
+	<string name="prem_setting_renew_subscription">续订订购</string>
+	<string name="prem_setting_inactive_subscription">非活动状态</string>
+	<string name="prem_setting_subscription_ended_tap_to_renew">您的订购已到期。点击以续订您的 Premium。</string>
+	<string name="prem_setting_date_ended">日期已到期</string>
+	<string name="prem_setting_purchase_location">购买地点</string>
+	<string name="prem_setting_your_premium_features">您的 Premium 功能</string>
+	<string name="prem_setting_your_subscription">您的订购</string>
+	<string name="prem_setting_manage_your_subscription">管理订购</string>
+	<string name="prem_setting_questions">问题或反馈？</string>
+	<string name="prem_setting_faq">Pocket Premium 常见问题</string>
+	<string name="prem_setting_contact">联系 Pocket 支持</string>
+	<string name="prem_setting_premium_header">Premium</string>
+	<string name="prem_setting_upgrade">升级到 Premium</string>
+	<string name="prem_setting_restore">恢复现有订购</string>
+	
+	<string name="purchase_error_offline_t">您可能处于离线状态</string>
+	<string name="purchase_error_offline_m">必须在线才可升级到 Pocket Premium。请检查您的连接，然后重试。</string>
+	<string name="purchase_error_activation_t">激活出错</string>
+	<string name="purchase_error_activation_m">购买成功，但在激活您的帐号时发生问题。请点击“确定”以获取完成激活的说明。</string>
+	<string name="purchase_error_purchase_t">购买未成功</string>
+	<string name="purchase_error_purchase_m">完成购买时出现问题。请重试。</string>
+	<string name="purchase_error_progress">正在完成您的购买...</string>
+	<string name="purchase_error_already_owned_t">已订阅</string>
+	<string name="purchase_error_already_owned_m">您已经订购 Pocket Premium。</string>
+	<string name="purchase_error_restore_none_found_t">恢复未成功</string>
+	<string name="purchase_error_restore_none_found_m">找不到订购。如果您认为有订购，请点击 %1$s 联系我们。</string>
+	<string name="purchase_restored">订购已恢复</string>
+    <string name="purchase_error_amazon_m">目前无法通过 Amazon App Store 升级至 Pocket Premium。</string> <!-- no translation necessary, as it is an email to our support team -->
+
+	<string name="setting_background_sync_0">立即（推送）</string>
+	<string name="setting_background_sync_1">每小时</string>
+	<string name="setting_background_sync_2">每天两次</string>
+	<string name="setting_background_sync_3">每天一次</string>
+	<string name="setting_background_sync_4">从不</string>
+	
+    <!-- Text displayed in the enter key slot when the recipientedittextview has focus.
+         [CHAR LIMIT=12] -->
+    <string name="done">返回</string>
+
+    <string name="setting_cache_set_offline_storage_limits">设置离线存储限制</string>
+    <string name="setting_cache_priority">下载优先级</string>
+    <string name="setting_cache_priority_newest">最新项目优先</string>
+    <string name="setting_cache_priority_oldest">最早项目优先</string>
+    <string name="setting_cache_limit_description">设置 Pocket 允许用于离线下载的存储空间限制。</string>
+    <string name="setting_cache_currently_using" comment="Do not translate values in {brackets}">Pocket 使用的设备存储空间约为<b>{disk_space_size}</b>。</string>
+    <string name="setting_cache_currently_adjusting">当前已应用您的离线存储限制…</string>
+    <string name="setting_cache_limit_to" comment="Will be used to present a disk space value like Limit to: 500 MB">限制于：</string>
+    <string name="setting_cache_unlimited">无限制</string>
+    <string name="setting_cache_approx_item_count">大约有 <b>{item_count}</b> 个 <b>{newest_or_oldest}</b>项目可供离线使用。</string>
+    <string name="setting_cache_priority_inline_newest">最新</string>
+    <string name="setting_cache_priority_inline_oldest">最早</string>
+    <string name="setting_cache_confirm_change_t">更改存储设置？</string>
+    <string name="setting_cache_confirm_change_m" comment="Please try to keep as short as possible">Pocket 可能会删除或下载其他内容，以反映您的更改。</string>
+    <string name="setting_cache_may_take_a_few_minutes">可能需要几分钟才可完成。</string>
+    <string name="setting_cache_mb" comment="abbreviation for Megabytes. Used like 800 MB">MB</string>
+    <string name="setting_cache_gb" comment="abbreviation for Gigabytes. Used like 1.2 GB">GB</string>
+    <string name="setting_cache_not_saved_m">更改尚未保存。是放弃更改还是继续编辑？</string>
+	
+	<string name="storage_free_space">可用空间：%1$s</string>
+	<string name="storage_free_space_unknown">未知</string>
+	<string name="storage_location_changed">存储位置已成功更改</string>
+	<string name="storage_type_internal">内部</string>
+	<string name="storage_type_internal_specific_sandboxed">内部（沙盒化）</string>
+	<string name="storage_type_internal_specific_unsandboxed">内部（公共）</string>
+	<string name="storage_type_removable">可删除</string>
+	<string-array name="storage_location_specs_internal">
+        <item><b>推荐。</b></item>
+        <item>下载仅在 Pocket 上可查看的缓存。</item>
+	</string-array>
+	<string-array name="storage_location_specs_removable">
+		<item>下载仅在其他应用程序上可查看的缓存。</item>
+		<item>如果已删除或更改存储位置，可能将无法使用 Pocket。</item>
+		<item>如果您的设备是通过 USB 连接至计算机，可能将无法使用 Pocket。</item>
+	</string-array>
+
+	<string name="onboarding_learn_more_1_title" comment="If possible without losing meaning, try to keep to 35 characters or less">保存您真正感兴趣的内容</string>
+	<string name="onboarding_learn_more_1_text" comment="If possible without losing meaning, try to keep to 145 characters or less">收集您喜欢的文本、视频或任何在线内容。随时可在任何手机、平板电脑或浏览器上查看。</string>
+	<string name="onboarding_learn_more_2_title" comment="If possible without losing meaning, try to keep to 35 characters or less">充分利用每一分钟。</string>
+	<string name="onboarding_learn_more_2_text" comment="If possible without losing meaning, try to keep to 145 characters or less">在 Chrome、Twitter、YouTube 或您喜欢的新闻应用程序中保存（适用于新用户）。您保存的文本和视频将在 Pocket 中。</string>
+	<string name="onboarding_learn_more_3_title" comment="If possible without losing meaning, try to keep to 35 characters or less">您在 Internet 上的安静一隅</string>
+	<string name="onboarding_learn_more_3_text" comment="If possible without losing meaning, try to keep to 145 characters or less">Pocket 保存文本的布局简单清晰，适合阅读 — 没有干扰，没有弹出窗口 — 您可以远离 Internet 的纷纷扰扰。</string>
+	
+	<string name="legacy_upgrading">Pocket 正在升级您的应用程序。这可能需要几分钟。升级将在后台继续，因此请稍后再查看。</string>
+	
+	<string name="report_item_overflow_option">报告此项目</string>
+	<string name="report_item_option_1">标题、链接或图像损坏</string>
+	<string name="report_item_option_2">类别错误</string>
+	<string name="report_item_option_3">色情内容</string>
+	<string name="report_item_option_4">粗鲁、粗俗或令人反感</string>
+	<string name="report_item_option_5">包含错误信息</string>
+	<string name="report_item_option_6">其他</string>
+	<string name="report_item_hint">详细告诉我们</string>
+	<string name="report_item_dialog_title">报告问题</string>
+	<string name="report_item_submit_title">谢谢！</string>
+	<string name="report_item_submit_text">您的报告有助于确保 Pocket 社区的安全。</string>
+	
+	<string name="collection_details_error_title">无法加载收集</string>
+	<string name="collection_details_error_message">Pocket 加载此收集时遇到问题。请稍后重试。</string>
+	
+	<string name="viewed">已查看</string>
+	<string name="not_viewed">未查看</string>
+	
+	<string name="no_internet_connection">无互联网连接</string>
+	<string name="no_internet_connection_body">您可能处于离线状态。尝试检查您的移动数据或 wifi。</string>
+	
+	<string name="fxa_account_migrated">您的帐号已成功迁移。</string>
+	
+	<string name="my_list_filter_all">全部</string>
+	<string name="my_list_filter_tagged">已标记</string>
+	<string name="my_list_filter_favorites">收藏夹</string>
+	<string name="my_list_filter_filter">过滤</string>
+	<string name="my_list_filter_edit">编辑</string>
+	<string name="my_list_filter">过滤</string>
+	<string name="edit_tags">编辑标签</string>
+	<string name="move_to_my_list">移至“保存内容”</string>
+	<string name="highlighted">已标记</string>
+	<string name="delete_tag_confirmation_message">"删除标记“%1$s”？"</string>
+	
+	<string name="empty_list_all_title">开始建立您的 Pocket 列表</string>
+	<string name="empty_list_all_action">如何保存</string>
+	<string name="empty_list_favorites_title">在此查找您的收藏夹</string>
+	<string name="empty_list_favorites_message">点击星星图标来收藏文章并更快地进行查找。</string>
+	<string name="empty_list_tagged_title">组织您的列表</string>
+	<string name="empty_list_tagged_message">按主题标记您的已保存内容，以便稍后进行查找。</string>
+	<string name="empty_list_tagged_action">如何标记</string>
+	<string name="empty_list_specific_tag_title">没有使用此标记的已保存内容。</string>
+	<string name="empty_list_highlights_title">在此保留您最喜欢的语录</string>
+	<string name="empty_list_highlights_message">选择文章中的某一行，然后点击“标记”进行保存供以后查看。</string>
+	<string name="empty_list_archive_title">保持您的列表清新整齐</string>
+	<string name="empty_list_archive_message">使用存档图标将您完成的已保存内容存档。</string>
+	<string name="empty_list_archive_action">如何存档</string>
+	
+	<string name="time_to_read_filter_short">简短</string>
+	<string name="time_to_read_filter_short_description">少于 10 分钟</string>
+	<string name="time_to_read_filter_long">长</string>
+	<string name="time_to_read_filter_long_description">10 分钟或更长时间</string>
+	<string name="short_reads">短文</string>
+	<string name="long_reads">长期阅读</string>
+	
+	<string name="notification_permission_primer_title">不要错过精彩文章</string>
+	<string name="notification_permissions_primer_message">我们能否偶尔将精彩的读物通知您？</string>
+	<string name="notification_permissions_primer_positive_button">当然</string>
+	<string name="notification_permissions_primer_negative_button">以后再问我</string>
+	
+	<string name="home_sign_in_banner">登录以获得 Pocket 的最佳功能</string>
+	<string name="home_see_all">查看所有</string>
+	<string name="home_collection">收集</string>
+	<string name="recent_saves">最近保存</string>
+	<string name="home_more_topics">更多主题</string>
+	<string name="home_footer_message">您已全部完成！明天再回来查看更多内容。</string>
+	<string name="home_error_title">无法获取新文章</string>
+	<string name="home_error_message">您可以再次尝试加载主页。</string>
+	<string name="home_topic_error_message">您可以尝试再次加载文章。</string>
+	
+	<string name="original_web_no_browser">我们找不到可以打开此页面的浏览器</string>
+	<string name="original_web_changed_browser_setting" comment="The format argument (%1$s) will be replaced with a browser name like &apos;Chrome&apos; or &apos;Firefox&apos; chosen from one of the browsers installed on the device.">Pocket 已将首选浏览器切换为 %1$s，因为未配置默认系统浏览器。</string>
+	<string name="highlights">精彩集锦</string>
+	<string name="end_of_article_title">您可能还喜欢</string>
+	<string name="previous_and_next_setting_description">使用“下一个”和“上一个”按钮在文本之间快速移动</string>
+
+	<string name="add_url_title">添加 URL</string>
+	<string name="add_url_hint" comment="Hint for an input field where you can paste a URL to save (add to your saves)">例如 https://getpocket.com</string>
+	<string name="add_url_error">请输入有效的 URL</string>
+
+	<string name="authentication_legal_disclaimer" comment="This string uses Markdown formatting. Please preserve the formatting (including TWO spaces before the new line).">"继续使用即表示您同意：  \nPocket [服务条款](https://getpocket.com/tos) 和[隐私声明](https://getpocket.com/privacy)"</string>
+</resources>

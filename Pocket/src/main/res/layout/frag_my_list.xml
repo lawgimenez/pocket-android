@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pocket.app.list.MyListViewModel"
+            />
+    </data>
+
+<com.pocket.ui.view.themed.ThemedConstraintLayout
+    android:id="@+id/my_list_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@color/white"
+    >
+    
+    <View
+        android:id="@+id/dummyFocus"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"/>
+
+    <com.pocket.ui.view.button.IconButton
+        android:id="@+id/addButton"
+        style="@style/Pkt_IconButton_Plus"
+        android:layout_height="0dp"
+        android:onClick="@{() -> viewModel.onAddClicked()}"
+        app:layout_constraintBottom_toBottomOf="@id/appBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/appBar"
+        />
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/appBar"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/pkt_app_bar_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+    
+        <com.pocket.ui.view.chip.PocketChip
+            android:id="@+id/myListChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.onMyListChipClicked()}"
+            app:chipSelected="@{viewModel.uiState.myListChipState.selected}"
+            app:chipText="@string/lb_tab_saves"
+            app:chipIcon="@drawable/ic_pkt_list_line"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/archiveChip"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+    
+        <com.pocket.ui.view.chip.PocketChip
+            android:id="@+id/archiveChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.onArchiveChipClicked()}"
+            app:chipSelected="@{viewModel.uiState.archiveChipState.selected}"
+            app:chipText="@string/nm_archive"
+            app:chipIcon="@drawable/ic_pkt_archive_line"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/myListChip"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    
+    <HorizontalScrollView
+        android:id="@+id/carousel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBar"
+        android:visibility="@{viewModel.uiState.screenState.filterCarouselVisible}"
+        >
+        
+        <com.pocket.ui.view.themed.ThemedLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:gravity="center_vertical"
+            >
+            
+            <com.pocket.ui.view.chip.PocketChip
+                android:id="@+id/searchChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onSearchClicked()}"
+                app:chipIcon="@drawable/ic_pkt_search_line"
+                app:chipSelectable="false"
+                />
+    
+            <com.pocket.ui.view.chip.PocketChip
+                android:id="@+id/listenChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onListenClicked()}"
+                app:chipIcon="@drawable/ic_pkt_listen_line"
+                app:chipText="@string/ic_listen"
+                app:chipSelectable="false"
+                />
+            
+            <com.pocket.ui.view.themed.ThemedImageView
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:src="@drawable/ic_circle"
+                android:tint="@color/pkt_themed_grey_6"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"/>
+    
+            <com.pocket.ui.view.chip.PocketChip
+                android:id="@+id/allChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onAllChipClicked()}"
+                app:chipText="@string/my_list_filter_all"
+                app:chipSelected="@{viewModel.uiState.allChipState.selected}"
+                />
+    
+            <com.pocket.ui.view.chip.PocketChip
+                android:id="@+id/taggedChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onTaggedChipClicked()}"
+                app:chipIcon="@drawable/ic_pkt_tag_line"
+                app:chipText="@string/my_list_filter_tagged"
+                app:chipSelected="@{viewModel.uiState.taggedChipState.selected}"
+                />
+    
+            <com.pocket.ui.view.chip.PocketChip
+                android:id="@+id/favoritesChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onFavoritesChipClicked()}"
+                app:chipIcon="@drawable/ic_pkt_favorite_line"
+                app:chipText="@string/my_list_filter_favorites"
+                app:chipSelected="@{viewModel.uiState.favoritesChipState.selected}"
+                />
+    
+            <com.pocket.ui.view.chip.PocketChip
+                android:id="@+id/highlightsChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onHighlightsChipClicked()}"
+                app:chipIcon="@drawable/ic_pkt_highlights_line"
+                app:chipText="@string/highlighted"
+                app:chipSelected="@{viewModel.uiState.highlightsChipState.selected}"
+                />
+    
+            <com.pocket.ui.view.chip.PocketChip
+                android:id="@+id/filterChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onFilterChipClicked()}"
+                app:chipIcon="@drawable/ic_filter"
+                app:chipText="@string/my_list_filter_filter"
+                app:chipSelectable="false"
+                app:badgeVisible="@{viewModel.uiState.filterChipState.badgeVisible}"
+                />
+    
+            <com.pocket.ui.view.chip.PocketChip
+                android:id="@+id/editChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onEditChipClicked()}"
+                app:enabled="@{viewModel.uiState.editChipState.enabled}"
+                app:chipIcon="@drawable/ic_pkt_pencil_line"
+                app:chipText="@string/my_list_filter_edit"
+                app:chipSelected="@{viewModel.uiState.editChipState.selected}"
+                />
+            
+        </com.pocket.ui.view.themed.ThemedLinearLayout>
+        
+    </HorizontalScrollView>
+    
+    <com.pocket.ui.view.themed.ThemedLinearLayout
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carousel"
+        android:visibility="@{viewModel.uiState.screenState.searchBarVisible}"
+        tools:visibility="gone"
+        >
+    
+        <com.pocket.ui.view.chip.PocketChip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chipIcon="@drawable/ic_pkt_search_line"
+            app:chipSelectable="false"
+            />
+        
+        <com.pocket.ui.view.themed.ThemedEditText
+            android:id="@+id/searchEditText"
+            style="@style/Pkt_Text_EditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:maxLines="1"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
+            android:maxLength="100"
+            android:hint="@{viewModel.uiState.searchHint}"/>
+        
+        <com.pocket.ui.view.button.IconButton
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            style="@style/Pkt_IconButton_Close"
+            android:tint="@color/pkt_themed_grey_3"
+            android:padding="10dp"
+            android:onClick="@{() -> viewModel.onCloseSearchClicked()}"/>
+        
+    </com.pocket.ui.view.themed.ThemedLinearLayout>
+    
+    <!-- not sure why, but the bottom padding needs to be set to the height of everything below
+    the recycler view or else it gets cut off if the list is large.
+    I must be doing something wrong, but I can't figure out what. -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="124dp"
+        android:visibility="@{viewModel.uiState.screenState.searchLandingVisible}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchBar"
+        app:layout_constraintVertical_bias="0"
+        tools:visibility="gone"
+        >
+    
+        <com.pocket.ui.view.themed.ThemedLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+        
+            <com.pocket.ui.view.themed.ThemedLinearLayout
+                android:id="@+id/recentSearchesLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="@{viewModel.uiState.recentSearchVisibility}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                >
+            
+                <com.pocket.ui.view.themed.ThemedTextView
+                    style="@style/Pkt_Text_Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginEnd="18dp"
+                    android:paddingBottom="16dp"
+                    android:text="@string/lb_recent_searches_sc"
+                    android:textSize="16sp"
+                    />
+            
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recentSearchesRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/view_recent_search_item"
+                    />
+        
+            </com.pocket.ui.view.themed.ThemedLinearLayout>
+            
+            <com.pocket.ui.view.themed.ThemedTextView
+                android:id="@+id/timeToReadTitle"
+                style="@style/Pkt_Text_Medium"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="18dp"
+                android:layout_height="36dp"
+                android:text="@string/lb_time_to_read"
+                android:textSize="16sp"
+                />
+            
+            <com.pocket.ui.view.themed.ThemedConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="88dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="18dp"
+                >
+    
+                <com.pocket.ui.view.filter.FilterTile
+                    android:id="@+id/shortReadsFilter"
+                    android:layout_width="0dp"
+                    android:layout_height="88dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/bg_themed_amber_5"
+                    android:onClick="@{() -> viewModel.onShortReadFilterClicked()}"
+                    app:descriptionText="@string/time_to_read_filter_short_description"
+                    app:foregroundColor="@color/time_to_read_short_foreground"
+                    app:layout_constraintEnd_toStartOf="@id/longReadsFilter"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/timeToReadTitle"
+                    app:titleText="@string/time_to_read_filter_short"
+                    />
+    
+                <com.pocket.ui.view.filter.FilterTile
+                    android:id="@+id/longReadsFilter"
+                    android:layout_width="0dp"
+                    android:layout_height="88dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/bg_themed_lapis_5"
+                    android:onClick="@{() -> viewModel.onLongReadFilterClicked()}"
+                    app:descriptionText="@string/time_to_read_filter_long_description"
+                    app:foregroundColor="@color/time_to_read_long_foreground"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/shortReadsFilter"
+                    app:layout_constraintTop_toBottomOf="@id/timeToReadTitle"
+                    app:titleText="@string/time_to_read_filter_long"
+                    />
+
+            </com.pocket.ui.view.themed.ThemedConstraintLayout>
+    
+        </com.pocket.ui.view.themed.ThemedLinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+    
+    <com.pocket.ui.view.themed.ThemedLinearLayout
+        android:id="@+id/extraChipsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        app:layout_constraintTop_toBottomOf="@id/searchBar"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="gone"
+        >
+    
+        <com.pocket.ui.view.chip.PocketChip
+            android:id="@+id/selectedTagChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:visibility="@{viewModel.uiState.selectedTagChipState.visibility}"
+            android:onClick="@{() -> viewModel.onSelectedTagChipClicked()}"
+            app:chipIcon="@drawable/ic_pkt_tag_line"
+            app:chipText="@{viewModel.uiState.selectedTagChipState.text}"
+            app:chipSelected="@{viewModel.uiState.selectedTagChipState.selected}"
+            app:closeVisible="@{true}"
+            tools:visibility="visible"
+            />
+    
+        <com.pocket.ui.view.chip.PocketChip
+            android:id="@+id/selectedFilterChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:visibility="@{viewModel.uiState.selectedFilterChipState.visibility}"
+            android:onClick="@{() -> viewModel.onSelectedFilterChipClicked()}"
+            app:chipIcon="@drawable/ic_filter"
+            app:chipText="@{viewModel.uiState.selectedFilterChipState.text}"
+            app:chipSelected="@{viewModel.uiState.selectedFilterChipState.selected}"
+            app:closeVisible="@{true}"
+            tools:visibility="visible"
+            />
+        
+    </com.pocket.ui.view.themed.ThemedLinearLayout>
+    
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="@{viewModel.uiState.screenState.listVisible}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/extraChipsLayout"
+        app:isRefreshing="@{viewModel.uiState.refreshing}"
+        tools:visibility="visible"
+        >
+        
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/view_list_item_row"
+            />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    
+    <com.pocket.ui.view.progress.skeleton.SkeletonList
+        android:id="@+id/skeletonList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/extraChipsLayout"
+        android:visibility="@{viewModel.uiState.screenState.loadingVisible}"
+        tools:visibility="gone"
+        />
+    
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="@{viewModel.uiState.screenState.emptyVisible}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/extraChipsLayout"
+        >
+    
+        <com.pocket.app.list.list.empty.EmptyListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="@dimen/pkt_space_md"
+            android:layout_marginEnd="@dimen/pkt_space_md"
+            android:maxWidth="350dp"
+            app:allEmptyVisible="@{viewModel.uiState.emptyViewState.allVisible}"
+            app:archiveEmptyVisible="@{viewModel.uiState.emptyViewState.archiveVisible}"
+            app:favoriteEmptyVisible="@{viewModel.uiState.emptyViewState.favoriteVisible}"
+            app:highlightedEmptyVisible="@{viewModel.uiState.emptyViewState.highlightsVisible}"
+            app:onSignedOutButtonClick="@{() -> viewModel.onSignedOutEmptyButtonClicked()}"
+            app:signedOutEmptyVisible="@{viewModel.uiState.emptyViewState.signedOutVisible}"
+            app:specificTagEmptyVisible="@{viewModel.uiState.emptyViewState.specificTagVisible}"
+            app:taggedEmptyVisible="@{viewModel.uiState.emptyViewState.taggedVisible}"
+            app:searchEmptyVisible="@{viewModel.uiState.emptyViewState.searchVisible}"
+            />
+
+    </ScrollView>
+    
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/pkt_space_md"
+        android:paddingEnd="@dimen/pkt_space_md"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="@string/dg_fetch_error_m"
+        android:visibility="@{viewModel.uiState.screenState.errorVisible}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/extraChipsLayout"
+        tools:visibility="gone"/>
+    
+    <com.pocket.app.list.bulkedit.BulkEditSnackBar
+        android:id="@+id/bulkEditSnackBar"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginStart="@dimen/pkt_space_md"
+        android:layout_marginEnd="@dimen/pkt_space_md"
+        android:layout_marginBottom="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:showing="@{viewModel.uiState.editChipState.selected}"
+        app:text="@{viewModel.uiState.bulkEditSnackBarText}"
+        app:actionsEnabled="@{viewModel.uiState.bulkEditActionsEnabled}"
+        app:archiveVisible="@{viewModel.uiState.myListChipState.selected}"
+        app:textClickable="@{viewModel.uiState.bulkEditTextClickable}"
+        />
+    
+    <LinearLayout
+        android:id="@+id/continueReadingSnackBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom"
+        android:animateLayoutChanges="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    
+</com.pocket.ui.view.themed.ThemedConstraintLayout>
+
+</layout>

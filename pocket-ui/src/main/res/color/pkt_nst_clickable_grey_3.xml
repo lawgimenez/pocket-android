@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- What grey_3 becomes in various interaction states -->
+
+    <item app:state_dark="true" android:state_pressed="true" android:state_enabled="true" android:color="@color/pkt_dm_grey_5" />
+    <item app:state_dark="true" android:state_checked="true" android:state_enabled="true" android:color="@color/pkt_dm_grey_1" />
+    <item app:state_dark="true" android:state_selected="true" android:state_enabled="true" android:color="@color/pkt_dm_grey_1" />
+
+    <item android:state_pressed="true" android:state_enabled="true" android:color="@color/pkt_grey_5" />
+    <item android:state_checked="true" android:state_enabled="true" android:color="@color/pkt_grey_2" />
+    <item android:state_selected="true" android:state_enabled="true" android:color="@color/pkt_grey_2" />
+
+    <item android:color="@color/pkt_nst_disableable_grey_3" />
+</selector>

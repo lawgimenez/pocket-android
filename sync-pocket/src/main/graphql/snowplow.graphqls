@@ -1,0 +1,959 @@
+extend schema
+@remote(name: "SNOWPLOW")
+@base_action(name: "snowplow_event")
+@base_action_field(name: "eid", type: "String", required: true)
+@base_action_field(name: "entities", list: "SnowplowEntity")
+# A major new avenue for collecting analytics using the SNOWPLOW remote style.
+# For modelling analytics data in Snowplow you define two types of schemas: events and entities.
+#
+# If data sent to Snowplow is a sentence, then events are the verbs. They are the "what".
+#
+# Entities are the nouns. They can tell multiple things like "where" (ui),
+# "who" (user, account, api_user) or other necessary data to understand the whole picture.
+# Each event can have (and usually has) multiple entities attached.
+
+extend type Mutation {
+    """
+    Event triggered when the app goes from the foreground to the background
+    (this does not include share extension activity).
+    Entities included: always api_user, user.
+    """
+    track_app_background_1_0_0(
+        eid: String!,
+        entities: [SnowplowEntity],
+        "Seconds elapsed since the last time an app_open event was sent. Property is NULL if no previous app_open events." seconds_since_last_open: Int!,
+        "Seconds elapsed since the last time an app_background event was sent. Property is NULL if no previous app_background events." seconds_since_last_background: Int!
+    ): Void @figment(name: "track_app_background/1-0-0") @deprecated
+
+    """
+    Event triggered when the application is brought to the foreground
+    (this should not include views that take place outside the app, e.g. share extension screens).
+    Entities included: always api_user, user.
+    """
+    track_app_open_1_0_0(
+        eid: String!,
+        entities: [SnowplowEntity],
+        "Seconds elapsed since the last time an app_open event was sent. Property is NULL if no previous app_open events." seconds_since_last_open: Int!,
+        "Seconds elapsed since the last time an app_background event was sent. Property is NULL if no previous app_background events." seconds_since_last_background: Int!,
+        "The deep/universal link that initiated the app open (e.g. http://getpocket.com/app)." deep_link: Url,
+        "The external application from which the user opened the Pocket app." referring_app: String
+    ): Void @figment(name: "track_app_open/1-0-0") @deprecated
+}
+
+extend type Mutation {
+    """
+    Event created when an app initiates the opening a piece of content
+    (triggered by the intent to open an item and does not guarantee that the item was viewed).
+    Entities included: always api_user, user, content; sometimes ui, ad.
+    """
+    track_content_open_1_0_0(
+        eid: String!,
+        entities: [SnowplowEntity],
+        "Indicates whether the content is being opened within a Pocket property (internal) or offsite \/ in another app (external)." destination: ContentOpenDestination!,
+        "Indicates whether content was opened with direct intent (e.g. user taps vs. next-up in Listen playlist or infinite scroll)." trigger: ContentOpenTrigger!
+    ): Void @figment(name: "track_content_open/1-0-0") @deprecated
+}
+
+"""
+Indicates whether the content is being opened within a Pocket property (internal) or offsite / in another app (external).
+"""
+enum ContentOpenDestination @_deprecated {
+    internal
+    external
+}
+
+"""
+Indicates whether content was opened with direct intent (e.g. user taps vs. next-up in Listen playlist or infinite scroll).
+"""
+enum ContentOpenTrigger @_deprecated {
+    click
+    auto
+}
+
+extend type Mutation {
+    """
+    Event triggered when a user engages with a UI element.
+    Entities included: always api_user, user, ui; sometimes content, ad, report.
+    """
+    track_engagement_1_0_1(
+        eid: String!,
+        entities: [SnowplowEntity],
+        "Indicates the type of engagement." type: EngagementType!,
+        "The new value of a setting/filter, if the user engaged with something and modified its state in doing so." value: String
+    ): Void @figment(name: "track_engagement/1-0-1") @deprecated
+}
+
+"""
+Indicates the type of engagement.
+"""
+enum EngagementType @_deprecated {
+    general
+    save
+    report
+    dismiss
+}
+
+extend type Mutation {
+    """
+    Event triggered when a user views a UI element.
+    Entities included: always api_user, user, ui; sometimes content, ad.
+    """
+    track_impression_1_0_2(
+        eid: String!,
+        entities: [SnowplowEntity],
+        "Indicator of the component that is being viewed." component: ImpressionComponent!,
+        "Indicates the requirement before an impression can be triggered (instant: any pixel displayed on screen; viewable: +50% of component displayed for 1+ seconds)." requirement: ImpressionRequirement!
+    ): Void @figment(name: "track_impression/1-0-2") @deprecated
+}
+
+"""
+Indicator of the component that is being viewed.
+"""
+enum ImpressionComponent @_deprecated {
+    ui
+    card
+    content
+    screen
+    push_notification
+    button
+}
+
+"""
+Indicates the requirement before an impression can be triggered.
+"""
+enum ImpressionRequirement @_deprecated {
+    "Any pixel displayed on screen."
+    instant
+
+    "+50% of component displayed for 1+ seconds."
+    viewable
+}
+
+extend type Mutation {
+    """
+    Event triggered when an app enrolls a user in a test
+    (details in “How to Implement A/B Test Analytics” in Analytics wiki).
+    Entities included: always api_user, user, feature_flag; sometimes ui.
+    """
+    track_variant_enroll_1_0_0(
+        eid: String!,
+        entities: [SnowplowEntity]
+    ): Void @figment(name: "track_variant_enroll/1-0-0") @deprecated
+}
+
+input SnowplowEntity @variety @_deprecated {
+    AdEntity_1_0_0: AdEntity_1_0_0 @figment(name: "AdEntity/1-0-0")
+    ApiUserEntity_1_0_0: ApiUserEntity_1_0_0 @figment(name: "ApiUserEntity/1-0-0")
+    ApiUserEntity_1_0_1: ApiUserEntity_1_0_1 @figment(name: "ApiUserEntity/1-0-1")
+    ContentEntity_1_0_0: ContentEntity_1_0_0 @figment(name: "ContentEntity/1-0-0")
+    FeatureFlagEntity_1_0_0: FeatureFlagEntity_1_0_0 @figment(name: "FeatureFlagEntity/1-0-0")
+    ReportEntity_1_0_0: ReportEntity_1_0_0 @figment(name: "ReportEntity/1-0-0")
+    UiEntity_1_0_1: UiEntity_1_0_1 @figment(name: "UiEntity/1-0-1")
+    UiEntity_1_0_2: UiEntity_1_0_2 @figment(name: "UiEntity/1-0-2")
+    UiEntity_1_0_3: UiEntity_1_0_3 @figment(name: "UiEntity/1-0-3")
+    UserEntity_1_0_0: UserEntity_1_0_0 @figment(name: "UserEntity/1-0-0")
+    UserEntity_1_0_1: UserEntity_1_0_1 @figment(name: "UserEntity/1-0-1")
+    SlateLineupEntity_1_0_0: SlateLineupEntity_1_0_0 @figment(name: "SlateLineupEntity/1-0-0")
+    SlateEntity_1_0_0: SlateEntity_1_0_0 @figment(name: "SlateEntity/1-0-0")
+    RecommendationEntity_1_0_0: RecommendationEntity_1_0_0 @figment(name: "RecommendationEntity/1-0-0")
+}
+
+"""
+An ad within Pocket. Should be included with any content entity if the content is also an ad.
+"""
+input AdEntity_1_0_0 @figment(name: "AdEntity/1-0-0") @_deprecated {
+    "The backend identifier for an ad. See {AdzerkDecision.adId}."
+    ad_id: Int!
+
+    "The identifier for an ad's zone. See {AdzerkPlacement.zoneIds} and {AdzerkZoneId}."
+    zone_id: Int!
+
+    "The identifier for an ad's site. See {AdzerkPlacement.siteId} and {AdzerkSiteId}."
+    site_id: Int!
+}
+
+"""
+Entity to describe a Pocket API user that triggers (not executes) updates on the backend.
+Expected to be included on all events.
+"""
+input ApiUserEntity_1_0_1 @figment(name: "ApiUserEntity/1-0-1") @_deprecated {
+    """
+    Pocket backend identifier for an API user.
+    The integer that's at the front of the consumer key.
+    For example, for a consumer key `1234-asdhi23876sdfhjgk` the {.api_id} would be `1234`
+    """
+    api_id: Int!
+
+    "The name of the API user."
+    name: String
+
+    "Indicates whether an app is a native Pocket app."
+    is_native: Boolean
+
+    "Indicates whether an app has been whitelisted as one that sends non-automated actions and represents real human usage."
+    is_trusted: Boolean
+
+    "The version number for the client hitting the API."
+    client_version: String
+}
+
+"""
+A unique piece of content (item) within Pocket, usually represented by a URL.
+Should be included in all events that relate to content
+(primarily recommendation card impressions/engagements and item page impressions/engagements).
+"""
+input ContentEntity_1_0_0 @figment(name: "ContentEntity/1-0-0") @_deprecated {
+    "The full URL of the content."
+    url: Url!
+
+    "The backend identifier for a URL."
+    item_id: Int
+}
+
+"""
+Entity to describe a feature flag, or test/experiment.
+Expected to be included with any {track_variant_enroll/1-0-0} event.
+"""
+input FeatureFlagEntity_1_0_0 @figment(name: "FeatureFlagEntity/1-0-0") @_deprecated {
+    "The name of the feature flag, or test/experiment."
+    name: String!
+
+    "The name of the feature flag / test variant. Each feature flag should always include a 'control' variant."
+    variant: String!
+}
+
+"""
+Entity for a flag from a user to Pocket that an item is inappropriate or broken.
+Should be included with any engagement event where type = report.
+"""
+input ReportEntity_1_0_0 @figment(name: "ReportEntity/1-0-0") @_deprecated {
+    "The reason for the report selected from a list of options."
+    reason: ReportEntityReason!
+
+    "An optional user-provided comment on the reason for the report."
+    comment: String
+}
+
+"""
+The reason for the report selected from a list of options.
+"""
+enum ReportEntityReason @_deprecated {
+    broken_meta
+    wrong_category
+    sexually_explicit
+    offensive
+    misinformation
+    other
+}
+
+"""
+Entity to describe a front-end user interface.
+Should be included with any impression, engagement, or custom engagement events.
+"""
+input UiEntity_1_0_3 @figment(name: "UiEntity/1-0-3") @_deprecated {
+    "The general UI component type."
+    type: UiEntityType!
+
+    "The detailed type of UI component (e.g. standard, radio, checkbox, etc)."
+    component_detail: UiEntityComponentDetail
+
+    "The order of the UI stack, with 0 being the component directly engaged with."
+    hierarchy: Int!
+
+    "The internal name for the specific UI."
+    identifier: UiEntityIdentifier!
+
+    "The en-US display name for the UI, if available."
+    label: String
+
+    "The zero-based index value of a UI, if found in a list of similar UI components (e.g. item in a feed)."
+    index: Int
+
+    "The state of a UI element before the engagement (e.g. the initial value for a setting or filter)."
+    value: String
+}
+
+"""
+The general UI component type.
+"""
+enum UiEntityType @_deprecated {
+    button
+    dialog
+    menu
+    card
+    list
+    screen
+    page
+    reader
+    link
+    push_notification
+}
+
+"""
+The detailed type of UI component (e.g. standard, radio, checkbox, etc).
+"""
+enum UiEntityComponentDetail {
+    "A view displaying an item in List View."
+    item_row
+
+    "A view displaying an item in Tile View."
+    item_tile
+
+    "A view displaying a story in the new Discover feed."
+    discover_tile
+
+    "A view displaying a recommendation/post in old feeds (following and profiles)."
+    recommendation
+
+    "A view displaying a repost."
+    repost
+
+    "A view displaying a SPOC in List View."
+    spoc_row
+
+    "A view displaying a SPOC in Tile View."
+    spoc_tile
+
+    "A row in List Filters menu (like My List, Archive, Favorites, Articles or a tag)."
+    list_filter
+
+    "A dialog shown when saving to Pocket from another app."
+    save_extension
+}
+
+"""
+The internal name for the specific UI.
+"""
+enum UiEntityIdentifier {
+    # Screens
+    "The survey shown to users before deciding if we want to opt them into Guest Mode."
+    welcome_survey
+
+    "The first screen shown after install or logout for non-guest users."
+    logged_out_home
+
+    "The screen allowing to log into an existing account."
+    login
+
+    "The screen allowing to sign up for a new account."
+    signup
+
+    "A few onboarding pages shown after successfully signing up."
+    onboarding
+
+    """
+    A "Tinder style" Item swiping onboarding
+    """
+    swipe_onboarding @deprecated
+
+    """
+    The "My List" tab that shows the saved items.
+    """
+    home
+
+    "The screen displaying item's content."
+    reader
+
+    "The screen for editing/adding tags to one or multiple items."
+    tags_edit
+
+    "The screen for sharing an article to a friend within Pocket."
+    send_to_friend
+
+    "The save extension/overlay shown after saving a link from another app to Pocket."
+    save_confirmation
+
+    "The Discover tab."
+    discover
+
+    "A feed of Discover recommendations for a specific topic."
+    discover_topic
+
+    "A feed of RecIt recommendations similar to a specific item."
+    discover_similar
+
+    "The Search tab."
+    search
+
+    "The Activity tab."
+    activity
+
+    "The profile tab or someone else's profile."
+    profile
+
+    "The list of all people following a profile."
+    followers
+
+    "The list of profiles a person is following."
+    following
+
+    "Suggestions of people to follow."
+    find_followers
+
+    "The list of all people that liked a post."
+    post_likes
+
+    "The list of all people that reposted a post."
+    post_reposts
+
+    "The screen allowing to add a comment to a repost before adding it to your profile."
+    repost_create
+
+    "The screen allowing to change account properties, like name, email or password."
+    account_edit
+
+    "A full-screen flow for changing password that opens from account_edit."
+    password_edit
+
+    "A simple photo editor to crop a profile picture."
+    avatar_edit
+
+    "Listen player."
+    listen
+
+    "Listen specific settings screen."
+    listen_settings
+
+    "App settings."
+    settings
+
+    "The sub-screen in settings for configuring cache limit and priority."
+    cache_settings
+
+    "The sub-screen in settings for configuring push notifications."
+    push_notification_settings
+
+    "The Site Logins feature, that allows to log into a publisher site."
+    site_logins
+
+    "The login screen in the Site Logins feature."
+    site_logins_publisher
+
+    "Premium purchase flow."
+    premium
+
+    premium_confirmation
+
+    "The details about user's premium status or ongoing subscription."
+    premium_subscription
+
+    premium_upgrade_message
+
+    premium_gift_message
+
+    "The main Help screen."
+    help
+
+    "A Help screen, the topic is in {UiEntity/1-0-3.value}."
+    help_topic
+
+    "A screen to display a list of changes after a user was updated."
+    app_update_info
+
+    "A screen displaying a single collection's stories and metadata."
+    collection
+
+    "the screen the user see after subscribing to premium"
+    joined_premium
+
+
+    # Views
+    "A view displaying an item, like a row in My List."
+    item
+
+    "A view displaying a story, like a tile in Discover."
+    story
+
+    "A view displaying a SPOC."
+    spoc
+
+    "A view displaying a post, like a tile on someone's profile."
+    post
+
+    "A view displaying a repost, which is someone else's {.post} re-shared on another profile."
+    repost
+
+    "A view displaying a survey or a prompt to open a survey."
+    survey
+
+    "A view displaying some education or introductory message."
+    educational
+
+    "The report story drawer."
+    report_item
+
+    "The favorite badge displayed on an item in My List."
+    badge_favorite
+
+    "A tag displayed on an item in My List."
+    badge_tag
+
+    "A search field, e.g. in the search & sort bar at the top of My List."
+    search_field
+
+    """
+    A "filter"/"canned search query" for showing short articles.
+    """
+    search_time_to_read_quick
+
+    """
+    A "filter"/"canned search query" for showing articles of medium length.
+    """
+    search_time_to_read_medium
+
+    """
+    A "filter"/"canned search query" for showing long articles.
+    """
+    search_time_to_read_long
+
+    """
+    A "filter"/"canned search query" for showing very long articles.
+    """
+    search_time_to_read_very_long
+
+    "A view displaying a {Recommendation}"
+    recommendation
+
+
+    # Buttons
+    "A submit button in an app bar."
+    appbar_submit
+
+    "A submit button"
+    submit
+
+    "Save button, for example on a Discover story card."
+    save_button
+
+    "The button to complete account signup via email."
+    email_signup
+
+    "The button to complete account login via email."
+    email_login
+
+    "Onboarding / HTS email instructions"
+    email_instructions
+
+    "Skipping email instructions"
+    email_me_skip
+
+    "Final onboarding complete button"
+    complete_onboarding
+
+    "cancelling the login with Apple screen (appbar X)"
+    apple_login_cancel
+
+    "Lock rotation button."
+    rotation_lock
+
+    "Unlock rotation button."
+    rotation_unlock
+
+    "Confirmation button in \"Delete Tag?\" dialog."
+    tag_delete
+
+    "Confirmation button in \"Rename Tag\" dialog."
+    tag_rename
+
+    "Confirmation button in tag merging confirmation dialog."
+    tag_merge
+
+    "Refresh button on the Permanent Library update prompt."
+    refresh_library
+
+    "Confirmation button in \"Would you like to remove your repost?\" dialog"
+    post_remove_repost
+
+    "Button that deletes an {Item}."
+    item_delete
+
+    "Button that archives an {Item}."
+    item_archive
+
+    "Button that favorites an {Item}."
+    item_favorite
+
+    "Button that unfavorites an {Item}."
+    item_unfavorite
+
+    """
+    Button that readds or "unarchives" an {Item}.
+    """
+    item_readd
+
+    "Button that opens {Item}'s tagging screen."
+    item_add_tags
+
+    "Button that navigates to the next {Item}."
+    item_next
+
+    "Button that navigates to the previous {Item}."
+    item_previous
+
+    "Button that marks an {Item} as viewed or not viewed"
+    item_mark_as_viewed
+
+    "deleting a highlight (annotation) from an Item"
+    action_delete_highlight
+
+    "opening the help settings page"
+    open_help
+
+    "done selecting topics in appbar of onboarding"
+    appbar_done_topics @deprecated
+
+    "done swiping during onboarding"
+    appbar_done_swiping @deprecated
+
+    "List sort options button."
+    list_sort
+
+    "on the premium subscription page, the close icon"
+    close_premium
+
+    # Listen actions
+    listen_play
+    listen_pause
+    listen_mini_play
+    listen_mini_pause
+
+    # Filters
+    my_list
+    archive
+    favorites
+    highlights
+    shared_to_me
+    articles
+    videos
+    images
+    bestof
+    trending
+    tag
+    untagged
+    viewed
+    not_viewed
+
+
+    # Settings / Preferences
+    setting_continue_reading
+    setting_change_theme
+    setting_log_out
+    setting_log_in
+    setting_cache_priority
+    setting_cache_size
+    setting_auto_dark_mode
+    setting_system_theme
+    setting_justification
+    setting_save_extension
+
+    # Help screen actions (TODO should we track all of them?)
+    help_hts
+
+    # Sort options
+    list_sort_by_relevance
+    list_sort_by_newest
+    list_sort_by_oldest
+    list_sort_by_shortest
+    list_sort_by_longest
+
+    # Links
+    "Opening pocket.co links from external apps in the Pocket app."
+    pocket_co @figment(enum_value: "pocket.co")
+
+    "When the user opens a link from the body of an article already open in the Reader."
+    article_link
+
+
+    # Save extension
+    "Simple overlay with confirmation button and up to a few quick action buttons."
+    overlay
+
+    "Save drawer that makes it easy to add tags."
+    add_item_drawer @deprecated
+
+    "Button that confirms/submits tags added in the save drawer."
+    add_item_drawer_done @deprecated
+
+
+    # Misc
+    "Push notifications triggered from the Amazon Pinpoint service."
+    pinpoint
+
+    # System UI
+    "Device-level system notification setting for our app."
+    device_notifications_enabled
+
+    # Premium cards - These are the info pager cards when going to the screen where you can buy a subscription
+    "the first page in the premium screen info pager"
+    permanent_library
+
+    "the second page in the premium screen info pager"
+    no_ads
+
+    "the third page in the premium screen info pager"
+    text_search
+
+    "the fourth page in the premium screen info pager"
+    smart_tags
+
+    "the fifth page in the premium screen info pager"
+    unlimited_highlights
+
+    "the sixth page in the premium screen info pager"
+    custom_font
+}
+
+"""
+Entity to describe a user based on available identifiers.
+Expected to be included in all events that are (theoretically) initiated by a human.
+"""
+input UserEntity_1_0_1 @figment(name: "UserEntity/1-0-1") @_deprecated {
+    "Email address of the user. See {Account.email}"
+    email: String
+
+    "The backend cookie-based identifier for a user (logged in or out)."
+    guid: Int
+
+    "The hashed backend cookie-based identifier for a user (logged in or out). See {guid}."
+    hashed_guid: String
+
+    "The backend identifier for a full Pocket account."
+    user_id: Int
+
+    "The hashed backend identifier for a full Pocket account. See {Account.user_id}"
+    hashed_user_id: String
+
+    "The Adjust device ID used by the Adjust SDK."
+    adjust_id: String
+}
+
+"""
+Snowplow entity name: `slate_lineup`
+Original spec and discussion: https://docs.google.com/document/d/1nLEMvyGxYO1Lbwju1NZMgmrJOpB9oKetigf1eRevPqw/edit#
+Attach to any events related to a {SlateLineup} or its items.
+"""
+input SlateLineupEntity_1_0_0 @figment(name: "SlateLineupEntity/1-0-0") @_deprecated {
+    "The {SlateLineup.id}"
+    slate_lineup_id: String!
+    
+    "The {SlateLineup.requestId}"
+    request_id: ID!
+    
+    "The {SlateLineup.experimentId}"
+    experiment: ID!
+}
+
+"""
+Snowplow entity name: `slate`
+Original spec and discussion: https://docs.google.com/document/d/1nLEMvyGxYO1Lbwju1NZMgmrJOpB9oKetigf1eRevPqw/edit#
+Attach to any events related to a {Slate} or its items.
+"""
+input SlateEntity_1_0_0 @figment(name: "SlateEntity/1-0-0") @_deprecated {
+    "The {Slate.id}"
+    slate_id: String!
+    
+    "The {Slate.requestId}"
+    request_id: ID!
+    
+    "The {Slate.experimentId}"
+    experiment: ID!
+    
+    "The zero-based index value of the slate's display position among other slates in the same lineup."
+    index: Int!
+    
+    "The name to show the user for a slate."
+    display_name: String
+    
+    "The description of the slate."
+    description: String
+}
+
+input RecommendationEntity_1_0_0 @figment(name: "RecommendationEntity/1-0-0") @_deprecated {
+    "The unique identifier for a recommendation, which is sometimes referred to as a feed_item_id."
+    recommendation_id: ID!
+    
+    "The zero-based index value of the recommendation's display position among other recommendations in the same slate."
+    index: Int!
+}
+
+"""
+The platform the app runs on.
+"""
+enum SnowplowPlatform @_deprecated {
+    "Web (including Mobile Web)."
+    web
+    
+    "Mobile/Tablet."
+    mob
+    
+    "Desktop/Laptop/Netbook."
+    pc
+    
+    "Server-Side App."
+    srv
+    
+    "General App."
+    app
+    
+    "Connected TV."
+    tv
+    
+    "Games Console."
+    cnsl
+    
+    "Internet of Things."
+    iot
+}
+
+"""
+Unique identifier for website / application.
+"""
+enum SnowplowAppId @_deprecated {
+    "Production builds of the Pocket Web app."
+    pocket_web @figment(name: "pocket-web")
+    
+    "Development/internal builds of the Pocket Web app."
+    pocket_web_dev @figment(name: "pocket-web-dev")
+    
+    "Production builds of the Pocket Android app."
+    pocket_android @figment(name: "pocket-android")
+    
+    "Development/internal builds of the Pocket Android app."
+    pocket_android_dev @figment(name: "pocket-android-dev")
+    
+    "Production builds of the Pocket iOS app."
+    pocket_ios @figment(name: "pocket-ios")
+    
+    "Development/internal builds of the Pocket iOS app."
+    pocket_ios_dev @figment(name: "pocket-ios-dev")
+}
+
+# Deprecated versions:
+"""
+Entity to describe a Pocket API user that triggers (not executes) updates on the backend.
+Expected to be included on all events.
+"""
+input ApiUserEntity_1_0_0 @_deprecated @figment(name: "ApiUserEntity/1-0-0") {
+    """
+    Pocket backend identifier for an API user.
+    The integer that's at the front of the consumer key.
+    For example, for a consumer key `1234-asdhi23876sdfhjgk` the {.api_id} would be `1234`
+    """
+    api_id: Int!
+
+    "The name of the API user."
+    name: String
+
+    is_native: Boolean
+
+    is_trusted: Boolean
+}
+
+"""
+Entity to describe a front-end user interface.
+Should be included with any impression, engagement, or custom engagement events.
+"""
+input UiEntity_1_0_1 @_deprecated @figment(name: "UiEntity/1-0-1") {
+    "The general UI component type."
+    type: UiEntityType!
+
+    "The detailed type of UI component (e.g. standard, radio, checkbox, etc)."
+    component_detail: UiEntityComponentDetail
+
+    "The order of the UI stack, with 0 being the component directly engaged with."
+    hierarchy: Int!
+
+    "The internal name for the specific UI."
+    identifier: UiEntityIdentifier!
+
+    "The en-US display name for the UI, if available."
+    label: String
+
+    "The zero-based index value of a UI, if found in a list of similar UI components (e.g. item in a feed)."
+    index: Int
+
+    "The state of a UI element before the engagement (e.g. the initial value for a setting or filter)."
+    value: String
+}
+
+"""
+Entity to describe a front-end user interface.
+Should be included with any impression, engagement, or custom engagement events.
+"""
+input UiEntity_1_0_2 @_deprecated @figment(name: "UiEntity/1-0-2") {
+    "The general UI component type."
+    type: UiEntityType!
+
+    "The detailed type of UI component (e.g. standard, radio, checkbox, etc)."
+    component_detail: UiEntityComponentDetail
+
+    "The order of the UI stack, with 0 being the component directly engaged with."
+    hierarchy: Int!
+
+    "The internal name for the specific UI."
+    identifier: UiEntityIdentifier!
+
+    "The en-US display name for the UI, if available."
+    label: String
+
+    "The zero-based index value of a UI, if found in a list of similar UI components (e.g. item in a feed)."
+    index: Int
+
+    "The state of a UI element before the engagement (e.g. the initial value for a setting or filter)."
+    value: String
+}
+"""
+Entity to describe a user based on available identifiers.
+Expected to be included in all events that are (theoretically) initiated by a human.
+"""
+input UserEntity_1_0_0 @figment(name: "UserEntity/1-0-0") @_deprecated {
+    "Email address of the user. See {Account.email}"
+    email: String
+
+    "The backend cookie-based identifier for a user (logged in or out)."
+    guid: Int
+
+    "The hashed backend cookie-based identifier for a user (logged in or out). See {guid}."
+    hashed_guid: String
+
+    "The backend identifier for a full Pocket account."
+    user_id: Int
+
+    "The hashed backend identifier for a full Pocket account. See {Account.user_id}"
+    hashed_user_id: String
+}
+
+extend type Mutation {
+    """
+    Event triggered when a user engages with a UI element.
+    Entities included: always api_user, user, ui; sometimes content, ad, report.
+    """
+    track_engagement_1_0_0(
+        eid: String!,
+        entities: [SnowplowEntity],
+        "Indicates the type of engagement." type: EngagementType!,
+        "The new value of a setting\/filter, if the user engaged with something and modified its state in doing so." value: String
+    ): Void @deprecated @figment(name: "track_engagement/1-0-0")
+
+    """
+    Event triggered when a user views a UI element.
+    Entities included: always api_user, user, ui; sometimes content, ad.
+    """
+    track_impression_1_0_0(
+        eid: String!,
+        entities: [SnowplowEntity],
+        "Indicator of the component that is being viewed." component: ImpressionComponent!,
+        "Indicates the requirement before an impression can be triggered (instant: any pixel displayed on screen; viewable: +50% of component displayed for 1+ seconds)." requirement: ImpressionRequirement!
+    ): Void @deprecated @figment(name: "track_impression/1-0-0")
+
+    """
+    Event triggered when a user views a UI element.
+    Entities included: always api_user, user, ui; sometimes content, ad.
+    """
+    track_impression_1_0_1(
+        eid: String!,
+        entities: [SnowplowEntity],
+        "Indicator of the component that is being viewed." component: ImpressionComponent!,
+        "Indicates the requirement before an impression can be triggered (instant: any pixel displayed on screen; viewable: +50% of component displayed for 1+ seconds)." requirement: ImpressionRequirement!
+    ): Void @deprecated @figment(name: "track_impression/1-0-1")
+}

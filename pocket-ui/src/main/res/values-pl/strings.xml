@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- smartling.instruction_attributes = comment -->
+<!-- smartling.placeholder_format_custom = \{[a-zA-Z0-9_-]+\}-->
+<resources>
+    <!-- Accessibility and tooltip labels for icons -->
+    <string name="ic_overflow">Więcej…</string>
+    <string name="ic_up">Wstecz</string>
+    <string name="ic_archive" comment="Label for a button that archives an item. This is a verb.">Archiwizuj</string>
+    <string name="ic_save">Zapisz</string>
+    <string name="ic_saved">Zapisano</string>
+    <string name="ic_readd">Dodaj ponownie</string>
+    <string name="ic_favorite">Dodaj do Ulubionych</string>
+    <string name="ic_unfavorite">Usuń z Ulubionych</string>
+    <string name="ic_mark_as_viewed">Oznacz jako wyświetlone</string>
+    <string name="ic_mark_as_not_viewed">Oznacz jako niewyświetlone</string>
+    <string name="ic_share">Udostępnij</string>
+    <string name="ic_delete">Usuń</string>
+    <string name="ic_add_tags">Dodaj tagi</string>
+    <string name="ic_filters">Filtry</string>
+    <string name="ic_play">Odtwórz</string>
+    <string name="ic_pause">Zatrzymaj</string>
+    <string name="ic_skip">Przeskocz w przód</string>
+    <string name="ic_back">Przeskocz w tył</string>
+    <string name="ic_cancel">Anuluj</string>
+    <string name="ic_listen">Słuchaj</string>
+    <string name="ic_like">Lubię to</string>
+    <string name="ic_remove_like">Jednak nie lubię</string>
+    <string name="ic_repost">Wrzuć na swój profil</string>
+    <string name="ic_remove_repost">Usuń ze swojego profilu</string>
+    <string name="ic_plus">+</string>
+    <string name="ic_minus">-</string>
+    <string name="ic_close">Zamknij</string>
+    <string name="ic_edit">Edytuj</string>
+    <string name="ic_highlight" comment="Label for button that highlights selected text">Wyróżnij</string>
+    <string name="ic_copy">Kopiuj</string>
+    <string name="ic_brightness_down">Zmniejsz jasność ekranu</string>
+    <string name="ic_brightness_up">Zwiększ jasność ekranu</string>
+    <string name="ic_brightness_control">Jasność ekranu</string>
+    <string name="ic_settings">Ustawienia</string>
+    <string name="ic_premium">Pocket Premium</string>
+    <string name="ic_pocket_menu">Menu Pocket</string>
+
+    <string name="ac_save">Zapisz</string>
+    <string name="ac_save_to_pocket">Zapisz w Pockecie</string>
+    <string name="ac_previous">Poprzedni</string>
+    <string name="ac_next">Następny</string>
+    
+    <string name="upgrade">Uaktualnij</string>
+    <string name="upgrade_upsell">Odblokuj więcej opcji personalizacji</string>
+    <string name="get_premium">Pobierz wersję Premium</string>
+    
+    <string name="counts_thousands" comment="number abbreviated to thousands. such as 1k for 1,000. as short as possible.">%1$d tys.</string>
+    <string name="counts_millions" comment="number abbreviated to millions. such as 1m for 1,000,000. as short as possible">%1$d mln</string>
+    
+    <!-- content descriptions -->
+    <string name="setting_incrementor" comment="{setting} is a placeholder for a text style setting, eg Text Size, Line Height, or Margin, do not translate the content within {}">Zwiększ {setting}</string>
+    <string name="setting_decrementor" comment="{setting} is a placeholder for a text style setting, eg Text Size, Line Height, or Margin, do not translate the content within {}">Zmniejsz {setting}</string>
+    <string name="text_setting_text_size">Rozmiar tekstu</string>
+    <string name="text_setting_line_height">Wysokość odstępu</string>
+    <string name="text_setting_margin">Margines</string>
+
+    <string name="current_typeface" comment="{typeface} is a placeholder for the current text typeface setting, eg Blanco, Graphik, do not translate the content within {}">Zmień krój czcionki z {typeface}</string>
+
+    <string name="theme_toggle_light_desc">Zmień motyw na Jasny</string>
+    <string name="theme_toggle_dark_desc">Zmień motyw na Ciemny</string>
+    <string name="theme_toggle_auto_desc">Automatycznie zmieniaj motyw</string>
+
+    <!-- Strings only used for ux playground-->
+    <string name="light">Jasny</string>
+    <string name="dark">Ciemny</string>
+</resources>

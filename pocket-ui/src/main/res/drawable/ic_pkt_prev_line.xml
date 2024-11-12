@@ -1,0 +1,17 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <group android:name="ic_pkt_next_line"
+        android:rotation="180"
+        android:pivotX="12"
+        android:pivotY="12">
+        <path
+            android:pathData="M3,2C3,1.45 2.5525,1 2,1C1.4475,1 1,1.45 1,2L1,22C1,22.55 1.4475,23 2,23C2.5525,23 3,22.55 3,22L3,2ZM8,5.4L19.882,12L8,18.6L8,5.4ZM21.2215,10.455C22.4325,11.13 22.4325,12.87 21.2215,13.545L8.623,20.545C7.4465,21.1949 6,20.345 6,19L6,5C6,3.655 7.4465,2.8051 8.623,3.455L21.2215,10.455Z"
+            android:strokeWidth="1"
+            android:fillColor="#828282"
+            android:fillType="evenOdd"
+            android:strokeColor="#00000000" />
+    </group>
+</vector>

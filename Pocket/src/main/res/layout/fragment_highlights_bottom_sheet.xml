@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pocket.app.reader.internal.article.highlights.HighlightsBottomSheetViewModel"
+            />
+    </data>
+    
+<com.pocket.ui.view.themed.ThemedConstraintLayout2
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_bottom_sheet"
+    >
+    
+    <com.pocket.ui.view.themed.ThemedImageView
+        android:id="@+id/highlightIcon"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_pkt_highlights_line"
+        app:tint="@color/pkt_themed_grey_5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:fontFamily="@font/graphik"
+        android:textFontWeight="500"
+        android:textSize="16sp"
+        android:textColor="@color/pkt_themed_grey_5"
+        android:text="@string/highlights"
+        app:layout_constraintTop_toTopOf="@id/highlightIcon"
+        app:layout_constraintBottom_toBottomOf="@id/highlightIcon"
+        app:layout_constraintStart_toEndOf="@id/highlightIcon"/>
+    
+    <com.pocket.ui.view.themed.ThemedView
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        style="@style/Pkt_ThinDivider"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+    
+    <com.pocket.ui.view.themed.ThemedRecyclerView
+        android:id="@+id/highlightList"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="3"
+        tools:listitem="@layout/view_highlight_cell"/>
+
+</com.pocket.ui.view.themed.ThemedConstraintLayout2>
+
+</layout>

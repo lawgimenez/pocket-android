@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pocket.app.reader.internal.collection.CollectionViewModel"
+            />
+    </data>
+    
+<com.pocket.ui.view.themed.ThemedConstraintLayout2
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    
+    <com.pocket.app.reader.toolbar.ReaderToolbarView
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"/>
+    
+    <com.pocket.ui.view.themed.ThemedNestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:background="@drawable/bg"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:visibility="@{viewModel.uiState.screenState.mainLayoutVisible}">
+        
+        <com.pocket.ui.view.themed.ThemedConstraintLayout2
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+    
+            <com.pocket.ui.view.themed.ThemedConstraintLayout2
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintWidth_max="@dimen/home_max_width"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+                
+                <com.pocket.ui.view.themed.ThemedImageView
+                    android:id="@+id/pocketMark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_collections_pocket_mark"
+                    />
+                
+                <com.pocket.ui.view.themed.ThemedTextView
+                    android:id="@+id/title"
+                    style="@style/Pkt_Text_H5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="@dimen/pkt_side_grid"
+                    android:gravity="center_horizontal"
+                    android:text="@{viewModel.uiState.title}"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pocketMark"
+                    tools:text="Pocket’s 10 Most-Saved Stories in February 2021"
+                    />
+                
+                <com.pocket.ui.view.themed.ThemedTextView
+                    android:id="@+id/author"
+                    style="@style/Pkt_Text_P4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:text="@{viewModel.uiState.author}"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title"
+                    tools:text="Amy Maoz"
+                    />
+            
+                <com.pocket.ui.view.themed.ThemedTextView
+                    android:id="@+id/intro"
+                    style="@style/Pkt_Text_P4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:paddingBottom="20dp"
+                    app:layout_constraintTop_toBottomOf="@id/author"
+                    tools:text="None of the most-saved articles this month directly namechecks the pandemic wall, that cultural shorthand for the gloom, burnout, and isolation we’re all running into at month 12 of the pandemic. Instead, the wall seems to be hiding in plain sight, a clear throughline running through Pocket’s top ten most-saved stories in February 2021.   It starts with a fascinating dive into the science of how to change someone’s mind — then several stories about controlling the chaos of our own brains. There’s a guide to being angry and an ode to low expectations. Add in one part post-election stress, a pinch of tracking down old bullies, a glimpse into the mind of Jeff Bezos, and we’ve got… well, February.   If you’ve already read these pieces, you’re in good company. And if you haven’t, dig in, Pocket a few, and remind yourself that better days are coming. And until then, don’t miss the final two stories in this month’s top ten, each with optimistic, action-oriented steps you can take to overcome that wall. "
+                    />
+                
+                <com.pocket.ui.view.themed.ThemedRecyclerView
+                    android:id="@+id/storyList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:paddingBottom="100dp"
+                    app:layout_constraintTop_toBottomOf="@id/intro"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/view_home_hero_card"
+                    tools:itemCount="2"/>
+    
+            </com.pocket.ui.view.themed.ThemedConstraintLayout2>
+        
+        </com.pocket.ui.view.themed.ThemedConstraintLayout2>
+    
+    </com.pocket.ui.view.themed.ThemedNestedScrollView>
+    
+    <com.pocket.app.reader.internal.collection.loading.CollectionSkeletonView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        app:layout_constraintWidth_max="@dimen/home_max_width"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:visibility="@{viewModel.uiState.screenState.loadingVisible}"
+        tools:visibility="gone"/>
+    
+    <com.pocket.ui.view.themed.ThemedConstraintLayout2
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        app:visibility="@{viewModel.uiState.screenState.errorVisible}"
+        app:layout_constraintWidth_max="@dimen/home_max_width"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:visibility="gone">
+        
+        <com.pocket.ui.view.themed.ThemedTextView
+            android:id="@+id/errorTitle"
+            style="@style/Pkt_Text_H5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/collection_details_error_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    
+        <com.pocket.ui.view.themed.ThemedTextView
+            android:id="@+id/errorMessage"
+            style="@style/Pkt_Text_P3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="@string/collection_details_error_message"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/errorTitle"/>
+        
+        <com.pocket.ui.view.button.BoxButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="@string/ac_try_again"
+            android:onClick="@{() -> viewModel.onRetryClicked()}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/errorMessage"/>
+        
+    </com.pocket.ui.view.themed.ThemedConstraintLayout2>
+    
+</com.pocket.ui.view.themed.ThemedConstraintLayout2>
+
+</layout>

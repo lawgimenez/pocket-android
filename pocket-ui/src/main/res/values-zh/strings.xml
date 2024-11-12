@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- smartling.instruction_attributes = comment -->
+<!-- smartling.placeholder_format_custom = \{[a-zA-Z0-9_-]+\}-->
+<resources>
+    <!-- Accessibility and tooltip labels for icons -->
+    <string name="ic_overflow">更多…</string>
+    <string name="ic_up">返回</string>
+    <string name="ic_archive" comment="Label for a button that archives an item. This is a verb.">存档</string>
+    <string name="ic_save">保存</string>
+    <string name="ic_saved">已保存</string>
+    <string name="ic_readd">重新添加</string>
+    <string name="ic_favorite">收藏</string>
+    <string name="ic_unfavorite">取消收藏</string>
+    <string name="ic_mark_as_viewed">标记为已查看</string>
+    <string name="ic_mark_as_not_viewed">标记为未查看</string>
+    <string name="ic_share">分享</string>
+    <string name="ic_delete">删除</string>
+    <string name="ic_add_tags">添加标签</string>
+    <string name="ic_filters">过滤器</string>
+    <string name="ic_play">播放</string>
+    <string name="ic_pause">暂停</string>
+    <string name="ic_skip">快进</string>
+    <string name="ic_back">后退</string>
+    <string name="ic_cancel">取消</string>
+    <string name="ic_listen">朗读</string>
+    <string name="ic_like">赞</string>
+    <string name="ic_remove_like">取消点赞</string>
+    <string name="ic_repost">转发</string>
+    <string name="ic_remove_repost">删除转帖</string>
+    <string name="ic_plus">+</string>
+    <string name="ic_minus">-</string>
+    <string name="ic_close">关闭</string>
+    <string name="ic_edit">编辑</string>
+    <string name="ic_highlight" comment="Label for button that highlights selected text">标记</string>
+    <string name="ic_copy">复制</string>
+    <string name="ic_brightness_down">降低屏幕亮度</string>
+    <string name="ic_brightness_up">提高屏幕亮度</string>
+    <string name="ic_brightness_control">屏幕亮度</string>
+    <string name="ic_settings">设置</string>
+    <string name="ic_premium">Pocket Premium</string>
+    <string name="ic_pocket_menu">Pocket 菜单</string>
+
+    <string name="ac_save">保存</string>
+    <string name="ac_save_to_pocket">保存到 Pocket</string>
+    <string name="ac_previous">上一步</string>
+    <string name="ac_next">下一步</string>
+    
+    <string name="upgrade">升级</string>
+    <string name="upgrade_upsell">解锁更多自定义选项</string>
+    <string name="get_premium">获取 Premium</string>
+    
+    <string name="counts_thousands" comment="number abbreviated to thousands. such as 1k for 1,000. as short as possible.">%1$d,000</string>
+    <string name="counts_millions" comment="number abbreviated to millions. such as 1m for 1,000,000. as short as possible">%1$d00 万</string>
+    
+    <!-- content descriptions -->
+    <string name="setting_incrementor" comment="{setting} is a placeholder for a text style setting, eg Text Size, Line Height, or Margin, do not translate the content within {}">增加{setting}</string>
+    <string name="setting_decrementor" comment="{setting} is a placeholder for a text style setting, eg Text Size, Line Height, or Margin, do not translate the content within {}">减少{setting}</string>
+    <string name="text_setting_text_size">字体大小</string>
+    <string name="text_setting_line_height">行高</string>
+    <string name="text_setting_margin">页边</string>
+
+    <string name="current_typeface" comment="{typeface} is a placeholder for the current text typeface setting, eg Blanco, Graphik, do not translate the content within {}">从 {typeface} 更改字样</string>
+
+    <string name="theme_toggle_light_desc">更改为浅色主题</string>
+    <string name="theme_toggle_dark_desc">更改为深色主题</string>
+    <string name="theme_toggle_auto_desc">自动更改主题</string>
+
+    <!-- Strings only used for ux playground-->
+    <string name="light">浅色</string>
+    <string name="dark">深色</string>
+</resources>

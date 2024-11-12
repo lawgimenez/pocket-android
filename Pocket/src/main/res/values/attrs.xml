@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="MaxWidthView">
+	    <attr name="maxWidth" format="dimension" />
+	</declare-styleable>
+
+    <declare-styleable name="PremiumUpgradeBlockView">
+	    <attr name="titleText" format="string" />
+	    <attr name="descText" format="string" />
+		<attr name="imageRes" format="reference" />
+		<attr name="showTopDivider" format="boolean"/>
+		<attr name="prem_imageHeight" format="dimension" />
+    </declare-styleable>
+	
+    <declare-styleable name="PocketTheme">
+    	<attr name="maxHeight" format="dimension" />
+    	<attr name="drawableColor" format="color" />
+    	<attr name="heightRatio" format="float" />
+        <attr name="isCheckable" format="boolean" />
+		<attr name="drawerItemViewStyle" format="reference" />
+   	</declare-styleable>
+
+    <declare-styleable name="IconTypes">
+        <attr name="nav_icon_type" format="integer" />
+        <attr name="menu_icon_type" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="VerticallyCenteredScrollView">
+        <attr name="verticalCenterPosition" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="ResizeDetectLinearLayout">
+    	<attr name="dividerColor" format="color" />      
+    	<attr name="dividerStroke" format="dimension" />
+    	<attr name="dividerInset" format="dimension" />
+		<attr name="android:foreground" />
+    </declare-styleable>
+    
+	<declare-styleable name="states">
+        <attr name="state_error" format="boolean" />
+    </declare-styleable>
+	
+	<declare-styleable name="Tooltip">
+        <attr name="tooltip" format="string" />
+    </declare-styleable>
+    
+	<declare-styleable name="DialogSizeWrapper">
+        <attr name="max_width" format="dimension" />
+    </declare-styleable>
+    
+	<declare-styleable name="RecipientEditTextView">
+        <attr name="invalidChipBackground" format="reference" />
+        <attr name="chipBackground" format="reference" />
+        <attr name="chipBackgroundPressed" format="reference" />
+        <attr name="chipDelete" format="reference" />
+        <attr name="chipAlternatesLayout" format="reference" />
+        <attr name="chipPadding" format="reference" />
+        <attr name="chipHeight" format="reference" />
+        <attr name="chipIconWidth" format="reference" />
+        <attr name="chipFontSize" format="reference" />
+        <attr name="chipTextColor" format="reference" />
+        <attr name="chipTextFont" format="integer" />
+    </declare-styleable>
+    
+	<!--suppress DeprecatedClassUsageInspection -->
+	<declare-styleable name="SlidingDrawer">
+        <attr name="bottomOffset" format="dimension" />
+        <attr name="topOffset" format="dimension" />
+        <attr name="allowSingleTap" format="boolean" />
+        <attr name="animateOnClick" format="boolean" />
+        <attr name="handle" format="reference" />
+        <attr name="content" format="reference" />
+        <attr name="wrapContent" format="boolean" />
+    </declare-styleable>
+    
+	<!-- Copied from Android's attrs.xml -->
+	<declare-styleable name="Switch">
+		<!-- Drawable to use as the "thumb" that switches back and forth. -->
+		<attr name="sthumb" format="reference" />
+		<!-- Drawable to use as the "track" that the switch thumb slides within. -->
+		<attr name="strack" format="reference" />
+		<!-- Text to use when the switch is in the checked/"on" state. -->
+		<attr name="stextOn" format="reference" />
+		<!-- Text to use when the switch is in the unchecked/"off" state. -->
+		<attr name="stextOff" format="reference" />
+		<!-- Amount of padding on either side of text within the switch thumb. -->
+		<attr name="sthumbTextPadding" format="dimension" />
+		<!-- TextAppearance style for text displayed on the switch thumb. -->
+		<attr name="sswitchTextAppearance" format="reference" />
+		<!-- Minimum width for the switch component -->
+		<attr name="sswitchMinWidth" format="dimension" />
+		<!-- Minimum space between the switch and caption text -->
+		<attr name="sswitchPadding" format="dimension" />
+	</declare-styleable>
+	
+	<declare-styleable name="FlowLayout">
+        <attr name="horizontalSpacing" format="dimension"/>
+        <attr name="verticalSpacing" format="dimension"/>
+        <attr name="flow_orientation" format="enum">
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr>
+        <attr name="debugDraw" format="boolean" />
+        <attr name="flow_layout_center" format="boolean"/>
+        <!-- 
+	        The max lines for the layout. -1 turns it into a normal layout that just keeps expanding on one line.
+	        0 is no maximum.
+	        >0 limits the wrapping of views to a number of lines. Views that don't fit will not be shown.
+         -->
+        <attr name="maxFlowLines" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="FlowLayout_LayoutParams">
+        <attr name="layout_newLine" format="boolean"/>
+        <attr name="layout_horizontalSpacing" format="dimension"/>
+        <attr name="layout_verticalSpacing" format="dimension"/>
+        <attr name="layout_center" format="boolean"/>
+    </declare-styleable>
+    
+    <declare-styleable name="ChipEditText">
+        <!-- 
+	        How scrolling and layout should work. One of the following:
+	        -1 : Single line mode. Scrolls horizontally if needed.
+	         0 : Multi line mode. Wraps to the next line as needed.
+	        >0 : Mutli line mode with a maximum number of lines. 
+        -->
+        <attr name="chiptext_lineMode" format="integer" />
+    	<attr name="chiptext_commitChars" format="string" />
+    	<attr name="chiptext_clearEnabled" format="boolean" />
+    	<!-- 
+    		A TextAppearance style to be applied to the input field.
+    	 -->
+    	<attr name="chiptext_fieldStyle" format="reference" />
+    	<attr name="chiptext_fieldHeight" format="dimension" />
+    	<attr name="chiptext_hint" format="string" />
+    	<attr name="chiptext_animateAdditions" format="boolean" />
+    	<!--
+    		A style with FlowLayout attributes to be applied to the layout of chips. maxFlowLines will be overriden
+    		by chiptext_lineMode
+    	 -->
+    	<attr name="chiptext_flowStyle" format="reference" />
+    </declare-styleable>
+    
+    <declare-styleable name="PocketSeekBar">
+    	<attr name="progressColor" format="enum">
+    		<enum name="regular" value="0"/>
+            <enum name="blue" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="PillButton">
+        <attr name="pillFillColor" format="color" />
+        <attr name="pillStrokeColor" format="color" />
+        <attr name="pillOverlayColor" format="color" />
+    </declare-styleable>
+	
+    <declare-styleable name="Reader">
+        <!-- Whether or not the reader is in original web view mode.-->
+        <attr name="state_webview" format="boolean" />
+    </declare-styleable>
+	
+</resources>

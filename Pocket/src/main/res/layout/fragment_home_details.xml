@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    
+    <data>
+        <variable
+            name="viewModel"
+            type="com.pocket.app.home.details.DetailsViewModel"
+            />
+    </data>
+    
+    <com.pocket.ui.view.themed.ThemedConstraintLayout2
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg"
+        >
+        
+        <com.pocket.ui.view.AppBar
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="@{viewModel.uiState.title}"
+            app:leftIcon="up"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+    
+        <com.pocket.ui.view.themed.ThemedNestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appBar"
+            app:layout_constraintEnd_toEndOf="parent">
+    
+            <com.pocket.ui.view.themed.ThemedConstraintLayout2
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+    
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:visibility="@{viewModel.uiState.screenState.recommendationsVisible}"
+                    app:layout_constraintWidth_max="775dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="SpeakableTextPresentCheck"
+                    tools:listitem="@layout/view_home_hero_card"
+                    tools:visibility="gone"
+                    />
+    
+                <com.pocket.app.home.loading.DetailsSkeletonView
+                    android:id="@+id/skeleton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:visibility="@{viewModel.uiState.screenState.loadingVisible}"
+                    app:layout_constraintWidth_max="775dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:visibility="visible"/>
+            
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/recyclerViewOrSkeleton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierAllowsGoneWidgets="false"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="recyclerView,skeleton"
+                    />
+                <com.pocket.ui.view.info.FeedFooterView
+                    android:id="@+id/bookAnimationView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/pkt_space_md"
+                    android:layout_marginEnd="@dimen/pkt_space_md"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintWidth_max="775dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recyclerViewOrSkeleton"
+                    />
+            </com.pocket.ui.view.themed.ThemedConstraintLayout2>
+
+        </com.pocket.ui.view.themed.ThemedNestedScrollView>
+    
+        <com.pocket.app.home.views.HomeErrorSnackBar
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="21dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintWidth_max="400dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:isLoading="@{viewModel.uiState.errorSnackBarRefreshing}"
+            app:onRetryClicked="@{() -> viewModel.onErrorRetryClicked()}"
+            app:isShowing="@{viewModel.uiState.errorSnackBarVisible}"
+            app:message="@{viewModel.uiState.errorMessage}"
+            app:allowSwiping="@{false}"/>
+
+    </com.pocket.ui.view.themed.ThemedConstraintLayout2>
+    
+</layout>

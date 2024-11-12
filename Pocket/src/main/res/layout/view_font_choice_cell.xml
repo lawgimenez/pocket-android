@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pocket.ui.view.themed.ThemedConstraintLayout2
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/cl_pkt_touchable_area"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    
+    <com.pocket.ui.view.themed.ThemedImageView
+        android:id="@+id/premiumIcon"
+        style="@style/Pkt_IconButton_Premium_Teal"
+        android:clickable="false"
+        android:background="@color/transparent"
+        android:layout_marginStart="@dimen/pkt_side_grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/fontName"
+        style="@style/Pkt_Text_Medium"
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/pkt_display_setting_section_height"
+        android:layout_marginStart="@dimen/pkt_space_md"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/premiumIcon"
+        app:layout_constraintTop_toTopOf="parent" />
+    
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/upgrade"
+        style="@style/Pkt_Text_Link"
+        android:background="@color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/pkt_side_grid"
+        android:text="@string/upgrade"
+        android:clickable="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    
+    <com.pocket.ui.view.themed.ThemedImageView
+        android:id="@+id/selectedCheck"
+        app:drawableColor="@color/pkt_themed_teal_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/pkt_side_grid"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_pkt_check_mini"
+        tools:visibility="gone"/>
+    
+    <com.pocket.ui.view.themed.ThemedView
+        style="@style/Pkt_ThinDivider"
+        android:layout_width="0dp"
+        android:layout_marginStart="@dimen/pkt_side_grid"
+        android:layout_marginEnd="@dimen/pkt_side_grid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</com.pocket.ui.view.themed.ThemedConstraintLayout2>

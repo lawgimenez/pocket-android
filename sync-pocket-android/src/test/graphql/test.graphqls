@@ -1,0 +1,373 @@
+"A timestamp in unix past epoch"
+scalar Timestamp
+
+"""
+A string that should be considered "dangerous" for serialization
+"""
+scalar Dangerous
+
+"An object for unit testing"
+type DeepCollectionsTest {
+    id: String @id
+    val0: Int
+    obj0: SomethingWithoutIdentity
+    obj_list0: [Depth1]
+    obj_map0: [Depth1] @map
+    val_list0: [Int]
+    val_map0: [Int] @map
+    ref_list0: [SomethingWithIdentity]
+    ref_map0: [SomethingWithIdentity] @map
+}
+"An object for unit testing"
+type SomethingWithIdentity {
+    id: String @id
+    state: String
+}
+"An object for unit testing"
+type SomethingWithoutIdentity {
+    value: String
+    obj: SomethingElseWithoutIdentity
+}
+"An object for unit testing"
+type SomethingElseWithoutIdentity {
+    value : String
+}
+"An object for unit testing"
+type Depth1 {
+    val1 : Int
+    obj1 : SomethingWithoutIdentity
+    obj_list1 : [Depth2]
+    obj_map1 : [Depth2] @map
+    val_list1 : [Int]
+    val_map1 : [Int] @map
+    ref_list1 : [SomethingWithIdentity]
+    ref_map1 : [SomethingWithIdentity] @map
+}
+"An object for unit testing"
+type Depth2 {
+    val2: Int
+    obj2: SomethingWithoutIdentity
+    obj_list2: [Depth3]
+    obj_map2: [Depth3] @map
+    val_list2: [Int]
+    val_map2: [Int] @map
+    ref_list2: [SomethingWithIdentity]
+    ref_map2: [SomethingWithIdentity] @map
+}
+"An object for unit testing"
+type Depth3 {
+    val3: Int
+    obj3: SomethingWithoutIdentity
+    obj_list3: [SomethingWithoutIdentity]
+    obj_map3: [SomethingWithoutIdentity] @map
+    val_list3: [Int]
+    val_map3: [Int] @map
+    ref_list3: [SomethingWithIdentity]
+    ref_map3: [SomethingWithIdentity] @map
+}
+
+type ReactiveThing {
+    id: String @id
+    field: String
+    field2: String
+    collection: [SomethingWithIdentity]
+    reactive_type: String @derives(reactive: "ReactiveTarget") @derives(instructions: "Do something")
+    reactive_type_field: String @derives(reactive: "ReactiveTarget.a") @derives(instructions: "Do something")
+    reactive_field: String @derives(reactive: ".field") @derives(instructions: "Do something")
+    reactive_self: String @derives(reactive: ".") @derives(instructions: "Do something")
+    reactive_collection_field: String @derives(reactive: ".collection.state") @derives(instructions: "Do something")
+}
+type ReactiveTarget {
+    id: String @id
+    a: String
+    b: String
+}
+
+"Used for testing cases where identity contains a Thing field"
+type HasIdentityWithThing {
+    id: SomethingWithIdentity @id
+    state: String
+}
+"Used for testing cases where identity contains a Thing field"
+type HasIdentityWithNonIdThing {
+    id : SomethingWithoutIdentity @id
+    state : String
+}
+"Used for testing cases where identity contains a Thing field"
+type HasComplexIdentityWithThing {
+    id : SomethingWithIdentity @id
+    id2 : String @id
+    state : String
+}
+"Used for testing cases where identity contains a Thing field"
+type HasComplexIdentityWithNonIdThing {
+    id : SomethingWithoutIdentity @id
+    id2 : String @id
+    state : String
+}
+"Used for testing cases where identity contains a Thing field"
+type HasNestedIdentity {
+    id : [SomethingWithIdentity] @id
+    nested : NestedIdentity @id
+    state : String
+}
+"Used for testing cases where identity contains a Thing field"
+type NestedIdentity {
+    nested : SomethingWithIdentity
+}
+"Used to test the remap syntax feature"
+type Remapped {
+    list : [SomethingWithIdentity]
+    sort_ids : [Int] @derives(remap: "list.sort_id")
+    info : [SomethingWithoutIdentity] @derives(remap: "list.info")
+}
+"Used to test Thing.with()"
+type WithTest {
+    identifiable_thing : SomethingWithIdentity
+    non_identifiable_thing : StateHasIdentifiable
+    list_of_identifiable_thing : [SomethingWithIdentity]
+    list_of_non_identifiable_thing : [StateHasIdentifiable]
+    map_of_identifiable_thing : [SomethingWithIdentity] @map
+    map_of_non_identifiable_thing : [StateHasIdentifiable] @map
+}
+type StateHasIdentifiable {
+    state : SomethingWithIdentity
+}
+
+extend type Mutation {
+    "Used for testing equality of actions, has a mixture of types of fields"
+    equality_action(
+        val1: String,
+        val2: Int,
+        array: [String],
+        id_thing: SomethingWithIdentity,
+        non_id_thing: SomethingWithoutIdentity,
+        id_thing_array: [SomethingWithIdentity],
+        non_id_thing_array: [SomethingWithoutIdentity]
+    ): Void
+}
+
+type PathParams @figment(address: "https://pocket.com/{.path_one}/{.path_two}/part/{.path_three_aliased}") {
+    path_one: String @id
+    path_two: String @id
+    path_three_aliased: String @id
+    query: String @id
+    query_two_aliased: String @id
+}
+
+type ContainsDangerous {
+    safe: String
+    dangerous: Dangerous
+}
+
+interface Domesticated {
+    domesticated: String
+}
+interface Animal {
+    animal: String
+}
+interface Bird implements Animal {
+    animal: String
+    bird : String
+}
+type Cat implements Animal, Domesticated {
+    domesticated: String
+    animal: String
+    cat: String
+}
+type Chicken implements Bird, Animal {
+    animal: String
+    bird: String
+    chicken: String
+}
+type Dog implements Animal, Domesticated {
+    domesticated: String
+    animal: String
+    dog: String
+}
+type Tree {
+    tree: String
+}
+union Pet = Dog | Cat
+type OpenUsages @unique {
+    variety: Pet
+    variety_list: [Pet]
+    variety_map: [Pet] @map
+
+    interface: Domesticated
+    interface_list: [Domesticated]
+    interface_map: [Domesticated] @map
+
+interface_of_ids: InterfaceAllIdentifiable
+interface_of_non_ids: InterfaceAllNonIdentifiable
+interface_of_mix_ids: InterfaceMixIdentifiable
+
+interface_of_ids_list: [InterfaceAllIdentifiable]
+interface_of_non_ids_list: [InterfaceAllNonIdentifiable]
+interface_of_mix_ids_list: [InterfaceMixIdentifiable]
+}
+type OpenDangerousUsages {
+    dangerous_interface: DangerousInterface
+    dangerous_interface_list: [DangerousInterface]
+    dangerous_impl: ImplementsDangerous
+    dangerous_impl_list: [ImplementsDangerous]
+}
+
+"Dangerous values in an interface"
+interface DangerousInterface {
+    safe: String
+    dangerous: Dangerous
+    contains: ContainsDangerous
+}
+
+type ImplementsDangerous implements DangerousInterface {
+    safe: String
+    dangerous: Dangerous
+    contains: ContainsDangerous
+    state: String
+}
+
+"An interface where all implementations are non-identifiable things"
+interface InterfaceAllNonIdentifiable {
+    state_i: String
+}
+type InterfaceAllNonIdentifiableImpl1 implements InterfaceAllNonIdentifiable {
+    state_i: String
+    state_1: String
+}
+type InterfaceAllNonIdentifiableImpl2 implements InterfaceAllNonIdentifiable {
+    state_i: String
+    state_2: String
+}
+
+"An interface where all implementations are identifiable things"
+interface InterfaceAllIdentifiable {
+    id_i: String @id
+    state: String
+}
+type InterfaceAllIdentifiableImpl1 implements InterfaceAllIdentifiable {
+    id_i: String @id
+    id_1: String @id
+    state: String
+}
+type InterfaceAllIdentifiableImpl2 implements InterfaceAllIdentifiable {
+    id_i: String @id
+    id_2: String @id
+    state: String
+}
+
+"An interface where some implementations are identifiable and some are non-identifiable things"
+interface InterfaceMixIdentifiable {
+    state_i: String
+}
+type InterfaceMixIdentifiableId implements InterfaceMixIdentifiable {
+    id: String @id
+    state_i: String
+}
+type InterfaceMixIdentifiableNon implements InterfaceMixIdentifiable {
+    state: String
+    state_i: String
+}
+type InterfaceMixIdentifiableDeep implements InterfaceMixIdentifiable {
+    state_contains_id: NestedIdentity
+    state_i: String
+}
+
+interface ReactiveInterface {
+    id: String @id
+    watched: String
+    not_watched: String
+
+    reactive_interface_field: String @derives(reactive: "Reaction.watched")
+    reactive_implementation_field: String @derives(reactive: "ReactionWatchedAlsoAsConcreteImplementation.watched")
+    reactive_interface: String @derives(reactive: "Reaction")
+    reactive_implementation: String @derives(reactive: "ReactionWatchedAlsoAsConcreteImplementation")
+    reactive_self_field: String @derives(reactive: ".watched")
+    reactive_self: String @derives(reactive: ".")
+}
+type ReactiveImplementation implements ReactiveInterface {
+    id: String @id
+    watched: String
+    not_watched: String
+
+    reactive_interface_field: String @derives(reactive: "Reaction.watched")
+    reactive_implementation_field: String @derives(reactive: "ReactionWatchedAlsoAsConcreteImplementation.watched")
+    reactive_interface: String @derives(reactive: "Reaction")
+    reactive_implementation: String @derives(reactive: "ReactionWatchedAlsoAsConcreteImplementation")
+    reactive_self_field: String @derives(reactive: ".watched")
+    reactive_self: String @derives(reactive: ".")
+}
+type AnotherReactiveImplementation implements ReactiveInterface {
+    id: String @id
+    watched: String
+    not_watched: String
+
+    reactive_interface_field: String @derives(reactive: "Reaction.watched")
+    reactive_implementation_field: String @derives(reactive: "ReactionWatchedAlsoAsConcreteImplementation.watched")
+    reactive_interface: String @derives(reactive: "Reaction")
+    reactive_implementation: String @derives(reactive: "ReactionWatchedAlsoAsConcreteImplementation")
+    reactive_self_field: String @derives(reactive: ".watched")
+    reactive_self: String @derives(reactive: ".")
+}
+
+interface Reaction {
+    id: String @id
+    watched: String
+    not_watched: String
+}
+type ReactionWatchedOnlyAsInterface implements Reaction {
+    id: String @id
+    watched: String
+    not_watched: String
+}
+type ReactionWatchedAlsoAsConcreteImplementation implements Reaction {
+    id: String @id
+    watched: String
+    not_watched: String
+}
+
+enum AnIntegerEnum {
+    FIRST_VALUE @figment(enum_value: "0")
+    SECOND_VALUE @figment(enum_value: "1")
+    THIRD_VALUE @figment(enum_value: "2")
+}
+type EnumHolderThing {
+    the_enum: AnIntegerEnum
+}
+
+
+input GraphQlInput {
+    scalar: String
+}
+type GraphQlObject1 {
+    scalar: String
+    object: GraphQlObject2
+    union: GraphQlUnion
+    interface: GraphQlInterface
+}
+type GraphQlObject2 {
+    scalar: String
+}
+union GraphQlUnion = GraphQlObject1 | GraphQlObject2
+interface GraphQlInterface {
+    scalar: String
+}
+type GraphQlInterfaceImpl1 implements GraphQlInterface {
+    scalar: String
+}
+type GraphQlInterfaceImpl2 implements GraphQlInterface {
+    scalar: String
+    second: String
+}
+type Query {
+    scalar: String
+    thing: GraphQlObject1
+    args(
+        required: String!,
+        optional: String,
+        required_list: [String]!,
+        optional_list: [String],
+        input : GraphQlInput
+    ): GraphQlObject1
+}
+type Mutation {}

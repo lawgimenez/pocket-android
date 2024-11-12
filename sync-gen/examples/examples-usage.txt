@@ -1,0 +1,88 @@
+enum BasicEnum
+enum BasicEnum.one 1
+enum BasicEnum.two 2
+value Boolean
+value Dangerous
+value Float
+thing HasDangerousValue
+thing HasDangerousValue.dangerous 1
+value ID
+thing IdentifiableByIdentifiableThing
+thing IdentifiableByIdentifiableThing.id 1
+thing IdentifiableByIdentifiableThing.val 2
+thing IdentifiableByNonIdentifiableThing
+thing IdentifiableByNonIdentifiableThing.id 1
+thing IdentifiableByNonIdentifiableThing.val 2
+thing IdentifiableByValue
+thing IdentifiableByValue.id 1
+thing IdentifiableByValue.val 2
+value Integer
+enum IntegerEnum
+enum IntegerEnum.1 1
+enum IntegerEnum.2 2
+thing InterfaceExample
+thing InterfaceExample.dangerous 1
+thing NonIdentifiable
+thing NonIdentifiable.val 1
+value String
+thing ThingExample
+thing ThingExample.id 1
+thing ThingExample.id_derived 2
+thing ThingExample.hash_target 3
+thing ThingExample.val 4
+thing ThingExample.val_list 5
+thing ThingExample.val_map 6
+thing ThingExample.bool 7
+thing ThingExample.id_thing 8
+thing ThingExample.id_list 9
+thing ThingExample.id_map 10
+thing ThingExample.non_id_thing 11
+thing ThingExample.non_id_list 12
+thing ThingExample.non_id_map 13
+thing ThingExample.derived_first_available 14
+thing ThingExample.remap_target 15
+thing ThingExample.derived_remap 16
+thing ThingExample.reactive_to_type 17
+thing ThingExample.reactive_to_type_field 18
+thing ThingExample.reactive_to_sibling_field 19
+thing ThingExample.reactive_to_any_sibling_field 20
+thing ThingExample.reactive_collection_field 21
+thing ThingExample.dangerous 22
+thing ThingExample.dangerous_list 23
+thing ThingExample.dangerous_map 24
+thing ThingExample.has_dangerous 25
+thing ThingExample.has_dangerous_list 26
+thing ThingExample.has_dangerous_map 27
+thing ThingExample.variety 28
+thing ThingExample.variety_list 29
+thing ThingExample.variety_map 30
+thing ThingExample.interface 31
+thing ThingExample.interface_list 32
+thing ThingExample.interface_map 33
+value Timestamp
+thing UnknownInterfaceExample
+thing UnknownInterfaceExample.dangerous 1
+thing UnknownVarietyExample
+action action_example
+action action_example.time 1
+action action_example.input 2
+action action_example.input_thing 3
+action base_action
+action base_action.time 1
+action exampleMutation
+action exampleMutation.time 1
+action exampleMutation.variable 2
+thing exampleQuery
+thing exampleQuery.input 1
+thing exampleQuery.example 2
+action no_effect_action
+action no_effect_action.time 1
+action no_effect_action.input 2
+action resolved_action
+action resolved_action.time 1
+
+- action deprecated_action
+- action deprecated_action.time
+- action deprecated_action.no_more
+- thing ThingExample.deprecated
+- action action_example.deprecated

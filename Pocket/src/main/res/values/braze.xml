@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Default configurations.  Prod config is in src/unsignedRelease/res/values/braze.xml-->
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="UnusedResources">
+    <string name="com_braze_api_key" translatable="false">b779eb24-b698-41fa-97aa-a930c7c958a1</string>
+    <string name="com_braze_custom_endpoint" translatable="false">sdk.iad-05.braze.com</string>
+    <bool name="com_braze_enable_location_collection">false</bool>
+    <bool translatable="false" name="com_braze_firebase_cloud_messaging_registration_enabled">true</bool>
+    <string translatable="false" name="com_braze_firebase_cloud_messaging_sender_id">638773995762</string>
+    <bool name="com_braze_handle_push_deep_links_automatically">false</bool>
+    <drawable name="com_braze_push_small_notification_icon">@drawable/ic_stat_notify</drawable>
+</resources>

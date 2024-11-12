@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- smartling.instruction_attributes = comment -->
+<!-- smartling.placeholder_format_custom = \{[a-zA-Z0-9_-]+\}-->
+<resources>
+    <!-- Accessibility and tooltip labels for icons -->
+    <string name="ic_overflow">Mehr …</string>
+    <string name="ic_up">Zurück</string>
+    <string name="ic_archive" comment="Label for a button that archives an item. This is a verb.">Archiv</string>
+    <string name="ic_save">Speichern</string>
+    <string name="ic_saved">Gespeichert</string>
+    <string name="ic_readd">Erneut hinzufügen</string>
+    <string name="ic_favorite">Als Favorit markieren</string>
+    <string name="ic_unfavorite">Favorit aufheben</string>
+    <string name="ic_mark_as_viewed">Als „Angesehen“ markieren</string>
+    <string name="ic_mark_as_not_viewed">Als „Nicht angesehen“ markieren</string>
+    <string name="ic_share">Teilen</string>
+    <string name="ic_delete">Löschen</string>
+    <string name="ic_add_tags">Tags hinzufügen</string>
+    <string name="ic_filters">Filter</string>
+    <string name="ic_play">Wiedergabe</string>
+    <string name="ic_pause">Pause</string>
+    <string name="ic_skip">Nach vorne springen</string>
+    <string name="ic_back">Zurück springen</string>
+    <string name="ic_cancel">Abbrechen</string>
+    <string name="ic_listen">Anhören</string>
+    <string name="ic_like">Gefällt mir</string>
+    <string name="ic_remove_like">Like entfernen</string>
+    <string name="ic_repost">Weiterposten</string>
+    <string name="ic_remove_repost">Weitergeposteten Beitrag entfernen</string>
+    <string name="ic_plus">+</string>
+    <string name="ic_minus">–</string>
+    <string name="ic_close">Schließen</string>
+    <string name="ic_edit">Bearbeiten</string>
+    <string name="ic_highlight" comment="Label for button that highlights selected text">Markierung</string>
+    <string name="ic_copy">Kopieren</string>
+    <string name="ic_brightness_down">Bildschirmhelligkeit verringern</string>
+    <string name="ic_brightness_up">Bildschirmhelligkeit erhöhen</string>
+    <string name="ic_brightness_control">Bildschirmhelligkeit</string>
+    <string name="ic_settings">Einstellungen</string>
+    <string name="ic_premium">Pocket Premium</string>
+    <string name="ic_pocket_menu">Pocket-Menü</string>
+
+    <string name="ac_save">Speichern</string>
+    <string name="ac_save_to_pocket">In Pocket speichern</string>
+    <string name="ac_previous">Zurück</string>
+    <string name="ac_next">Weiter</string>
+    
+    <string name="upgrade">Upgrade</string>
+    <string name="upgrade_upsell">Weitere Anpassungsoptionen freischalten</string>
+    <string name="get_premium">Hol dir Premium</string>
+    
+    <string name="counts_thousands" comment="number abbreviated to thousands. such as 1k for 1,000. as short as possible.">%1$d T</string>
+    <string name="counts_millions" comment="number abbreviated to millions. such as 1m for 1,000,000. as short as possible">%1$d Mio.</string>
+    
+    <!-- content descriptions -->
+    <string name="setting_incrementor" comment="{setting} is a placeholder for a text style setting, eg Text Size, Line Height, or Margin, do not translate the content within {}">{setting} vergrößern</string>
+    <string name="setting_decrementor" comment="{setting} is a placeholder for a text style setting, eg Text Size, Line Height, or Margin, do not translate the content within {}">{setting} verkleinern</string>
+    <string name="text_setting_text_size">Text</string>
+    <string name="text_setting_line_height">Zeilenhöhe</string>
+    <string name="text_setting_margin">Rand</string>
+
+    <string name="current_typeface" comment="{typeface} is a placeholder for the current text typeface setting, eg Blanco, Graphik, do not translate the content within {}">Schriftart von {typeface} ändern</string>
+
+    <string name="theme_toggle_light_desc">Zum hellen Motiv wechseln</string>
+    <string name="theme_toggle_dark_desc">Zum dunklen Motiv wechseln</string>
+    <string name="theme_toggle_auto_desc">Motiv automatisch ändern</string>
+
+    <!-- Strings only used for ux playground-->
+    <string name="light">Hell</string>
+    <string name="dark">Dunkel</string>
+</resources>

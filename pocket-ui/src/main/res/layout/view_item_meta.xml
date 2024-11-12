@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <com.pocket.ui.view.checkable.CheckableTextView
+        android:id="@+id/title"
+        style="@style/Pkt_Text_Title"
+        android:clickable="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/domain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Item title that is really  really really realllllllly really really really really really long"/>
+
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/domain"
+        style="@style/Pkt_Text_Small_Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintBottom_toTopOf="@+id/excerpt"
+        app:layout_constraintEnd_toStartOf="@+id/time_estimate"
+        app:layout_constraintStart_toStartOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constrainedWidth="true"
+        app:visualMargin_top="@dimen/pkt_space_sm"
+        tools:text="pocket.com"/>
+
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/time_estimate"
+        style="@style/Pkt_Text_Small_Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/indicator"
+        app:layout_constraintStart_toEndOf="@+id/domain"
+        app:layout_constraintTop_toTopOf="@+id/domain"
+        tools:text="10 min"/>
+
+    <com.pocket.ui.view.themed.ThemedImageView
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/pkt_space_sm"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="@dimen/pkt_space_sm"
+        android:layout_marginStart="5dp"
+        android:baselineAlignBottom="true"
+        app:layout_constraintBaseline_toBaselineOf="@+id/domain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/time_estimate"
+        tools:src="@drawable/ic_pkt_syndicated_badge_mini"/>
+
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/excerpt"
+        style="@style/Pkt_Text_Small_Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        app:layout_constraintBottom_toTopOf="@+id/badges"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@+id/domain"
+        app:visualMargin_top="@dimen/pkt_space_md"
+        tools:text="pocket.com"/>
+
+    <com.pocket.ui.view.badge.BadgesView
+        android:id="@+id/badges"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/pkt_space_sm"
+        android:layout_marginRight="@dimen/pkt_space_sm"
+        app:layout_constraintBottom_toTopOf="@+id/attribution"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@+id/excerpt"
+        app:visualMargin_top="@dimen/pkt_space_md"/>
+
+</merge>

@@ -1,0 +1,75 @@
+{
+  "_type": "OpenUsages",
+  "variety": {
+    "_type": "Dog",
+    "dog": "dog",
+    "domesticated": "domesticated",
+    "animal": "animal"
+  },
+  "variety_list": [
+    {
+      "_type": "Dog",
+      "dog": "dog",
+      "domesticated": "domesticated",
+      "animal": "animal"
+    },
+    {
+      "_type": "Cat",
+      "cat": "cat",
+      "domesticated": "domesticated",
+      "animal": "animal"
+    },
+    {"_type": "Frog"}
+  ],
+  "variety_map": {
+    "dog": {
+      "_type": "Dog",
+      "dog": "dog",
+      "domesticated": "domesticated",
+      "animal": "animal"
+    },
+    "cat": {
+      "_type": "Cat",
+      "cat": "cat",
+      "domesticated": "domesticated",
+      "animal": "animal"
+    },
+    "frog": {"_type": "Frog"}
+  },
+  "interface": {
+    "_type": "Cat",
+    "cat": "cat",
+    "domesticated": "domesticated",
+    "animal": "animal"
+  },
+  "interface_list": [
+    {
+      "_type": "Dog",
+      "dog": "dog",
+      "domesticated": "domesticated",
+      "animal": "animal"
+    },
+    {
+      "_type": "Cat",
+      "cat": "cat",
+      "domesticated": "domesticated",
+      "animal": "animal"
+    },
+    {"_type": "Frog"}
+  ],
+  "interface_map": {
+    "dog": {
+      "_type": "Dog",
+      "dog": "dog",
+      "domesticated": "domesticated",
+      "animal": "animal"
+    },
+    "cat": {
+      "_type": "Cat",
+      "cat": "cat",
+      "domesticated": "domesticated",
+      "animal": "animal"
+    },
+    "frog": {"_type": "Frog"}
+  }
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/previousItem"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/min_touch_target"
+    android:background="@drawable/pkt_ripple_borderless"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:layout_marginStart="20dp"
+    >
+    
+    <!-- do not use app:tint.  It doesn't work in custom tabs -->
+    <ImageView
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:background="@null"
+        android:clickable="false"
+        android:contentDescription="@null"
+        android:focusable="false"
+        android:longClickable="false"
+        android:tint="@color/pkt_dm_grey_3"
+        android:src="@drawable/ic_pkt_back_arrow_line"
+        />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/pkt_space_sm"
+        android:clickable="false"
+        android:focusable="false"
+        android:longClickable="false"
+        android:paddingEnd="@dimen/pkt_space_sm"
+        android:paddingStart="0dp"
+        android:text="@string/ac_previous"
+        android:textSize="@dimen/pkt_medium_text"
+        android:textColor="@color/pkt_dm_grey_3"
+        />
+
+</LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="UnusedResources">
+    <!--
+        Describes the default of what @color/grey_2 becomes in other themes.
+        Some individual components may have exceptions.
+    -->
+    <item app:state_dark="true" android:color="@color/pkt_dm_grey_2"/>
+    <item android:color="@color/pkt_grey_2"/>
+</selector>

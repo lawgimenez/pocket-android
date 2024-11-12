@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:parentTag="com.pocket.ui.view.themed.ThemedConstraintLayout2"
+    >
+    
+    <com.pocket.ui.view.button.IconButton
+        android:id="@+id/icon"
+        style="@style/Pkt_IconButton"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
+        app:isCheckable="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:src="@drawable/ic_pkt_save_line"
+        />
+    
+    <com.pocket.ui.view.checkable.CheckableTextView
+        android:id="@+id/label"
+        style="@style/Pkt_Text_Teeny_Tiny_Light"
+        app:visualMargin_top="6dp"
+        app:compatTextColor="@color/pkt_nst_clickable_grey_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:paddingStart="@dimen/pkt_space_sm"
+        android:paddingEnd="@dimen/pkt_space_sm"
+        android:paddingLeft="@dimen/pkt_space_sm"
+        android:paddingRight="@dimen/pkt_space_sm"
+        app:isCheckable="true"
+        app:layout_constraintTop_toBottomOf="@+id/icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Tab"
+        />
+    
+    <com.pocket.ui.view.themed.ThemedImageView
+        android:id="@+id/badge"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
+        android:src="@drawable/ic_circle"
+        android:tint="@color/pkt_themed_coral_2"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="4dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/icon"
+        app:layout_constraintTop_toTopOf="@id/icon"
+        tools:visibility="visible"
+        />
+
+</merge>

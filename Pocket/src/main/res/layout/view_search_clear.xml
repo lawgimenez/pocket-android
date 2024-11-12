@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.pocket.ui.view.button.IconButton
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clear"
+    style="@style/Pkt_IconButton_X"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_centerVertical="true"
+    android:contentDescription="@string/ac_clear"
+    android:paddingLeft="@dimen/pkt_space_sm"
+    android:paddingRight="@dimen/pkt_space_sm"
+    tools:parentTag="com.pocket.util.android.view.chip.ChipEditText"
+    />

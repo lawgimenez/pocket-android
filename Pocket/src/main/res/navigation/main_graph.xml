@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/home"
+    >
+    
+    <fragment
+        android:id="@+id/home"
+        android:name="com.pocket.app.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        
+        <action
+            android:id="@+id/goToSlateDetails"
+            app:destination="@id/slateDetails"/>
+        
+        <action
+            android:id="@+id/goToTopicDetails"
+            app:destination="@id/topicDetails"/>
+        
+        <action
+            android:id="@+id/goToReader"
+            app:destination="@id/reader"/>
+        
+        <action
+            android:id="@+id/goToSaves"
+            app:destination="@id/saves"/>
+        
+        <action
+            android:id="@+id/goToSettings"
+            app:destination="@id/settings"/>
+        
+    </fragment>
+    
+    <fragment
+        android:id="@+id/saves"
+        android:name="com.pocket.app.list.MyListFragment"
+        android:label="MyListFragment"
+        tools:layout="@layout/frag_my_list">
+        
+        <action
+            android:id="@+id/goToReader"
+            app:destination="@id/reader"/>
+        
+        <action
+            android:id="@+id/goToHome"
+            app:popUpTo="@id/home"/>
+        
+        <action
+            android:id="@+id/goToSettings"
+            app:popUpTo="@id/home"
+            app:destination="@id/settings"/>
+    
+    </fragment>
+    
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.pocket.app.settings.PrefsFragment"
+        android:label="PrefsFragment">
+        
+        <action
+            android:id="@+id/goToSaves"
+            app:popUpTo="@id/home"
+            app:destination="@id/saves"/>
+        
+        <action
+            android:id="@+id/goToHome"
+            app:popUpTo="@id/home"/>
+        
+        <action
+            android:id="@+id/goToReader"
+            app:destination="@id/reader"/>
+    
+        <action
+            android:id="@+id/goToAppIconSettings"
+            app:destination="@id/appIconSettings"
+            />
+        <action
+            android:id="@+id/goToOpenSourceLicenses"
+            app:destination="@id/openSourceLicenses"
+            />
+    </fragment>
+    
+    <fragment
+        android:id="@+id/slateDetails"
+        android:name="com.pocket.app.home.details.slates.SlateDetailsFragment"
+        android:label="SlateDetailsFragment"
+        tools:layout="@layout/fragment_home_details">
+        
+        <argument android:name="slateId" app:argType="string"/>
+    
+        <action
+            android:id="@+id/slateDetailsToReader"
+            app:destination="@id/reader"/>
+        
+    </fragment>
+    
+    <fragment
+        android:id="@+id/topicDetails"
+        android:name="com.pocket.app.home.details.topics.TopicDetailsFragment"
+        android:label="TopicDetailsFragment"
+        tools:layout="@layout/fragment_home_details">
+        
+        <argument android:name="topicId" app:argType="string"/>
+        
+        <action
+            android:id="@+id/topicDetailsToReader"
+            app:destination="@id/reader"/>
+    
+    </fragment>
+    
+    <fragment
+        android:id="@+id/reader"
+        android:name="com.pocket.app.reader.ReaderFragment"
+        android:label="ReaderFragment"
+        tools:layout="@layout/fragment_reader">
+    
+        <argument android:name="url" app:argType="string"/>
+        <argument android:name="queueType" app:argType="com.pocket.app.reader.queue.InitialQueueType"/>
+        <argument android:name="queueStartingIndex" app:argType="integer"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/appIconSettings"
+        android:name="com.pocket.app.settings.appicon.AppIconSettingsFragment"
+        />
+
+    <fragment
+        android:id="@+id/openSourceLicenses"
+        android:name="com.pocket.app.settings.OpenSourceLicensesFragment"
+        />
+</navigation>

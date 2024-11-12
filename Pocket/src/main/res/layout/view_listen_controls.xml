@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    tools:parentTag="com.pocket.app.listen.ListenControlsView">
+    
+    <Space
+        android:id="@+id/listen_controls_space_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toStartOf="@+id/listen_speed"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/listen_play_pause" />
+    
+    <com.pocket.ui.view.themed.ThemedTextView
+        android:id="@+id/listen_speed"
+        style="@style/Pkt_Text_Button_Borderless"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/listen_play_pause"
+        app:layout_constraintEnd_toStartOf="@+id/listen_skip_back"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toEndOf="@+id/listen_controls_space_left"
+        app:layout_constraintTop_toTopOf="@+id/listen_play_pause"
+        app:uiEntityIdentifier="listen_speed_open" />
+    
+    <com.pocket.ui.view.button.IconButton
+        android:id="@+id/listen_skip_back"
+        style="@style/Pkt_IconButton_SkipBack"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/listen_play_pause"
+        app:layout_constraintEnd_toStartOf="@+id/listen_play_pause"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toEndOf="@+id/listen_speed"
+        app:layout_constraintTop_toTopOf="@+id/listen_play_pause"
+        app:uiEntityIdentifier="listen_skip_back" />
+    
+    <com.pocket.ui.view.button.IconButton
+        android:id="@+id/listen_prev"
+        style="@style/Pkt_IconButton_Listen_Previous"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/listen_skip_back"
+        app:layout_constraintEnd_toEndOf="@+id/listen_skip_back"
+        app:layout_constraintStart_toStartOf="@+id/listen_skip_back"
+        app:layout_constraintTop_toTopOf="@+id/listen_skip_back"
+        />
+    
+    <com.pocket.ui.view.button.IconButton
+        android:id="@+id/listen_play_pause"
+        style="@style/Pkt_IconButton"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        app:layout_constraintEnd_toStartOf="@+id/listen_skip"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toEndOf="@+id/listen_skip_back"
+        app:layout_constraintTop_toTopOf="parent" />
+    
+    <com.pocket.ui.view.button.IconButton
+        android:id="@+id/listen_skip"
+        style="@style/Pkt_IconButton_Skip"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/listen_play_pause"
+        app:layout_constraintEnd_toStartOf="@+id/listen_archive"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toEndOf="@+id/listen_play_pause"
+        app:layout_constraintTop_toTopOf="@+id/listen_play_pause"
+        app:uiEntityIdentifier="listen_skip_forward" />
+    
+    <com.pocket.ui.view.button.IconButton
+        android:id="@+id/listen_next"
+        style="@style/Pkt_IconButton_Listen_Next"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/listen_skip"
+        app:layout_constraintEnd_toEndOf="@+id/listen_skip"
+        app:layout_constraintStart_toStartOf="@+id/listen_skip"
+        app:layout_constraintTop_toTopOf="@+id/listen_skip"
+        app:uiEntityIdentifier="listen_next"
+        />
+    
+    <com.pocket.ui.view.button.IconButton
+        android:id="@+id/listen_archive"
+        style="@style/Pkt_IconButton_Archive"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/listen_play_pause"
+        app:layout_constraintEnd_toStartOf="@+id/listen_controls_space_right"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toEndOf="@+id/listen_skip"
+        app:layout_constraintTop_toTopOf="@+id/listen_play_pause"
+        app:uiEntityIdentifier="listen_archive" />
+    
+    <Space
+        android:id="@+id/listen_controls_space_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/listen_archive"
+        app:layout_constraintTop_toTopOf="@+id/listen_play_pause" />
+    
+    <com.pocket.ui.view.themed.ThemedImageView
+        android:id="@+id/listen_play_pause_ring"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/listen_play_pause"
+        app:layout_constraintEnd_toEndOf="@+id/listen_play_pause"
+        app:layout_constraintStart_toStartOf="@+id/listen_play_pause"
+        app:layout_constraintTop_toTopOf="@+id/listen_play_pause"
+        app:srcCompat="@drawable/listen_play_button_ring" />
+</merge>

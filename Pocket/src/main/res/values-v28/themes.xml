@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Overrides to get the holo theme as the base -->
+    <style name="Theme.PocketBase.Dark" parent="Theme.AppCompat.NoActionBar">
+
+        <!-- NOTE! These values should be duplicated in the Theme.PocketBase.Light theme. -->
+        <!-- NOTE! Using default Android colors for primary, primary dark and accent and overriding specific view themes when needed. -->
+
+        <item name="android:statusBarColor">@color/pkt_dm_base_bg</item>
+        <item name="android:windowContentOverlay">@null</item> <!-- This removes the status bar drop shadow. It is unclear why this needs to be set here and why the setting in themes.xml doesn't work for Material. -->
+
+        <!-- Dark mode still uses white status and navigation bar icons. Specifying the default for clarity. -->
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/pkt_dm_base_bg</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+
+    <style name="Theme.PocketBase.Light" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <!-- NOTE! These values should be duplicated in the Theme.PocketBase.Dark theme. -->
+        <!-- NOTE! Using default Android colors for primary, primary dark and accent and overriding specific view themes when needed. -->
+
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowContentOverlay">@null</item> <!-- This removes the status bar drop shadow. It is unclear why this needs to be set here and why the setting in themes.xml doesn't work for Material. -->
+
+        <!-- Android 6.0 (api 23) specific parameter to use dark status bar icons -->
+        <!-- This is paired with a lighter status bar color (above) for 6.0+ devices -->
+        <item name="android:windowLightStatusBar">true</item>
+        
+        <!-- Android 9.0 (API 28) specific parameter to user light navigation bar color with dark icons. -->
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+</resources>

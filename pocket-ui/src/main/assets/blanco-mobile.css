@@ -1,0 +1,32 @@
+/**
+Previously src: url('file:///android_res/font/blanco_regular.ttf') format('truetype');
+*/
+
+
+@font-face {
+    font-family: 'Blanco';
+    src: url('blanco_osf_regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Blanco';
+    src: url('blanco_osf_italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Blanco';
+    src: url('blanco_osf_bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Blanco';
+    src: url('blanco_osf_bold_italic.otf') format('opentype');
+    font-weight: bold;
+    font-style: italic;
+}

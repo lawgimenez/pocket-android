@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="pkt_space_sm">10dp</dimen>
+    <dimen name="pkt_space_md">20dp</dimen>
+    <dimen name="pkt_space_lg">40dp</dimen>
+    <dimen name="pkt_side_sm">@dimen/pkt_space_sm</dimen>
+    <dimen name="pkt_side_grid">@dimen/pkt_space_md</dimen> <!-- if this changes, update pkt_side_grid_icon_mini as well -->
+    <dimen name="pkt_side_grid_icon_mini">3dp</dimen> <!-- DEPRECATED a more precise method is to use IconButton.setSideMarginStart/End - mini icons are 50dp wide, with a 16dp image, which equates to a visual margin of 25-8=17dp when an icon is placed on the left/right of the screen.  This dimen can be used to account for that inherent padding. -->
+    <dimen name="pkt_app_bar_height">56dp</dimen>
+    <dimen name="pkt_icon_button_width">50dp</dimen>
+    <dimen name="pkt_thin_divider_height">1dp</dimen>
+    <dimen name="pkt_thick_divider_height">6dp</dimen>
+    <dimen name="pkt_card_corner_radius">6dp</dimen>
+    <dimen name="pkt_extra_large_text">29sp</dimen>
+    <dimen name="pkt_large_text">20sp</dimen>
+    <dimen name="pkt_medium_text">16sp</dimen>
+    <dimen name="pkt_small_text">14sp</dimen>
+    <dimen name="pkt_mini_text">12sp</dimen>
+    <dimen name="pkt_teeny_tiny_text">10sp</dimen>
+    <dimen name="pkt_line_height_default">22sp</dimen>
+    <dimen name="pkt_badge_height">24sp</dimen>
+    <dimen name="pkt_badge_height_min">24dp</dimen> <!-- Allow badges to scale if the device text size is increased, but don't allow the badge itself to shrink below default size-->
+    <dimen name="pkt_item_tile_width_min">243dp</dimen> <!-- 203 visual width plus the built in side paddings.  -->
+    <dimen name="pkt_item_tile_height_min">200dp</dimen> <!-- This makes sure the 5 revealed actions all have at least 40dp tappable height -->
+    <dimen name="pkt_rec_tile_width_max">450dp</dimen>
+    <dimen name="pkt_menu_option_height">54dp</dimen>
+    <dimen name="pkt_display_setting_section_height">65dp</dimen>
+    <dimen name="pkt_snackbar_height">53dp</dimen>
+    <dimen name="pkt_info_page_max_width">300dp</dimen>
+    <dimen name="pkt_bottom_sheet_margin">0dp</dimen>
+    <dimen name="pkt_skeleton_text_height">14dp</dimen>
+    <dimen name="pkt_skeleton_text_corner_radius">7dp</dimen>
+    <dimen name="pkt_drawer_shadow_radius">3dp</dimen>
+    
+    <!-- Google's suggested minimum touch target size (width/height), for accessibility -->
+    <dimen name="min_touch_target">48dp</dimen>
+</resources>

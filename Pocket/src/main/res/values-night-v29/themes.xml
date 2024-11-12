@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.PocketDefault" parent="Theme.PocketDefault.Light">
+        <!-- Change system bar colors for the dark splash screen -->
+        <item name="android:statusBarColor">@color/pkt_dm_base_bg</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/pkt_dm_base_bg</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+</resources>

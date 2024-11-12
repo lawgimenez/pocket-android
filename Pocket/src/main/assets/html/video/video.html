@@ -1,0 +1,60 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=no" />
+	
+	<link type="text/css" rel="stylesheet" href="video.css" />
+	<style>
+		* { margin: 0px; padding: 0px; }
+		
+		body
+		{
+			background-color:black;
+			overflow: hidden;
+		}
+		
+		#pocketplayer
+		{
+			position: relative;
+		}
+	</style>
+	
+	<script src="../j/jquery-3.4.1.min.js" type="text/javascript"></script>
+	<script src="../j/jquery-inheritance.js" type="text/javascript"></script>
+	<script src="swfobject.js" type="text/javascript"></script>
+	<script src="video.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	
+		var videoController;
+	
+		function loadVideo(video) {
+			var wrapper = $("#playerwrapper");
+			videoPlayer = new VideoPlayer(video, "playerwrapper")
+				.setOnResizeListener(function(width, height) {
+					// Center the video within the window
+					var top = ((window.innerHeight - height) / 2);
+					var left = ((window.innerWidth - width) / 2);
+					
+					wrapper.css("position", "absolute");
+					wrapper.css("top", top + "px");
+					wrapper.css("left", left + "px");
+				})
+				.setOnReadyListener(function(controller) {
+					if (controller) {
+						videoController = controller;
+						// videoController.play(); // Auto play the video.
+					}
+				})
+				.setDisplaySize(window.innerWidth, window.innerHeight)
+				.load();
+			
+			$(window).resize(function() {
+				videoPlayer.setDisplaySize(window.innerWidth, window.innerHeight);
+			});	
+		}
+	
+	</script>
+</head>
+<body>
+	<div id="playerwrapper"></div>
+</body>
+</html>

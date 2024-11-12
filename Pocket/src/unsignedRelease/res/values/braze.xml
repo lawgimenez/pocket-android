@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Prod configurations.  Default config is in src/main/res/values/braze.xml-->
+<resources>
+    <string name="com_braze_api_key" translatable="false">0278f437-a723-4289-8f42-358ac1eda226</string>
+</resources>
