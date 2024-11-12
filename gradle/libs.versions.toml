@@ -1,7 +1,7 @@
 [versions]
 aboutlibraries = "11.2.3"
 androidx-activity = "1.9.3"
-androidx-fragment = "1.8.4"
+androidx-fragment = "1.8.5"
 androidx-navigation = "2.8.3"
 appcenter = "5.0.5"
 dagger = "2.52"
@@ -16,7 +16,7 @@ adjust = { module = "com.adjust.sdk:adjust-android", version = "4.38.5" }
 androidx-activity = { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
 androidx-browser = { module = "androidx.browser:browser", version = "1.8.0" }
-androidx-compose-bom = { module = "androidx.compose:compose-bom", version = "2024.10.00" }
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version = "2024.10.01" }
 androidx-compose-material3 = { module = "androidx.compose.material3:material3" }
 androidx-compose-material3-adaptive = { module = "androidx.compose.material3.adaptive:adaptive" }
 androidx-compose-runtime = { module = "androidx.compose.runtime:runtime" }
@@ -26,15 +26,15 @@ androidx-compose-ui-test = { module = "androidx.compose.ui:ui-test-junit4" }
 androidx-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
 androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
-androidx-core = { module = "androidx.core:core-ktx", version = "1.13.1" }
+androidx-core = { module = "androidx.core:core-ktx", version = "1.15.0" }
 androidx-fragment = { module = "androidx.fragment:fragment-ktx", version.ref = "androidx-fragment" }
 androidx-fragment-compose = { module = "androidx.fragment:fragment-compose", version.ref = "androidx-fragment" }
 androidx-media = { module = "androidx.media:media", version = "1.7.0" }
 androidx-navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidx-navigation" }
-androidx-work = { module = "androidx.work:work-runtime", version = "2.9.1" }
+androidx-work = { module = "androidx.work:work-runtime", version = "2.10.0" }
 appcenter-distribute = { module = "com.microsoft.appcenter:appcenter-distribute", version.ref = "appcenter" }
 appcenter-distribute-play = { module = "com.microsoft.appcenter:appcenter-distribute-play", version.ref = "appcenter" }
-braze = { module = "com.braze:android-sdk-ui", version = "33.0.0" }
+braze = { module = "com.braze:android-sdk-ui", version = "33.1.0" }
 google-play-billing = { module = "com.android.billingclient:billing-ktx", version = "7.1.1" }
 dagger-hilt = { module = "com.google.dagger:hilt-android", version.ref = "dagger" }
 dagger-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "dagger" }
@@ -54,7 +54,7 @@ okhttp-urlconnection = { module = "com.squareup.okhttp3:okhttp-urlconnection", v
 okio = { module = "com.squareup.okio:okio", version.ref = "okio" }
 okio-fakefilesystem = { module = "com.squareup.okio:okio-fakefilesystem", version.ref = "okio" }
 plugin-aboutlibraries = { module = "com.mikepenz.aboutlibraries.plugin:aboutlibraries-plugin", version.ref = "aboutlibraries" }
-plugin-android = { module = "com.android.tools.build:gradle", version = "8.7.1" }
+plugin-android = { module = "com.android.tools.build:gradle", version = "8.7.2" }
 plugin-androidx-navigation-safeargs = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "androidx-navigation" }
 plugin-dagger = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "dagger" }
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -62,8 +62,8 @@ plugin-kotlin-compose = { module = "org.jetbrains.kotlin:compose-compiler-gradle
 plugin-kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
 plugin-licensee = { module = "app.cash.licensee:licensee-gradle-plugin", version = "1.12.0" }
 plugin-sentry = { module = "io.sentry:sentry-android-gradle-plugin", version = "4.13.0" }
-plugin-versions = { module = "com.github.ben-manes:gradle-versions-plugin", version = "0.39.0" }
-r8 = { module = "com.android.tools:r8", version = "8.7.14" }
+plugin-versions = { module = "com.github.ben-manes:gradle-versions-plugin", version = "0.51.0" }
+r8 = { module = "com.android.tools:r8", version = "8.7.20" }
 robolectric = { module = "org.robolectric:robolectric", version = "4.13" }
 sentry = { module = "io.sentry:sentry-android" }
 sentry-bom = { module = "io.sentry:sentry-bom", version = "7.16.0" }
