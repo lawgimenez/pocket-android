@@ -64,7 +64,7 @@ plugin-licensee = { module = "app.cash.licensee:licensee-gradle-plugin", version
 plugin-sentry = { module = "io.sentry:sentry-android-gradle-plugin", version = "4.13.0" }
 plugin-versions = { module = "com.github.ben-manes:gradle-versions-plugin", version = "0.51.0" }
 r8 = { module = "com.android.tools:r8", version = "8.7.20" }
-robolectric = { module = "org.robolectric:robolectric", version = "4.13" }
+robolectric = { module = "org.robolectric:robolectric", version = "4.14" }
 sentry = { module = "io.sentry:sentry-android" }
 sentry-bom = { module = "io.sentry:sentry-bom", version = "7.17.0" }
 sentry-okhttp = { module = "io.sentry:sentry-okhttp" }
