@@ -1,12 +1,12 @@
-include ':Pocket'
-include ':pocket-ui'
-include ':project-tools'
-include ':utils'
-include ':utils-android'
-include ':sync'
-include ':sync-gen'
-include ':sync-android'
-include ':sync-pocket'
-include ':sync-pocket-android'
-include ':analytics'
-include ':sync-parser'
+include(":Pocket")
+include(":pocket-ui")
+include(":project-tools")
+include(":utils")
+include(":utils-android")
+include(":sync")
+include(":sync-gen")
+include(":sync-android")
+include(":sync-pocket")
+include(":sync-pocket-android")
+include(":analytics")
+include(":sync-parser")
