@@ -121,7 +121,6 @@ class ReaderViewModel @Inject constructor(
                     _navigationEvents.tryEmit(Reader.NavigationEvent.GoToOriginalWeb(url, queueManager != null))
                 Destination.COLLECTION ->
                     _navigationEvents.tryEmit(Reader.NavigationEvent.GoToCollection(url, queueManager != null))
-                else -> {}
             }
             itemRepository.markAsViewed(url)
             queueManager?.let { queueManagerStack.push(it) }

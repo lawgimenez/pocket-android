@@ -17,7 +17,7 @@ class CollectionRepository @Inject constructor(
     private val holder = Holder.session("collectionsSession")
 
     suspend fun getCollection(url: String): Collection {
-        val slug = url.toHttpUrl().pathSegments.getOrNull(1)
+        val slug = url.toHttpUrl().pathSegments.last()
         val collection = pocket.spec()
             .things()
             .collectionBySlug
