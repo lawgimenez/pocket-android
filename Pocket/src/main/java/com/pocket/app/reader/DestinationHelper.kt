@@ -1,12 +1,12 @@
 package com.pocket.app.reader
 
 import android.util.Log
-import com.pocket.analytics.events.ContentOpen
 import com.pocket.app.reader.internal.article.ArticleViewKillSwitchFlag
 import com.pocket.data.models.ItemType
 import com.pocket.repository.ItemRepository
 import com.pocket.sdk.http.HttpClientDelegate
 import com.pocket.sdk.preferences.AppPrefs
+import okhttp3.HttpUrl
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -19,11 +19,10 @@ class DestinationHelper @Inject constructor(
     private val articleViewKillSwitchFlag: ArticleViewKillSwitchFlag
 ) {
 
-    @Suppress("ComplexMethod")
     suspend fun getDestination(
         url: String,
         forceOpenInWebView: Boolean = false,
-    ): Destination? {
+    ): Destination {
 
         val item = try {
             itemRepository.getDomainItem(url)
@@ -43,34 +42,23 @@ class DestinationHelper @Inject constructor(
             forceOpenInWebView -> {
                 Destination.ORIGINAL_WEB
             }
-            // is video
+            // video
             item?.type == ItemType.VIDEO -> {
                 Destination.ORIGINAL_WEB
             }
-            // is collection
-            httpUrl.host == "getpocket.com"
-                    && httpUrl.pathSegments.size >= 2
-                    && httpUrl.pathSegments[0] == "collections" -> {
+            // collection
+            httpUrl.isCollection() -> {
                 Destination.COLLECTION
             }
             // syndicated article
-            httpUrl.host == "getpocket.com"
-                    && httpUrl.pathSegments.isNotEmpty()
-                    && httpUrl.pathSegments[0] == "explore"
+            httpUrl.isSyndicatedArticle()
                     && !articleViewKillSwitchFlag.isEnabled -> {
                 Destination.ARTICLE
             }
             // syndicated article but the article view kill switch is enabled
-            httpUrl.host == "getpocket.com"
-                    && httpUrl.pathSegments.isNotEmpty()
-                    && httpUrl.pathSegments[0] == "explore"
+            httpUrl.isSyndicatedArticle()
                     && articleViewKillSwitchFlag.isEnabled -> {
                 Destination.ORIGINAL_WEB
-            }
-            // any other type of pocket link
-            httpUrl.host == "getpocket.com" -> {
-                // ignore the link, we can't handle it
-                null
             }
             // online and user setting to always open original
             httpClientDelegate.status().isOnline
@@ -88,14 +76,32 @@ class DestinationHelper @Inject constructor(
             }
         }
     }
-}
 
-fun Destination.toContentOpenDestination(): ContentOpen.Destination =
-    when (this) {
-        Destination.COLLECTION,
-        Destination.ARTICLE -> ContentOpen.Destination.INTERNAL
-        Destination.ORIGINAL_WEB -> ContentOpen.Destination.EXTERNAL
+    /**
+     * * `https://getpocket.com/collections/<slug>` or
+     * * `https://getpocket.com/<locale>/collections/<slug>`
+     */
+    private fun HttpUrl.isCollection(): Boolean {
+        return isHostedByPocket() &&
+                pathSegments.size >= 2 &&
+                encodedPath.contains("/collections/", ignoreCase = true)
     }
+
+    /**
+     * * `https://getpocket.com/explore/item/<slug>` or
+     * * `https://getpocket.com/<locale>/explore/item/<slug>`
+     */
+    private fun HttpUrl.isSyndicatedArticle(): Boolean {
+        return isHostedByPocket() &&
+                pathSegments.size >= 3 &&
+                encodedPath.contains("/explore/item/", ignoreCase = true)
+    }
+
+    @Suppress("SpellCheckingInspection")
+    private fun HttpUrl.isHostedByPocket(): Boolean {
+        return host == "getpocket.com"
+    }
+}
 
 enum class Destination {
     ARTICLE,
