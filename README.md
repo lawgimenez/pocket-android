@@ -66,7 +66,7 @@ Use a set of Pocket-wide defaults. See [Pocket/renovate-config](https://github.c
 for more details and documentation.
 ```json
 {
-  "ignorePaths": ["buildSrc/**"]
+  "ignorePaths": ["buildSrc/src/main/kotlin/Deps.kt"]
 }
 ```
 Ignore our legacy dependency definitions in `buildSrc`, while we gradually migrate to version catalog.
@@ -102,6 +102,19 @@ to let a human decide before merging.
 }
 ```
 Tweak the default commit message a bit to cut a redundant word from already pretty long messages.
+
+```json
+{
+  "packageRules": [
+    {
+      "matchDepNames": ["plugin-*"],
+      "semanticCommitType": "chore"
+    }
+  ]
+}
+```
+Update semantic commit rules to account for our custom plugin definitions
+(because of defining them in `buildSrc`).
 
 ### Sync Engine
 
