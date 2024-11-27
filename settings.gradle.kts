@@ -1,3 +1,14 @@
+plugins {
+    id("org.danilopianini.gradle-pre-commit-git-hooks") version "2.0.15"
+}
+
+gitHooks {
+    preCommit {
+        from(file("scripts/pre-commit.sh"))
+    }
+    createHooks(overwriteExisting = true)
+}
+
 include(":Pocket")
 include(":pocket-ui")
 include(":project-tools")
