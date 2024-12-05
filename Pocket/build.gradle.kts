@@ -257,9 +257,9 @@ licensee {
 }
 
 dependencies {
-    implementation(project(Deps.Pocket.syncPocketAndroid))
-    implementation(project(Deps.Pocket.analytics))
-    implementation(project(Deps.Pocket.pocketUi))
+    implementation(projects.syncPocketAndroid)
+    implementation(projects.analytics)
+    implementation(projects.pocketUi)
 
     implementation(libs.androidx.activity)
     implementation(libs.androidx.activity.compose)
