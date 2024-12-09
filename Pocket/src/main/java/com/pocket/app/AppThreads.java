@@ -3,8 +3,6 @@ package com.pocket.app;
 import android.os.Handler;
 import android.os.Looper;
 
-import androidx.test.espresso.IdlingResource;
-
 import com.pocket.sdk.util.thread.PriorityTaskPool;
 import com.pocket.sdk.util.thread.WakefulTaskPool;
 import com.pocket.sdk.util.wakelock.WakeLockManager;
@@ -30,7 +28,7 @@ import javax.inject.Singleton;
  * This also has {@link Handler} and Ui Thread related helper methods.
  */
 @Singleton
-public class AppThreads implements IdlingResource {
+public class AppThreads {
 	
 	private final Handler handler;
 	private final Thread main;
@@ -249,20 +247,5 @@ public class AppThreads implements IdlingResource {
 	private void setup(WakefulTaskPool pool) {
 		pool.setKeepAliveTime(10, TimeUnit.SECONDS);
 		pool.allowCoreThreadTimeOut(true);
-	}
-
-	@Override
-	public String getName() {
-		return pool().getName();
-	}
-
-	@Override
-	public boolean isIdleNow() {
-		return pool().isIdleNow();
-	}
-
-	@Override
-	public void registerIdleTransitionCallback(ResourceCallback callback) {
-		pool().registerIdleTransitionCallback(callback);
 	}
 }
