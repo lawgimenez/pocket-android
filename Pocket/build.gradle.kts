@@ -338,7 +338,6 @@ dependencies {
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-    implementation(Deps.AndroidX.Test.Espresso.idlingResource)
 
     implementation(Deps.Google.Play.core)
 
