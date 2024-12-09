@@ -285,7 +285,6 @@ dependencies {
 
     implementation(libs.kotlinx.serialization.json)
 
-    implementation(Deps.Google.GMS.Plus.plus)
     implementation(libs.google.play.billing)
     implementation(Deps.Android.InstallReferrer.installReferrer)
 

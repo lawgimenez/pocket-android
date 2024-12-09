@@ -72,12 +72,6 @@ object Deps {
         object Play {
             const val core = "com.google.android.play:core:1.10.3"
         }
-        object GMS {
-            object Plus {
-                private const val VERSION = "17.0.0"
-                const val plus = "com.google.android.gms:play-services-plus:$VERSION"
-            }
-        }
         object JUniversalCharDet {
             private const val VERSION = "1.0.3"
             const val juniversalchardet = "com.googlecode.juniversalchardet:juniversalchardet:$VERSION"
