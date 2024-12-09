@@ -9,6 +9,7 @@ gitHooks {
     createHooks(overwriteExisting = true)
 }
 
+rootProject.name = "pocket-android"
 include(":Pocket")
 include(":pocket-ui")
 include(":project-tools")
