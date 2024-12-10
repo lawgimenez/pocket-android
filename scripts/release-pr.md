@@ -1,7 +1,7 @@
 ## Prepare the release
 * [ ] If modified sync engine schema, double check the usage file only contains the final new definitions.
-* [ ] Prepare a pre-release in GitHub releases to generate a changelog.
-  * [ ] Use this link template, replacing `X.Y.Z` with release version (in 2 places): `https://github.com/Pocket/pocket-android/releases/new?tag=X.Y.Z&target=release-X.Y.Z&prerelease=1`. (This will set some defaults, so you don't have to edit by hand.)
+* Prepare a pre-release in GitHub releases to generate a changelog.
+  * [ ] Use this [template](https://github.com/Pocket/pocket-android/releases/new?tag={release-version}&target=release-{release-version}&prerelease=1).
   * [ ] Use the "Generate release notes" button to use an auto-generated changelog.
   * [ ] Add a summary to the top of the changelog.
   * **Don't publish just yet!**
@@ -28,10 +28,8 @@
 * Production
   * [ ] Post an update to #pocket-releases about the current rollout percentage.
   * [ ] Add the release to [Confluence](https://mozilla-hub.atlassian.net/wiki/spaces/PE/pages/665878545/Changelog+Releases+Pocket).
-  * [ ] Create a PR of `beta` into `prod` using this [template](https://github.com/Pocket/pocket-android/compare/prod...beta?quick_pull=1&title=X.Y.Z.0+Production&body=Updating+`prod`+to+match+the+newly+promoted+build.&labels=ignore-for-release). Merge it (**do not squash!**).
+  * [ ] Create a PR of `beta` into `prod` using this [template](https://github.com/Pocket/pocket-android/compare/prod...beta?quick_pull=1&title=X.Y.Z+Production&body=Update+`prod`+to+match+the+newly+promoted+build.&labels=ignore-for-release). Merge it (**do not squash!**).
 * Beta
   * [ ] Edit the GitHub release, uncheck "Set as a pre-release", check "Set as the latest release".
   * [ ] Merge this PR into `beta` (**do not squash!**).
-  * [ ] Create a PR of `beta` into `main`. (`beta` is protected, so we can't literally merge it, because it would delete it. Instead create a new branch from `beta`, merge `main` to resolve any conflicts and open a PR to merge this branch to `main`.)
-    * [ ] Add `ignore-for-release` label.
-    * [ ] Merge it (**do not squash!**).
+  * [ ] Create a PR of `beta` into `main` using this [template](https://github.com/Pocket/pocket-android/compare/main...beta?quick_pull=1&title=Released+{release-version}&body=Merge+latest+release+branch+back+to+main.&labels=ignore-for-release). Merge it (**do not squash!**).

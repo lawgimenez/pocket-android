@@ -15,7 +15,7 @@ plugins {
 }
 
 val versionMajor = 8 // Max value of 200
-val versionMinor = 28 // Max of two digits
+val versionMinor = 29 // Max of two digits
 val versionPatch = 0 // Max of two digits
 val versionBuild = 0 // Max of three digits
 
