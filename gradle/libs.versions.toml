@@ -3,6 +3,7 @@ aboutlibraries = "11.2.3"
 androidx-activity = "1.9.3"
 androidx-fragment = "1.8.5"
 androidx-navigation = "2.8.5"
+androidx-paging = "3.3.4"
 appcenter = "5.0.5"
 dagger = "2.53.1"
 kotlin = "2.1.0"
@@ -31,6 +32,7 @@ androidx-fragment = { module = "androidx.fragment:fragment-ktx", version.ref = "
 androidx-fragment-compose = { module = "androidx.fragment:fragment-compose", version.ref = "androidx-fragment" }
 androidx-media = { module = "androidx.media:media", version = "1.7.0" }
 androidx-navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidx-navigation" }
+androidx-paging = { module = "androidx.paging:paging-runtime", version.ref = "androidx-paging" }
 androidx-work = { module = "androidx.work:work-runtime", version = "2.10.0" }
 appcenter-distribute = { module = "com.microsoft.appcenter:appcenter-distribute", version.ref = "appcenter" }
 appcenter-distribute-play = { module = "com.microsoft.appcenter:appcenter-distribute-play", version.ref = "appcenter" }

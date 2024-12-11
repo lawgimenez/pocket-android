@@ -274,6 +274,7 @@ dependencies {
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.fragment.compose)
     implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.paging)
 
     implementation(libs.androidx.browser)
     implementation(libs.androidx.media)
