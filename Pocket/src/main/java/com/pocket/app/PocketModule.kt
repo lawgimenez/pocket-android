@@ -8,7 +8,9 @@ import com.pocket.analytics.SnowplowTracker
 import com.pocket.analytics.Tracker
 import com.pocket.app.build.Versioning
 import com.pocket.repository.ItemRepository
+import com.pocket.repository.NotesRepository
 import com.pocket.repository.SyncEngineItemRepository
+import com.pocket.repository.SyncEngineNotesRepository
 import com.pocket.repository.SyncEngineUserRepository
 import com.pocket.repository.UserRepository
 import com.pocket.sdk.Pocket
@@ -160,4 +162,7 @@ abstract class PocketInterfaces {
 
     @Binds @Singleton
     abstract fun userRepository(syncEngineUserRepository: SyncEngineUserRepository): UserRepository
+
+    @Binds @Singleton
+    abstract fun notesRepository(syncEngineNotesRepository: SyncEngineNotesRepository): NotesRepository
 }
