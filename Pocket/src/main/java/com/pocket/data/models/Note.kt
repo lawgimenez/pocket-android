@@ -1,5 +1,7 @@
 package com.pocket.data.models
 
+import com.pocket.sdk.api.generated.thing.Note as SyncEngineNote
+import com.pocket.sdk.api.value.IdString
 import com.pocket.sdk.api.value.MarkdownString
 import org.threeten.bp.Instant
 
@@ -16,7 +18,19 @@ data class Note(
     val title: String?,
     val contentPreview: MarkdownString,
     val doc: MarkdownString,
+    val createdAt: Instant?,
     val updatedAt: Instant,
 ) {
     @JvmInline value class Id(val value: String)
 }
+
+fun SyncEngineNote.toNote() = Note(
+    id = Note.Id(id!!.id),
+    title = title,
+    contentPreview = contentPreview!!,
+    doc = docMarkdown!!,
+    createdAt = null,
+    updatedAt = updatedAt!!.toInstant()
+)
+
+fun Note.Id.toIdString() = IdString(value)
