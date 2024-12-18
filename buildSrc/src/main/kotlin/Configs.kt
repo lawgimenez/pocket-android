@@ -1,13 +1,10 @@
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
-import org.gradle.api.Action
 import org.gradle.api.JavaVersion
+import org.jetbrains.kotlin.gradle.dsl.HasConfigurableKotlinCompilerOptions
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.dsl.KotlinAndroidProjectExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmCompilerOptions
-import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
-import org.jetbrains.kotlin.gradle.dsl.KotlinProjectExtension
 
 object AndroidConfigs {
     const val CompileSdkVersion = 35
@@ -41,17 +38,9 @@ fun BaseExtension.setDefaultConfigs() {
     }
 }
 
-fun KotlinProjectExtension.setDefaultConfigs() {
+fun HasConfigurableKotlinCompilerOptions<KotlinJvmCompilerOptions>.setDefaultConfigs() {
     compilerOptions {
         jvmTarget.set(KotlinConfigs.jvmTarget)
         freeCompilerArgs.add(KotlinConfigs.FreeCompilerArgs)
-    }
-}
-
-private fun KotlinProjectExtension.compilerOptions(configure: Action<KotlinJvmCompilerOptions>) {
-    when (this) {
-        is KotlinJvmProjectExtension -> compilerOptions(configure)
-        is KotlinAndroidProjectExtension -> compilerOptions(configure)
-        else -> throw RuntimeException("Default configuration doesn't handle this Kotlin module type.")
     }
 }

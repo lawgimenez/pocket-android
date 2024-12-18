@@ -7,7 +7,9 @@ repositories {
 }
 
 kotlin {
-    jvm()
+    jvm {
+        setDefaultConfigs()
+    }
     sourceSets {
         val commonMain by getting {
             dependencies {
