@@ -116,12 +116,6 @@ class QueryParser(
 
     private fun GQLOperationDefinition.toActionData(remote: RemoteFlagData?): ActionData {
         val source = sourceLocation.toSource()
-        val selection = selectionSet.selections.single() as GQLField
-        val mutation = try {
-            mutations.syncable.fields.single { it.name == selection.name }
-        } catch (t: Throwable) {
-            throw RuntimeException("Operation $name references non-existent mutation ${selection.name}")
-        }
         return ActionData(
             definition = this.toDefinitionProperties(source),
             syncable = this.toSyncableProperties(remote, source),
@@ -131,10 +125,27 @@ class QueryParser(
                 .singleOrNull(),
             effect = emptyList(),
             remoteBaseOf = null,
-            resolves = ResolvesFlagData(
-                mutation.type,
-                selection.sourceLocation.toSource()
-            )
+            resolves = kotlin.run {
+                val selection = selectionSet.selections.singleOrNull()
+                if (selection == null) {
+                    println("Warning: Resolving mutation response is supported only when there is exactly one mutation in a single request. ($operationType $name)")
+                    return@run null
+                }
+                val field = selection as? GQLField
+                if (field == null) {
+                    println("Warning: Resolving mutation response is supported only when using Mutation fields directly, not through fragments, etc. ($operationType $name)")
+                    return@run null
+                }
+                val mutation = mutations.syncable.fields.singleOrNull { it.name == field.name }
+                if (mutation == null) {
+                    println("Warning: Cannot resolve response type for mutation ${selection.name}, because it's missing from schema. ($operationType $name)")
+                    return@run null
+                }
+                ResolvesFlagData(
+                    mutation.type,
+                    selection.sourceLocation.toSource()
+                )
+            }
         )
     }
 

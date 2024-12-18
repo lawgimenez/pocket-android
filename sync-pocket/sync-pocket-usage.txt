@@ -2985,6 +2985,63 @@ action deregister_push.action 2
 action deregister_push.context 3
 action deregister_push.push_type 4
 action deregister_push.device_identifier 5
+thing PageInfo
+thing PageInfo.hasNextPage 1
+thing PageInfo.endCursor 2
+thing PageInfo.hasPreviousPage 3
+thing PageInfo.startCursor 4
+thing PaginationInput
+thing PaginationInput.after 1
+thing PaginationInput.before 2
+thing PaginationInput.first 3
+thing PaginationInput.last 4
+enum NoteSortBy
+enum NoteSortBy.UPDATED_AT 1
+enum NoteSortOrder
+enum NoteSortOrder.ASC 1
+enum NoteSortOrder.DESC 2
+thing NoteSortInput
+thing NoteSortInput.sortBy 1
+thing NoteSortInput.sortOrder 2
+thing NoteFilterInput
+thing NoteFilterInput.excludeDeleted 1
+value ISOString
+thing Note
+thing Note.id 1
+thing Note.title 2
+thing Note.contentPreview 3
+thing Note.docMarkdown 4
+thing Note.updatedAt 5
+thing NoteEdge
+thing NoteEdge.node 1
+thing NoteConnection
+thing NoteConnection.edges 1
+thing NoteConnection.pageInfo 2
+thing notes
+thing notes.sort 1
+thing notes.filter 2
+thing notes.pagination 3
+thing notes.connection 4
+thing CreateNoteMarkdownInput
+thing CreateNoteMarkdownInput.id 1
+thing CreateNoteMarkdownInput.createdAt 2
+thing CreateNoteMarkdownInput.title 3
+thing CreateNoteMarkdownInput.docMarkdown 4
+action createNote
+action createNote.input 1
+action createNote.time 2
+action updateNote
+action updateNote.time 1
+action updateNote.id 2
+action updateNote.title 3
+action updateNote.docMarkdown 4
+action updateNote.updatedAt 5
+thing DeleteNoteInput
+thing DeleteNoteInput.id 1
+action deleteNote
+action deleteNote.time 1
+action deleteNote.input 2
+enum VideoType.9 9
 
 - thing Collection.externalId
 - thing Collection.status
@@ -3076,10 +3133,8 @@ action deregister_push.device_identifier 5
 - thing MarticleTable
 - thing MarticleText
 - thing NumberedListElement
-- thing PageInfo
 - enum PageType
 - thing Pagination
-- thing PaginationInput
 - enum PendingItemStatus
 - thing RankedCorpusSlate
 - thing RankedCorpusSlateExperiment
@@ -3225,7 +3280,6 @@ action deregister_push.device_identifier 5
 - thing BaseError
 - thing CreateShareableListInput
 - thing CreateShareableListItemInput
-- value ISOString
 - thing NotFound
 - thing PocketSave
 - enum PocketSaveStatus
@@ -3328,3 +3382,33 @@ action deregister_push.device_identifier 5
 - thing Item.corpusItem
 - thing SyndicatedArticle.originalItem
 - thing SyndicatedArticle.preview
+- thing ArchiveNoteInput
+- thing BatchImportInput
+- thing CreateNoteFromQuoteInput
+- thing CreateNoteFromQuoteMarkdownInput
+- thing CreateNoteInput
+- thing EditNoteContentInput
+- thing EditNoteContentMarkdownInput
+- thing EditNoteTitleInput
+- thing ImportLimited
+- enum ImportType
+- enum ImportableStatus
+- thing PreSignedUrl
+- value ProseMirrorJson
+- thing SavedItem.notes
+- thing SavedItemNoteFilterInput
+- thing UnknownImportUploadResponse
+- thing Note.archived
+- thing Note.createdAt
+- thing Note.deleted
+- thing Note.docContent
+- thing Note.savedItem
+- thing Note.source
+- enum NoteSortBy.CREATED_AT
+- thing NoteFilterInput.archived
+- thing NoteFilterInput.isAttachedToSave
+- thing NoteFilterInput.since
+- thing NoteEdge.cursor
+- thing NoteConnection.totalCount
+- thing CreateNoteMarkdownInput.source
+- thing DeleteNoteInput.deletedAt
