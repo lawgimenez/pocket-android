@@ -1,0 +1,56 @@
+fragment noteFields on Note {
+    id
+    title
+    contentPreview
+    docMarkdown
+    updatedAt
+}
+
+query notes(
+    $sort: NoteSortInput,
+    $filter: NoteFilterInput,
+    $pagination: PaginationInput
+) {
+    connection: notes(sort: $sort, filter: $filter, pagination: $pagination) {
+        edges {
+            node {
+                ...noteFields
+            }
+        }
+        pageInfo {
+            ...pageInfoFields
+        }
+    }
+}
+
+mutation createNote($input: CreateNoteMarkdownInput!) {
+    createNoteMarkdown(input: $input) {
+        id
+    }
+}
+
+mutation updateNote(
+    $id: ID!,
+    $title: String!,
+    $docMarkdown: Markdown!,
+    $updatedAt: ISOString
+) {
+    editNoteTitle(input: {
+        id: $id,
+        title: $title,
+        updatedAt: $updatedAt
+    }) {
+        __typename
+    }
+    editNoteContentMarkdown(input: {
+        noteId: $id,
+        docMarkdown: $docMarkdown,
+        updatedAt: $updatedAt
+    }) {
+        __typename
+    }
+}
+
+mutation deleteNote($input: DeleteNoteInput!) {
+    deleteNote(input: $input)
+}

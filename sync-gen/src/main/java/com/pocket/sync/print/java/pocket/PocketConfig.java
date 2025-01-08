@@ -229,6 +229,30 @@ public class PocketConfig extends Config {
 						return CodeBlock.builder().addStatement("return new $T($N.readString())", java(), fieldname).build();
 					}
 				})
+				.modelValue("ISOString", new StandardModeller("DateString",
+						ClassName.get("com.pocket.sdk.api.value", "IsoDateString"),
+						ClassName.get("java.lang", "String")) {
+					@Override
+					public CodeBlock fromJson(String parameter) {
+						return CodeBlock.builder().addStatement("return new $1T(asString($2N))", java(), parameter).build();
+					}
+					@Override
+					public CodeBlock fromParser(String parser) {
+						return CodeBlock.builder().addStatement("return new $1T(asString($2L))", java(), parser).build();
+					}
+					@Override
+					public CodeBlock toJson(String parameter) {
+						return CodeBlock.builder().addStatement("return $1N.getRaw()", parameter).build();
+					}
+					@Override
+					public CodeBlock compress(String writer, String value) {
+						return CodeBlock.builder().addStatement("$N.writeString($L.getRaw())", writer, value).build();
+					}
+					@Override
+					public CodeBlock uncompress(String fieldname) {
+						return CodeBlock.builder().addStatement("return new $T($N.readString())", java(), fieldname).build();
+					}
+				})
 				.modelValue("ID", new StandardModeller("ID",
 						ClassName.get("com.pocket.sdk.api.value", "IdString"),
 						ClassName.get("java.lang", "String")) {

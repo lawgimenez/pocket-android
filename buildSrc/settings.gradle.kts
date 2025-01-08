@@ -9,3 +9,5 @@ dependencyResolutionManagement {
         }
     }
 }
+
+rootProject.name = "buildSrc"

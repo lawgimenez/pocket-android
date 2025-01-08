@@ -39,11 +39,6 @@ A String that may have escaped characters and likely needs to be unescaped befor
 scalar EscapedString
 
 """
-A String that may contain a limited set of html tags for formatting like for bold, italic, etc. TODO what subset is supported?
-"""
-scalar HtmlString
-
-"""
 A string that contains html markup. Also see {HtmlString} for when a smaller subset of tags is only needed.
 """
 scalar Html
@@ -304,6 +299,7 @@ extend type Item @figment(related_to: "SaveForLaterFeature") @figment(related_to
     viewed: Boolean @local
 }
 
+# noinspection GraphQLUnexpectedType
 extend type Mutation {
     "Save an {Item} to My List."
     add(
@@ -371,6 +367,7 @@ extend type Mutation {
     @figment(effect: "   * {Item.time_read} = null or 0")
 }
 
+# noinspection GraphQLUnexpectedType
 extend type Mutation {
     "Same as {add} but meant to indicate that the user's intent was to unarchive an item they previously archived."
     readd(
@@ -655,6 +652,7 @@ type Annotation @figment(related_to: "HighlightingFeature") {
     created_at: DateString
 }
 
+# noinspection GraphQLUnexpectedType
 extend type Mutation {
     "Add a new annotation to an {Item}"
     add_annotation(
@@ -1816,6 +1814,7 @@ extend enum VideoType @figment(related_to: "VideosFeature")
 @enum_value(name: "FLASH", value: "6")
 @enum_value(name: "IFRAME", value: "7")
 @enum_value(name: "BRIGHTCOVE", value: "8")
+@enum_value(name: "DAILYMOTION", value: "9")
 
 extend enum Videoness @figment(related_to: "VideosFeature")
 @enum_value(name: "NO_VIDEOS", value: "0")

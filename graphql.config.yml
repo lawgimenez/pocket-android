@@ -12,10 +12,12 @@ projects:
             user-agent: JS GraphQL
           introspect: false
   test:
+    schema: sync-pocket-android/src/test/graphql/test.graphqls
     include:
     - sync-pocket-android/src/test/graphql/**
     - figment.graphql
   examples:
+    schema: sync-gen/examples/graphql/examples.graphqls
     include:
     - sync-gen/examples/graphql/**
     - figment.graphql

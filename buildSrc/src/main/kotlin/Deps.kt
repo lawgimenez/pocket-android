@@ -23,10 +23,6 @@ object Deps {
         object Test {
             private const val VERSION = "1.4.0"
             const val rules = "androidx.test:rules:$VERSION"
-            object Espresso {
-                private const val VERSION = "3.4.0"
-                const val idlingResource = "androidx.test.espresso:espresso-idling-resource:$VERSION"
-            }
         }
         object Lifecycle {
             private const val VERSION = "2.5.1"
@@ -75,12 +71,6 @@ object Deps {
         }
         object Play {
             const val core = "com.google.android.play:core:1.10.3"
-        }
-        object GMS {
-            object Plus {
-                private const val VERSION = "17.0.0"
-                const val plus = "com.google.android.gms:play-services-plus:$VERSION"
-            }
         }
         object JUniversalCharDet {
             private const val VERSION = "1.0.3"
