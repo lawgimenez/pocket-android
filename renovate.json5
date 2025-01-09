@@ -1,22 +1,32 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "local>Pocket/renovate-config"
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    // Use a set of Pocket-wide defaults.
+    // See https://github.com/Pocket/renovate-config for more details and documentation.
+    'local>Pocket/renovate-config',
   ],
-  "ignorePaths": ["buildSrc/src/main/kotlin/Deps.kt"],
-  "ignorePresets": [":dependencyDashboardApproval"],
-  "packageRules": [
+  ignorePaths: [
+    // Ignore our legacy dependency definitions in `buildSrc`,
+    // while we gradually migrate to version catalog.
+    'buildSrc/src/main/kotlin/Deps.kt',
+  ],
+  ignorePresets: [
+    // Ignore the default setting from https://github.com/Pocket/renovate-config
+    // and allow opening PRs without approval.
+    ':dependencyDashboardApproval',
+  ],
+  packageRules: [
+    // Amend the default config from https://github.com/Pocket/renovate-config
+    // and allow auto-merging minor version updates as well.
+    // This means only major updates will stay open to let a human decide before merging.
     {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
+      matchUpdateTypes: ['minor', 'patch', 'pin', 'digest'],
+      automerge: true,
     },
+    // Tweak the default commit message a bit to cut a redundant word from already pretty long messages.
     {
-      "matchManagers": ["gradle", "gradle-wrapper"],
-      "commitMessageTopic": "{{depName}}"
+      matchManagers: ['gradle', 'gradle-wrapper'],
+      commitMessageTopic: '{{depName}}',
     },
-    {
-      "matchDepNames": ["plugin-*"],
-      "semanticCommitType": "chore"
-    }
   ]
 }
