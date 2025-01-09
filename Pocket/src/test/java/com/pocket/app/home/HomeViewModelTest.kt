@@ -117,9 +117,9 @@ class HomeViewModelTest : BaseCoroutineTest() {
         subject.onInitialized()
         homeSlateLineup.emit(
             listOf(
-                DomainSlate(null, null, "1", listOf(testRecommendation)),
-                DomainSlate("empty", null, "2", emptyList()),
-                DomainSlate(null, null, "3", listOf(testRecommendation)),
+                DomainSlate(null, null, listOf(testRecommendation)),
+                DomainSlate("empty", null, emptyList()),
+                DomainSlate(null, null, listOf(testRecommendation)),
             )
         )
 

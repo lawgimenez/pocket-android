@@ -52,8 +52,8 @@ class SlatesAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) =
         when (holder) {
-            is SlateViewHolder -> holder.bind(getItem(position))
-            is SlatesTabletViewHolder -> holder.bind(getItem(position))
+            is SlateViewHolder -> holder.bind(getItem(position), position)
+            is SlatesTabletViewHolder -> holder.bind(getItem(position), position)
             else -> {}
         }
 
@@ -84,7 +84,7 @@ class SlatesAdapter(
             binding.minorCardRecyclerView.itemAnimator = null
         }
 
-        fun bind(state: HomeViewModel.RecommendationSlateUiState) {
+        fun bind(state: HomeViewModel.RecommendationSlateUiState, position: Int) {
             binding.title.text = state.title
             if (state.subheadline != null) {
                 binding.subtitle.text = state.subheadline
@@ -93,9 +93,7 @@ class SlatesAdapter(
             }
             binding.slateSeeAllLayout.apply {
                 setOnClickListener {
-                    if (state.slateId.isNotBlank()) {
-                        viewModel.onSeeAllRecommendationsClicked(state.slateId, state.title.orEmpty())
-                    }
+                    viewModel.onSeeAllRecommendationsClicked(position, state.title.orEmpty())
                 }
                 engageable.uiEntityComponentDetail = state.title
             }
@@ -139,7 +137,7 @@ class SlatesAdapter(
             binding.minorCardRecyclerView.itemAnimator = null
         }
 
-        fun bind(state: HomeViewModel.RecommendationSlateUiState) {
+        fun bind(state: HomeViewModel.RecommendationSlateUiState, position: Int) {
             binding.title.text = state.title
             if (state.subheadline != null) {
                 binding.subtitle.text = state.subheadline
@@ -147,9 +145,7 @@ class SlatesAdapter(
                 binding.subtitle.visibility = GONE
             }
             binding.seeAllLayout.setOnClickListener {
-                if (state.slateId.isNotBlank()) {
-                    viewModel.onSeeAllRecommendationsClicked(state.slateId, state.title.orEmpty())
-                }
+                viewModel.onSeeAllRecommendationsClicked(position, state.title.orEmpty())
             }
 
             // first item goes to the hero card
