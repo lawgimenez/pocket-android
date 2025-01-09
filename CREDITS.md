@@ -9,7 +9,7 @@ Many thanks for your contributions and the years spent working together!
 * Mike Herbig
 * John Oberhauser
 * Devota Aabel
-* Daniel Brooks
+* [@bassrock](https://github.com/bassrock)
 * Tim Choh
 * Thomas Ezan
 * James Yopp
