@@ -143,7 +143,7 @@ class HomeFragment : AbsPocketFragment() {
             }
             is Home.Event.GoToSlateDetails -> {
                 findNavController().navigateSafely(
-                    HomeFragmentDirections.goToSlateDetails(event.slateId)
+                    HomeFragmentDirections.goToSlateDetails(event.index)
                 )
             }
             is Home.Event.GoToTopicDetails -> {
