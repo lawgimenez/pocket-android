@@ -346,4 +346,12 @@ dependencies {
     implementation(libs.sentry.okhttp)
 }
 
+kapt {
+    arguments {
+        arg("dagger.fastInit", "enabled")
+        arg("dagger.useBindingGraphFix", "ENABLED")
+        arg("dagger.ignoreProvisionKeyWildcards", "ENABLED")
+    }
+}
+
 registerCopyMergedManifestTask()
