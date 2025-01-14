@@ -36,7 +36,7 @@
       ],
       overrideDatasource: 'custom.r8',
       registryUrls: [
-        'https://r8.googlesource.com/r8/+log/refs/heads/8.8/src/main/java/com/android/tools/r8/Version.java?format=JSON'
+        'https://r8.googlesource.com/r8/+log/refs/heads/8.8/src/main/java/com/android/tools/r8/Version.java?format=HTML'
       ],
     },
   ],
@@ -61,17 +61,22 @@
     // Check the available r8 versions from a specific release branch in the r8 repository,
     // by extracting them from commit messages.
     r8: {
-      // Workaround: This requests a response in JSON format (via the query parameter in the URL),
-      // but instructs Renovate to treat it as plain text. It's because the response contains some
-      // extra junk characters at the beginning, so the JSON parser rejects it as invalid.
-      // So instead this just finds the versions by regex in the JSON text, without parsing it
-      // as a JSON object.
-      // It doesn't work just specifying `format: 'plain'`, because the "API" rejects `text/plain`
-      // as an unsupported response format.
+      // Workaround: This requests an HTML response (via the query parameter in the URL),
+      // but instructs Renovate to treat it as plain text, to do some custom processing
+      // with JSONata and regex, instead of relying on the default HTML processing.
       format: 'plain',
       transformTemplates: [
-        '{"releases": releases.{"version": $match(version, /^"message": "Version ([0-9\.]+)/).groups[0]}[version]}'
-      ]
+        '{\
+            "releases": $split(releases[0].version, "<li class=\\"CommitLog-item ")\
+                .($match(/([^"\\/]+)">Version ([0-9\\.]+)<\\/a>/))\
+                .{\
+                    "digest": groups[0],\
+                    "version": groups[1],\
+                    "isStable": true\
+                },\
+            "sourceUrl": "https://r8.googlesource.com/r8/"\
+        }'
+      ],
     }
   },
 }
