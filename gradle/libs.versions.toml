@@ -1,6 +1,6 @@
 [versions]
 aboutlibraries = "11.4.0"
-androidx-activity = "1.9.3"
+androidx-activity = "1.10.0"
 androidx-fragment = "1.8.5"
 androidx-navigation = "2.8.5"
 androidx-paging = "3.3.5"
