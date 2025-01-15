@@ -13,7 +13,6 @@ import com.pocket.sdk.premium.billing.google.LoadInventoryTask.LoadInventoryCall
 import com.pocket.sdk.util.ErrorReport
 import com.pocket.sync.source.result.SyncException
 import com.pocket.util.android.BundleUtil
-import com.pocket.util.java.Logs
 
 /**
  * Methods to access our IAP subscription products.
@@ -27,6 +26,7 @@ import com.pocket.util.java.Logs
  *
  *
  * **Be sure to call [.disconnect]** when you are finished with this. For example, in onDestroy of your activity or fragment.
+ * @param skus The list of skus to load
  */
 class GooglePlayBilling(
     private val skus: ProductList,
@@ -45,9 +45,6 @@ class GooglePlayBilling(
     private var products: Products? = null
     private var pendingProduct: GooglePlayProduct? = null
 
-    /**
-     * @param skus The list of skus to load
-     */
     init {
         if (savedInstanceState != null) {
             pendingProduct = BundleUtil.getParcelable(savedInstanceState,
@@ -186,7 +183,7 @@ class GooglePlayBilling(
         } catch (e: Exception) {
             App.from(activity).errorReporter().reportError(e)
             callbacks.onProductPurchaseFailed(
-                createError(BillingClient.BillingResponseCode.ERROR, ErrorReport(e)))
+                createError(BillingClient.BillingResponseCode.ERROR, ErrorReport(e, null)))
         }
     }
 
@@ -222,7 +219,7 @@ class GooglePlayBilling(
 
     fun activatePurchase(product: GooglePlayProduct, purchaseData: String?, type: SendType) {
         callbacks.onProductPurchaseActivationStarted()
-        val pocket = App.getApp().pocket()
+        val pocket = App.from(activity).pocket()
         pocket.syncRemote( // Also make sure we sync down the latest account info so we are set to the correct premium settings
             AccountUtil.getuser(pocket.spec()),  // Send a purchase action
             pocket.spec().actions().purchase()
@@ -239,7 +236,7 @@ class GooglePlayBilling(
                 callbacks.onProductPurchaseSuccess()
             }
             .onFailure { e: SyncException? ->
-                callbacks.onProductPurchaseActivationFailed(ErrorReport(e))
+                callbacks.onProductPurchaseActivationFailed(ErrorReport(e, e?.userFacingMessage))
             }
     }
 
