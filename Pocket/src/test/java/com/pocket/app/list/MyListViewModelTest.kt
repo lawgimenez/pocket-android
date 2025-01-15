@@ -11,6 +11,7 @@ import com.pocket.analytics.appevents.SavesTab
 import com.pocket.app.list.list.ListManager
 import com.pocket.app.list.list.ListStatus
 import com.pocket.app.list.list.SortFilterState
+import com.pocket.app.notes.Notes
 import com.pocket.app.undobar.UndoBar
 import com.pocket.app.undobar.UndoableItemAction
 import com.pocket.data.models.toDomainItem
@@ -68,6 +69,8 @@ class MyListViewModelTest : BaseCoroutineTest() {
     private val appSync = mockk<AppSync>(relaxed = true)
     @SpyK
     private val searchRepository = mockk<SearchRepository>(relaxed = true)
+    @SpyK
+    private val notes = mockk<Notes>(relaxed = true)
     @SpyK
     private val tracker = mockk<Tracker>(relaxed = true)
     @SpyK
@@ -140,6 +143,7 @@ class MyListViewModelTest : BaseCoroutineTest() {
             offlineDownloading,
             appSync,
             searchRepository,
+            notes,
             tracker,
             contentOpenTracker,
         )
@@ -888,6 +892,7 @@ class MyListViewModelTest : BaseCoroutineTest() {
             offlineDownloading,
             appSync,
             searchRepository,
+            notes,
             tracker,
             contentOpenTracker,
         )

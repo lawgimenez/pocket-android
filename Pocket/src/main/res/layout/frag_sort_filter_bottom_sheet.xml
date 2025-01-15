@@ -42,7 +42,7 @@
             android:layout_marginStart="19dp"
             android:textSize="16sp"
             android:textColor="@color/pkt_themed_grey_5"
-            android:text="@string/my_list_filter"
+            android:text="@string/my_list_filter_filter"
             />
     
     </com.pocket.ui.view.themed.ThemedLinearLayout>
