@@ -2,10 +2,9 @@ package com.pocket.app.list.list.loading
 
 import android.animation.ObjectAnimator
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.lifecycleScope
-import com.pocket.ui.view.progress.skeleton.SkeletonList
 import com.pocket.app.list.MyListScreenState
 import com.pocket.app.list.MyListViewModel
+import com.pocket.ui.view.progress.skeleton.SkeletonList
 import com.pocket.util.android.repeatOnResumed
 
 /**
@@ -24,8 +23,8 @@ class SkeletonListFadeAnimator(
         lifecycleOwner.repeatOnResumed {
             viewModel.uiState.collect {
                 when (it.screenState) {
-                    is MyListScreenState.SearchLoading,
-                    is MyListScreenState.Loading -> {
+                    MyListScreenState.SearchLoading,
+                    MyListScreenState.Loading -> {
                         fadeIn()
                     }
                     else -> {

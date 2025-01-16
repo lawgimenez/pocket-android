@@ -23,9 +23,11 @@ import com.pocket.app.list.add.AddUrlBottomSheetFragment
 import com.pocket.app.list.bulkedit.BulkEditListItemAnimator
 import com.pocket.app.list.bulkedit.BulkEditOverflowBottomSheetFragment
 import com.pocket.app.list.filter.FilterBottomSheetFragment
-import com.pocket.app.list.list.*
+import com.pocket.app.list.list.MyListAdapter
+import com.pocket.app.list.list.MyListPagingScrollListener
 import com.pocket.app.list.list.loading.SkeletonListFadeAnimator
 import com.pocket.app.list.list.overflow.ItemOverflowBottomSheetFragment
+import com.pocket.app.list.notes.NotesList
 import com.pocket.app.list.search.RecentSearchAdapter
 import com.pocket.app.list.tags.TagBottomSheetFragment
 import com.pocket.app.premium.Premium
@@ -70,8 +72,6 @@ class MyListFragment : AbsPocketFragment() {
     // used to remember the scroll position when coming back to this screen
     private var recyclerViewState: Parcelable? = null
 
-    override fun getActionViewName(): CxtView = CxtView.LIST
-
     override fun getScreenIdentifierString(): String = "saves"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -94,6 +94,7 @@ class MyListFragment : AbsPocketFragment() {
         super.onViewCreated(view, savedInstanceState)
         setupListView()
         setupSearchList()
+        setupNotesList()
         fxaFeature.showMigrationMessage(activity)
         setupUiListeners()
         SkeletonListFadeAnimator(binding.skeletonList, viewLifecycleOwner, viewModel)
@@ -274,6 +275,12 @@ class MyListFragment : AbsPocketFragment() {
             viewModel,
             viewLifecycleOwner,
         )
+    }
+
+    private fun setupNotesList() {
+        binding.notes.setContent {
+            NotesList()
+        }
     }
 
     // this could be refactored to be in the view model

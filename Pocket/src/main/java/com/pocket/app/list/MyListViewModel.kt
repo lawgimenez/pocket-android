@@ -10,6 +10,7 @@ import com.pocket.analytics.appevents.SavesEvents
 import com.pocket.analytics.appevents.SavesTab
 import com.pocket.app.list.list.ListManager
 import com.pocket.app.list.list.ListStatus
+import com.pocket.app.notes.Notes
 import com.pocket.app.undobar.UndoBar
 import com.pocket.app.undobar.UndoableItemAction.Companion.fromDomainItem
 import com.pocket.data.models.DomainItem
@@ -44,6 +45,7 @@ class MyListViewModel @Inject constructor(
     private val offlineDownloading: OfflineDownloading,
     private val appSync: AppSync,
     private val searchRepository: SearchRepository,
+    private val notes: Notes,
     private val tracker: Tracker,
     private val contentOpenTracker: ContentOpenTracker,
 ) : ViewModel(), MyListInteractions {
@@ -84,6 +86,15 @@ class MyListViewModel @Inject constructor(
         setupListObserver()
         setupTagListener()
         setupRecentSearchesListener()
+        viewModelScope.launch {
+            _uiState.update {
+                it.copy(
+                    filterCarouselState = it.filterCarouselState.copy(
+                        notesFilterVisible = notes.areEnabled(),
+                    ),
+                )
+            }
+        }
     }
 
     private fun setupTagListener() {
@@ -115,26 +126,30 @@ class MyListViewModel @Inject constructor(
         }
     }
 
-    @Suppress("ComplexMethod", "LongMethod")
     private fun setupListSortObserver() {
         listManager.sortFilterState.collect(viewModelScope) { state ->
-            _uiState.edit { copy(
+            _uiState.update { it.copy(
                 myListChipState = ChipState(selected = state.listStatus == ListStatus.SAVES),
                 archiveChipState = ChipState(selected = state.listStatus == ListStatus.ARCHIVE),
-                allChipState = ChipState(selected = state.filters.isEmpty()),
-                favoritesChipState = ChipState(selected = state.filters.contains(ItemFilterKey.FAVORITE)),
-                highlightsChipState = ChipState(selected = state.filters.contains(ItemFilterKey.HIGHLIGHTED)),
-                taggedChipState = ChipState(
-                    selected = state.filters.contains(ItemFilterKey.TAG)
-                            || state.filters.contains(ItemFilterKey.NOT_TAGGED)
-                ),
-                filterChipState = ChipState(
-                    badgeVisible = state.filters.containsAny(
-                        ItemFilterKey.VIEWED,
-                        ItemFilterKey.NOT_VIEWED,
-                        ItemFilterKey.SHORT_READS,
-                        ItemFilterKey.LONG_READS
-                    )
+                filterCarouselState = FilterCarouselState(
+                    selected = FilterCarouselState.Type.Saves,
+                    savesFilter = when {
+                        state.filters.isEmpty() -> SavesFilter.All
+                        state.filters.contains(ItemFilterKey.FAVORITE) -> SavesFilter.Favorites
+                        state.filters.contains(ItemFilterKey.HIGHLIGHTED) -> SavesFilter.Highlighted
+                        state.filters.containsAny(ItemFilterKey.TAG, ItemFilterKey.NOT_TAGGED) -> {
+                            SavesFilter.Tagged
+                        }
+                        state.filters.containsAny(
+                            ItemFilterKey.VIEWED,
+                            ItemFilterKey.NOT_VIEWED,
+                            ItemFilterKey.SHORT_READS,
+                            ItemFilterKey.LONG_READS
+                        ) -> {
+                            SavesFilter.FilterMenu
+                        }
+                        else -> SavesFilter.All
+                    }
                 ),
                 selectedTagChipState = ChipState(
                     selected = true,
@@ -242,7 +257,7 @@ class MyListViewModel @Inject constructor(
             }.mapIndexed { index, value ->
                 val item = when (value) {
                     is Item -> value
-                    is SearchItem -> value.item
+                    is SearchItem -> value.item!!
                     else -> throw Exception() // not possible with the above filter
                 }
                 val searchMatch = when (value) {
@@ -250,18 +265,18 @@ class MyListViewModel @Inject constructor(
                     else -> null
                 }
                 val excerpt = searchMatch?.fullText ?: HtmlString("")
-                val imageUrl = item?.display_thumbnail?.url
+                val imageUrl = item.display_thumbnail?.url
 
                 ListItemUiState(
                     title = modelBindingHelper.title(
-                        item!!,
+                        item,
                         searchMatch,
                         listManager.isSearching,
                         !listManager.isRemoteData,
                         listManager.sortFilterState.value.search,
                     ),
                     domain = modelBindingHelper.domain(
-                        item!!,
+                        item,
                         searchMatch,
                         listManager.isSearching,
                         !listManager.isRemoteData,
@@ -313,7 +328,7 @@ class MyListViewModel @Inject constructor(
     private fun setDefaultScreenState() {
         val hasSearchTerms = listManager.sortFilterState.value.search.isNotBlank()
         val isEmpty = listManager.list.value.isEmpty()
-        _uiState.edit { copy(
+        _uiState.update { it.copy(
             screenState = when {
                 listManager.isSearching && hasSearchTerms && !isEmpty -> MyListScreenState.SearchList
                 listManager.isSearching && isEmpty -> MyListScreenState.SearchEmpty
@@ -321,7 +336,10 @@ class MyListViewModel @Inject constructor(
                 isEmpty -> MyListScreenState.Empty
                 else -> MyListScreenState.List
             },
-            editChipState = uiState.value.editChipState.copy(enabled = !isEmpty)
+            filterCarouselState = it.filterCarouselState.copy(
+                selected = FilterCarouselState.Type.Saves,
+            ),
+            editChipState = uiState.value.editChipState.copy(enabled = !isEmpty),
         ) }
     }
 
@@ -410,6 +428,25 @@ class MyListViewModel @Inject constructor(
         requireSignedIn {
             if (!uiState.value.highlightsChipState.selected) {
                 listManager.addFilter(ItemFilterKey.HIGHLIGHTED)
+            } else {
+                showAll()
+            }
+        }
+    }
+
+    fun onNotesChipClicked() {
+        if (exitEditMode()) return
+        // TODO(notes): tracker.track(…)
+        requireSignedIn {
+            if (!uiState.value.notesChipState.selected) {
+                _uiState.update {
+                    it.copy(
+                        screenState = MyListScreenState.Notes,
+                        filterCarouselState = it.filterCarouselState.copy(
+                            selected = FilterCarouselState.Type.Notes,
+                        ),
+                    )
+                }
             } else {
                 showAll()
             }
@@ -721,11 +758,7 @@ data class MyListUiState(
     val screenState: MyListScreenState = MyListScreenState.Loading,
     val myListChipState: ChipState = ChipState(),
     val archiveChipState: ChipState = ChipState(),
-    val allChipState: ChipState = ChipState(),
-    val taggedChipState: ChipState = ChipState(),
-    val favoritesChipState: ChipState = ChipState(),
-    val highlightsChipState: ChipState = ChipState(),
-    val filterChipState: ChipState = ChipState(),
+    val filterCarouselState: FilterCarouselState = FilterCarouselState(),
     val editChipState: ChipState = ChipState(),
     val selectedTagChipState: ChipState = ChipState(
         selected = true,
@@ -742,9 +775,34 @@ data class MyListUiState(
     val isRefreshing: Boolean = false,
     val recentSearchVisibility: Int = View.GONE,
     val searchHint: String = "",
-)
+) {
+    val allChipState: ChipState get() = ChipState(
+        selected = filterCarouselState.selected == FilterCarouselState.Type.Saves &&
+                filterCarouselState.savesFilter == SavesFilter.All,
+    )
+    val taggedChipState: ChipState get() = ChipState(
+        selected = filterCarouselState.selected == FilterCarouselState.Type.Saves &&
+                filterCarouselState.savesFilter == SavesFilter.Tagged,
+    )
+    val favoritesChipState: ChipState get() = ChipState(
+        selected = filterCarouselState.selected == FilterCarouselState.Type.Saves &&
+                filterCarouselState.savesFilter == SavesFilter.Favorites,
+    )
+    val highlightsChipState: ChipState get() = ChipState(
+        selected = filterCarouselState.selected == FilterCarouselState.Type.Saves &&
+                filterCarouselState.savesFilter == SavesFilter.Highlighted,
+    )
+    val notesChipState: ChipState get() = ChipState(
+        selected = filterCarouselState.selected == FilterCarouselState.Type.Notes,
+        visibility = if (filterCarouselState.notesFilterVisible) View.VISIBLE else View.GONE,
+    )
+    val filterChipState: ChipState get() = ChipState(
+        badgeVisible = filterCarouselState.selected == FilterCarouselState.Type.Saves &&
+                filterCarouselState.savesFilter == SavesFilter.FilterMenu,
+    )
+}
 
-sealed class MyListScreenState(
+data class MyListScreenState(
     val listVisible: Int = View.GONE,
     val loadingVisible: Int = View.GONE,
     val errorVisible: Int = View.GONE,
@@ -752,40 +810,69 @@ sealed class MyListScreenState(
     val searchBarVisible: Int = View.GONE,
     val searchLandingVisible: Int = View.GONE,
     val filterCarouselVisible: Int = View.GONE,
+    val notesVisible: Int = View.GONE,
 ) {
 
-    object Loading: MyListScreenState(
-        loadingVisible = View.VISIBLE,
-        filterCarouselVisible = View.VISIBLE
-    )
-    object Error: MyListScreenState(
-        errorVisible = View.VISIBLE,
-        filterCarouselVisible = View.VISIBLE
-    )
-    object List: MyListScreenState(
-        listVisible = View.VISIBLE,
-        filterCarouselVisible = View.VISIBLE
-    )
-    object Empty: MyListScreenState(
-        emptyVisible = View.VISIBLE,
-        filterCarouselVisible = View.VISIBLE
-    )
-    object SearchLanding: MyListScreenState(
-        searchBarVisible = View.VISIBLE,
-        searchLandingVisible = View.VISIBLE
-    )
-    object SearchList: MyListScreenState(
-        searchBarVisible = View.VISIBLE,
-        listVisible = View.VISIBLE
-    )
-    object SearchLoading: MyListScreenState(
-        searchBarVisible = View.VISIBLE,
-        loadingVisible = View.VISIBLE,
-    )
-    object SearchEmpty: MyListScreenState(
-        searchBarVisible = View.VISIBLE,
-        emptyVisible = View.VISIBLE,
-    )
+    companion object {
+        val Loading = MyListScreenState(
+            loadingVisible = View.VISIBLE,
+            filterCarouselVisible = View.VISIBLE
+        )
+
+        val Error = MyListScreenState(
+            errorVisible = View.VISIBLE,
+            filterCarouselVisible = View.VISIBLE
+        )
+
+        val List = MyListScreenState(
+            listVisible = View.VISIBLE,
+            filterCarouselVisible = View.VISIBLE
+        )
+
+        val Empty = MyListScreenState(
+            emptyVisible = View.VISIBLE,
+            filterCarouselVisible = View.VISIBLE
+        )
+
+        val SearchLanding = MyListScreenState(
+            searchBarVisible = View.VISIBLE,
+            searchLandingVisible = View.VISIBLE
+        )
+
+        val SearchList = MyListScreenState(
+            searchBarVisible = View.VISIBLE,
+            listVisible = View.VISIBLE
+        )
+
+        val SearchLoading = MyListScreenState(
+            searchBarVisible = View.VISIBLE,
+            loadingVisible = View.VISIBLE,
+        )
+
+        val SearchEmpty = MyListScreenState(
+            searchBarVisible = View.VISIBLE,
+            emptyVisible = View.VISIBLE,
+        )
+
+        val Notes = MyListScreenState(
+            notesVisible = View.VISIBLE,
+            filterCarouselVisible = View.VISIBLE,
+        )
+    }
+}
+
+data class FilterCarouselState(
+    val selected: Type = Type.Saves,
+    val savesFilter: SavesFilter = SavesFilter.All,
+    val notesFilterVisible: Boolean = false,
+) {
+    enum class Type {
+        Saves, Notes,
+    }
+
+}
+enum class SavesFilter {
+    All, Tagged, Favorites, Highlighted, FilterMenu,
 }
 
 data class ChipState(
