@@ -3,5 +3,12 @@
     <!-- Turn off all checks by default, so we can opt into just the ones we want. -->
     <issue id="all" severity="ignore" />
     
-    <issue id="UnusedResources" severity="error" />
+    <issue id="UnusedResources" severity="error">
+        <!--
+        Allow leaving unused strings in translated files.
+        Smartling will send a PR to align with the main file, which will remove them.
+        -->
+        <ignore regexp="Pocket/src/main/res/values-.*/strings\.xml" />
+        <ignore regexp="pocket-ui/src/main/res/values-.*/strings\.xml" />
+    </issue>
 </lint>
