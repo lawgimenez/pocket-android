@@ -122,18 +122,6 @@
         <attr name="minLines" format="integer" />
         <attr name="maxLines" format="integer" />
     </declare-styleable>
-
-    <declare-styleable name="SkeletonList">
-        <attr name="size" format="integer" />
-        <attr name="type" format="enum">
-            <enum name="item" value="0" />
-            <enum name="grid" value="1" />
-            <enum name="tile" value="2" />
-            <enum name="activity" value="3" />
-            <enum name="avatar" value="4" />
-            <enum name="singleLine" value="5" />
-        </attr>
-    </declare-styleable>
     
     <declare-styleable name="BottomNavigationButton">
         <attr name="imageSrc" format="reference" />
