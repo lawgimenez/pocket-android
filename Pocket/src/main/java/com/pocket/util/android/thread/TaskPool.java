@@ -2,8 +2,6 @@ package com.pocket.util.android.thread;
 
 import android.os.SystemClock;
 
-import androidx.test.espresso.IdlingResource;
-
 import com.pocket.util.java.Logs;
 import com.pocket.util.android.thread.PausableThreadPoolExecutor.ExecutionListener;
 
@@ -12,7 +10,6 @@ import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -34,7 +31,7 @@ import java.util.concurrent.TimeUnit;
  * most thread pools. It allows fine control over cancelling and stopping all async tasks
  * at logout or for specific cases like stopping offline downloading.
  */
-public class TaskPool extends PausableThreadPoolExecutor implements ExecutionListener, IdlingResource {
+public class TaskPool extends PausableThreadPoolExecutor implements ExecutionListener {
 
 	private final Object mLock = new Object();
 	
@@ -58,8 +55,6 @@ public class TaskPool extends PausableThreadPoolExecutor implements ExecutionLis
 	 */
 	private final List<TaskPoolFuture> mActiveTasks = new ArrayList<>();
 
-	private final TaskPoolIdlingResource mCounter = new TaskPoolIdlingResource(getName());
-	
 	private final ArrayList<ExecutionStateChangeListener> mExecutionStateChangeListeners = new ArrayList<>();
 	private AfterExecutionListener mAfterExecutionListener;
 	
@@ -79,13 +74,8 @@ public class TaskPool extends PausableThreadPoolExecutor implements ExecutionLis
 		super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, poolName);
 		setExecutionListener(this);
 	}
-	
-	protected TaskPool(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue, ThreadFactory factory, String poolName) {
-		super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, factory, poolName);
-		setExecutionListener(this);
-	}
-	
-	
+
+
 	@Override
 	public void execute(Runnable command) {
 		// This is a catch all for anything that submits via the public ThreadPoolExecutor interface, so all calls run through submit(TaskRunnable) instead.
@@ -107,7 +97,6 @@ public class TaskPool extends PausableThreadPoolExecutor implements ExecutionLis
 			
 			TaskPoolFuture futureTask = newFutureTask(runnable);
 			mActiveTasks.add(futureTask);
-			mCounter.increment();
 
 			runnable.onTaskPoolSubmit(this, futureTask);
 			super.execute(futureTask);
@@ -155,7 +144,6 @@ public class TaskPool extends PausableThreadPoolExecutor implements ExecutionLis
 				}
 			}
 			mActiveTasks.clear();
-			mCounter.clear();
 			invalidateExecutionState();
 		}
 		if (await && !futures.isEmpty()) {
@@ -178,7 +166,6 @@ public class TaskPool extends PausableThreadPoolExecutor implements ExecutionLis
 		
 		synchronized (mLock) {
 			mActiveTasks.remove(f);
-			mCounter.decrement();
 			wasBulkCanceled = f.wasBulkCanceled();
 			invalidateExecutionState();
 		}
@@ -261,21 +248,6 @@ public class TaskPool extends PausableThreadPoolExecutor implements ExecutionLis
 			mExecutionStateChangeListeners.add(listener);
 		}
     }
-
-    @Override
-    public String getName() {
-        return super.getName(); // mCounter uses this TaskPool's name, so for IdlingResource's implementation just call PausableThreadPoolExecutor's implementation
-    }
-
-	@Override
-	public boolean isIdleNow() {
-		return mCounter.isIdleNow();
-	}
-
-	@Override
-	public void registerIdleTransitionCallback(ResourceCallback callback) {
-		mCounter.registerIdleTransitionCallback(callback);
-	}
 
 	private void invalidateExecutionState() {
 		synchronized (mLock) {

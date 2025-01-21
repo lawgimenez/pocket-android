@@ -1,5 +1,6 @@
 package com.pocket.sdk
 
+import com.pocket.sdk.api.generated.PocketActions
 import com.pocket.sync.action.Action
 import com.pocket.sync.thing.Thing
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -43,4 +44,8 @@ suspend fun <A : Action> Pocket.update(action: A) = suspendCancellableCoroutine 
         //is this the right thing to do here?
         continuation.cancel()
     }
+}
+
+fun Pocket.send(builderAction: PocketActions.() -> Action) {
+    sync(null, spec().actions().builderAction())
 }

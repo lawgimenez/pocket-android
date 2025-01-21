@@ -15,7 +15,7 @@ plugins {
 }
 
 val versionMajor = 8 // Max value of 200
-val versionMinor = 30 // Max of two digits
+val versionMinor = 31 // Max of two digits
 val versionPatch = 0 // Max of two digits
 val versionBuild = 0 // Max of three digits
 
@@ -274,6 +274,7 @@ dependencies {
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.fragment.compose)
     implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.paging)
 
     implementation(libs.androidx.browser)
     implementation(libs.androidx.media)
@@ -285,7 +286,6 @@ dependencies {
 
     implementation(libs.kotlinx.serialization.json)
 
-    implementation(Deps.Google.GMS.Plus.plus)
     implementation(libs.google.play.billing)
     implementation(Deps.Android.InstallReferrer.installReferrer)
 
@@ -338,7 +338,6 @@ dependencies {
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-    implementation(Deps.AndroidX.Test.Espresso.idlingResource)
 
     implementation(Deps.Google.Play.core)
 
