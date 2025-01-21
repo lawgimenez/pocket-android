@@ -52,69 +52,7 @@ For Kotlin we use the official Kotlin style.
 
 ### Dependencies
 We're using [Renovate](https://docs.renovatebot.com/) to automatically update dependencies declared
-in a [version catalog](/gradle/libs.versions.toml).
-
-Because JSON doesn't support comments, here's some documentation on our [renovate.json](renovate.json):
-```json
-{
-  "extends": [
-    "local>Pocket/renovate-config"
-  ]
-}
-```
-Use a set of Pocket-wide defaults. See [Pocket/renovate-config](https://github.com/Pocket/renovate-config)
-for more details and documentation.
-```json
-{
-  "ignorePaths": ["buildSrc/src/main/kotlin/Deps.kt"]
-}
-```
-Ignore our legacy dependency definitions in `buildSrc`, while we gradually migrate to version catalog.
-```json
-{
-  "ignorePresets": [":dependencyDashboardApproval"]
-}
-```
-Ignore the default setting from [Pocket/renovate-config](https://github.com/Pocket/renovate-config)
-and allow opening PRs without approval.
-```json
-{
-  "packageRules": [
-    {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
-    }
-  ]
-}
-```
-Amend the default config from [Pocket/renovate-config](https://github.com/Pocket/renovate-config)
-and allow auto-merging minor version updates as well. This means only major updates will stay open
-to let a human decide before merging.
-
-```json
-{
-  "packageRules": [
-    {
-      "matchManagers": ["gradle", "gradle-wrapper"],
-      "commitMessageTopic": "{{depName}}"
-    }
-  ]
-}
-```
-Tweak the default commit message a bit to cut a redundant word from already pretty long messages.
-
-```json
-{
-  "packageRules": [
-    {
-      "matchDepNames": ["plugin-*"],
-      "semanticCommitType": "chore"
-    }
-  ]
-}
-```
-Update semantic commit rules to account for our custom plugin definitions
-(because of defining them in `buildSrc`).
+in the [version catalog](/gradle/libs.versions.toml).
 
 ### Sync Engine
 

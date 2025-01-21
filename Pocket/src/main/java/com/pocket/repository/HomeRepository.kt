@@ -82,7 +82,6 @@ fun CorpusSlate.toDomainSlate(): DomainSlate =
     DomainSlate(
         title = headline,
         subheadline = subheadline,
-        id = id?.id!!,
         recommendations = recommendations?.mapIndexed { index, corpusRecommendation ->
             corpusRecommendation.toRecommendation(index)
         } ?: listOf(),

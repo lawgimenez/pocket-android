@@ -202,7 +202,6 @@ class HomeViewModel @Inject constructor(
                     // Report and filter out.
                     errorHandler.reportOnProductionOrThrow(RuntimeException(
                         "Slate is empty: " + listOf(
-                            "id = ${slate.id}",
                             "title = ${slate.title}",
                             "locale = $localeString",
                         )
@@ -287,9 +286,9 @@ class HomeViewModel @Inject constructor(
         )
     }
 
-    override fun onSeeAllRecommendationsClicked(slateId: String, slateTitle: String) {
+    override fun onSeeAllRecommendationsClicked(index: Int, slateTitle: String) {
         tracker.track(HomeEvents.slateSeeAllClicked(slateTitle = slateTitle))
-        _events.tryEmit(Home.Event.GoToSlateDetails(slateId))
+        _events.tryEmit(Home.Event.GoToSlateDetails(index))
     }
 
     override fun onTopicClicked(topicId: String, topicTitle: String) {
@@ -380,10 +379,7 @@ class HomeViewModel @Inject constructor(
         val title: String?,
         val subheadline: String?,
         val recommendations: List<RecommendationUiState>,
-    ) {
-        // Exclude slate id from `.equals()` etc., because it's not stable.
-        lateinit var slateId: String
-    }
+    )
 
     private fun DomainSlate.toRecommendationSlateUiState(
         stringLoader: StringLoader,
@@ -394,9 +390,7 @@ class HomeViewModel @Inject constructor(
         recommendations = recommendations
             .map { it.toRecommendationUiState(stringLoader) }
             .take(recommendationsPerSlate)
-    ).apply {
-        slateId = id
-    }
+    )
 
 
     data class TopicUiState(

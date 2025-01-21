@@ -89,7 +89,7 @@
         android:label="SlateDetailsFragment"
         tools:layout="@layout/fragment_home_details">
         
-        <argument android:name="slateId" app:argType="string"/>
+        <argument android:name="index" app:argType="integer" />
     
         <action
             android:id="@+id/slateDetailsToReader"

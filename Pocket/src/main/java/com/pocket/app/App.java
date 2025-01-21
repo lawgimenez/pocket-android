@@ -185,7 +185,7 @@ public class App extends Application implements Contextual, PocketApp {
 						"Help with Pocket",
 						message,
 						true, true,
-						new ErrorReport(t),
+						new ErrorReport(t, message),
 						null));
 						
 		// Note: Recompile and Reverse Engineer Detection is currently hidden in Assets.start():
@@ -276,9 +276,9 @@ public class App extends Application implements Contextual, PocketApp {
 	/**
 	 * Convenience method for getting a string resource.
 	 * 
-	 * @param id
 	 * @deprecated access from a context you get in a constructor or parameter, avoid static access
 	 */
+	@Deprecated
 	public static String getStringResource(int id) {
 		if (id == 0) {
 			return null;

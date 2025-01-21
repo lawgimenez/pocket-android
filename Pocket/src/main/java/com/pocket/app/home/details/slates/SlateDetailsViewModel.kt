@@ -29,12 +29,12 @@ class SlateDetailsViewModel @Inject constructor(
     itemRepository = itemRepository,
     save = save,
     tracker = tracker,
-), SlateDetailsInteractions {
+) {
 
     private val localeString = locale.toString()
 
-    override fun onInitialized(slateId: String) {
-        setupSlateCollector(slateId)
+    fun onInitialized(index: Int) {
+        setupSlateCollector(index)
         _uiState.edit {
             copy(
                 screenState = ScreenState.Recommendations
@@ -42,10 +42,10 @@ class SlateDetailsViewModel @Inject constructor(
         }
     }
 
-    private fun setupSlateCollector(slateId: String) {
+    private fun setupSlateCollector(index: Int) {
         viewModelScope.launch {
             homeRepository.getLineup(localeString).collect { lineup ->
-                val slate = lineup.find { it.id == slateId }
+                val slate = lineup.getOrNull(index)
                 _uiState.edit {
                     copy(
                         title = slate?.title ?: "",
@@ -84,8 +84,4 @@ class SlateDetailsViewModel @Inject constructor(
             )
         )
     }
-}
-
-interface SlateDetailsInteractions {
-    fun onInitialized(slateId: String)
 }
