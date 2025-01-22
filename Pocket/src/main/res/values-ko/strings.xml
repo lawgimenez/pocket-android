@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- smartling.instruction_attributes = comment -->
 <!-- smartling.placeholder_format_custom = \{[a-zA-Z0-9_-]+\}-->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- LABELS, TITLES & NAMES - Prefix: nm  -->
     <string name="nm_add_to_ril" comment="try to use a string starting with A or just leave Pocket">+ Pocket에 추가</string>
 	
@@ -559,9 +559,9 @@
 	<string name="my_list_filter_all">전체</string>
 	<string name="my_list_filter_tagged">태그 지정됨</string>
 	<string name="my_list_filter_favorites">즐겨찾기</string>
+	<string name="my_list_filter_notes">메모</string>
 	<string name="my_list_filter_filter">필터</string>
 	<string name="my_list_filter_edit">편집</string>
-	<string name="my_list_filter">필터</string>
 	<string name="edit_tags">태그 편집</string>
 	<string name="move_to_my_list">저장소로 이동</string>
 	<string name="highlighted">하이라이트 표시됨</string>
@@ -612,6 +612,15 @@
 	<string name="add_url_title">URL 추가</string>
 	<string name="add_url_hint" comment="Hint for an input field where you can paste a URL to save (add to your saves)">예 https://getpocket.com</string>
 	<string name="add_url_error">유효한 URL을 입력하십시오</string>
+	<!-- All the remaining pieces of notes copy, for Smartling to translate in a single job. -->
+	<!-- TODO(notes): remove unused ignores -->
+	<string tools:ignore="UnusedResources" name="add_url_note_hint" comment="Hint for an input field where you can optionally add a note when add a URL to your saves">메모(선택 사항)</string>
+	<string tools:ignore="UnusedResources" name="add_note_title">메모 추가</string>
+	<string tools:ignore="UnusedResources" name="add_note_title_hint" comment="Hint for an input field to optionally add a title for a note you&apos;re creating">제목(선택 사항)</string>
+	<string tools:ignore="UnusedResources" name="add_note_hint" comment="Hind for an input field where you put the body/content of a note you&apos;re creating">메모</string>
+	<string tools:ignore="UnusedResources" name="edit_note_title">메모 편집</string>
+	<string tools:ignore="UnusedResources" name="delete_note_prompt_title">메모 삭제</string>
+	<string tools:ignore="UnusedResources" name="delete_note_prompt_message">이 항목을 삭제하시겠습니까? 이 작업 실행을 취소할 수 없습니다.</string>
 
 	<string name="authentication_legal_disclaimer" comment="This string uses Markdown formatting. Please preserve the formatting (including TWO spaces before the new line).">"계속 진행하면  \nPocket [서비스 약관](https://getpocket.com/tos) 및 [개인정보 보호정책](https://getpocket.com/privacy)에 동의하는 것으로 간주됩니다"</string>
 </resources>
