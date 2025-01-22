@@ -70,5 +70,5 @@ robolectric = { module = "org.robolectric:robolectric", version = "4.14.1" }
 sentry = { module = "io.sentry:sentry-android" }
 sentry-bom = { module = "io.sentry:sentry-bom", version = "7.20.1" }
 sentry-okhttp = { module = "io.sentry:sentry-okhttp" }
-snowplow-android-tracker = { module = "com.snowplowanalytics:snowplow-android-tracker", version = "6.1.0" }
+snowplow-android-tracker = { module = "com.snowplowanalytics:snowplow-android-tracker", version = "6.1.1" }
 turbine = { module = "app.cash.turbine:turbine", version = "1.2.0" }
