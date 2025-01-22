@@ -110,16 +110,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <com.pocket.ui.view.progress.skeleton.row.SkeletonActivityRow
-                android:id="@+id/skeleton2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <com.pocket.ui.view.progress.skeleton.row.SkeletonItemTileRow
-                android:id="@+id/skeleton3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
             <com.pocket.ui.view.menu.SectionHeaderView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
