@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- smartling.instruction_attributes = comment -->
 <!-- smartling.placeholder_format_custom = \{[a-zA-Z0-9_-]+\}-->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- LABELS, TITLES & NAMES - Prefix: nm  -->
     <string name="nm_add_to_ril" comment="try to use a string starting with A or just leave Pocket">Agregar a Pocket</string>
 	
@@ -569,9 +569,9 @@
 	<string name="my_list_filter_all">Todo</string>
 	<string name="my_list_filter_tagged">Etiquetado</string>
 	<string name="my_list_filter_favorites">Favoritos</string>
+	<string name="my_list_filter_notes">Notas</string>
 	<string name="my_list_filter_filter">Filtrar</string>
 	<string name="my_list_filter_edit">Editar</string>
-	<string name="my_list_filter">Filtrar</string>
 	<string name="edit_tags">Editar etiquetas</string>
 	<string name="move_to_my_list">Mover a Guardado</string>
 	<string name="highlighted">Resaltados</string>
@@ -619,9 +619,18 @@
 	<string name="end_of_article_title">También podría gustarte</string>
 	<string name="previous_and_next_setting_description">Muévete rápidamente entre los artículos con los botones \"Siguiente\" y \"Anterior\".</string>
 
-	<string name="add_url_title">Agregar una URL</string>
+	<string name="add_url_title">Agrega una URL</string>
 	<string name="add_url_hint" comment="Hint for an input field where you can paste a URL to save (add to your saves)">Por ejemplo,https://getpocket.com</string>
 	<string name="add_url_error">Ingresa una URL válida.</string>
+	<!-- All the remaining pieces of notes copy, for Smartling to translate in a single job. -->
+	<!-- TODO(notes): remove unused ignores -->
+	<string tools:ignore="UnusedResources" name="add_url_note_hint" comment="Hint for an input field where you can optionally add a note when add a URL to your saves">Nota (opcional)</string>
+	<string tools:ignore="UnusedResources" name="add_note_title">Agregar nota</string>
+	<string tools:ignore="UnusedResources" name="add_note_title_hint" comment="Hint for an input field to optionally add a title for a note you&apos;re creating">Título (opcional)</string>
+	<string tools:ignore="UnusedResources" name="add_note_hint" comment="Hind for an input field where you put the body/content of a note you&apos;re creating">Nota</string>
+	<string tools:ignore="UnusedResources" name="edit_note_title">Editar nota</string>
+	<string tools:ignore="UnusedResources" name="delete_note_prompt_title">Eliminar nota</string>
+	<string tools:ignore="UnusedResources" name="delete_note_prompt_message">¿Estás seguro de que deseas eliminar este enlace? Esta acción es irreversible.</string>
 
 	<string name="authentication_legal_disclaimer" comment="This string uses Markdown formatting. Please preserve the formatting (including TWO spaces before the new line).">"Al continuar, aceptas:  \nlos [Términos de servicio](https://getpocket.com/tos) y el [Aviso de privacidad] (https://getpocket.com/privacy) de Pocket"</string>
 </resources>
