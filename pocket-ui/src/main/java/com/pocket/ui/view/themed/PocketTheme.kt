@@ -6,9 +6,15 @@ import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rxjava2.subscribeAsState
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import com.pocket.ui.PocketDimensions
 import com.pocket.ui.text.Graphik
 import com.pocket.ui.text.LocalPocketTypography
 import com.pocket.ui.text.PocketTypography
@@ -35,9 +41,11 @@ fun PocketTheme(
                 primary = pocketColors.teal2,
                 background = pocketColors.background,
                 surface = pocketColors.background,
+                surfaceContainerHigh = pocketColors.background,
                 surfaceVariant = pocketColors.grey7,
                 onBackground = pocketColors.onBackground,
                 onSurface = pocketColors.onBackground,
+                onSurfaceVariant = Color.Black,
             ),
     ) {
         CompositionLocalProvider(
@@ -57,6 +65,8 @@ object PocketTheme {
     val typography: PocketTypography
         @Composable
         get() = LocalPocketTypography.current
+    val dimensions: PocketDimensions
+        get() = PocketDimensions
 }
 
 @Composable

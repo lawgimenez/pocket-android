@@ -11,7 +11,6 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.pocket.ui.R
-import com.pocket.ui.sideGrid
 import com.pocket.ui.view.button.PocketIconButton
 import com.pocket.ui.view.button.UpIcon
 import com.pocket.ui.view.themed.PocketTheme
@@ -29,7 +28,7 @@ fun AppBar(
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Spacer(Modifier.width(sideGrid() - navIconBuiltInSpace))
+            Spacer(Modifier.width(PocketTheme.dimensions.sideGrid - navIconBuiltInSpace))
             navigationIcon()
             Spacer(Modifier.width(dimensionResource(R.dimen.pkt_space_md) - navIconBuiltInSpace))
             TitleContainer(content = title)

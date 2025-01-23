@@ -6,8 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.pocket.ui.R
-import com.pocket.ui.sideGrid
 import com.pocket.ui.view.themed.PocketTheme
 
 @Composable
@@ -24,7 +24,7 @@ fun ThinDivider(modifier: Modifier = Modifier) {
 @Composable
 fun DividersPreview() {
     Column(
-        Modifier.padding(horizontal = sideGrid(), vertical = dimensionResource(R.dimen.pkt_space_sm))
+        Modifier.padding(horizontal = 20.dp, vertical = dimensionResource(R.dimen.pkt_space_sm))
     ) {
         ThinDivider()
         // Spacer()
