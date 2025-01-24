@@ -1,5 +1,5 @@
 [versions]
-aboutlibraries = "11.4.0"
+aboutlibraries = "11.5.0"
 androidx-activity = "1.10.0"
 androidx-fragment = "1.8.5"
 androidx-navigation = "2.8.5"
