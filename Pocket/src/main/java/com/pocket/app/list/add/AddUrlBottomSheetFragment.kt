@@ -38,7 +38,6 @@ import androidx.fragment.compose.content
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ideashower.readitlater.R
 import com.pocket.sdk.util.AbsPocketBottomSheetDialogFragment
-import com.pocket.ui.sideGrid
 import com.pocket.ui.view.button.BoxButton
 import com.pocket.ui.view.themed.PocketTheme
 import com.pocket.util.android.repeatOnResumed
@@ -99,7 +98,7 @@ fun AddUrlBottomSheet(
     ) {
         Column(
             Modifier.padding(
-                horizontal = sideGrid(),
+                horizontal = PocketTheme.dimensions.sideGrid,
                 vertical = dimensionResource(com.pocket.ui.R.dimen.pkt_space_md)
             ),
             horizontalAlignment = Alignment.CenterHorizontally

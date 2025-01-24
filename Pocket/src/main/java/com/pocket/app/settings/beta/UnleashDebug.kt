@@ -31,7 +31,6 @@ import com.pocket.sdk.api.generated.thing.UnleashAssignment
 import com.pocket.sdk.api.value.Timestamp
 import com.pocket.sdk.util.AbsPocketActivity
 import com.pocket.sync.source.bindLocalAsFlow
-import com.pocket.ui.sideGrid
 import com.pocket.ui.view.AppBar
 import com.pocket.ui.view.button.BoxButton
 import com.pocket.ui.view.button.PocketIconButton
@@ -290,7 +289,7 @@ private fun UnleashDebugAppBar(
         },
         actions = {
             BoxButton(text = "Refresh", onClick = onRefreshClick)
-            Spacer(Modifier.width(sideGrid()))
+            Spacer(Modifier.width(PocketTheme.dimensions.sideGrid))
         }
     )
 }

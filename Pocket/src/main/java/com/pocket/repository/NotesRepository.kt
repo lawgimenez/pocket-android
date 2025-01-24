@@ -47,7 +47,7 @@ class SyncEngineNotesRepository
     override fun getNotes(): Flow<PagingData<Note>> {
         val pager = Pager(
             DefaultPagingConfig,
-            remoteMediator = Mediator(pocket, notes)
+            remoteMediator = Mediator(pocket, notes),
         ) {
             notes.pagingSource()
         }
@@ -147,8 +147,9 @@ class SyncEngineNotesRepository
             return result
         }
 
-        fun clear() {
+        fun replaceWith(page: Page) {
             pages.clear()
+            pages += page
             invalidateSources()
         }
 
@@ -193,7 +194,6 @@ class SyncEngineNotesRepository
         ): MediatorResult {
             val cursor = when (loadType) {
                 LoadType.REFRESH -> {
-                    cache.clear()
                     // Load first page.
                     null
                 }
@@ -246,16 +246,20 @@ class SyncEngineNotesRepository
                     }
                 ).connection ?: throw IllegalArgumentException("Query.notes returned null connection.")
 
-                val nextPageCursor = connection.pageInfo!!.toNextPageCursor()
-                cache += Cache.Page(
+                val page = Cache.Page(
                     cursor = cursor,
                     data = connection.edges?.mapNotNull { it.node?.toNote() }?.toMutableList() ?: mutableListOf(),
                     previousPageCursor = connection.pageInfo!!.toPreviousPageCursor(),
-                    nextPageCursor = nextPageCursor,
+                    nextPageCursor = connection.pageInfo!!.toNextPageCursor(),
                 )
+                if (loadType == LoadType.REFRESH) {
+                    cache.replaceWith(page)
+                } else {
+                    cache += page
+                }
 
                 return MediatorResult.Success(
-                    endOfPaginationReached = nextPageCursor == null
+                    endOfPaginationReached = page.nextPageCursor == null
                 )
             } catch (t: Throwable) {
                 return MediatorResult.Error(t)
