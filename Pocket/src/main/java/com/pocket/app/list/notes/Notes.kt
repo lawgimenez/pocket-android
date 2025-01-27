@@ -1,5 +1,6 @@
 package com.pocket.app.list.notes
 
+import android.text.Spanned
 import android.text.format.DateFormat
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.animateContentSize
@@ -45,7 +46,7 @@ import com.pocket.app.App
 import com.pocket.app.list.MyListViewModel
 import com.pocket.data.models.Note
 import com.pocket.sdk.api.value.MarkdownString
-import com.pocket.sdk.util.MarkdownHandler
+import com.pocket.sdk.util.MarkdownFormatter
 import com.pocket.ui.view.button.BoxButton
 import com.pocket.ui.view.button.OverflowMenuIcon
 import com.pocket.ui.view.button.PocketIconButton
@@ -107,8 +108,8 @@ private fun NotesList(
 ) {
     val context = LocalContext.current
     val dateFormat = remember(context) { DateFormat.getMediumDateFormat(context) }
-    val markdownHandler = remember(context) {
-        MarkdownHandler(context) { App.viewUrl(context, it) }
+    val markdownFormatter = remember(context) {
+        MarkdownFormatter(context, App::viewUrl)
     }
 
     PullToRefreshBox(
@@ -125,9 +126,10 @@ private fun NotesList(
                 if (note != null) {
                     NoteRow(
                         note.title,
-                        note.content,
-                        note.date.formatWith(dateFormat),
-                        markdownHandler,
+                        remember(note.content) {
+                            markdownFormatter.format(note.content.value)
+                        },
+                        remember(note.date) { note.date.formatWith(dateFormat) },
                         Modifier
                             .padding(20.dp)
                             .animateItem(),
@@ -147,9 +149,8 @@ private fun Instant.formatWith(dateFormat: java.text.DateFormat): String {
 @Composable
 private fun NoteRow(
     title: String?,
-    content: MarkdownString,
+    content: Spanned,
     date: String,
-    markdownHandler: MarkdownHandler,
     modifier: Modifier = Modifier,
 ) = Row(
     modifier,
@@ -171,9 +172,7 @@ private fun NoteRow(
                 Modifier.animateContentSize(),
                 onReset = { /* Nothing to do, but needed to opt into view reuse. */ },
             ) {
-                root.apply {
-                    with(markdownHandler) { setMarkdownString(it) }
-                }
+                root.text = it
             }
         }
         Spacer(Modifier.height(PocketTheme.dimensions.spaceSmall))

@@ -110,8 +110,12 @@ public class ThemedTextView extends AppCompatTextView implements VisualMargin, E
 		}
 	}
 
-	public void setMovementMethodForLinks() {
-		setMovementMethod(new FixedLinkMethod());
+	public void setMovementMethodForLinks(boolean enabled) {
+		if (enabled) {
+			setMovementMethod(new FixedLinkMethod());
+		} else {
+			setMovementMethod(getDefaultMovementMethod());
+		}
 	}
 	
 	@SuppressLint("ClickableViewAccessibility") // Super is always called, so this lint warning is too paranoid.

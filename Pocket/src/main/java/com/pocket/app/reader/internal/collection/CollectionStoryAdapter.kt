@@ -8,8 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ideashower.readitlater.databinding.ViewHomeHeroCardBinding
-import com.pocket.sdk.api.value.MarkdownString
-import com.pocket.sdk.util.MarkdownHandler
+import com.pocket.sdk.util.MarkdownFormatter
 import com.pocket.sdk2.view.LazyAssetBitmap
 import com.pocket.ui.util.LazyBitmapDrawable
 import com.pocket.util.android.repeatOnCreated
@@ -17,7 +16,7 @@ import com.pocket.util.android.repeatOnCreated
 class CollectionStoryAdapter(
     viewLifecycleOwner: LifecycleOwner,
     private val viewModel: CollectionViewModel,
-    private val markdown: MarkdownHandler,
+    private val markdown: MarkdownFormatter,
     private val corpusRecommendationId: String?,
 ): ListAdapter<CollectionViewModel.StoryUiState,
         CollectionStoryAdapter.ViewHolder>(DIFF_CALLBACK) {
@@ -51,9 +50,8 @@ class CollectionStoryAdapter(
                 title.text = state.title
 
                 excerpt.visibility = View.VISIBLE
-                with(markdown) {
-                    excerpt.setMarkdownString(MarkdownString(state.excerpt))
-                }
+                excerpt.setMovementMethodForLinks(true)
+                excerpt.text = markdown.format(state.excerpt)
 
                 collectionLabel.visibility = if (state.collectionLabelVisible) {
                     View.VISIBLE
@@ -85,7 +83,6 @@ class CollectionStoryAdapter(
                         corpusRecommendationId = corpusRecommendationId,
                     )
                 }
-                excerpt.setOnClickListener { viewModel.onCardClicked(state.url) }
                 root.setOnClickListener { viewModel.onCardClicked(state.url) }
             }
         }
