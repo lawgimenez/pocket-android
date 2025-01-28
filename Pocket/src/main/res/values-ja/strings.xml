@@ -580,6 +580,9 @@
 	<string name="empty_list_archive_title">リストを最新に保ちながら整理</string>
 	<string name="empty_list_archive_message">アーカイブアイコンを使用すると、読み終えた保存コンテンツをアーカイブできます。</string>
 	<string name="empty_list_archive_action">アーカイブする方法</string>
+	<string name="empty_list_notes_title">メモはここに表示されます</string>
+	<string name="empty_list_notes_message">上のプラスアイコンまたは下のボタンをタップしてメモを追加します。</string>
+	<string name="empty_list_notes_action">メモを作成</string>
 	
 	<string name="time_to_read_filter_short">短い記事</string>
 	<string name="time_to_read_filter_short_description">10 分未満</string>
