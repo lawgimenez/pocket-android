@@ -590,6 +590,9 @@
 	<string name="empty_list_archive_title">Faites place nette dans votre liste</string>
 	<string name="empty_list_archive_message">Archivez les sauvegardes que vous avez terminées à l’aide de l’icône d’archive.</string>
 	<string name="empty_list_archive_action">Comment archiver</string>
+	<string name="empty_list_notes_title">Retrouvez vos remarques ici</string>
+	<string name="empty_list_notes_message">Appuyez sur l\'icône plus ci-dessus ou sur le bouton ci-dessous pour ajouter une remarque.</string>
+	<string name="empty_list_notes_action">Créer une remarque</string>
 	
 	<string name="time_to_read_filter_short">Court</string>
 	<string name="time_to_read_filter_short_description">Moins de 10 min</string>
