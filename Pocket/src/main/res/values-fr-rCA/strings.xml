@@ -590,6 +590,9 @@
 	<string name="empty_list_archive_title">Gardez votre liste actuelle et épurée</string>
 	<string name="empty_list_archive_message">Archivez les pages sauvegardées dont vous n,avez plus besoin à l\'aide de l\'icône Archive.</string>
 	<string name="empty_list_archive_action">Comment archiver des pages sauvegardées</string>
+	<string name="empty_list_notes_title">Trouvez vos notes ici</string>
+	<string name="empty_list_notes_message">Touchez l\'icône plus ci-dessus ou le bouton ci-dessous pour ajouter une note.</string>
+	<string name="empty_list_notes_action">Créer une note</string>
 	
 	<string name="time_to_read_filter_short">Court</string>
 	<string name="time_to_read_filter_short_description">Moins de 10 min</string>
