@@ -590,6 +590,9 @@
 	<string name="empty_list_archive_title">Sorge dafür, dass deine Liste aktuell und schön ordentlich bleibt</string>
 	<string name="empty_list_archive_message">Archiviere die gespeicherten Elemente, mit denen du fertig bist, über das Archivierungssymbol.</string>
 	<string name="empty_list_archive_action">So funktioniert das Archivieren</string>
+	<string name="empty_list_notes_title">Finde hier deine Notizen</string>
+	<string name="empty_list_notes_message">Tippe auf das Plus-Symbol oben oder den Button unten, um eine Notiz hinzuzufügen.</string>
+	<string name="empty_list_notes_action">Notiz erstellen</string>
 	
 	<string name="time_to_read_filter_short">Kurz</string>
 	<string name="time_to_read_filter_short_description">Weniger als 10 Min.</string>
