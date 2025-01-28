@@ -590,6 +590,9 @@
 	<string name="empty_list_archive_title">Mantenha a sua lista atual e organizada</string>
 	<string name="empty_list_archive_message">Arquive os itens que guardou e já concluiu com o ícone de Arquivo.</string>
 	<string name="empty_list_archive_action">Como arquivar</string>
+	<string name="empty_list_notes_title">Encontre aqui as suas notas</string>
+	<string name="empty_list_notes_message">Toca no ícone de mais acima ou no botão abaixo para adicionar uma nota.</string>
+	<string name="empty_list_notes_action">Criar Nota</string>
 	
 	<string name="time_to_read_filter_short">Breve</string>
 	<string name="time_to_read_filter_short_description">Menos de 10 min</string>
