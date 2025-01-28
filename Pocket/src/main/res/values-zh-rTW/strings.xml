@@ -580,6 +580,9 @@
 	<string name="empty_list_archive_title">及時更新和整理您的清單</string>
 	<string name="empty_list_archive_message">使用封存圖示封存已讀完的儲存內容。</string>
 	<string name="empty_list_archive_action">如何封存</string>
+	<string name="empty_list_notes_title">在此處查找你的附註</string>
+	<string name="empty_list_notes_message">點選上方加號圖示或下方按鈕，即可新增附註。</string>
+	<string name="empty_list_notes_action">建立附註</string>
 	
 	<string name="time_to_read_filter_short">簡短</string>
 	<string name="time_to_read_filter_short_description">短於 10 分鐘</string>

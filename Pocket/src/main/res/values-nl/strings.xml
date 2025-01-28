@@ -590,6 +590,9 @@
 	<string name="empty_list_archive_title">Houd je lijst up-to-date en geordend</string>
 	<string name="empty_list_archive_message">Archiveer opgeslagen artikelen die je al hebt gelezen via het archief-pictogram.</string>
 	<string name="empty_list_archive_action">Artikelen archiveren</string>
+	<string name="empty_list_notes_title">Vind hier je aantekeningen.</string>
+	<string name="empty_list_notes_message">Tik op het pluspictogram hierboven of de knop hieronder om een aantekening toe te voegen.</string>
+	<string name="empty_list_notes_action">Aantekening maken</string>
 	
 	<string name="time_to_read_filter_short">Kort</string>
 	<string name="time_to_read_filter_short_description">Minder dan 10 minuten</string>

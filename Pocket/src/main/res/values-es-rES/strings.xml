@@ -590,6 +590,9 @@
 	<string name="empty_list_archive_title">Mantén tu lista limpia y fresca</string>
 	<string name="empty_list_archive_message">Archiva los artículos guardados que hayas terminado utilizando el icono de archivo.</string>
 	<string name="empty_list_archive_action">Cómo archivar</string>
+	<string name="empty_list_notes_title">Encuentra aquí tus notas</string>
+	<string name="empty_list_notes_message">Toca el icono de más arriba o el botón de abajo para añadir una nota.</string>
+	<string name="empty_list_notes_action">Crear nota</string>
 	
 	<string name="time_to_read_filter_short">Corto</string>
 	<string name="time_to_read_filter_short_description">Menos de 10 minutos</string>

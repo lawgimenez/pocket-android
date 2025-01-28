@@ -580,6 +580,9 @@
 	<string name="empty_list_archive_title">保持您的列表清新整齐</string>
 	<string name="empty_list_archive_message">使用存档图标将您完成的已保存内容存档。</string>
 	<string name="empty_list_archive_action">如何存档</string>
+	<string name="empty_list_notes_title">在此查找您的备注</string>
+	<string name="empty_list_notes_message">点击上方的加号图标或下方的按钮来添加备注。</string>
+	<string name="empty_list_notes_action">创建备注</string>
 	
 	<string name="time_to_read_filter_short">简短</string>
 	<string name="time_to_read_filter_short_description">少于 10 分钟</string>

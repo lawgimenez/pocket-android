@@ -580,6 +580,9 @@
 	<string name="empty_list_archive_title">목록을 깔끔하게 정리해 보세요</string>
 	<string name="empty_list_archive_message">보관 아이콘을 사용하여 작업이 완료된 저장 항목을 보관해 보세요.</string>
 	<string name="empty_list_archive_action">보관 방법</string>
+	<string name="empty_list_notes_title">여기에서 메모를 확인해 보세요</string>
+	<string name="empty_list_notes_message">메모를 추가하려면 위의 더하기 아이콘이나 아래의 버튼을 누르세요.</string>
+	<string name="empty_list_notes_action">메모 생성</string>
 	
 	<string name="time_to_read_filter_short">짧게</string>
 	<string name="time_to_read_filter_short_description">10분 미만</string>

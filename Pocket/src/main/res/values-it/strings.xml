@@ -590,6 +590,9 @@
 	<string name="empty_list_archive_title">Tieni in ordine il tuo elenco</string>
 	<string name="empty_list_archive_message">Archivia i contenuti salvati già consultati facendo clic sull\'icona dell\'archivio.</string>
 	<string name="empty_list_archive_action">Come archiviare</string>
+	<string name="empty_list_notes_title">Trova i tuoi appunti qui</string>
+	<string name="empty_list_notes_message">Tocca l\'icona del più sopra o il pulsante sotto per aggiungere una nota.</string>
+	<string name="empty_list_notes_action">Crea nota</string>
 	
 	<string name="time_to_read_filter_short">Breve</string>
 	<string name="time_to_read_filter_short_description">Meno di 10 min</string>

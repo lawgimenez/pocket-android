@@ -610,6 +610,9 @@
 	<string name="empty_list_archive_title">Храните свой список свежим и упорядоченным</string>
 	<string name="empty_list_archive_message">Архивируйте сохраненные материалы с помощью значка архива.</string>
 	<string name="empty_list_archive_action">Как архивировать</string>
+	<string name="empty_list_notes_title">Здесь могут храниться ваши заметки</string>
+	<string name="empty_list_notes_message">Для добавления заметки нажмите на символ плюса выше или нажмите кнопку ниже.</string>
+	<string name="empty_list_notes_action">Создать заметку</string>
 	
 	<string name="time_to_read_filter_short">Короткие</string>
 	<string name="time_to_read_filter_short_description">Менее 10 мин</string>
