@@ -52,7 +52,10 @@
             android:id="@+id/goToSettings"
             app:popUpTo="@id/home"
             app:destination="@id/settings"/>
-    
+        <action
+            android:id="@+id/goToNoteDetails"
+            app:destination="@+id/noteDetails"
+            />
     </fragment>
     
     <fragment
@@ -110,7 +113,13 @@
             app:destination="@id/reader"/>
     
     </fragment>
-    
+    <fragment
+        android:id="@+id/noteDetails"
+        android:name="com.pocket.app.list.notes.NoteDetailsFragment"
+        android:label="NoteDetailsFragment"
+        >
+        <argument android:name="noteId" app:argType="string"/>
+    </fragment>
     <fragment
         android:id="@+id/reader"
         android:name="com.pocket.app.reader.ReaderFragment"

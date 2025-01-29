@@ -1,6 +1,7 @@
 package com.pocket.ui.view.themed
 
 import android.content.Context
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
@@ -74,6 +75,6 @@ private fun themeColors(context: Context): ThemeColors {
     val themed = AppThemeUtil.findThemed(context)
     val themeColors by themed?.getThemeColorsChanges(context)
         ?.subscribeAsState(initial = themed.getThemeColors(context))
-        ?: remember { mutableStateOf(ThemeColors.LIGHT) }
+        ?: (if (isSystemInDarkTheme()) ThemeColors.DARK else ThemeColors.LIGHT).let { remember { mutableStateOf(it) } }
     return themeColors
 }
