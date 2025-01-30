@@ -31,7 +31,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidViewBinding
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.LoadState
 import androidx.paging.LoadStates
@@ -41,7 +40,6 @@ import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
 import com.ideashower.readitlater.R
-import com.ideashower.readitlater.databinding.ViewNoteRowContentBinding
 import com.pocket.app.App
 import com.pocket.app.list.MyListViewModel
 import com.pocket.data.models.Note
@@ -126,9 +124,7 @@ private fun NotesList(
                 if (note != null) {
                     NoteRow(
                         note.title,
-                        remember(note.content) {
-                            markdownFormatter.format(note.content.value)
-                        },
+                        remember(note.content) { markdownFormatter.format(note.content.value) },
                         remember(note.date) { note.date.formatWith(dateFormat) },
                         Modifier
                             .padding(20.dp)
@@ -167,13 +163,12 @@ private fun NoteRow(
             }
         }
         Crossfade(content) {
-            AndroidViewBinding(
-                ViewNoteRowContentBinding::inflate,
+            Text(
+                it.toString(),
                 Modifier.animateContentSize(),
-                onReset = { /* Nothing to do, but needed to opt into view reuse. */ },
-            ) {
-                root.text = it
-            }
+                maxLines = 4,
+                style = PocketTheme.typography.p3,
+            )
         }
         Spacer(Modifier.height(PocketTheme.dimensions.spaceSmall))
         Text(
