@@ -13,15 +13,15 @@
 * [ ] Post to #pocket-releases using the workflow pinned to the top of the channel.
 
 ## Release on Google Play
-* [ ] Promote beta ([open testing](https://play.google.com/console/u/0/developers/5995605107085635372/app/4974611608118969152/tracks/open-testing)) to production.
+* [ ] Promote beta ([open testing](https://play.google.com/console/u/0/developers/7083182635971239206/app/4974611608118969152/tracks/open-testing)) to production.
   * [ ] Always update the release notes, because we don't want to keep the beta copy. If there is no prepared, agreed upon copy to call out new features, copy standard "bug fixes and improvements" notes from a previous **production** release.
   * [ ] Set rollout percentage (usually to 100%, in case of bigger/riskier releases to 10%, discuss with the team if you think it should be something else).
-* [ ] Release a new beta by promoting the [internal test](https://play.google.com/console/u/0/developers/5995605107085635372/app/4974611608118969152/tracks/internal-testing) build to beta (open testing).
+* [ ] Release a new beta by promoting the [internal test](https://play.google.com/console/u/0/developers/7083182635971239206/app/4974611608118969152/tracks/internal-testing) build to beta (open testing).
   * [ ] Copy previous **beta** release notes.
   * [ ] Check "Errors, warnings and messages". Google loves to put stuff in there that isn't really a problem, so there are "warnings" there we consistently ignore with each release. But, please, always check it to see if there isn't anything important this time.
   * [ ] Check changes between this and previous APK. (New App Bundles > Details (→ to the right of the new APK) > Changes tab)
   * [ ] Set rollout percentage to 100%.
-* [ ] Go to [Publishing overview](https://play.google.com/console/u/0/developers/5995605107085635372/app/4974611608118969152/publishing) to send the changes for review.
+* [ ] Go to [Publishing overview](https://play.google.com/console/u/0/developers/7083182635971239206/app/4974611608118969152/publishing) to send the changes for review.
   * [ ] Check the current Managed publishing setting. Keep if **off** to release as soon as it's through the review (e.g. when sending to review on the day of the release). Turn it **on** if preparing the release a day ahead and you want to manually release next morning.
 
 ## After the release is live
