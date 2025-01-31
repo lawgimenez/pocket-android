@@ -279,7 +279,7 @@ class MyListFragment : AbsPocketFragment() {
 
     private fun setupNotesList() {
         binding.notes.setContent {
-            Notes()
+            Notes(this::findNavController)
         }
     }
 

@@ -3,8 +3,12 @@ package com.pocket.app.list.notes
 import android.text.Spanned
 import android.text.format.DateFormat
 import androidx.compose.animation.Crossfade
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.MutableTransitionState
+import androidx.compose.animation.core.rememberTransition
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,6 +26,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,6 +38,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidViewBinding
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import androidx.paging.LoadState
 import androidx.paging.LoadStates
 import androidx.paging.LoadType
@@ -43,6 +49,7 @@ import androidx.paging.compose.itemKey
 import com.ideashower.readitlater.R
 import com.ideashower.readitlater.databinding.ViewNoteRowContentBinding
 import com.pocket.app.App
+import com.pocket.app.list.MyListFragmentDirections
 import com.pocket.app.list.MyListViewModel
 import com.pocket.data.models.Note
 import com.pocket.sdk.api.value.MarkdownString
@@ -64,32 +71,51 @@ import java.util.Date
 /** Notes view embedded on the Saves tab when the Notes filter is selected. */
 @Composable
 fun Notes(
+    findNavController: () -> NavController,
     myListViewModel: MyListViewModel = viewModel(),
     viewModel: NotesViewModel = viewModel(),
 ) {
-    viewModel.initialize(myListViewModel)
+    LaunchedEffect(viewModel, myListViewModel) {
+        viewModel.initialize(myListViewModel)
+    }
+    LaunchedEffect(findNavController, viewModel) {
+        viewModel.events.collect { event ->
+            when (event) {
+                is NotesViewModel.Event.GoToNoteDetails -> {
+                    findNavController().navigate(MyListFragmentDirections.goToNoteDetails(event.noteId.value))
+                }
+            }
+        }
+    }
+
     PocketTheme {
         Notes(
             lazyPagingNotes = viewModel.notes.collectAsLazyPagingItems(),
+            onNoteClick = viewModel::onNoteClicked,
             onCreateNoteClick = { /* TODO(notes): POCKET-10881 */ },
         )
     }
 }
 
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 private fun Notes(
     lazyPagingNotes: LazyPagingItems<NoteUiState>,
+    onNoteClick: (Note.Id) -> Unit,
     onCreateNoteClick: () -> Unit,
 ) {
-    val state = when {
+    val state = remember { MutableTransitionState(NotesState.Initial) }
+    state.targetState = when {
         lazyPagingNotes.itemCount > 0 -> NotesState.List
         lazyPagingNotes.loadState.isIdle -> NotesState.Empty
         lazyPagingNotes.loadState.hasError -> NotesState.Error
         else -> NotesState.Loading
     }
-    Crossfade(state) {
+    val transition = rememberTransition(state)
+    transition.Crossfade {
         when (it) {
-            NotesState.List -> NotesList(lazyPagingNotes)
+            NotesState.Initial -> { /* Initial blank state. */}
+            NotesState.List -> NotesList(lazyPagingNotes, onNoteClick)
             NotesState.Empty -> NotesEmpty(onCreateNoteClick)
             NotesState.Error -> NotesError(Modifier.fillMaxSize())
             NotesState.Loading -> NotesLoading()
@@ -97,13 +123,14 @@ private fun Notes(
     }
 }
 private enum class NotesState {
-    List, Empty, Error, Loading
+    Initial, List, Empty, Error, Loading
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun NotesList(
     lazyPagingNotes: LazyPagingItems<NoteUiState>,
+    onNoteClick: (Note.Id) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
@@ -131,6 +158,7 @@ private fun NotesList(
                         },
                         remember(note.date) { note.date.formatWith(dateFormat) },
                         Modifier
+                            .clickable { onNoteClick(note.id) }
                             .padding(20.dp)
                             .animateItem(),
                     )
@@ -303,6 +331,7 @@ private fun Loaded() {
                     arbitraryDay.minusDays(it.toLong() * 40).toInstant(),
                 )
             }.asLazyPagingItems(),
+            onNoteClick = {},
             onCreateNoteClick = {},
         )
     }
@@ -314,6 +343,7 @@ private fun Empty() {
     PocketTheme {
         Notes(
             lazyPagingNotes = emptyList<NoteUiState>().asLazyPagingItems(),
+            onNoteClick = {},
             onCreateNoteClick = {},
         )
     }
@@ -326,6 +356,7 @@ private fun Error() {
         Notes(
             lazyPagingNotes = emptyList<NoteUiState>()
                 .asLazyPagingItems(refresh = LoadState.Error(RuntimeException())),
+            onNoteClick = {},
             onCreateNoteClick = {},
         )
     }
@@ -338,6 +369,7 @@ private fun Loading() {
         Notes(
             lazyPagingNotes = emptyList<NoteUiState>()
                 .asLazyPagingItems(refresh = LoadState.Loading),
+            onNoteClick = {},
             onCreateNoteClick = {},
         )
     }

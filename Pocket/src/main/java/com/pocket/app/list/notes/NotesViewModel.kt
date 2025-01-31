@@ -10,6 +10,7 @@ import com.pocket.data.models.Note
 import com.pocket.repository.NotesRepository
 import com.pocket.sdk.api.value.MarkdownString
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.collectLatest
@@ -25,7 +26,13 @@ class NotesViewModel
 ): ViewModel() {
 
     val notes: SharedFlow<PagingData<NoteUiState>> get() = _notes
-    private val _notes = MutableSharedFlow<PagingData<NoteUiState>>()
+    private val _notes = MutableSharedFlow<PagingData<NoteUiState>>(
+        replay = 1,
+        onBufferOverflow = BufferOverflow.DROP_OLDEST,
+    )
+
+    private val _events = MutableSharedFlow<Event>()
+    val events: SharedFlow<Event> = _events
 
     fun initialize(myListViewModel: MyListViewModel) {
         viewModelScope.launch {
@@ -43,6 +50,16 @@ class NotesViewModel
                 block()
             }
         }
+    }
+
+    fun onNoteClicked(noteId: Note.Id) {
+        viewModelScope.launch {
+            _events.emit(Event.GoToNoteDetails(noteId))
+        }
+    }
+
+    sealed class Event {
+        data class GoToNoteDetails(val noteId: Note.Id) : Event()
     }
 }
 
