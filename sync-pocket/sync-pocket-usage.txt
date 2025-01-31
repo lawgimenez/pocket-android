@@ -3384,8 +3384,6 @@ enum VideoType.9 9
 - thing SyndicatedArticle.preview
 - thing ArchiveNoteInput
 - thing BatchImportInput
-- thing CreateNoteFromQuoteInput
-- thing CreateNoteFromQuoteMarkdownInput
 - thing CreateNoteInput
 - thing EditNoteContentInput
 - thing EditNoteContentMarkdownInput

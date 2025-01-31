@@ -29,4 +29,5 @@ const val DefaultPageSize = 30
 val DefaultPagingConfig = PagingConfig(
     pageSize = DefaultPageSize,
     initialLoadSize = DefaultPageSize,
+    enablePlaceholders = false,
 )

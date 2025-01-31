@@ -219,7 +219,7 @@ class DeleteAccountFragment : AbsPocketFragment() {
 
             with(cancelPremiumLabel) {
                 applyAnnotations()
-                setMovementMethodForLinks()
+                setMovementMethodForLinks(true)
             }
 
             cancelPremiumCheckbox.setOnCheckedChangeListener { _, isChecked ->

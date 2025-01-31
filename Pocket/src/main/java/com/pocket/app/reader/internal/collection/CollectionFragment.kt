@@ -19,10 +19,9 @@ import com.pocket.app.auth.AuthenticationActivity
 import com.pocket.app.home.slates.overflow.RecommendationOverflowBottomSheetFragment
 import com.pocket.app.reader.Reader
 import com.pocket.app.reader.ReaderFragment
-import com.pocket.sdk.api.value.MarkdownString
 import com.pocket.sdk.tts.Listen
 import com.pocket.sdk.util.AbsPocketFragment
-import com.pocket.sdk.util.MarkdownHandler
+import com.pocket.sdk.util.MarkdownFormatter
 import com.pocket.util.android.FormFactor
 import com.pocket.util.android.navigateSafely
 import com.pocket.util.android.view.InstantChangeItemAnimator
@@ -50,7 +49,7 @@ class CollectionFragment : AbsPocketFragment(), Reader.NavigationEventHandler {
     private val binding: FragmentCollectionBinding
         get() = _binding!!
 
-    private lateinit var markdownHandler: MarkdownHandler
+    private lateinit var markdown: MarkdownFormatter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,7 +71,7 @@ class CollectionFragment : AbsPocketFragment(), Reader.NavigationEventHandler {
         super.onViewCreated(view, savedInstanceState)
         Log.d("Navigation", "CollectionFragment")
         tracker.track(CollectionEvents.screenView())
-        markdownHandler = MarkdownHandler(requireContext()) { readerFragment?.openUrl(it) }
+        markdown = MarkdownFormatter(requireContext()) { _, url -> readerFragment?.openUrl(url) }
         setupUiStateListener()
         setupToolbar()
         setupRecyclerView()
@@ -122,8 +121,9 @@ class CollectionFragment : AbsPocketFragment(), Reader.NavigationEventHandler {
 
     private fun setupUiStateListener() {
         viewModel.uiState.collectWhenResumed(viewLifecycleOwner) { uiState ->
-            with(markdownHandler) {
-                uiState.intro?.let { binding.intro.setMarkdownString(MarkdownString(uiState.intro)) }
+            uiState.intro?.let {
+                binding.intro.setMovementMethodForLinks(true)
+                binding.intro.text = markdown.format(it)
             }
         }
     }
@@ -132,7 +132,7 @@ class CollectionFragment : AbsPocketFragment(), Reader.NavigationEventHandler {
         binding.storyList.adapter = CollectionStoryAdapter(
             viewLifecycleOwner = viewLifecycleOwner,
             viewModel = viewModel,
-            markdown = markdownHandler,
+            markdown = markdown,
             corpusRecommendationId = args.url,
         )
         binding.storyList.itemAnimator = InstantChangeItemAnimator()

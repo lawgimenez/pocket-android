@@ -3,9 +3,6 @@ package com.pocket.app;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.InputFilter;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.style.ClickableSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -23,7 +20,6 @@ import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
 import com.ideashower.readitlater.R;
 import com.pocket.app.settings.Theme;
-import com.pocket.sdk.api.generated.enums.CxtView;
 import com.pocket.sdk.offline.cache.AssetUser;
 import com.pocket.sdk.util.AbsPocketActivity;
 import com.pocket.sdk2.view.LazyAssetBitmap;
@@ -47,9 +43,7 @@ import com.pocket.ui.view.menu.MenuItem;
 import com.pocket.ui.view.menu.ThemedPopupMenu;
 import com.pocket.ui.view.notification.ItemSnackbarView;
 import com.pocket.ui.view.notification.PktSnackbar;
-import com.pocket.ui.view.progress.skeleton.row.SkeletonActivityRow;
 import com.pocket.ui.view.progress.skeleton.row.SkeletonItemRow;
-import com.pocket.ui.view.progress.skeleton.row.SkeletonItemTileRow;
 import com.pocket.ui.view.settings.SettingsImportantButton;
 import com.pocket.util.android.FormFactor;
 import com.pocket.util.android.ViewUtil;
@@ -80,12 +74,7 @@ public class PocketUiPlaygroundActivity extends AbsPocketActivity {
 		}
 		Toast.makeText(PocketUiPlaygroundActivity.this, message, Toast.LENGTH_SHORT).show();
 	};
-	
-	@Override
-	public CxtView getActionViewName() {
-		return null;
-	}
-	
+
 	@Override
 	protected ActivityAccessRestriction getAccessType() {
 		return ActivityAccessRestriction.ANY;
@@ -137,7 +126,6 @@ public class PocketUiPlaygroundActivity extends AbsPocketActivity {
 		});
 
 		LazyBitmap image = new LazyAssetBitmap("https://apod.nasa.gov/apod/image/1808/SoulNebula_Vargas_960.jpg", AssetUser.forSession());
-		LazyBitmap profile = image;
 		if (itemImagesState == 1) {
 			image = null;
 		} else if (itemImagesState == 2) {
@@ -255,24 +243,14 @@ public class PocketUiPlaygroundActivity extends AbsPocketActivity {
 
 		// skeleton views
 		// swap out the current one with a new one, refreshing all the random elements of the skeleton views / paragraphs
-		View.OnClickListener swapListener = new View.OnClickListener() {
+		findViewById(com.pocket.ui.R.id.skeleton1).setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View v) {
-				View row;
-				if (v instanceof SkeletonItemRow) {
-					row = new SkeletonItemRow(PocketUiPlaygroundActivity.this);
-				} else if (v instanceof SkeletonActivityRow) {
-					row = new SkeletonActivityRow(PocketUiPlaygroundActivity.this);
-				} else {
-					row = new SkeletonItemTileRow(PocketUiPlaygroundActivity.this);
-				}
+			public void onClick(View v1) {
+				View row = new SkeletonItemRow(PocketUiPlaygroundActivity.this);
 				row.setOnClickListener(this);
-				PocketUIViewUtil.replaceView(v, row);
+				PocketUIViewUtil.replaceView(v1, row);
 			}
-		};
-		findViewById(com.pocket.ui.R.id.skeleton1).setOnClickListener(swapListener);
-		findViewById(com.pocket.ui.R.id.skeleton2).setOnClickListener(swapListener);
-		findViewById(com.pocket.ui.R.id.skeleton3).setOnClickListener(swapListener);
+		});
 
 		// Highlights
 		((HighlightView)findViewById(com.pocket.ui.R.id.highlight1)).bind().highlight("This is a short highlight.");
@@ -449,14 +427,6 @@ public class PocketUiPlaygroundActivity extends AbsPocketActivity {
 		} else {
 			return super.getThemeState(view);
 		}
-	}
-	
-	private static SpannableStringBuilder clickable(CharSequence text) {
-		SpannableStringBuilder sp = new SpannableStringBuilder(text);
-		sp.setSpan(new ClickableSpan() {
-			@Override public void onClick(View widget) {}
-		}, 0, sp.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-		return sp;
 	}
 
 	@Override

@@ -27,7 +27,7 @@ import com.pocket.app.list.list.MyListAdapter
 import com.pocket.app.list.list.MyListPagingScrollListener
 import com.pocket.app.list.list.loading.SkeletonListFadeAnimator
 import com.pocket.app.list.list.overflow.ItemOverflowBottomSheetFragment
-import com.pocket.app.list.notes.NotesList
+import com.pocket.app.list.notes.Notes
 import com.pocket.app.list.search.RecentSearchAdapter
 import com.pocket.app.list.tags.TagBottomSheetFragment
 import com.pocket.app.premium.Premium
@@ -279,7 +279,7 @@ class MyListFragment : AbsPocketFragment() {
 
     private fun setupNotesList() {
         binding.notes.setContent {
-            NotesList()
+            Notes(this::findNavController)
         }
     }
 

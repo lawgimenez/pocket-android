@@ -251,6 +251,7 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.runtime)
     implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.viewbinding)
     implementation(libs.accompanist.drawablepainter)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.material3.adaptive)
@@ -260,6 +261,7 @@ dependencies {
     implementation(libs.androidx.fragment.compose)
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.paging)
+    implementation(libs.androidx.paging.compose)
 
     implementation(libs.androidx.browser)
     implementation(libs.androidx.media)

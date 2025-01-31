@@ -8,7 +8,7 @@ package com.pocket.sdk.api.value
 data class MarkdownString(val value: String) {
     /**
      * Platforms (like Android) use this to supply a platform specific way to parse the raw
-     * html string into a platform specific parsed type T.
+     * markdown string into a platform specific parsed type T.
      */
     fun interface Parser<T> {
         fun parse(mdString: MarkdownString): T
