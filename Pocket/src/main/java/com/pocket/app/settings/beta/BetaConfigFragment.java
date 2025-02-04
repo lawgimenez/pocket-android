@@ -8,12 +8,12 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.ideashower.readitlater.BuildConfig;
 import com.ideashower.readitlater.R;
 import com.pocket.app.PocketSingleton;
 import com.pocket.app.PocketUiPlaygroundActivity;
-import com.pocket.app.QuickToast;
 import com.pocket.app.settings.AbsPrefsFragment;
 import com.pocket.app.settings.view.preferences.ActionPreference;
 import com.pocket.app.settings.view.preferences.MultipleChoicePreference;
@@ -30,7 +30,6 @@ import com.pocket.sdk.api.generated.thing.UserMessageButton;
 import com.pocket.sdk.api.thing.AccountUtil;
 import com.pocket.sdk.api.value.Timestamp;
 import com.pocket.sdk.dev.AppTransplant;
-import com.pocket.sdk.http.HttpClientDelegate;
 import com.pocket.sdk.network.eclectic.EclecticHttp;
 import com.pocket.sdk.preferences.AppPrefs;
 import com.pocket.ui.view.edittext.LabeledEditText;
@@ -235,10 +234,10 @@ public class BetaConfigFragment extends AbsPrefsFragment {
 					.setOnItemSelectedListener(newValue -> {
 						switch (newValue) {
 							case 0:
-								QuickToast.show("Retrieving your latest account info from server...");
+								toast("Retrieving your latest account info from server...");
 								pocket().syncRemote(AccountUtil.getuser(pocket().spec()))
-										.onSuccess(r -> QuickToast.show("Premium Status reset back to Actual"))
-										.onFailure(e -> QuickToast.show("Couldn't load actual status, make sure you are online and try again"));
+										.onSuccess(r -> toast("Premium Status reset back to Actual"))
+										.onFailure(e -> toast("Couldn't load actual status, make sure you are online and try again"));
 								break;
 							case 1:
 								pocket().sync(null, pocket().spec().actions().fake_premium_status()
@@ -247,7 +246,7 @@ public class BetaConfigFragment extends AbsPrefsFragment {
 										.premium_alltime_status(PremiumAllTimeStatus.ACTIVE)
 										.time(Timestamp.now())
 										.build());
-								QuickToast.show("Note: This does not effect your actual status. If the app syncs the latest account info, this fake status will be overridden back to the real one.");
+								toast("Note: This does not effect your actual status. If the app syncs the latest account info, this fake status will be overridden back to the real one.");
 								break;
 							case 2:
 								pocket().sync(null, pocket().spec().actions().fake_premium_status()
@@ -256,7 +255,7 @@ public class BetaConfigFragment extends AbsPrefsFragment {
 										.premium_alltime_status(PremiumAllTimeStatus.NEVER)
 										.time(Timestamp.now())
 										.build());
-								QuickToast.show("Note: This does not effect your actual status. If the app syncs the latest account info, this fake status will be overridden back to the real one.");
+								toast("Note: This does not effect your actual status. If the app syncs the latest account info, this fake status will be overridden back to the real one.");
 								break;
 						}
 					})
@@ -272,7 +271,7 @@ public class BetaConfigFragment extends AbsPrefsFragment {
 
 		prefs.add(PreferenceViews.newToggleSwitchBuilder(this, appPrefs.DEVCONFIG_SNACKBAR_ALWAYS_SHOW_URL_CR, "Always show Continue Reading and URL Save")
 				.setSummaryDefaultUnchecked("Always show the Continue Reading and URL Clipboard save snackbars on app start")
-				.setOnChangeListener(n -> QuickToast.show("Exit and restart the app to view."))
+				.setOnChangeListener(n -> toast("Exit and restart the app to view."))
 				.build());
 
 		prefs.add(PreferenceViews.newActionBuilder(this, "Edit Fake Device Info for Login")
@@ -441,16 +440,16 @@ public class BetaConfigFragment extends AbsPrefsFragment {
 		prefs.add(PreferenceViews.newActionBuilder(this, "App Transplant")
 				.setOnClickListener(
 						() -> {
-							QuickToast.show("Copying...");
+							toast("Copying...");
 							new AppTransplant(getContext()).create();
-							QuickToast.show("Copied. Be sure to tap Clear Transplant after sending it.");
+							toast("Copied. Be sure to tap Clear Transplant after sending it.");
 						})
 				.build());
 		
 		prefs.add(PreferenceViews.newActionBuilder(this, "Clear Transplant")
 				.setOnClickListener(() -> {
 					new AppTransplant(getContext()).clear();
-					QuickToast.show("Cleared");
+					toast("Cleared");
 				})
 				.build());
 	}
@@ -466,6 +465,13 @@ public class BetaConfigFragment extends AbsPrefsFragment {
 					PPActivity.triggerRebirth(getActivity());
 				})
 				.show();
+	}
+
+	private void toast(CharSequence text) {
+		var context = getContext();
+		if (context != null) {
+			Toast.makeText(context, text, Toast.LENGTH_LONG).show();
+		}
 	}
 	
 	@Override

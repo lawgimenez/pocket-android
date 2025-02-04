@@ -136,7 +136,9 @@ public class PocketUrlHandlerActivity extends FragmentActivity {
             @Override
             public void onTimeout(Timeout timeout) {
                 if (!isFinishing()) {
-                    mLoadingToast = QuickToast.show(R.string.dg_loading, mLoadingToast);
+                    if (mLoadingToast == null) {
+                        mLoadingToast = Toast.makeText(PocketUrlHandlerActivity.this, R.string.dg_loading, Toast.LENGTH_LONG);
+                    }
                     mLoadingToast.show();
                 }
             }
