@@ -7,7 +7,6 @@ import com.pocket.ui.view.menu.ThemedPopupMenu
 
 object OverflowBuilder {
 
-    @Suppress("LongMethod", "KotlinConstantConditions")
     fun showOverflow(
         anchorView: View,
         overflowUiState: ReaderToolbar.ToolbarOverflowUiState,
@@ -18,7 +17,6 @@ object OverflowBuilder {
         if (overflowUiState.textSettingsVisible) menuItems.add(
             MenuItem(
                 R.string.mu_display_settings,
-                menuItems.size,
                 com.pocket.ui.R.drawable.ic_pkt_text_style_solid
             ) {
                 toolbarInteractions.onTextSettingsClicked()
@@ -28,7 +26,6 @@ object OverflowBuilder {
         if (overflowUiState.viewOriginalVisible) menuItems.add(
             MenuItem(
                 R.string.mu_view_original,
-                menuItems.size,
                 com.pocket.ui.R.drawable.ic_pkt_web_view_line
             ) {
                 toolbarInteractions.onViewOriginalClicked()
@@ -38,7 +35,6 @@ object OverflowBuilder {
         if (overflowUiState.refreshVisible) menuItems.add(
             MenuItem(
                 R.string.mu_refresh,
-                menuItems.size,
                 com.pocket.ui.R.drawable.ic_pkt_refresh_line
             ) {
                 toolbarInteractions.onRefreshClicked()
@@ -48,7 +44,6 @@ object OverflowBuilder {
         if (overflowUiState.findInPageVisible) menuItems.add(
             MenuItem(
                 R.string.mu_find_in_page,
-                menuItems.size,
                 com.pocket.ui.R.drawable.ic_pkt_search_line
             ) {
                 toolbarInteractions.onFindInPageClicked()
@@ -58,7 +53,6 @@ object OverflowBuilder {
         if (overflowUiState.favoriteVisible) menuItems.add(
             MenuItem(
                 R.string.mu_favorite,
-                menuItems.size,
                 com.pocket.ui.R.drawable.ic_pkt_favorite_line
             ) {
                 toolbarInteractions.onFavoriteClicked()
@@ -68,7 +62,6 @@ object OverflowBuilder {
         if (overflowUiState.unfavoriteVisible) menuItems.add(
             MenuItem(
                 R.string.mu_unfavorite,
-                menuItems.size,
                 com.pocket.ui.R.drawable.ic_pkt_favorite_solid
             ) {
                 toolbarInteractions.onUnfavoriteClicked()
@@ -78,7 +71,6 @@ object OverflowBuilder {
         if (overflowUiState.addTagsVisible) menuItems.add(
             MenuItem(
                 R.string.mu_add_tags,
-                menuItems.size,
                 com.pocket.ui.R.drawable.ic_pkt_add_tags_line
             ) {
                 toolbarInteractions.onAddTagsClicked()
@@ -88,7 +80,6 @@ object OverflowBuilder {
         if (overflowUiState.highlightsVisible) menuItems.add(
             MenuItem(
                 R.string.mu_annotations,
-                menuItems.size,
                 com.pocket.ui.R.drawable.ic_pkt_highlights_line
             ) {
                 toolbarInteractions.onHighlightsClicked()
@@ -98,7 +89,6 @@ object OverflowBuilder {
         if (overflowUiState.markAsNotViewedVisible) menuItems.add(
             MenuItem(
                 com.pocket.ui.R.string.ic_mark_as_not_viewed,
-                menuItems.size,
                 com.pocket.ui.R.drawable.ic_viewed_not
             ) {
                 toolbarInteractions.onMarkAsNotViewedClicked()
@@ -108,7 +98,6 @@ object OverflowBuilder {
         if (overflowUiState.deleteVisible) menuItems.add(
             MenuItem(
                 R.string.mu_delete,
-                menuItems.size,
                 com.pocket.ui.R.drawable.ic_pkt_delete_line
             ) {
                 toolbarInteractions.onDeleteClicked()
@@ -118,7 +107,6 @@ object OverflowBuilder {
         if (overflowUiState.reportArticleVisible) menuItems.add(
             MenuItem(
                 R.string.mu_report_article_view,
-                menuItems.size,
                 com.pocket.ui.R.drawable.ic_pkt_error_line
             ) {
                 toolbarInteractions.onReportArticleClicked()

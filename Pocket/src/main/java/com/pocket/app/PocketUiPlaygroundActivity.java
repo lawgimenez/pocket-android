@@ -110,18 +110,18 @@ public class PocketUiPlaygroundActivity extends AbsPocketActivity {
 			}
 			new ThemedPopupMenu(v.getContext(),
 					ThemedPopupMenu.Section.radio("Theme", themeSelected, Arrays.asList(
-							new MenuItem(com.pocket.ui.R.string.light, 1, 0, view -> setThemeOverride(Theme.STATE_LIGHT, Theme.LIGHT)),
-							new MenuItem(com.pocket.ui.R.string.dark, 1, 0, view -> setThemeOverride(Theme.STATE_DARK, Theme.DARK)))),
+							new MenuItem(com.pocket.ui.R.string.light, 0, view -> setThemeOverride(Theme.STATE_LIGHT, Theme.LIGHT)),
+							new MenuItem(com.pocket.ui.R.string.dark, 0, view -> setThemeOverride(Theme.STATE_DARK, Theme.DARK)))),
 					ThemedPopupMenu.Section.radio("Interactions", isAllDisabled ? 1 : 0, Arrays.asList(
-							new MenuItem(R.string.dev_enabled, 1, 0, view -> setEnabledOverride(true)),
-							new MenuItem(R.string.dev_disabled, 1, 0, view -> setEnabledOverride(false)))),
+							new MenuItem(R.string.dev_enabled, 0, view -> setEnabledOverride(true)),
+							new MenuItem(R.string.dev_disabled, 0, view -> setEnabledOverride(false)))),
 					ThemedPopupMenu.Section.radio("Item Images", itemImagesState, Arrays.asList(
-							new MenuItem(R.string.dev_images, 1, 0, view -> setItemImagesState(0)),
-							new MenuItem(R.string.dev_no_images, 1, 0, view -> setItemImagesState(1)),
-							new MenuItem(R.string.dev_placeholders, 1, 0, view -> setItemImagesState(2)))),
+							new MenuItem(R.string.dev_images, 0, view -> setItemImagesState(0)),
+							new MenuItem(R.string.dev_no_images, 0, view -> setItemImagesState(1)),
+							new MenuItem(R.string.dev_placeholders, 0, view -> setItemImagesState(2)))),
 					ThemedPopupMenu.Section.radio("Item Mode", itemMode, Arrays.asList(
-							new MenuItem(R.string.dev_normal, 1, 0, view -> setItemMode(0)),
-							new MenuItem(R.string.dev_edit, 1, 0, view -> setItemMode(1))))
+							new MenuItem(R.string.dev_normal, 0, view -> setItemMode(0)),
+							new MenuItem(R.string.dev_edit, 0, view -> setItemMode(1))))
 			).show(v);
 		});
 

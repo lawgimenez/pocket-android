@@ -70,7 +70,6 @@ class TagBottomSheetFragment : AbsPocketBottomSheetDialogFragment() {
                     listOf(
                         MenuItem(
                             com.pocket.ui.R.string.ic_edit,
-                            R.menu.menu_tag_bottom_sheet_overflow,
                             com.pocket.ui.R.drawable.ic_pkt_pencil_line
                         ) {
                             viewModel.onEditClicked()

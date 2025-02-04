@@ -8,6 +8,7 @@ import com.pocket.analytics.ContentOpenTracker
 import com.pocket.analytics.Tracker
 import com.pocket.analytics.appevents.SavesEvents
 import com.pocket.analytics.appevents.SavesTab
+import com.pocket.app.list.MyListViewModel.OnAddClick.*
 import com.pocket.app.list.list.ListManager
 import com.pocket.app.list.list.ListStatus
 import com.pocket.app.notes.Notes
@@ -80,6 +81,9 @@ class MyListViewModel @Inject constructor(
     // to get the current search text the list is using, try listManager.sortFilterState.value.search
     private var delayedSearchText = ""
 
+    private enum class OnAddClick { JustOpenAddUrl, ShowChoiceBetweenAddUrlAndAddNote }
+    private var onAddClick = JustOpenAddUrl
+
     init {
         setupListSortObserver()
         setupListManagerStateObserver()
@@ -87,12 +91,17 @@ class MyListViewModel @Inject constructor(
         setupTagListener()
         setupRecentSearchesListener()
         viewModelScope.launch {
+            val notesEnabled = notes.areEnabled()
             _uiState.update {
                 it.copy(
                     filterCarouselState = it.filterCarouselState.copy(
-                        notesFilterVisible = notes.areEnabled(),
+                        notesFilterVisible = notesEnabled,
                     ),
                 )
+            }
+            onAddClick = when (notesEnabled) {
+                true -> ShowChoiceBetweenAddUrlAndAddNote
+                false -> JustOpenAddUrl
             }
         }
     }
@@ -350,8 +359,25 @@ class MyListViewModel @Inject constructor(
     override fun onAddClicked() {
         tracker.track(SavesEvents.addButtonClicked())
         requireSignedIn {
-            _navigationEvents.tryEmit(MyListNavigationEvent.ShowAddUrlBottomSheet)
+            when (onAddClick) {
+                JustOpenAddUrl -> {
+                    _navigationEvents.tryEmit(MyListNavigationEvent.ShowAddUrlBottomSheet)
+                }
+                ShowChoiceBetweenAddUrlAndAddNote -> {
+                    _navigationEvents.tryEmit(MyListNavigationEvent.ShowAddMenu)
+                }
+            }
         }
+    }
+
+    override fun onAddUrlClicked() {
+        // TODO(notes): tracker.track(…)
+        _navigationEvents.tryEmit(MyListNavigationEvent.ShowAddUrlBottomSheet)
+    }
+
+    override fun onAddNoteClicked() {
+        // TODO(notes): tracker.track(…)
+        // TODO(notes) POCKET-10881
     }
 
     override fun onMyListChipClicked() {
@@ -434,7 +460,7 @@ class MyListViewModel @Inject constructor(
         }
     }
 
-    fun onNotesChipClicked() {
+    override fun onNotesChipClicked() {
         if (exitEditMode()) return
         // TODO(notes): tracker.track(…)
         requireSignedIn {
@@ -954,9 +980,10 @@ enum class BadgeType {
 }
 
 sealed class MyListNavigationEvent {
-    data object ShowAddUrlBottomSheet: MyListNavigationEvent()
-    object ShowTagBottomSheet: MyListNavigationEvent()
-    object ShowFilterBottomSheet: MyListNavigationEvent()
+    data object ShowAddMenu : MyListNavigationEvent()
+    data object ShowAddUrlBottomSheet : MyListNavigationEvent()
+    data object ShowTagBottomSheet : MyListNavigationEvent()
+    data object ShowFilterBottomSheet : MyListNavigationEvent()
 
     data class ShowBulkEditOverflowBottomSheet(
         val items: List<Item>
@@ -1001,12 +1028,15 @@ interface MyListInteractions {
     fun onFilterChipClicked()
     fun onBackButtonClicked(): Boolean
     fun onAddClicked()
+    fun onAddUrlClicked()
+    fun onAddNoteClicked()
     fun onMyListChipClicked()
     fun onArchiveChipClicked()
     fun onAllChipClicked()
     fun onTaggedChipClicked()
     fun onFavoritesChipClicked()
     fun onHighlightsChipClicked()
+    fun onNotesChipClicked()
     fun onEditChipClicked()
     fun onSelectedTagChipClicked()
     fun onSelectedFilterChipClicked()
