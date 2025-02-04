@@ -19,7 +19,7 @@ class Home {
             corpusRecommendationId: String?,
         )
         fun onSeeAllRecommendationsClicked(
-            slateId: String,
+            index: Int,
             slateTitle: String
         )
         fun onSaveClicked(url: String, isSaved: Boolean, corpusRecommendationId: String?)
@@ -70,7 +70,7 @@ class Home {
         data object GoToMyList : Event()
 
         data class GoToSlateDetails(
-            val slateId: String,
+            val index: Int,
         ) : Event()
 
         data class GoToTopicDetails(

@@ -39,7 +39,7 @@ class SlateDetailsFragment : DetailsFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.onInitialized(args.slateId)
+        viewModel.onInitialized(args.index)
     }
 
     override fun goToReader(event: DetailsViewModel.Event.GoToReader) {

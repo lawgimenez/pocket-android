@@ -15,8 +15,8 @@ plugins {
 }
 
 val versionMajor = 8 // Max value of 200
-val versionMinor = 31 // Max of two digits
-val versionPatch = 0 // Max of two digits
+val versionMinor = 32 // Max of two digits
+val versionPatch = 1 // Max of two digits
 val versionBuild = 0 // Max of three digits
 
 // See usage and more details below, but this produces version numbers like 6.2.4.1 and codes like 60204001
@@ -63,28 +63,13 @@ android {
         versionName = "$versionMajor.$versionMinor.$versionPatch.$versionBuild"
 
         vectorDrawables.useSupportLibrary = true // https://medium.com/@chrisbanes/appcompat-v23-2-age-of-the-vectors-91cbafa87c88#.m9i38hx27
-        resourceConfigurations.addAll(
-            arrayOf(
-                "de",
-                "es",
-                "es-rES",
-                "fr",
-                "fr-rCA",
-                "it",
-                "ja",
-                "ko",
-                "nl",
-                "pl",
-                "pt",
-                "pt-rBR",
-                "ru",
-                "zh",
-                "zh-rCN",
-                "zh-rTW"
-            )
-        )
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    androidResources {
+        localeFilters += listOf("de", "es", "es-rES", "fr", "fr-rCA", "it", "ja", "ko", "nl", "pl", "pt", "pt-rBR", "ru", "zh", "zh-rCN", "zh-rTW")
+        generateLocaleConfig = true
     }
 
     flavorDimensions.add(FlavorDimensions.TARGET)
@@ -344,6 +329,14 @@ dependencies {
     implementation(platform(libs.sentry.bom))
     implementation(libs.sentry)
     implementation(libs.sentry.okhttp)
+}
+
+kapt {
+    arguments {
+        arg("dagger.fastInit", "enabled")
+        arg("dagger.useBindingGraphFix", "ENABLED")
+        arg("dagger.ignoreProvisionKeyWildcards", "ENABLED")
+    }
 }
 
 registerCopyMergedManifestTask()

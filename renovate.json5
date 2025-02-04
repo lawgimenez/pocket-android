@@ -1,0 +1,82 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    // Use a set of Pocket-wide defaults.
+    // See https://github.com/Pocket/renovate-config for more details and documentation.
+    'local>Pocket/renovate-config',
+  ],
+  ignorePaths: [
+    // Ignore our legacy dependency definitions in `buildSrc`,
+    // while we gradually migrate to version catalog.
+    'buildSrc/src/main/kotlin/Deps.kt',
+  ],
+  ignorePresets: [
+    // Ignore the default setting from https://github.com/Pocket/renovate-config
+    // and allow opening PRs without approval.
+    ':dependencyDashboardApproval',
+  ],
+  packageRules: [
+    // Amend the default config from https://github.com/Pocket/renovate-config
+    // and allow auto-merging minor version updates as well.
+    // This means only major updates will stay open to let a human decide before merging.
+    {
+      matchUpdateTypes: ['minor', 'patch', 'pin', 'digest'],
+      automerge: true,
+    },
+    // Tweak the default commit message a bit to cut a redundant word from already pretty long messages.
+    {
+      matchManagers: ['gradle', 'gradle-wrapper'],
+      commitMessageTopic: '{{depName}}',
+    },
+    // Use a custom R8 datasource, because R8 repository is not a full Maven repository
+    // and doesn't expose available versions for Renovate.
+    {
+      matchPackageNames: [
+        'com.android.tools:r8'
+      ],
+      overrideDatasource: 'custom.r8',
+      registryUrls: [
+        'https://r8.googlesource.com/r8/+log/refs/heads/8.8/src/main/java/com/android/tools/r8/Version.java?format=HTML'
+      ],
+    },
+  ],
+  customManagers: [
+    // Update .java-version file with the latest JDK version.
+    {
+      customType: 'regex',
+      fileMatch: [
+        '\\.java-version$',
+      ],
+      matchStrings: [
+        '(?<currentValue>.*)\\n',
+      ],
+      datasourceTemplate: 'java-version',
+      depNameTemplate: 'java',
+      depTypeTemplate: '',
+      // Only write the major version.
+      extractVersionTemplate: '^(?<version>\\d+)',
+    },
+  ],
+  customDatasources: {
+    // Check the available r8 versions from a specific release branch in the r8 repository,
+    // by extracting them from commit messages.
+    r8: {
+      // Workaround: This requests an HTML response (via the query parameter in the URL),
+      // but instructs Renovate to treat it as plain text, to do some custom processing
+      // with JSONata and regex, instead of relying on the default HTML processing.
+      format: 'plain',
+      transformTemplates: [
+        '{\
+            "releases": $split(releases[0].version, "<li class=\\"CommitLog-item ")\
+                .($match(/([^"\\/]+)">Version ([0-9\\.]+)<\\/a>/))\
+                .{\
+                    "digest": groups[0],\
+                    "version": groups[1],\
+                    "isStable": true\
+                },\
+            "sourceUrl": "https://r8.googlesource.com/r8/"\
+        }'
+      ],
+    }
+  },
+}

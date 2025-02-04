@@ -27,12 +27,4 @@ public class ErrorReport {
 			this.activity = null;
 		}
 	}
-	
-	/**
-	 * @deprecated try to use {@link ErrorReport#ErrorReport(Throwable, String)} so it is clear what was shown to the user
-	 */
-	public ErrorReport(Throwable t) {
-		this(t, null);
-	}
-
 }
