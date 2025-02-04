@@ -3,8 +3,8 @@
     package="com.ideashower.readitlater.pro"
     android:installLocation="auto"
     android:targetSandboxVersion="2"
-    android:versionCode="83201000"
-    android:versionName="8.32.1.0" >
+    android:versionCode="83300000"
+    android:versionName="8.33.0.0" >
 
     <uses-sdk
         android:minSdkVersion="23"
@@ -668,7 +668,14 @@
             <intent-filter>
                 <action android:name="com.braze.FLUSH_EVENTS" />
             </intent-filter>
-        </receiver> <!-- 'android:authorities' must be unique in the device, across all apps -->
+        </receiver>
+
+        <uses-library
+            android:name="androidx.window.extensions"
+            android:required="false" />
+        <uses-library
+            android:name="androidx.window.sidecar"
+            android:required="false" /> <!-- 'android:authorities' must be unique in the device, across all apps -->
         <provider
             android:name="io.sentry.android.core.SentryInitProvider"
             android:authorities="com.ideashower.readitlater.pro.SentryInitProvider"
@@ -678,13 +685,6 @@
             android:authorities="com.ideashower.readitlater.pro.SentryPerformanceProvider"
             android:exported="false"
             android:initOrder="200" />
-
-        <uses-library
-            android:name="androidx.window.extensions"
-            android:required="false" />
-        <uses-library
-            android:name="androidx.window.sidecar"
-            android:required="false" />
 
         <receiver
             android:name="androidx.profileinstaller.ProfileInstallReceiver"
