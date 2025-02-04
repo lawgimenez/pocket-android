@@ -588,6 +588,9 @@
 	<string name="empty_list_archive_title">Keep your list fresh and clean</string>
 	<string name="empty_list_archive_message">Archive the saves you\'re finished with using the archive icon.</string>
 	<string name="empty_list_archive_action">How to archive</string>
+	<string name="empty_list_notes_title">Find your notes here</string>
+	<string name="empty_list_notes_message">Tap on the plus icon above or the button below to add a note.</string>
+	<string name="empty_list_notes_action">Create Note</string>
 	
 	<string name="time_to_read_filter_short">Short</string>
 	<string name="time_to_read_filter_short_description">Less than 10 min</string>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- smartling.instruction_attributes = comment -->
 <!-- smartling.placeholder_format_custom = \{[a-zA-Z0-9_-]+\}-->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- LABELS, TITLES & NAMES - Prefix: nm  -->
     <string name="nm_add_to_ril" comment="try to use a string starting with A or just leave Pocket">Dodaj do Pocketa</string>
 	
@@ -589,9 +589,9 @@
 	<string name="my_list_filter_all">Wszystkie</string>
 	<string name="my_list_filter_tagged">Otagowane</string>
 	<string name="my_list_filter_favorites">Ulubione</string>
+	<string name="my_list_filter_notes">Uwagi</string>
 	<string name="my_list_filter_filter">Filtry</string>
 	<string name="my_list_filter_edit">Edytuj</string>
-	<string name="my_list_filter">Filtruj</string>
 	<string name="edit_tags">Edytuj tagi</string>
 	<string name="move_to_my_list">Przejdź do Zapisanych</string>
 	<string name="highlighted">Wyróżnione</string>
@@ -610,6 +610,9 @@
 	<string name="empty_list_archive_title">Utrzymuj porządek na swojej liście</string>
 	<string name="empty_list_archive_message">Zarchiwizuj nieużywane zapisane elementy za pomocą ikony archiwizowania.</string>
 	<string name="empty_list_archive_action">Jak zarchiwizować</string>
+	<string name="empty_list_notes_title">Tutaj znajdziesz swoje notatki</string>
+	<string name="empty_list_notes_message">Dotknij ikony plusa powyżej lub przycisku poniżej, aby dodać notatkę.</string>
+	<string name="empty_list_notes_action">Utwórz notatkę</string>
 	
 	<string name="time_to_read_filter_short">Krótki</string>
 	<string name="time_to_read_filter_short_description">Mniej niż 10 min</string>
@@ -642,6 +645,15 @@
 	<string name="add_url_title">Dodaj adres URL</string>
 	<string name="add_url_hint" comment="Hint for an input field where you can paste a URL to save (add to your saves)">np. https://getpocket.com</string>
 	<string name="add_url_error">Wprowadź prawidłowy adres URL</string>
+	<!-- All the remaining pieces of notes copy, for Smartling to translate in a single job. -->
+	<!-- TODO(notes): remove unused ignores -->
+	<string tools:ignore="UnusedResources" name="add_url_note_hint" comment="Hint for an input field where you can optionally add a note when add a URL to your saves">Notatka (opcjonalnie)</string>
+	<string tools:ignore="UnusedResources" name="add_note_title">Dodaj notatkę</string>
+	<string tools:ignore="UnusedResources" name="add_note_title_hint" comment="Hint for an input field to optionally add a title for a note you&apos;re creating">Tytuł (opcjonalnie)</string>
+	<string tools:ignore="UnusedResources" name="add_note_hint" comment="Hind for an input field where you put the body/content of a note you&apos;re creating">Notatka</string>
+	<string tools:ignore="UnusedResources" name="edit_note_title">Edytuj notatkę</string>
+	<string tools:ignore="UnusedResources" name="delete_note_prompt_title">Usuń notatkę</string>
+	<string tools:ignore="UnusedResources" name="delete_note_prompt_message">Czy na pewno usunąć ten element? Tej czynności nie można cofnąć.</string>
 
 	<string name="authentication_legal_disclaimer" comment="This string uses Markdown formatting. Please preserve the formatting (including TWO spaces before the new line).">"Kontynuując, akceptujesz:  \n[Warunki korzystania z usługi](https://getpocket.com/tos) i [Informację o ochronie prywatności](https://getpocket.com/privacy) Pocket"</string>
 </resources>

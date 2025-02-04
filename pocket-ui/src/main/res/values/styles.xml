@@ -341,36 +341,9 @@
         <item name="colorControlActivated">@color/pkt_themed_teal_2</item>
     </style>
 
-    <style name="Pkt_SkeletonText">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">@dimen/pkt_skeleton_text_height</item>
-        <item name="randomWidthPercentFloor">0.7</item>
-        <item name="randomWidthPercentCeil">1.0</item>
-        <item name="cornerRadius">@dimen/pkt_skeleton_text_corner_radius</item>
-        <item name="compatBackgroundColor">@color/pkt_themed_grey_6</item>
-    </style>
-
-    <style name="Pkt_SkeletonTextTitle" parent="Pkt_SkeletonText">
-        <item name="compatBackgroundColor">@color/pkt_themed_grey_5</item>
-        <item name="randomWidthPercentFloor">0.2</item>
-        <item name="randomWidthPercentCeil">0.7</item>
-    </style>
-
     <style name="Pkt_SkeletonImage">
         <item name="cornerRadius">4dp</item>
         <item name="compatBackgroundColor">@color/pkt_themed_grey_6</item>
-    </style>
-
-    <style name="Pkt_SkeletonAvatar">
-        <item name="android:layout_width">34dp</item>
-        <item name="android:layout_height">34dp</item>
-        <item name="cornerRadius">100dp</item>
-        <item name="compatBackgroundColor">@color/pkt_themed_grey_6</item>
-    </style>
-
-    <style name="Pkt_SkeletonAvatarSmall" parent="Pkt_SkeletonAvatar">
-        <item name="android:layout_width">24dp</item>
-        <item name="android:layout_height">24dp</item>
     </style>
 
 

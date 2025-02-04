@@ -36,11 +36,6 @@ object Deps {
         }
     }
     object Android {
-        object Tools {
-            private const val VERSION = "30.2.1"
-            const val sdkCommon = "com.android.tools:sdk-common:$VERSION"
-            const val common = "com.android.tools:common:$VERSION"
-        }
         object InstallReferrer {
             private const val VERSION = "2.2"
             const val installReferrer = "com.android.installreferrer:installreferrer:$VERSION"

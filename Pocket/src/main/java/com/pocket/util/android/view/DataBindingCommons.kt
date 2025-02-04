@@ -8,8 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import androidx.databinding.BindingAdapter
 import com.pocket.app.App
-import com.pocket.sdk.api.value.MarkdownString
-import com.pocket.sdk.util.MarkdownHandler
+import com.pocket.sdk.util.MarkdownFormatter
 import com.pocket.ui.view.themed.ThemedTextView
 
 @BindingAdapter("visibility")
@@ -37,10 +36,7 @@ fun setTextUnderline(view: TextView, enabled: Boolean) {
 
 @BindingAdapter("textMarkdown")
 fun setTextMarkdown(view: ThemedTextView, markdown: String) {
-    with(MarkdownHandler(view.context) { App.viewUrl(view.context, it) }) {
-        view.setMarkdownString(MarkdownString(markdown))
-    }
-
+    view.text = MarkdownFormatter(view.context, App::viewUrl).format(markdown)
 }
 
 @BindingAdapter("drawableId")

@@ -31,7 +31,7 @@ mutation createNote($input: CreateNoteMarkdownInput!) {
 
 mutation updateNote(
     $id: ID!,
-    $title: String!,
+    $title: String,
     $docMarkdown: Markdown!,
     $updatedAt: ISOString
 ) {

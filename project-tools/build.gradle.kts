@@ -9,9 +9,6 @@ dependencies {
     implementation(Deps.Picocli.picocli)
     kapt(Deps.Picocli.codeGen)
 
-    implementation(Deps.Android.Tools.sdkCommon)
-    implementation(Deps.Android.Tools.common)
-    implementation(Deps.Apache.Commons.commonsLang)
     implementation(Deps.Commons.IO.commonsIo)
 }
 
