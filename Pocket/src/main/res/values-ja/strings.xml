@@ -618,7 +618,7 @@
 	<!-- All the remaining pieces of notes copy, for Smartling to translate in a single job. -->
 	<!-- TODO(notes): remove unused ignores -->
 	<string tools:ignore="UnusedResources" name="add_url_note_hint" comment="Hint for an input field where you can optionally add a note when add a URL to your saves">メモ（オプション）</string>
-	<string tools:ignore="UnusedResources" name="add_note_title">メモを追加</string>
+	<string name="add_note_title">メモを追加</string>
 	<string tools:ignore="UnusedResources" name="add_note_title_hint" comment="Hint for an input field to optionally add a title for a note you&apos;re creating">タイトル（任意）</string>
 	<string tools:ignore="UnusedResources" name="add_note_hint" comment="Hind for an input field where you put the body/content of a note you&apos;re creating">メモ</string>
 	<string tools:ignore="UnusedResources" name="edit_note_title">メモを編集</string>
