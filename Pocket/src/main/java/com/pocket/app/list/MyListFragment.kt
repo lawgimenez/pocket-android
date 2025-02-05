@@ -41,6 +41,8 @@ import com.pocket.sdk.tts.Listen
 import com.pocket.sdk.util.AbsPocketFragment
 import com.pocket.sdk.util.dialog.AlertMessaging
 import com.pocket.sdk2.analytics.context.Interaction
+import com.pocket.ui.view.menu.MenuItem
+import com.pocket.ui.view.menu.ThemedPopupMenu
 import com.pocket.util.android.hideKeyboard
 import com.pocket.util.android.navigateSafely
 import com.pocket.util.android.repeatOnResumed
@@ -130,10 +132,30 @@ class MyListFragment : AbsPocketFragment() {
         return true
     }
 
-    @Suppress("LongMethod", "ComplexMethod")
     private fun setupNavigationEventListener() {
         viewModel.navigationEvents.collectWhenResumed(viewLifecycleOwner) { event ->
             when (event) {
+                is MyListNavigationEvent.ShowAddMenu -> {
+                    val context = context ?: return@collectWhenResumed
+                    val actions = ThemedPopupMenu.Section.actions(
+                        null,
+                        listOf(
+                            MenuItem(
+                                R.string.add_url_title,
+                                0,
+                                { viewModel.onAddUrlClicked() },
+                                null,
+                            ),
+                            MenuItem(
+                                R.string.add_note_title,
+                                0,
+                                { viewModel.onAddNoteClicked() },
+                                null,
+                            ),
+                        ),
+                    )
+                    ThemedPopupMenu(context, actions).show(binding.addButton)
+                }
                 is MyListNavigationEvent.ShowAddUrlBottomSheet -> {
                     AddUrlBottomSheetFragment.newInstance().show(
                         childFragmentManager,
