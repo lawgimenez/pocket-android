@@ -28,8 +28,8 @@ dependencies {
     implementation(libs.okhttp.urlconnection)
     implementation(libs.okio)
 
-    testImplementation(Deps.Jetbrains.Kotlin.test)
-    testImplementation(Deps.Jetbrains.Kotlin.jUnit)
+    testImplementation(libs.kotlin.test)
+    testImplementation(libs.kotlin.junit)
     testImplementation(Deps.Mockito.Kotlin.mockitoKotlin)
     testImplementation(Deps.Commons.Codec.commonsCodec)
     testImplementation(libs.okhttp.mockwebserver)

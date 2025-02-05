@@ -3,14 +3,7 @@
  *
  * Deprecated: We're gradually migrating to version catalog
  */
-@Suppress("MemberNameEqualsClassName")
 object Deps {
-    object Jetbrains {
-        object Kotlin {
-            const val jUnit = "org.jetbrains.kotlin:kotlin-test-junit"
-            const val test = "org.jetbrains.kotlin:kotlin-test-common"
-        }
-    }
     object AndroidX {
         object ViewPager2 {
             private const val VERSION = "1.0.0"

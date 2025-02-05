@@ -44,6 +44,8 @@ dagger-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref
 firebase-bom = { module = "com.google.firebase:firebase-bom", version = "33.8.0" }
 firebase-messaging = { module = "com.google.firebase:firebase-messaging" }
 google-play-billing = { module = "com.android.billingclient:billing-ktx", version = "7.1.1" }
+kotlin-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test-common" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android" }
 kotlinx-coroutines-bom = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-bom", version = "1.10.1" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core" }
