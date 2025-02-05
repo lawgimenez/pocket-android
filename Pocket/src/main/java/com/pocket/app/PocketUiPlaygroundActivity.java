@@ -65,7 +65,7 @@ public class PocketUiPlaygroundActivity extends AbsPocketActivity {
 
 	private ViewGroup fullscreenView;
 
-	private View.OnClickListener badgeClickListener = view -> {
+	private final View.OnClickListener badgeClickListener = view -> {
 		String message;
 		if (view instanceof TextView) {
 			message = ((TextView) view).getText().toString();
@@ -155,8 +155,8 @@ public class PocketUiPlaygroundActivity extends AbsPocketActivity {
 		}
 
 		PreviousNextButtons continuousReading = findViewById(com.pocket.ui.R.id.continuous_reading);
-		continuousReading.onPreviousClick(v -> QuickToast.show("Previous"));
-		continuousReading.onNextClick(v -> QuickToast.show("Next"));
+		continuousReading.onPreviousClick(v -> Toast.makeText(this, "Previous", Toast.LENGTH_LONG).show());
+		continuousReading.onNextClick(v -> Toast.makeText(this, "Next", Toast.LENGTH_LONG).show());
 
 		final String discTitle = "A Simple Way to Map Out your Career Ambitions";
 		final String discDomain = "Ted Ideas";
@@ -327,7 +327,7 @@ public class PocketUiPlaygroundActivity extends AbsPocketActivity {
 				.bindGroup("Best Of", "Best Of", BadgeUtil.getGroupTextColor(this, 1), BadgeUtil.getGroupBadgeColor(this, 1), badgeClickListener)
 				.bindTags(Collections.singletonList("Very long tag that doesn't quite exactly fit"), badgeClickListener);
 
-		View.OnClickListener onClick = v -> QuickToast.show("Tapped " + v);
+		View.OnClickListener onClick = v -> Toast.makeText(this, "Tapped " + v, Toast.LENGTH_LONG).show();
 
 		ItemSnackbarView itemSnackbar = findViewById(com.pocket.ui.R.id.item_snackbar);
 		itemSnackbar.bind().clear()

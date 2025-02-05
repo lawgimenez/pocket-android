@@ -1,10 +1,10 @@
 package com.pocket.sdk.offline.cache;
 
 import android.app.AlertDialog;
+import android.widget.Toast;
 
 import com.ideashower.readitlater.R;
 import com.pocket.app.AppThreads;
-import com.pocket.app.QuickToast;
 import com.pocket.sdk.util.AbsPocketActivity;
 import com.pocket.sdk.util.dialog.ProgressDialogFragment;
 import com.pocket.sdk.util.file.AndroidStorageLocation;
@@ -145,7 +145,7 @@ public class StorageErrorResolver {
                                 final ProgressDialogFragment progress = ProgressDialogFragment.getNew(R.string.dg_changing_data_location, false);
                                 progress.showOnCurrentActivity();
                                 context.app().assets().clearOfflineContent(() -> {
-                                    QuickToast.show(context.getString(R.string.storage_location_changed));
+                                    Toast.makeText(context, R.string.storage_location_changed, Toast.LENGTH_LONG).show();
                                     callback(true, true);
                                 }, null);
                             } catch (AssetDirectoryUnavailableException e) {

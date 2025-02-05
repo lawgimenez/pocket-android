@@ -8,6 +8,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.ideashower.readitlater.R
@@ -15,7 +16,6 @@ import com.ideashower.readitlater.databinding.ViewListenBinding
 import com.pocket.analytics.ItemContent
 import com.pocket.app.App
 import com.pocket.app.PocketApp
-import com.pocket.app.QuickToast
 import com.pocket.sdk.api.generated.enums.CxtSection
 import com.pocket.sdk.api.generated.enums.CxtUi
 import com.pocket.sdk.api.generated.enums.CxtView
@@ -249,7 +249,7 @@ class ListenView @JvmOverloads constructor(context: Context?, attrs: AttributeSe
                     errorControls.pause()
                 }
                 ListenError.EMPTY_LIST -> {
-                    QuickToast.show(R.string.tts_empty_list)
+                    Toast.makeText(context, R.string.tts_empty_list, Toast.LENGTH_LONG).show()
                     errorControls.off()
                 }
                 ListenError.NETWORK_ERROR, ListenError.TIMED_OUT -> {
