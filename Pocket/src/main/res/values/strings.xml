@@ -47,9 +47,7 @@
 	<string name="ac_get_help">Get Help</string>
 	<string name="ac_submit">Submit</string>
 	<string name="ac_write_review" comment="link to leave a review on the application store">Review</string>
-	<string name="ac_no_thanks">No thanks</string>
 	<string name="ac_next">Next</string>
-	<string name="ac_accept">Accept</string>
 	<string name="ac_got_it_caps">GOT IT</string>
 	<string name="ac_continue">Continue</string>
 	<string name="ac_discard_changes">Discard Changes</string>
@@ -264,14 +262,6 @@
 	<string name="listen_error_timeout">Our server is taking too long to respond. Please try again later.</string>
 	<string name="listen_error_media_player">There was an unexpected playback error</string>
 	<string name="listen_error_server">There was a problem playing this article. Try switching to a different voice.</string>
-	
-	<string name="listen_reader_tooltip">Tap to try listening to this article on-the-go</string>
-	<plurals name="listen_my_list_toast_title">
-		<item quantity="other">%2$s️You have %1$d unread articles.</item>
-	</plurals>
-	<string name="listen_my_list_toast_title_5000_plus">%1$s️You have thousands of articles.</string>
-	<string name="listen_my_list_toast_message">Try listening to them and the time will&#160;fly&#160;by.</string>
-	<string name="listen_my_list_toast_button">Try Listen</string>
 	
 	<!-- TTS -->
 	<string name="tts_dg_t">Text to Speech</string>
