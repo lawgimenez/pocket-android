@@ -88,10 +88,6 @@ public class AppPrefs {
 	public final BooleanPreference LISTEN_AUTO_ARCHIVE;
 	public final BooleanPreference SHOW_LISTEN_DATA_ALERT;
 	public final FloatPreference LISTEN_LOWEST_REPORTED_FAILING_SPEED;
-	
-	public final BooleanPreference LISTEN_HAS_SHOWN_INTRO_A;
-	public final BooleanPreference LISTEN_HAS_SHOWN_INTRO_B;
-	public final LongPreference LISTEN_LAST_SHOWN_INTRO_TIME;
 
 	public final BooleanPreference READER_AUTO_FULLSCREEN;
 	public final StringPreference TTS_ENGINE;
@@ -124,8 +120,6 @@ public class AppPrefs {
 	
 	public final BooleanPreference DEVCONFIG_SNACKBAR_ALWAYS_SHOW_URL_CR;
 	public final IntPreference DEVCONFIG_PREMIUM;
-	public final BooleanPreference DEVCONFIG_LISTEN_DISCOVERABILITY_FORCE_A;
-	public final BooleanPreference DEVCONFIG_LISTEN_DISCOVERABILITY_FORCE_B;
 
 	@Inject
 	public AppPrefs(Preferences prefs, @ApplicationContext Context context) {
@@ -173,10 +167,6 @@ public class AppPrefs {
 		LISTEN_AUTO_ARCHIVE = prefs.forUser("lstn_autoarch", false);
 		SHOW_LISTEN_DATA_ALERT = prefs.forUser("lstn_dtalrt", true);
 		LISTEN_LOWEST_REPORTED_FAILING_SPEED = prefs.forApp("lstn_failspd", Float.MAX_VALUE);
-		
-		LISTEN_HAS_SHOWN_INTRO_A = prefs.forUser("lstn_dscvr_a", false);
-		LISTEN_HAS_SHOWN_INTRO_B = prefs.forUser("lstn_dscvr_b", false);
-		LISTEN_LAST_SHOWN_INTRO_TIME = prefs.forUser("lstn_dscvr_tmstmp", 0L);
 
 		READER_AUTO_FULLSCREEN = prefs.forUser("autoFullscreen", true);
 		TTS_ENGINE = prefs.forUser("ttsEngine", (String) null);
@@ -203,8 +193,6 @@ public class AppPrefs {
 		
 		DEVCONFIG_SNACKBAR_ALWAYS_SHOW_URL_CR = prefs.forApp("dcfig_always_show_url_cr", false);
 		DEVCONFIG_PREMIUM = prefs.forUser("dcfig_ps", BetaConfigFragment.DEVCONFIG_PREMIUM_ACTUAL);
-		DEVCONFIG_LISTEN_DISCOVERABILITY_FORCE_A = prefs.forApp("dcfig_lstn_dscvr_a", false);
-		DEVCONFIG_LISTEN_DISCOVERABILITY_FORCE_B = prefs.forApp("dcfig_lstn_dscvr_b", false);
 	}
 	
 	
@@ -214,16 +202,6 @@ public class AppPrefs {
 	 */
 	public boolean deprecateUserBoolean(String key, boolean defaultValue) {
 		boolean value = prefs.forUser(key, defaultValue).get();
-		prefs.remove(key);
-		return value;
-	}
-	
-	/**
-	 * Retrieves a preferences current value and removes it.
-	 * Useful for upgrade paths that need to reference a preference that is no longer going to be used to migrate it.
-	 */
-	public String deprecateUserString(String key, String defaultValue) {
-		String value = prefs.forUser(key, defaultValue).get();
 		prefs.remove(key);
 		return value;
 	}

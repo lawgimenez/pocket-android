@@ -175,5 +175,12 @@ object Forgetter {
         // Post-signup onboarding.
         prefs.remove("all-aboard")
         prefs.remove("temp.android.app.home.onboarding")
+
+        // "Listen Discoverability"
+        prefs.remove("lstn_dscvr_a")
+        prefs.remove("lstn_dscvr_b")
+        prefs.remove("lstn_dscvr_tmstmp")
+        prefs.remove("dcfig_lstn_dscvr_a")
+        prefs.remove("dcfig_lstn_dscvr_b")
     }
 }
