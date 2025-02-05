@@ -24,5 +24,5 @@ dependencies {
     testImplementation(Deps.Mockito.core)
     testImplementation(libs.robolectric)
     testImplementation(Deps.Commons.IO.commonsIo)
-    testImplementation(Deps.Jetbrains.Kotlin.jUnit)
+    testImplementation(libs.kotlin.junit)
 }

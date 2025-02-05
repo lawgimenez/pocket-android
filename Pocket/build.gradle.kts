@@ -313,15 +313,15 @@ dependencies {
 
     testImplementation(Deps.Mockito.core)
     testImplementation(Deps.AssertJ.core)
-    testImplementation(Deps.Jetbrains.Kotlin.jUnit)
+    testImplementation(libs.kotlin.junit)
     testImplementation(Deps.MockK.mockk)
     testImplementation(platform(libs.kotlinx.coroutines.bom))
     testImplementation(libs.kotlinx.coroutines.test)
-    testImplementation(Deps.Jetbrains.Kotlin.test)
+    testImplementation(libs.kotlin.test)
     testImplementation(libs.turbine)
 
     androidTestImplementation(Deps.AndroidX.Test.rules)
-    androidTestImplementation(Deps.Jetbrains.Kotlin.jUnit)
+    androidTestImplementation(libs.kotlin.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
