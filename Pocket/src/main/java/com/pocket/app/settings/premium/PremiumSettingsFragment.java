@@ -243,8 +243,8 @@ public class PremiumSettingsFragment extends AbsPrefsFragment {
 			prefs.add(PreferenceViews.newHeader(this, R.string.prem_setting_premium_header));
 			
 			// Upgrade
-			prefs.add(PreferenceViews.newActionBuilder(this, R.string.prem_setting_upgrade)
-					.setOnClickListener(() -> app().premium().showUpgradeScreen(getActivity(), CxtSource.PREMIUM_SETTINGS))
+			prefs.add(PreferenceViews.newActionBuilder(this, R.string.prem_setting_manage_your_subscription)
+					.setOnClickListener(() -> App.viewUrl(getContext(), "https://play.google.com/store/account/subscriptions"))
 				.build());
 			
 			// Restore
