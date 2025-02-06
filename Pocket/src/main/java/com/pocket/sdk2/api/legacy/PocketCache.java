@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.pocket.app.AppLifecycle;
 import com.pocket.app.AppLifecycleEventDispatcher;
+import com.pocket.repository.UserRepositoryKt;
 import com.pocket.sdk.Pocket;
 import com.pocket.sdk.api.generated.Modeller;
 import com.pocket.sdk.api.generated.enums.PremiumAllTimeStatus;
@@ -176,5 +177,9 @@ public class PocketCache implements AppLifecycle {
 
 	public synchronized boolean hasPremiumAndPaid() {
 		return hasPremium() && !hasPremiumTrial();
+	}
+
+	public synchronized boolean isPremiumUpgradeAvailable () {
+		return UserRepositoryKt.isPremiumUpgradeAvailable(cached());
 	}
 }
