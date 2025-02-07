@@ -13,7 +13,7 @@ import com.pocket.ui.util.LazyBitmap
 import com.pocket.ui.util.LazyBitmapDrawable
 
 /**
- * Displays an Item as a row, with an optional thumbnail and actions bar.
+ * Displays an Item as a row, with an optional thumbnail.
  */
 class ItemRowView : CheckableConstraintLayout, VisualMargin {
     private val binder: Binder = Binder()
@@ -45,11 +45,8 @@ class ItemRowView : CheckableConstraintLayout, VisualMargin {
     inner class Binder {
         fun clear(): Binder {
             enabled(clicksEnabled = true, metaEnabled = true)
-            dividerVisible(true)
             meta().clear()
             thumbnail(null as LazyBitmap?, false)
-            actions().clear()
-            actionsVisible(false)
             return this
         }
 
@@ -61,11 +58,6 @@ class ItemRowView : CheckableConstraintLayout, VisualMargin {
             isEnabled = clicksEnabled
             binding.meta.isEnabled = metaEnabled
             binding.thumbnail.isEnabled = metaEnabled
-            return this
-        }
-
-        fun dividerVisible(visible: Boolean): Binder {
-            binding.divider.visibility = if (visible) VISIBLE else GONE
             return this
         }
 
@@ -86,15 +78,6 @@ class ItemRowView : CheckableConstraintLayout, VisualMargin {
             binding.thumbnail.setImageDrawable(drawable)
             binding.thumbnail.setVideoIndicatorStyle(if (isVideo) ItemThumbnailView.VideoIndicator.LIST else null)
             return this
-        }
-
-        fun actionsVisible(isVisible: Boolean): Binder {
-            binding.simpleActions.visibility = if (isVisible) VISIBLE else GONE
-            return this
-        }
-
-        fun actions(): SimpleItemActionsView.Binder {
-            return binding.simpleActions.binder
         }
     }
 

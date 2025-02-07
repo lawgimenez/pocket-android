@@ -106,7 +106,6 @@
             <enum name="none" value="0" />
             <enum name="up" value="1" />
             <enum name="close" value="2" />
-            <enum name="chevron" value="3" />
         </attr>
         <attr name="bottomDivider" format="boolean" />
     </declare-styleable>

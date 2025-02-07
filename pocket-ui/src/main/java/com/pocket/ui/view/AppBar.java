@@ -15,19 +15,14 @@ import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import androidx.annotation.StyleRes;
 import androidx.appcompat.view.ContextThemeWrapper;
 
 import com.pocket.ui.R;
-import com.pocket.ui.text.TextViewUtil;
-import com.pocket.ui.util.CheckableHelper;
 import com.pocket.ui.util.DimenUtil;
 import com.pocket.ui.util.NestedColorStateList;
 import com.pocket.ui.view.button.BoxButton;
 import com.pocket.ui.view.button.IconButton;
-import com.pocket.ui.view.button.ToggleButton;
 import com.pocket.ui.view.themed.ThemedConstraintLayout;
-import com.pocket.ui.view.themed.ThemedTextView;
 
 /**
  * A view for displaying a standard Pocket themed "AppBar" (Toolbar, Actionbar, etc).
@@ -59,8 +54,7 @@ public class AppBar extends ThemedConstraintLayout {
 
     private IconButton leftIcon;
     private TextView title;
-    private ViewGroup centerContainer;
-    private ViewGroup actions;
+	private ViewGroup actions;
     private @Nullable View divider;
 
     public AppBar(Context context) {
@@ -90,20 +84,11 @@ public class AppBar extends ThemedConstraintLayout {
         return R.drawable.ic_pkt_close_x_line;
     }
 
-    protected @DrawableRes int chevronRes() {
-        return R.drawable.ic_pkt_back_chevron_line;
-    }
-
-    protected @StyleRes int textActionStyle() {
-        return R.style.Pkt_Text_AppBar_Action;
-    }
-
     private void init(Context context, AttributeSet attrs) {
         LayoutInflater.from(context).inflate(layout(), this, true);
 
         leftIcon = findViewById(R.id.leftIcon);
         title = findViewById(R.id.title);
-        centerContainer = findViewById(R.id.centerContainer);
         actions = findViewById(R.id.actions);
         divider = findViewById(R.id.divider);
 
@@ -123,9 +108,6 @@ public class AppBar extends ThemedConstraintLayout {
                 case 2:
                     bind().withCloseIcon();
                     break;
-                case 3:
-                    bind().withChevron();
-                    break;
             }
             bind().divider(ta.getBoolean(R.styleable.AppBar_bottomDivider, true));
             ta.recycle();
@@ -136,15 +118,6 @@ public class AppBar extends ThemedConstraintLayout {
 
     public IconButton getLeftIcon() {
         return leftIcon;
-    }
-
-    /**
-     * Returns the number of actions in the right action menu.
-     *
-     * @return the number of actions
-     */
-    public int getActionCount() {
-        return actions.getChildCount();
     }
 
     /**
@@ -166,25 +139,8 @@ public class AppBar extends ThemedConstraintLayout {
         public Binder clear() {
             title(null);
             withUpArrow();
-            centerView(null);
             divider(true);
             actions.removeAllViews();
-            return this;
-        }
-
-        /**
-         * Adds a custom View to the center of the AppBar.
-         *
-         * @param view The View to display.
-         */
-        public Binder centerView(View view) {
-            centerContainer.removeAllViews();
-            if (view != null) {
-                centerContainer.setVisibility(View.VISIBLE);
-                centerContainer.addView(view);
-            } else {
-                centerContainer.setVisibility(View.GONE);
-            }
             return this;
         }
 
@@ -259,24 +215,10 @@ public class AppBar extends ThemedConstraintLayout {
         }
 
         /**
-         * Sets the AppBar to use a left chevron.
-         */
-        public Binder withChevron() {
-            leftIcon(chevronRes(), R.string.ic_cancel);
-            return this;
-        }
-
-        /**
          * Sets the {@link android.view.View.OnClickListener} for the left icon.
          */
         public Binder onLeftIconClick(OnClickListener listener) {
             leftIcon.setOnClickListener(listener);
-            return this;
-        }
-
-        public Binder onLeftIconClick(OnClickListener listener, String uiIdentifier) {
-            onLeftIconClick(listener);
-            leftIcon.setUiEntityIdentifier(uiIdentifier);
             return this;
         }
 
@@ -320,23 +262,6 @@ public class AppBar extends ThemedConstraintLayout {
         }
 
         /**
-         * Adds a new {@link ThemedTextView} to the actions ViewGroup.
-         *
-         * @param label The text to display.
-         * @param listener An {@link android.view.View.OnClickListener} for the text.
-         */
-        public Binder addTextAction(@StringRes int label, @NonNull OnClickListener listener) {
-            if (!viewExists(label)) {
-                ThemedTextView textAction = new ThemedTextView(new ContextThemeWrapper(getContext(), textActionStyle()));
-                textAction.setTextAppearance(getContext(), textActionStyle());
-                textAction.setTextAndUpdateEnUsLabel(label);
-                bindAction(textAction, getResources().getString(label), label, listener);
-                TextViewUtil.verticallyCenterPadding(textAction);
-            }
-            return this;
-        }
-
-        /**
          * Adds a new {@link BoxButton} to the actions ViewGroup.
          *
          * @param label The text to display in the button.
@@ -348,25 +273,6 @@ public class AppBar extends ThemedConstraintLayout {
                 action.setText(label);
                 bindAction(action, getResources().getString(label), label, listener);
                 addButtonVerticalMargin(action);
-            }
-            return this;
-        }
-
-        /**
-         * Adds a new {@link ToggleButton} to the actions ViewGroup.
-         *
-         * @param label The text to display in the toggle.
-         * @param checked The initial checked state of the toggle.
-         * @param listener An {@link com.pocket.ui.util.CheckableHelper.OnCheckedChangeListener} for the toggle button.
-         */
-        public Binder addToggleAction(@StringRes int label, boolean checked, @NonNull CheckableHelper.OnCheckedChangeListener listener) {
-            if (!viewExists(label)) {
-                ToggleButton toggleAction = new ToggleButton(getContext());
-                toggleAction.setText(label);
-                toggleAction.setChecked(checked);
-                toggleAction.setOnCheckedChangeListener(listener);
-                bindAction(toggleAction, getResources().getString(label), label, null);
-                addButtonVerticalMargin(toggleAction);
             }
             return this;
         }

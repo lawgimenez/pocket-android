@@ -72,20 +72,6 @@ android:paddingRight="@dimen/pkt_side_grid"
 That will make the icon visually align with the side grid lines
 
 
-### App Bar Title
-
-If the title is the far left element you can use:
-
-```xml
-<com.pocket.ui.view.themed.ThemedTextView
-        android:id="@+id/app_bar_title"
-        style="@style/Pkt_Text_AppBarTitle"
-        android:text="@string/THE_TITLE" />
-```
-
-If the far left element is an IconButton, then use `Pkt_Text_AppBarTitle_NextToIcon` as the style instead.
-
-
 ## Box Buttons
 
 There are six styles of boxy buttons:
@@ -109,14 +95,6 @@ Button styled for error states:
 Button styled for use on a colored area:
 ```xml
 <com.pocket.ui.view.button.OnColorButon
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="@string/your_label" />    
-```
-
-A button that can be toggled on or off:
-```xml
-<com.pocket.ui.view.button.ToggleButton
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="@string/your_label" />    
@@ -165,6 +143,8 @@ Note: IconButtons are checkable, but not by default. Enable checkable states wit
 Some horizontal divider variants:
 ```xml
 <com.pocket.ui.view.themed.ThemedView style="@style/ThinDivider" />
+```
+```xml
 <com.pocket.ui.view.themed.ThemedView style="@style/ThickDivider" />
 ```
 
@@ -215,37 +195,11 @@ Work in Progress, ignore:
 
 
 
-## Text
-
-### App Bar Title
-
-Titles on the Home screen have a rainbow underneath that goes from the left edge and extends @dimen/pkt_space_md beyond the 
-right edge of the title. 
-
-Use [PktRainbowTitle](src/main/java/com/pocket/ui/PktRainbowTitle.java).
-
-
-
-## Top Tabs
-
-A Themed ViewGroup:
-* Stacked below the App Bar
-* No divider between the App Bar and tab bar, they visually appear as one.
-* Height of @dimen/pkt_tab_bar_height
-* A [Thin Divider](#dividers) along the content edge
-* @drawable/pkt_bg_app_bar background as the background
-* Top tabs must be swipable between content pages for Google's design and editor's choice guidelines
-* If the screen width is @dimen/pkt_max_tabs_width or less, fill the width of the screen and divide the width equally between tabs
-* If larger, then have tabs equally divided within @dimen/pkt_max_tabs_width and horizontally centered
-
-Use [PktTabsView](src/main/java/com/pocket/ui/PktTabsView.java).
-
-
 ## Snackbar Dialogs
 
 These are small popup or messaging bubbles that can appear at the bottom or top of a screen, or within a collection.
 
-Use [SnackbarMessage](src/main/java/com/pocket/ui/SnackbarMessage.java)'s builder to create and show them.
+Use [SnackbarMessage](src/main/java/com/pocket/ui/view/notification/PktSnackbar.java)'s builder to create and show them.
 
 Snackbar (small rounded dialog)
 Snackbar - Red Error
@@ -254,16 +208,15 @@ Snackbar - Green Large
 
 ## Item's
 
-To display an Item, use a [ItemRowView](src/main/java/com/pocket/ui/ItemRowView.java) or
-a [ItemTileView](src/main/java/com/pocket/ui/ItemTileView.java).
+To display an Item, use a [ItemRowView](src/main/java/com/pocket/ui/view/item/ItemRowView.kt).
 
 Item Image
 Item Row/Tile attribution label
 
 ## Badges
 
-Items, tags and other elements sometimes use Badges. To display one, use [BadgeView](src/main/java/com/pocket/ui/BadgeView.java).
-Use a [BadgesView](src/main/java/com/pocket/ui/BadgesView.java) to display a row/list of badges.
+Items, tags and other elements sometimes use Badges. To display one, use [BadgeView](src/main/java/com/pocket/ui/view/badge/BadgeView.kt).
+Use a [BadgeLayout](src/main/java/com/pocket/ui/view/badge/BadgeLayout.kt) to display a row/list of badges.
 
 
 
