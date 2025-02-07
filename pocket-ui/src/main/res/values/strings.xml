@@ -23,10 +23,6 @@
     <string name="ic_back">Skip back</string>
     <string name="ic_cancel">Cancel</string>
     <string name="ic_listen">Listen</string>
-    <string name="ic_like">Like</string>
-    <string name="ic_remove_like">Remove Like</string>
-    <string name="ic_repost">Repost</string>
-    <string name="ic_remove_repost">Remove Repost</string>
     <string name="ic_plus">+</string>
     <string name="ic_minus">-</string>
     <string name="ic_close">Close</string>
@@ -48,9 +44,6 @@
     <string name="upgrade">Upgrade</string>
     <string name="upgrade_upsell">Unlock more customization options</string>
     <string name="get_premium">Get Premium</string>
-    
-    <string name="counts_thousands" comment="number abbreviated to thousands. such as 1k for 1,000. as short as possible.">%dk</string>
-    <string name="counts_millions" comment="number abbreviated to millions. such as 1m for 1,000,000. as short as possible">%dm</string>
     
     <!-- content descriptions -->
     <string name="setting_incrementor" comment="{setting} is a placeholder for a text style setting, eg Text Size, Line Height, or Margin, do not translate the content within {}">Increase {setting}</string>

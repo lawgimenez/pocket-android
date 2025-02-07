@@ -1,6 +1,5 @@
 package com.pocket.app;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.view.View;
@@ -9,14 +8,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.core.graphics.drawable.DrawableCompat;
-import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
 import com.ideashower.readitlater.R;
 import com.pocket.app.settings.Theme;
@@ -25,19 +21,13 @@ import com.pocket.sdk.util.AbsPocketActivity;
 import com.pocket.sdk2.view.LazyAssetBitmap;
 import com.pocket.ui.util.DimenUtil;
 import com.pocket.ui.util.LazyBitmap;
-import com.pocket.ui.util.NestedColorStateList;
 import com.pocket.ui.util.PlaceHolderBuilder;
 import com.pocket.ui.util.PocketUIViewUtil;
 import com.pocket.ui.view.AppBar;
 import com.pocket.ui.view.PaletteView;
-import com.pocket.ui.view.PreviousNextButtons;
-import com.pocket.ui.view.badge.BadgeUtil;
-import com.pocket.ui.view.badge.BadgesView;
-import com.pocket.ui.view.highlight.HighlightView;
 import com.pocket.ui.view.info.InfoPage;
 import com.pocket.ui.view.info.InfoPageAdapter;
 import com.pocket.ui.view.info.InfoPagingView;
-import com.pocket.ui.view.item.DiscoverTileView;
 import com.pocket.ui.view.item.ItemRowView;
 import com.pocket.ui.view.menu.MenuItem;
 import com.pocket.ui.view.menu.ThemedPopupMenu;
@@ -50,7 +40,6 @@ import com.pocket.util.android.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -64,16 +53,6 @@ public class PocketUiPlaygroundActivity extends AbsPocketActivity {
 	private int itemMode = 0;
 
 	private ViewGroup fullscreenView;
-
-	private final View.OnClickListener badgeClickListener = view -> {
-		String message;
-		if (view instanceof TextView) {
-			message = ((TextView) view).getText().toString();
-		} else {
-			message = "Clicked!";
-		}
-		Toast.makeText(PocketUiPlaygroundActivity.this, message, Toast.LENGTH_SHORT).show();
-	};
 
 	@Override
 	protected ActivityAccessRestriction getAccessType() {
@@ -154,92 +133,17 @@ public class PocketUiPlaygroundActivity extends AbsPocketActivity {
 			view.addRow(com.pocket.ui.R.color.pkt_apricot_1);
 		}
 
-		PreviousNextButtons continuousReading = findViewById(com.pocket.ui.R.id.continuous_reading);
-		continuousReading.onPreviousClick(v -> Toast.makeText(this, "Previous", Toast.LENGTH_LONG).show());
-		continuousReading.onNextClick(v -> Toast.makeText(this, "Next", Toast.LENGTH_LONG).show());
-
 		final String discTitle = "A Simple Way to Map Out your Career Ambitions";
 		final String discDomain = "Ted Ideas";
 		final String discEst = "6 min";
-		final String discExcerpt1 = "I am a long excerpt I go all the way to three lines and then have to be cut off because I am so long its ridiculous!";
-		final String discExcerpt2 = "The bad news: We all face powerful mental blocks that stop us when we're trying to...";
-
-		Drawable check = VectorDrawableCompat.create(getResources(), com.pocket.ui.R.drawable.ic_pkt_syndicated_badge_mini, null);
-		assert check != null;
-		DrawableCompat.setTintList(check, NestedColorStateList.get(this, com.pocket.ui.R.color.pkt_themed_grey_3));
-
-		DiscoverTileView discoverTileView1 = findViewById(com.pocket.ui.R.id.discover_tile1);
-		discoverTileView1.getBinder().clear();
-		discoverTileView1.getBinder().item()
-				.thumbnail(image, false)
-				.meta()
-				.indicator(check)
-				.title(discTitle)
-				.domain(discDomain)
-				.timeEstimate(discEst)
-				.excerpt(discExcerpt1);
-		discoverTileView1.getBinder().actions().labels(true).setSaveListener((view12, saved) -> saved)
-				.setShareListener(v -> Toast.makeText(PocketUiPlaygroundActivity.this, "Share Clicked!", Toast.LENGTH_SHORT).show());
-
-		DiscoverTileView discoverTileView2 = findViewById(com.pocket.ui.R.id.discover_tile2);
-		discoverTileView2.getBinder().clear();
-		discoverTileView2.getBinder().item()
-				.thumbnail(image, false)
-				.meta()
-				.indicator(check)
-				.title(discTitle)
-				.domain(discDomain)
-				.timeEstimate(discEst)
-				.excerpt(discExcerpt1);
-		discoverTileView2.getBinder().actions().labels(false).setSaveListener((view13, saved) -> saved)
-				.setShareListener(v -> Toast.makeText(PocketUiPlaygroundActivity.this, "Share Clicked!", Toast.LENGTH_SHORT).show());
-
-		DiscoverTileView discoverTileView3 = findViewById(com.pocket.ui.R.id.discover_tile3);
-		discoverTileView3.getBinder().clear();
-		discoverTileView3.getBinder().item()
-				.thumbnail(image, false)
-				.meta()
-				.indicator(check)
-				.title(discTitle)
-				.domain(discDomain)
-				.timeEstimate(discEst);
-		discoverTileView3.getBinder().actions().labels(false).setSaveListener((view14, saved) -> saved)
-				.setShareListener(v -> Toast.makeText(PocketUiPlaygroundActivity.this, "Share Clicked!", Toast.LENGTH_SHORT).show());
 
 		ItemRowView discItem1 = findViewById(com.pocket.ui.R.id.discover_item1);
 		discItem1.bind().clear()
 				.thumbnail(image, false)
 				.meta()
-				.indicator(check)
-				.title(discTitle)
-				.domain(discDomain)
-				.excerpt(discExcerpt2)
-				.timeEstimate(discEst);
-		discItem1.bind().actionsVisible(true).actions().labels(true).setSaveListener((view13, saved) -> saved)
-				.setShareListener(v -> Toast.makeText(PocketUiPlaygroundActivity.this, "Share Clicked!", Toast.LENGTH_SHORT).show());
-
-		ItemRowView discItem2 = findViewById(com.pocket.ui.R.id.discover_item2);
-		discItem2.bind().clear()
-				.thumbnail(image, false)
-				.meta()
-				.indicator(check)
-				.title(discTitle)
-				.domain(discDomain)
-				.excerpt(discExcerpt2)
-				.timeEstimate(discEst);
-		discItem2.bind().actionsVisible(true).actions().labels(false).setSaveListener((view13, saved) -> saved)
-				.setShareListener(v -> Toast.makeText(PocketUiPlaygroundActivity.this, "Share Clicked!", Toast.LENGTH_SHORT).show());
-
-		ItemRowView discItem3 = findViewById(com.pocket.ui.R.id.discover_item3);
-		discItem3.bind().clear()
-				.thumbnail(image, false)
-				.meta()
-				.indicator(check)
 				.title(discTitle)
 				.domain(discDomain)
 				.timeEstimate(discEst);
-		discItem3.bind().actionsVisible(true).actions().labels(false).setSaveListener((view13, saved) -> saved)
-				.setShareListener(v -> Toast.makeText(PocketUiPlaygroundActivity.this, "Share Clicked!", Toast.LENGTH_SHORT).show());
 
 		// skeleton views
 		// swap out the current one with a new one, refreshing all the random elements of the skeleton views / paragraphs
@@ -251,11 +155,6 @@ public class PocketUiPlaygroundActivity extends AbsPocketActivity {
 				PocketUIViewUtil.replaceView(v1, row);
 			}
 		});
-
-		// Highlights
-		((HighlightView)findViewById(com.pocket.ui.R.id.highlight1)).bind().highlight("This is a short highlight.");
-		((HighlightView)findViewById(com.pocket.ui.R.id.highlight2)).bind().highlight("This is a long highlight that spans many lines. It was a dark and stormy night and the highlight needed to be really long so I had to keep writing and writing until there were enough characters in this highlight to appear really really long, is it done yet, have I made a long enough string?  I sure hope so.");
-		((HighlightView)findViewById(com.pocket.ui.R.id.highlight3)).bind().highlight("This is a highlight that has a paragraph break in it.\n\nIsn't it beautiful?");
 
 		// placeholder images
 		View.OnClickListener placeholderlistener = v -> {
@@ -304,29 +203,6 @@ public class PocketUiPlaygroundActivity extends AbsPocketActivity {
 		ph3.setOnClickListener(placeholderlistener);
 		ph4.setOnClickListener(placeholderlistener);
 
-		// Badges
-		((BadgesView) findViewById(com.pocket.ui.R.id.badges_fav))
-				.bindClear();
-		((BadgesView) findViewById(com.pocket.ui.R.id.badges_fav_group))
-				.bindClear()
-				.bindGroup("Best Of", "Best Of", BadgeUtil.getGroupTextColor(this, 1), BadgeUtil.getGroupBadgeColor(this, 1), badgeClickListener);
-		((BadgesView) findViewById(com.pocket.ui.R.id.badges_fav_group_tag))
-				.bindClear()
-				.bindGroup("Trending", "Trending", BadgeUtil.getGroupTextColor(this, 2), BadgeUtil.getGroupBadgeColor(this, 2), badgeClickListener)
-				.bindTags(Collections.singletonList("Tag"), badgeClickListener);
-		((BadgesView) findViewById(com.pocket.ui.R.id.badges_fav_group_tags))
-				.bindClear()
-				.bindTags(Arrays.asList("Amazing", "Wow", "Super Dee Duper"), badgeClickListener)
-				.bindGroup("Best Of", "Best Of", BadgeUtil.getGroupTextColor(this, 1), BadgeUtil.getGroupBadgeColor(this, 1), badgeClickListener);
-		((BadgesView) findViewById(com.pocket.ui.R.id.badges_fav_group_tags_plus))
-				.bindClear()
-				.bindGroup("Trending", "Trending", BadgeUtil.getGroupTextColor(this, 2), BadgeUtil.getGroupBadgeColor(this, 2), badgeClickListener)
-				.bindTags(Arrays.asList("Amazing", "Wow", "Super Dee Duper", "Cool", "Neato", "Brilliant", "Fabulous", "Holy Cow", "Fantastic", "Yippeeeeeeeeeeeeeeee"), badgeClickListener);
-		((BadgesView) findViewById(com.pocket.ui.R.id.badges_fav_group_tags_truncate))
-				.bindClear()
-				.bindGroup("Best Of", "Best Of", BadgeUtil.getGroupTextColor(this, 1), BadgeUtil.getGroupBadgeColor(this, 1), badgeClickListener)
-				.bindTags(Collections.singletonList("Very long tag that doesn't quite exactly fit"), badgeClickListener);
-
 		View.OnClickListener onClick = v -> Toast.makeText(this, "Tapped " + v, Toast.LENGTH_LONG).show();
 
 		ItemSnackbarView itemSnackbar = findViewById(com.pocket.ui.R.id.item_snackbar);
@@ -368,20 +244,11 @@ public class PocketUiPlaygroundActivity extends AbsPocketActivity {
 		appBar1.bind()
 				.onLeftIconClick(v -> finish())
 				.addIconAction(com.pocket.ui.R.drawable.ic_pkt_listen_line, com.pocket.ui.R.string.ic_listen, v -> Toast.makeText(this, "Clicked 1", Toast.LENGTH_LONG).show());
-		AppBar appBar2 = findViewById(com.pocket.ui.R.id.appbar2);
-		appBar2.bind()
-				.addTextAction(com.pocket.ui.R.string.ic_save, v -> Toast.makeText(this, "Clicked 1", Toast.LENGTH_LONG).show());
 		AppBar appBar3 = findViewById(com.pocket.ui.R.id.appbar3);
 		appBar3.bind()
 				.addIconAction(com.pocket.ui.R.drawable.ic_pkt_listen_line, com.pocket.ui.R.string.ic_listen, v -> Toast.makeText(this, "Clicked 1", Toast.LENGTH_LONG).show())
-				.addIconAction(com.pocket.ui.R.drawable.ic_pkt_add_tags_solid, com.pocket.ui.R.string.ic_listen, v -> Toast.makeText(this, "Clicked 2", Toast.LENGTH_LONG).show())
+				.addIconAction(com.pocket.ui.R.drawable.ic_pkt_add_tags_line, com.pocket.ui.R.string.ic_listen, v -> Toast.makeText(this, "Clicked 2", Toast.LENGTH_LONG).show())
 				.addIconAction(com.pocket.ui.R.drawable.ic_pkt_android_overflow_solid, com.pocket.ui.R.string.ic_overflow, v -> Toast.makeText(this, "Clicked 3", Toast.LENGTH_LONG).show());
-		AppBar appBar5 = findViewById(com.pocket.ui.R.id.appbar5);
-			appBar5.bind()
-					.title("Profile")
-                    .withNoLeftIcon()
-					.addIconAction(com.pocket.ui.R.drawable.ic_pkt_android_share_solid, R.string.ac_share, null)
-					.addIconAction(com.pocket.ui.R.drawable.ic_pkt_android_overflow_solid, com.pocket.ui.R.string.ic_overflow, null);
 
 	}
 

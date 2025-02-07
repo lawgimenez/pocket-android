@@ -49,15 +49,6 @@
 
    <!-- TODO after removing the actions view, do we still need the bottom margin? Maybe when we don't have a divider? Maybe the divider could just go invisible if that is the case -->
 
-    <com.pocket.ui.view.item.SimpleItemActionsView
-        android:id="@+id/simpleActions"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/centeringVisualMargin"
-        />
-
     <Space
         android:id="@+id/bottomMargin"
         android:layout_width="wrap_content"

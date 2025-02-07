@@ -82,10 +82,7 @@
         <item name="android:contentDescription">@string/ic_save</item>
         <item name="srcCompat">@drawable/ic_pkt_save_checked</item>
     </style>
-    <style name="Pkt_IconButton_Delete" parent="Pkt_IconButton">
-        <item name="android:contentDescription">@string/ic_delete</item>
-        <item name="srcCompat">@drawable/ic_pkt_delete_checked</item>
-    </style>
+    
     <style name="Pkt_IconButton_AddTags" parent="Pkt_IconButton">
         <item name="android:contentDescription">@string/ic_add_tags</item>
         <item name="srcCompat">@drawable/ic_pkt_tag_checked</item>
@@ -147,18 +144,6 @@
         <item name="srcCompat">@drawable/ic_pkt_sun_mini</item>
     </style>
     
-    <style name="Pkt_CountIconButton_Repost">
-        <item name="android:contentDescription">@string/ic_repost</item>
-        <item name="checkedContentDescription">@string/ic_remove_repost</item>
-        <item name="countIconSrc">@drawable/ic_pkt_repost_checked</item>
-        <item name="countIconColor">@color/pkt_nst_clickable_grey_3_dark_teal_checked</item>
-    </style>
-    <style name="Pkt_CountIconButton_Like">
-        <item name="android:contentDescription">@string/ic_like</item>
-        <item name="checkedContentDescription">@string/ic_remove_like</item>
-        <item name="countIconSrc">@drawable/ic_pkt_like_checked</item>
-        <item name="countIconColor">@color/pkt_nst_clickable_grey_3_coral_checked</item>
-    </style>
     <style name="Pkt_ThinDivider">
         <item name="android:background">@drawable/cl_pkt_themed_grey_6</item>
         <item name="android:layout_width">match_parent</item>
@@ -245,9 +230,7 @@
         <item name="android:minWidth">42dp</item>
         <item name="android:gravity">center</item>
     </style>
-    <style name="Pkt_Text_AppBar_Action" parent="Pkt_Text_Link">
-        <item name="compatTextColor">@color/pkt_nst_activateable_grey_1</item>
-    </style>
+    
     <style name="Pkt_Text_Small_LightTitle">
         <item name="android:textSize">@dimen/pkt_small_text</item>
         <item name="lineHeight">16sp</item>
@@ -320,12 +303,7 @@
         <item name="android:background">@drawable/pkt_ripple_borderless</item>
         <item name="compatTextColor">@color/pkt_nst_disableable_grey_3</item>
     </style>
-
-    <style name="Pkt_TextInputLayoutAppearance">
-        <item name="android:textColorHint">@color/pkt_themed_grey_5</item>
-        <item name="android:background">@null</item>
-    </style>
-
+    
     <style name="Pkt_TextFloatingLabelAppearance" parent="TextAppearance.Design.Hint">
         <item name="android:textColor">@color/pkt_themed_grey_1</item>
         <item name="android:textSize">@dimen/pkt_medium_text</item>

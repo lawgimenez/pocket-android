@@ -7,15 +7,13 @@ import android.widget.RelativeLayout;
 import com.pocket.analytics.api.Engageable;
 import com.pocket.analytics.api.EngageableHelper;
 import com.pocket.analytics.api.EngagementListener;
-import com.pocket.ui.view.visualmargin.VisualMargin;
 
 import org.jetbrains.annotations.Nullable;
 
 /**
  * A themed version of {@link RelativeLayout} for Views which have not yet been fully ported over to pocket-ui.
- *
- * New Views should generally use {@link com.pocket.ui.view.visualmargin.VisualMarginConstraintLayout} rather than RelativeLayout
- * since it supports {@link VisualMargin} and is more flexible to change View positioning in the future.
+ * <p>
+ * New Views should generally use {@link ThemedConstraintLayout} rather than RelativeLayout.
  */
 public class ThemedRelativeLayout extends RelativeLayout implements Engageable {
 
