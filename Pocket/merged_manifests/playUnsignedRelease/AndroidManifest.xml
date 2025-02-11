@@ -3,8 +3,8 @@
     package="com.ideashower.readitlater.pro"
     android:installLocation="auto"
     android:targetSandboxVersion="2"
-    android:versionCode="83202000"
-    android:versionName="8.32.2.0" >
+    android:versionCode="83203000"
+    android:versionName="8.32.3.0" >
 
     <uses-sdk
         android:minSdkVersion="23"
