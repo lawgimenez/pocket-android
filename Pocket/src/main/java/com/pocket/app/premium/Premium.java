@@ -74,8 +74,10 @@ public class Premium {
     public void showPremiumForUserState(FragmentActivity context, CxtSource source) {
         if (pktcache.hasPremiumAndPaid()) { // Consider making context an AbsPocketActivity and just grabbing the pktcache from there rather than requiring the dependency
             PremiumSettingsFragment.show(context, null);
-        } else {
+        } else if (pktcache.isPremiumUpgradeAvailable()) {
             PremiumPurchaseActivity.startActivity(context, source);
+        } else {
+            PremiumSettingsFragment.show(context, null);
         }
     }
 

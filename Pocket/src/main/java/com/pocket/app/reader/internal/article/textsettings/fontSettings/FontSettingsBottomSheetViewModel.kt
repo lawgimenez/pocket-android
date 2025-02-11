@@ -1,8 +1,8 @@
 package com.pocket.app.reader.internal.article.textsettings.fontSettings
 
 import androidx.lifecycle.ViewModel
-import com.pocket.app.premium.PremiumReader
 import com.pocket.app.reader.internal.article.DisplaySettingsManager
+import com.pocket.sdk2.api.legacy.PocketCache
 import com.pocket.util.StringLoader
 import com.pocket.util.edit
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FontSettingsBottomSheetViewModel @Inject constructor(
-    private val premiumReader: PremiumReader,
+    private val pktCache: PocketCache,
     private val displaySettingsManager: DisplaySettingsManager,
     private val stringLoader: StringLoader,
 ) : ViewModel(),
@@ -38,7 +38,7 @@ class FontSettingsBottomSheetViewModel @Inject constructor(
                 FontChoiceUiState(
                     fontName = stringLoader.getString(fontOption.displayName),
                     premiumIconVisible = fontOption.isPremium,
-                    upgradeVisible = fontOption.isPremium && !premiumReader.isEnabled,
+                    upgradeVisible = fontOption.isPremium && pktCache.isPremiumUpgradeAvailable,
                     isSelected = displaySettingsManager.currentFont == fontOption,
                     fontId = fontOption.id
                 )
@@ -48,7 +48,7 @@ class FontSettingsBottomSheetViewModel @Inject constructor(
 
     override fun onFontSelected(fontId: Int) {
         val fontOption = DisplaySettingsManager.FontOption.values().find { it.id == fontId }!!
-        if (fontOption.isPremium && !premiumReader.isEnabled) {
+        if (fontOption.isPremium && !pktCache.hasPremium()) {
             _events.tryEmit(FontSettings.Event.GoToPremium)
         } else {
             displaySettingsManager.setFont(fontId)
