@@ -16,7 +16,7 @@ plugins {
 
 val versionMajor = 8 // Max value of 200
 val versionMinor = 32 // Max of two digits
-val versionPatch = 2 // Max of two digits
+val versionPatch = 3 // Max of two digits
 val versionBuild = 0 // Max of three digits
 
 // See usage and more details below, but this produces version numbers like 6.2.4.1 and codes like 60204001
