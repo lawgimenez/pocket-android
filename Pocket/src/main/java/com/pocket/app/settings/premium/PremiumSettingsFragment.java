@@ -292,6 +292,7 @@ public class PremiumSettingsFragment extends AbsPrefsFragment {
 				
 				@Override
 				public void onPurchasingStateChanged(PurchasingState state) {
+					if (isDetachedOrFinishing()) return;
 					if (state == PurchasingState.PURCHASING || state == PurchasingState.ACTIVATING || state == PurchasingState.RESTORING) {
 						showProgress();
 					} else {
