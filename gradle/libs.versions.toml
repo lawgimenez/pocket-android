@@ -12,7 +12,7 @@ okio = "3.10.2"
 
 [libraries]
 aboutlibraries = { module = "com.mikepenz:aboutlibraries-compose-m3", version.ref = "aboutlibraries" }
-accompanist-drawablepainter = { module = "com.google.accompanist:accompanist-drawablepainter", version = "0.37.1" }
+accompanist-drawablepainter = { module = "com.google.accompanist:accompanist-drawablepainter", version = "0.37.2" }
 adjust = { module = "com.adjust.sdk:adjust-android", version = "4.38.5" }
 androidx-activity = { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
