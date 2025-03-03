@@ -63,13 +63,28 @@ android {
         versionName = "$versionMajor.$versionMinor.$versionPatch.$versionBuild"
 
         vectorDrawables.useSupportLibrary = true // https://medium.com/@chrisbanes/appcompat-v23-2-age-of-the-vectors-91cbafa87c88#.m9i38hx27
+        resourceConfigurations.addAll(
+            arrayOf(
+                "de",
+                "es",
+                "es-rES",
+                "fr",
+                "fr-rCA",
+                "it",
+                "ja",
+                "ko",
+                "nl",
+                "pl",
+                "pt",
+                "pt-rBR",
+                "ru",
+                "zh",
+                "zh-rCN",
+                "zh-rTW"
+            )
+        )
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    androidResources {
-        localeFilters += listOf("de", "es", "es-rES", "fr", "fr-rCA", "it", "ja", "ko", "nl", "pl", "pt", "pt-rBR", "ru", "zh", "zh-rCN", "zh-rTW")
-        generateLocaleConfig = true
     }
 
     flavorDimensions.add(FlavorDimensions.TARGET)
