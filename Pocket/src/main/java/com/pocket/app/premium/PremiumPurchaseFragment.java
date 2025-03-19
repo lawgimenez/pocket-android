@@ -221,22 +221,6 @@ public class PremiumPurchaseFragment extends AbsPocketFragment implements Premiu
                     .text(R.string.prem_setting_subscription_monthly)
                     .subtext(getResources().getString(R.string.lb_prem_purchase_per_month, monthly.getPrice()));
         }
-        if (yearly != null) {
-            purchaseButton.option2().bind()
-                    .onClick(v -> presenter.option2Click())
-                    .text(R.string.prem_setting_subscription_annual)
-                    .subtext(getResources().getString(R.string.lb_prem_purchase_per_year, yearly.getPrice()));
-
-            // Only show the Save 25% banner for USD and double check it is actually 25% off.
-            if (monthly != null && monthly.getPriceCurrencyCode().equalsIgnoreCase("USD") && yearly.getPriceCurrencyCode().equalsIgnoreCase("USD")) {
-                float monthlyMicros = Float.parseFloat(monthly.getPriceMicros());
-                float yearlyMicros = Float.parseFloat(yearly.getPriceMicros());
-                float diff = 1 - (yearlyMicros / (monthlyMicros * 12));
-                if (diff > 0.24 && diff < 0.26) {
-                    purchaseButton.setBadge(getResources().getText(R.string.lb_save_25p_2_line));
-                }
-            }
-        }
         purchaseButton.setState(PurchaseStateButtons.State.SHOW_PRICES);
     }
 
