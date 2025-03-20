@@ -11,15 +11,9 @@ plugins {
 
 repositories {
     exclusiveContent {
-        forRepository { r8() }
-        filter {
-            includeModule("com.android.tools", "r8")
-        }
-    }
-    exclusiveContent {
         forRepository { google() }
         filter {
-            includeModuleByRegex("^com\\.android.*", "^(?!r8\$).*")
+            includeGroupByRegex("^com\\.android.*")
             includeGroupByRegex("^androidx.*")
             includeGroupByRegex("com\\.google\\.testing.*")
         }
@@ -29,7 +23,6 @@ repositories {
 }
 
 dependencies {
-    implementation(libs.r8)
     implementation(libs.plugin.android)
     implementation(libs.plugin.kotlin)
     implementation(libs.plugin.kotlin.compose)
@@ -40,9 +33,4 @@ dependencies {
     implementation(libs.plugin.dagger)
     implementation(libs.plugin.androidx.navigation.safeargs)
     implementation(libs.plugin.sentry)
-}
-
-fun RepositoryHandler.r8() = maven {
-    name = "R8 releases"
-    url = uri("https://storage.googleapis.com/r8-releases/raw")
 }
