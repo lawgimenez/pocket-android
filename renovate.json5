@@ -28,17 +28,6 @@
       matchManagers: ['gradle', 'gradle-wrapper'],
       commitMessageTopic: '{{depName}}',
     },
-    // Use a custom R8 datasource, because R8 repository is not a full Maven repository
-    // and doesn't expose available versions for Renovate.
-    {
-      matchPackageNames: [
-        'com.android.tools:r8'
-      ],
-      overrideDatasource: 'custom.r8',
-      registryUrls: [
-        'https://r8.googlesource.com/r8/+log/refs/heads/8.8/src/main/java/com/android/tools/r8/Version.java?format=HTML'
-      ],
-    },
   ],
   customManagers: [
     // Update .java-version file with the latest JDK version.
@@ -57,26 +46,4 @@
       extractVersionTemplate: '^(?<version>\\d+)',
     },
   ],
-  customDatasources: {
-    // Check the available r8 versions from a specific release branch in the r8 repository,
-    // by extracting them from commit messages.
-    r8: {
-      // Workaround: This requests an HTML response (via the query parameter in the URL),
-      // but instructs Renovate to treat it as plain text, to do some custom processing
-      // with JSONata and regex, instead of relying on the default HTML processing.
-      format: 'plain',
-      transformTemplates: [
-        '{\
-            "releases": $split(releases[0].version, "<li class=\\"CommitLog-item ")\
-                .($match(/([^"\\/]+)">Version ([0-9\\.]+)<\\/a>/))\
-                .{\
-                    "digest": groups[0],\
-                    "version": groups[1],\
-                    "isStable": true\
-                },\
-            "sourceUrl": "https://r8.googlesource.com/r8/"\
-        }'
-      ],
-    }
-  },
 }
